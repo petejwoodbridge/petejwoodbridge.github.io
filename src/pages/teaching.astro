@@ -4,11 +4,14 @@ import Base from "../layouts/Base.astro";
 import VideoBg from "../components/VideoBg.astro";
 
 const subjects = [
-  "Advanced media production", "Film production", "Virtual production (mocap & ICVFX)", "Unreal Engine",
-  "Interactive programming", "AI & creative software development", "Immersive tech (games, VR/AR)",
-  "Motion capture", "Installation & live event tech", "Notch & Disguise", "Motion graphics",
-  "Multicamera production", "Sound & music design", "Podcasting", "Digital media & culture",
-  "Sensor-based media arts", "Workflow innovation (Python, ComfyUI, APIs)",
+  // what I am mostly asked for now, first
+  "Creative AI", "AI agents & agentic workflows", "Software prototyping", "AI-augmented production workflows",
+  "Tool-building (Python, ComfyUI, APIs)", "Interactive programming", "AI & creative software development",
+  // and the craft it sits on top of
+  "Virtual production (mocap & ICVFX)", "Unreal Engine", "Immersive tech (games, VR/AR)", "Motion capture",
+  "Advanced media production", "Film production", "Installation & live event tech", "Notch & Disguise",
+  "Motion graphics", "Multicamera production", "Sound & music design", "Sensor-based media arts",
+  "Digital media & culture",
 ];
 
 const places = [
@@ -25,7 +28,7 @@ const schema = {
 ---
 <Base
   title="Teaching"
-  description="Eight years teaching digital technology: the world's first MA Immersive Arts at LJMU, curriculum for Manchester's £35m School of Digital Arts, and industry bootcamps in games technology."
+  description="Teaching creative AI, agentic workflows and software prototyping, alongside virtual production and immersive technology. Built the world's first MA Immersive Arts at LJMU and curriculum for Manchester's £35m School of Digital Arts."
   image="/img/og/teaching.jpg"
   schema={schema}
 >
@@ -34,17 +37,17 @@ const schema = {
     <div class="container hero__inner">
       <p class="eyebrow">Teaching</p>
       <h1 class="display h-xl">Teaching the next lot</h1>
-      <p class="hero__sub">Around eight years of teaching digital technology, and building the degree programmes and courses that did not exist yet.</p>
+      <p class="hero__sub">Creative AI, agentic workflows and software prototyping, on top of twenty years of production craft. Around eight years of teaching it, and building the courses that did not exist yet.</p>
     </div>
   </section>
 
   <section class="section">
     <div class="container grid grid-2" style="align-items:start">
       <div data-reveal>
-        <p class="lead">Mostly I work with companies. But I have spent a lot of time building courses for the industry I wanted to exist.</p>
+        <p class="lead">Most of what I am asked to teach now is AI, agents and prototyping. The interesting part is that it only works if you understand the craft underneath it.</p>
       </div>
       <div class="prose" data-reveal>
-        <p>That has meant creating industry-focused degree programmes and courses for universities and private training providers, usually in areas where the teaching had not caught up with the tools yet.</p>
+        <p>These days that mostly means creative AI, agentic workflows and software prototyping: building agents and tools that do real work, wiring them into production with Python, ComfyUI and APIs, and getting people to the point where they can prototype an idea themselves in an afternoon. It is the same job I have always done, which is creating industry-focused courses in the places where teaching has not caught up with the tools yet.</p>
         <p>In 2018 I developed and taught the world's first <a href={u("/work/xlab-ljmu")}>MA Immersive Arts</a> at LJMU's Liverpool Screen School, alongside directing the Experimental Technologies Lab. Before that I was Senior Lecturer at Manchester School of Art, leading creative technology across several degrees, and curriculum development lead during the bid and formation of the <a href={u("/work/soda")}>School of Digital Arts</a>. Earlier still, at <a href={u("/work/disruptive-media")}>Coventry</a>, I taught on the Digital Media and Culture MA and the Media Production BA, and built a pioneering BA in Digital Media along with several award-winning open education products.</p>
         <p>Elsewhere I have been curriculum advisor for HOST in Salford, setting up <a href="https://www.hostsalford.com/services/gametech/" target="_blank" rel="noopener">industry bootcamps in games technology</a> to bring more Unreal and realtime talent into the industry, and consulted for Nottingham Trent University on new creative technology degrees. I have mentored projects and people on the <a href="https://www.ithra.com/en/special-programs/The-Creative-Solutions-Residency-Program/cycle-3" target="_blank" rel="noopener">Ithra Creative Solutions</a> programme in Saudi Arabia and the <a href="https://www.raindance.org/postgraduate/" target="_blank" rel="noopener">Raindance postgraduate degree in film</a>.</p>
         <p>Over the years I have been an invited lecturer at Warwick University, Zhejiang University of Media and Communications in China, the University of Ibadan in Nigeria and Stellenbosch University in South Africa, and worked on digital learning projects for organisations including the BBC, Avid and HEFCE.</p>
@@ -72,6 +75,7 @@ const schema = {
     <div class="container">
       <p class="eyebrow" data-reveal>Subjects</p>
       <h2 class="display h-md" data-reveal style="margin-bottom:1.4rem">What I teach</h2>
+      <p class="muted" data-reveal style="max-width:52ch; margin-bottom:1.6rem">Roughly in the order people ask for it.</p>
       <ul class="skills__list" data-reveal>
         {subjects.map((s) => <li>{s}</li>)}
       </ul>
