@@ -40,6 +40,21 @@ than a domain root, every internal link and asset is written through the `u()` h
 
 External URLs are left alone.
 
+### Making the repo private later
+
+GitHub Pages only publishes from a public repo on a free account. To keep the code private with the site
+still public, either:
+
+- **Upgrade to GitHub Pro** (about £4/month), then flip the repo to private in Settings. Nothing else changes;
+  this workflow keeps working.
+- **Or move hosting to [Cloudflare Pages](https://pages.cloudflare.com)**, which deploys from a private GitHub
+  repo for free and has no bandwidth cap, which suits a site carrying this much video. Connect the repo, set
+  the build command to `npm run build` and the output directory to `dist`, and set `SITE_URL` in the project's
+  environment variables. `BASE_PATH` stays `/`, so the `u()` helper becomes a no-op.
+
+A site that nobody can view without permission needs a GitHub Enterprise Cloud organisation, or Cloudflare
+Access in front of Cloudflare Pages. Either way Google cannot index it, so it is a trade against being found.
+
 ### Moving to your own domain later
 
 Add the domain in Settings → Pages, and GitHub will commit a `CNAME` file. The base path becomes `/`, the
