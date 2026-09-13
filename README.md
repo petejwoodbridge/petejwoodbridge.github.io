@@ -15,13 +15,16 @@ Requires Node 22+.
 
 ## Publish it on GitHub Pages
 
-The repo is set up to deploy itself. Create a repo called `petewoodbridge`, push this folder to it,
-then turn Pages on:
+The repo is set up to deploy itself. Push this folder to an empty GitHub repo:
 
 ```bash
-git remote add origin https://github.com/<your-username>/petewoodbridge.git
 git push -u origin main
 ```
+
+The remote is already pointed at `github.com/petejwoodbridge/site`, which publishes to
+`https://petejwoodbridge.github.io/site/`. The repo name becomes part of the address, so if you would rather
+it read `/petewoodbridge/`, rename the repo in Settings first and update the remote. Naming the repo
+`petejwoodbridge.github.io` instead drops the sub-path entirely and serves from the root.
 
 That is it. The workflow switches Pages on by itself the first time it runs, so there is nothing to
 click in Settings. Every later push to `main` rebuilds and republishes.
@@ -31,8 +34,8 @@ appears on the `deploy` job when it finishes, and also under Settings → Pages.
 `.github/workflows/deploy.yml` reads the real published URL from your Pages settings and feeds it into the
 build, so canonical tags, the sitemap and social cards always match where the site actually lives.
 
-The site will be at `https://<your-username>.github.io/petewoodbridge/`. Because that is a sub-path rather
-than a domain root, every internal link and asset is written through the `u()` helper in `src/lib/url.ts`.
+Because the site sits on a sub-path rather than a domain root, every internal link and asset is written
+through the `u()` helper in `src/lib/url.ts`.
 **If you add a link or an image, wrap its path in `u()`** or it will break once published:
 
 ```astro
