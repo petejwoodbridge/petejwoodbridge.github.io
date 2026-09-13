@@ -6,9 +6,6 @@ import Marquee from "../components/Marquee.astro";
 import WorkCard from "../components/WorkCard.astro";
 import { site } from "../data/site";
 import { mainProjects as projects } from "../data/work";
-import { existsSync } from "node:fs";
-// Drop a photo at site/public/img/pete.jpg and it appears here automatically on the next build.
-const hasPortrait = existsSync(new URL("../../public/img/pete.jpg", import.meta.url));
 
 const stats = [
   { num: "20+", label: "years building creative technology, commercially" },
@@ -66,9 +63,9 @@ const homeSchema = {
       <div data-reveal>
         <p class="eyebrow">Hello</p>
         <p class="lead">I build things at the point where creativity and technology collide.</p>
-        {hasPortrait && (
+        {site.portrait && (
           <figure class="portrait portrait--home">
-            <img src={u("/img/pete.jpg")} alt="Pete Woodbridge" loading="lazy" decoding="async" />
+            <img src={u(site.portrait)} alt="Pete Woodbridge" width="400" height="400" loading="lazy" decoding="async" />
           </figure>
         )}
       </div>

@@ -3,9 +3,6 @@ import { u } from "../lib/url";
 import Base from "../layouts/Base.astro";
 import VideoBg from "../components/VideoBg.astro";
 import { site } from "../data/site";
-import { existsSync } from "node:fs";
-// Drop a photo at site/public/img/pete.jpg and it appears here automatically on the next build.
-const hasPortrait = existsSync(new URL("../../public/img/pete.jpg", import.meta.url));
 
 const timeline = [
   { when: "2026 –", role: "Digital & Technology Cluster Lead", org: "Liverpool City Region", url: "" },
@@ -72,9 +69,9 @@ const aboutSchema = {
     <div class="container grid grid-2" style="align-items:start">
       <div data-reveal>
         <p class="lead">I have spent twenty years building the things that come next, and helping other people build theirs.</p>
-        {hasPortrait && (
+        {site.portrait && (
           <figure class="portrait">
-            <img src={u("/img/pete.jpg")} alt="Pete Woodbridge" loading="lazy" decoding="async" />
+            <img src={u(site.portrait)} alt="Pete Woodbridge" width="400" height="400" loading="lazy" decoding="async" />
             <figcaption class="muted">Pete Woodbridge · {site.location}</figcaption>
           </figure>
         )}

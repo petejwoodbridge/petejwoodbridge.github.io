@@ -7,6 +7,8 @@ export const site = {
     "Pete Woodbridge is a creative technologist and innovation lead working across creative AI, realtime production, immersive experiences and the programmes that make them happen. Digital & Technology Cluster Lead for the Liverpool City Region.",
   // TODO: add the email address you want on the contact page. Leave empty to hide the email button.
   email: "",
+  // Portrait shown on the homepage and About page. Set to "" to hide it.
+  portrait: "/img/pete.jpg",
   // Where else you exist online. Used for search-engine structured data (sameAs).
   profiles: [
     "https://www.linkedin.com/in/petewoodbridge/",
