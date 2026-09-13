@@ -307,7 +307,7 @@ export const projects: Project[] = [
     slug: "room",
     title: "TMRW Foundation",
     org: "TMRW Foundation",
-    orgUrl: "https://room3d.com/",
+    orgUrl: "https://www.tmrw.com/",
     role: "Product Director",
     period: "2020 – 2021",
     tagline: "Product Director on Room: a browser-based 3D experience platform and a brand-new games engine, built for real people on the web. No goggles necessary.",
@@ -319,6 +319,7 @@ export const projects: Project[] = [
     ],
     groups: [
       { title: "Find out more", items: [
+        { label: "TMRW Foundation", url: "https://www.tmrw.com/" },
         { label: "Room", url: "https://room3d.com/" },
         { label: "New Straits Times: video meetings in virtual rooms", url: "https://www.nst.com.my/lifestyle/bots/2021/03/675307/tech-video-meetings-virtual-rooms-will-make-likes-zoom-seem-old-school" },
         { label: "Tech.eu: Room goes live", url: "https://tech.eu/2022/10/10/bringing-teams-together-again-3d-video-communications-platform-room-goes-live-launches-their-founders-plan" },
