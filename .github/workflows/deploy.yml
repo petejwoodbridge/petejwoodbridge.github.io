@@ -26,6 +26,10 @@ jobs:
       - name: Configure Pages
         id: pages
         uses: actions/configure-pages@v5
+        with:
+          # Switch Pages on automatically the first time this runs, so there is
+          # nothing to click in Settings.
+          enablement: true
 
       - name: Set up Node
         uses: actions/setup-node@v4

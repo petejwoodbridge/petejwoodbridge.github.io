@@ -23,9 +23,11 @@ git remote add origin https://github.com/<your-username>/petewoodbridge.git
 git push -u origin main
 ```
 
-Then, in the repo on github.com: **Settings → Pages → Build and deployment → Source: GitHub Actions.**
+That is it. The workflow switches Pages on by itself the first time it runs, so there is nothing to
+click in Settings. Every later push to `main` rebuilds and republishes.
 
-That is the only setting to change. Every push to `main` rebuilds and republishes. The workflow in
+Watch the first run under the repo's **Actions** tab. It takes a couple of minutes; the published address
+appears on the `deploy` job when it finishes, and also under Settings → Pages. The workflow in
 `.github/workflows/deploy.yml` reads the real published URL from your Pages settings and feeds it into the
 build, so canonical tags, the sitemap and social cards always match where the site actually lives.
 
