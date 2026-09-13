@@ -41,7 +41,10 @@ export default defineConfig({
       },
     }),
   ],
-  prefetch: { prefetchAll: true, defaultStrategy: "viewport" },
+  // "hover" rather than "viewport": the work pages carry a lot of links, and prefetching
+  // every one of them on sight competed with the video and images for bandwidth.
+  // Hover (and touchstart) still makes a click feel instant without the bulk download.
+  prefetch: { prefetchAll: true, defaultStrategy: "hover" },
   build: { inlineStylesheets: "auto" },
   compressHTML: true,
 });

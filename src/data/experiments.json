@@ -86,7 +86,7 @@
  },
  {
   "slug": "moea",
-  "title": "Dream Machine",
+  "title": "MOEA",
   "blurb": "MOEA Dream Machine Album Out Now",
   "meta": "Music R&D, 2025",
   "year": "2025",
@@ -310,7 +310,7 @@
  },
  {
   "slug": "dreamingofelectricsheep",
-  "title": "AI Concepting",
+  "title": "Early AI Concepting",
   "blurb": "Experimenting with using AI for Storyboarding and Concept Art",
   "meta": "AI Art Experiments, 2020",
   "year": "2020",
@@ -428,25 +428,6 @@
   "poster": "/video/x/secret-coast.jpg",
   "image": null,
   "thumb": "/img/x/secret-coast.webp"
- },
- {
-  "slug": "workwithme",
-  "title": "Work with me",
-  "blurb": "Get in touch for magic making collaborations.",
-  "meta": null,
-  "year": null,
-  "html": "<p>Gimme a shout</p><p>What I do:</p><ul><li>Creative and Technical Design and Development in projects crossing Virtual Production, Creative AI, Mixed Reality &amp; Immersive Technology.</li><li>Technical Product Development, from product visualisation, to R&amp;D/Prototyping and Production.</li><li>Expertise in developing with Unreal Engine, Ventuz, Disguise, Notch, Unity, Tracking &amp; Sensor Systems, Realtime Film and VFX, Creative AI, Motion Capture, WebXR, 3D, Film &amp; VFX, VR/AR/Mixed Reality and more</li><li>R&amp;D and Production Skills to make new possibilities a reality. Occasionally including fundraising, strategy &amp; business development.</li></ul><p>Please <a href=\"https://www.linkedin.com/in/petewoodbridge/\" target=\"_blank\" rel=\"noopener\">GET IN TOUCH</a> via linkedin</p>",
-  "links": [
-   {
-    "label": "GET IN TOUCH",
-    "url": "https://www.linkedin.com/in/petewoodbridge/"
-   }
-  ],
-  "external": null,
-  "video": "/video/x/workwithme.mp4",
-  "poster": "/video/x/workwithme.jpg",
-  "image": null,
-  "thumb": "/img/x/workwithme.webp"
  },
  {
   "slug": "beacons-for-science",

@@ -71,14 +71,32 @@ const fullTitle = title ? `${title} — ${site.name}` : `${site.name} — Creati
       const saveData = (navigator as any).connection?.saveData === true;
 
       function initVideos() {
-        document.querySelectorAll<HTMLVideoElement>("video[data-src]").forEach((v) => {
-          if (v.dataset.loaded || reduced || saveData) return;
+        const vids = document.querySelectorAll<HTMLVideoElement>("video[data-src]");
+        if (!vids.length || reduced || saveData) return;
+
+        const start = (v: HTMLVideoElement) => {
+          if (v.dataset.loaded) return;
           const small = window.innerWidth < 900 && v.dataset.srcSm;
           v.src = small ? (v.dataset.srcSm as string) : (v.dataset.src as string);
           v.dataset.loaded = "1";
           v.addEventListener("playing", () => v.classList.add("is-ready"), { once: true });
           v.play().catch(() => {});
-        });
+        };
+
+        // The poster image carries the page on its own, so hold the video back until the
+        // browser is idle and only fetch the ones actually on screen. Downloading several
+        // megabytes while the page is still painting is what made navigation feel slow.
+        const arm = () => {
+          if (!("IntersectionObserver" in window)) { vids.forEach(start); return; }
+          const io = new IntersectionObserver((entries) => {
+            entries.forEach((e) => {
+              if (e.isIntersecting) { start(e.target as HTMLVideoElement); io.unobserve(e.target); }
+            });
+          }, { rootMargin: "150px" });
+          vids.forEach((v) => io.observe(v));
+        };
+        if ("requestIdleCallback" in window) (window as any).requestIdleCallback(arm, { timeout: 1200 });
+        else setTimeout(arm, 500);
       }
 
       function initCards() {
