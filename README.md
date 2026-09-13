@@ -13,18 +13,58 @@ npm run preview   # serve the built site locally
 
 Requires Node 22+.
 
-## Deploy
+## Publish it on GitHub Pages
 
-`npm run build` produces a plain static site in `dist/`. Drag that folder onto Netlify, or connect the repo to
-Netlify / Vercel / Cloudflare Pages with build command `npm run build` and output directory `dist`.
-Set `site` in `astro.config.mjs` to the final domain so share images and canonical URLs are correct.
+The repo is set up to deploy itself. Create a repo called `petewoodbridge`, push this folder to it,
+then turn Pages on:
+
+```bash
+git remote add origin https://github.com/<your-username>/petewoodbridge.git
+git push -u origin main
+```
+
+Then, in the repo on github.com: **Settings → Pages → Build and deployment → Source: GitHub Actions.**
+
+That is the only setting to change. Every push to `main` rebuilds and republishes. The workflow in
+`.github/workflows/deploy.yml` reads the real published URL from your Pages settings and feeds it into the
+build, so canonical tags, the sitemap and social cards always match where the site actually lives.
+
+The site will be at `https://<your-username>.github.io/petewoodbridge/`. Because that is a sub-path rather
+than a domain root, every internal link and asset is written through the `u()` helper in `src/lib/url.ts`.
+**If you add a link or an image, wrap its path in `u()`** or it will break once published:
+
+```astro
+<a href={u("/work")}>Work</a>
+<img src={u("/img/thing.webp")} alt="" />
+```
+
+External URLs are left alone.
+
+### Moving to your own domain later
+
+Add the domain in Settings → Pages, and GitHub will commit a `CNAME` file. The base path becomes `/`, the
+`u()` helper turns into a no-op, and everything keeps working. Nothing else needs changing.
 
 ## Things to fill in
 
-- **Your photo.** Save a portrait as `public/img/pete.jpg` (portrait orientation works best). It appears on the
-  homepage and About page automatically on the next build.
-- **Email.** Set `email` in `src/data/site.ts` to show an email button on the Contact page. Leave empty to hide it.
-- **Domain.** Set `url` in `src/data/site.ts` and `site` in `astro.config.mjs`.
+- **Your photo.** Save a portrait as `public/img/pete.jpg` (portrait orientation works best). It appears on
+  the homepage and About page automatically on the next build.
+- **Email.** Set `email` in `src/data/site.ts` to show an email button on the Contact page. Empty hides it.
+
+## Getting it into Google
+
+Everything mechanical is already done: a generated `sitemap-index.xml`, a `robots.txt` pointing at it,
+canonical tags, `JSON-LD` structured data (Person, WebSite, CreativeWork, BreadcrumbList), per-page titles,
+descriptions and social cards, and a `.nojekyll` file so GitHub Pages serves the build output correctly.
+
+Once it is live, do these two things, which only you can do:
+
+1. Go to [Google Search Console](https://search.google.com/search-console), add the site as a URL-prefix
+   property using the exact published address, and verify it.
+2. Submit `sitemap-index.xml` there, then use **URL Inspection → Request indexing** on the homepage.
+
+Indexing normally takes a few days to a couple of weeks. Links to the site from your LinkedIn profile and
+from Dreamlab will speed it up considerably.
 
 ## Where the content lives
 
@@ -32,23 +72,36 @@ Set `site` in `astro.config.mjs` to the final domain so share images and canonic
 |---|---|
 | `src/data/site.ts` | Name, role, links, nav, client and funder lists |
 | `src/data/work.ts` | The 15 work pages (8 main + 7 second tier): copy, links, press, video and card assets |
-| `src/data/experiments.json` | The 83 experiments (generated from the old site archive by `../content-archive/tools/`) |
+| `src/data/experiments.json` | The 83 experiments, generated from the content archive |
+| `src/data/press.json` | The 41 press entries behind `/press` |
 | `src/pages/index.astro` | Homepage copy (hero, intro, stats, pillars, "Now") |
 | `src/pages/about.astro` | About copy and the roles timeline |
 | `src/pages/contact.astro` | Contact page |
 | `src/pages/work/[slug].astro` | Template for every work page |
 | `src/pages/experiments.astro` | Experiments grid and detail panels |
+| `src/pages/press.astro` | Press list. Not in the navigation, not in the sitemap, marked `noindex` |
+| `src/components/Seo.astro` | Titles, canonical tags, social cards, structured data |
+| `src/lib/url.ts` | The `u()` base-path helper |
 | `src/styles/global.css` | Design system: colours, type, components |
 
 ## Adding a work page
 
-Add an object to the `projects` array in `src/data/work.ts` (copy an existing one). Give it `tier: "more"` to put it
-in the second row on the Work page. Put its background video at `public/video/<slug>.mp4` with a poster
+Add an object to the `projects` array in `src/data/work.ts` (copy an existing one). Give it `tier: "more"` to
+put it in the second row on the Work page. Put its background video at `public/video/<slug>.mp4` with a poster
 `public/video/<slug>.jpg`, a 6-second hover loop at `public/video/<slug>-card.mp4`, and a card image at
 `public/img/card-<slug>.webp`. The page is generated at `/work/<slug>` automatically.
 
 ## Video
 
-All source footage is in `../content-archive/assets/background-videos/`. Web versions in `public/video/` were made
-with ffmpeg (H.264, muted, `faststart`): page backgrounds at 720p or 1080p, hover loops at 640×360, experiments
-loops at 960×540. The scripts that produced them are in `../content-archive/tools/`.
+Source footage lives outside this repo, in `../content-archive/assets/background-videos/`. The web versions in
+`public/video/` were made with ffmpeg (H.264, muted, `faststart`): page backgrounds at 720p or 1080p, hover
+loops at 640×360, experiment loops at 960×540. The scripts that produced them are in `../content-archive/tools/`.
+
+Videos never autoload on a metered connection or when the visitor prefers reduced motion, and each one sits
+behind a still poster frame so the page is readable before any video arrives.
+
+## Responsive
+
+Checked for layout overflow and console errors at 375, 390, 430, 768, 834, 1024, 1280, 1440 and 1920 pixels
+wide. Below 800px the navigation collapses into a full-screen menu, and card videos play on scroll rather
+than on hover.

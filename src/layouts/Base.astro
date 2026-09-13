@@ -25,7 +25,8 @@ const {
   noindex = false,
   schema,
 } = Astro.props;
-const fullTitle = title ? `${title} — ${site.name}` : `${site.name} — ${site.shortRole}, Liverpool`;
+// The site is titled simply "Pete Woodbridge"; inner pages prefix their own name.
+const fullTitle = title ? `${title} — ${site.name}` : site.name;
 ---
 <!doctype html>
 <html lang="en-GB">
