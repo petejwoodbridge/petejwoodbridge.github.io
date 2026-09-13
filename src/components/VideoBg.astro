@@ -1,0 +1,21 @@
+---
+/** Full-bleed background video. Source is attached by the layout script so small screens can take a lighter file.
+ *  `soft`  – stronger top-to-bottom shade, for busy footage.
+ *  `dim`   – darkens the footage itself, for light/white footage that would otherwise swallow the text. */
+interface Props {
+  src: string;
+  srcSm?: string;
+  poster: string;
+  soft?: boolean;
+  dim?: boolean;
+  /** True on the first background of a page: its poster is the Largest Contentful Paint element. */
+  priority?: boolean;
+  class?: string;
+}
+const { src, srcSm, poster, soft = false, dim = false, priority = true, class: cls = "" } = Astro.props;
+---
+<div class:list={["vbg", { "vbg--soft": soft, "vbg--dim": dim }, cls]} aria-hidden="true">
+  <img class="vbg__poster" src={poster} alt="" loading="eager" decoding="async" fetchpriority={priority ? "high" : "auto"} />
+  <video muted loop playsinline preload="none" poster={poster} data-src={src} data-src-sm={srcSm ?? src}></video>
+  <div class="vbg__shade"></div>
+</div>

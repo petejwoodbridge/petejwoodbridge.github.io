@@ -1,0 +1,175 @@
+---
+import { u } from "../lib/url";
+import Base from "../layouts/Base.astro";
+import VideoBg from "../components/VideoBg.astro";
+import { site } from "../data/site";
+import { existsSync } from "node:fs";
+// Drop a photo at site/public/img/pete.jpg and it appears here automatically on the next build.
+const hasPortrait = existsSync(new URL("../../public/img/pete.jpg", import.meta.url));
+
+const timeline = [
+  { when: "2026 –", role: "Digital & Technology Cluster Lead", org: "Liverpool City Region", url: "" },
+  { when: "2024 –", role: "Director", org: "Dreamlab", url: "https://dreamlab.org.uk/" },
+  { when: "2025 – 26", role: "R&D & Innovation Lead", org: "MusicFutures Creative Cluster", url: "https://musicfutures.co.uk/" },
+  { when: "2023 – 25", role: "R&D Innovation Director", org: "MediaCity Immersive Technologies Innovation Hub", url: "https://www.mediacityuk.co.uk/immersive-technologies-innovation-hub/" },
+  { when: "2023", role: "Creative Technologist", org: "Crucial FX", url: "https://crucial-fx.com/" },
+  { when: "2022", role: "Creative Producer & Technologist", org: "Pathway Studios, Manchester", url: "https://www.pathwayxr.studio/" },
+  { when: "2021 – 22", role: "Senior R&D Creative Technologist", org: "Draw & Code", url: "https://drawandcode.com/" },
+  { when: "2020 – 21", role: "Product Director", org: "Room · TMRW Foundation", url: "https://room3d.com/" },
+  { when: "2018 – 20", role: "Programme Leader, MA Immersive Arts · Co-Director, XLab", org: "Liverpool John Moores University", url: "https://www.ljmu.ac.uk/study/courses/postgraduates/immersive-arts" },
+  { when: "2015 – 19", role: "Senior Lecturer · SODA curriculum development lead", org: "Manchester Metropolitan University", url: "https://www.schoolofdigitalarts.mmu.ac.uk/" },
+  { when: "2010 – 15", role: "Project development team, Centre for Disruptive Media", org: "Coventry University", url: "https://disruptivemedia.org.uk/" },
+  { when: "2018 –", role: "Founder", org: "Immersive Liverpool network", url: "https://www.meetup.com/Immersive-Liverpool/" },
+  { when: "2014 –", role: "Founder", org: "Immersive Storylab", url: "http://www.immersivestorylab.com/" },
+];
+const teaching = [
+  "Advanced media production", "Film production", "Virtual production (mocap & ICVFX)", "Unreal Engine", "Interactive programming",
+  "AI & creative software development", "Immersive tech (games, VR/AR)", "Installation & live event tech", "Notch & Disguise", "Motion graphics",
+  "Multicamera production", "Sound & music design", "Sensor-based media arts", "Workflow innovation (Python, ComfyUI, APIs)",
+];
+
+const aboutSchema = {
+  "@type": "AboutPage",
+  name: `About ${site.name}`,
+  mainEntity: {
+    "@id": "#pete",
+    "@type": "Person",
+    name: site.name,
+    jobTitle: site.role,
+    hasOccupation: timeline.slice(0, 8).map((t) => ({
+      "@type": "Role",
+      roleName: t.role,
+      startDate: t.when.replace(/\s.*/, ""),
+      ...(t.url ? { url: t.url } : {}),
+    })),
+    award: [
+      "BIMA 100, Creatives and Designers (2020)",
+      "500 UK Trailblazers, UKII Intelligence Report (2024)",
+      "Fellow of the Royal Society of Arts (FRSA)",
+      "Fellow of the Higher Education Academy (FHEA)",
+    ],
+    knowsAbout: teaching,
+  },
+};
+---
+<Base
+  title="About"
+  description="Pete Woodbridge is a creative technologist, innovation lead and educator in Liverpool. Twenty years across creative AI, realtime production, immersive experiences and the programmes that make them happen."
+  image="/img/og/about.jpg"
+  type="profile"
+  schema={aboutSchema}
+>
+  <section class="hero hero--page">
+    <VideoBg src={u("/video/about.mp4")} poster={u("/video/about.jpg")} soft />
+    <div class="container hero__inner">
+      <p class="eyebrow">About</p>
+      <h1 class="display h-xl">Curious</h1>
+      <p class="hero__sub">Creative engineer, technologist, producer, educator and, occasionally, a Chinese rock star. Based in Liverpool, working across the North West and beyond.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid-2" style="align-items:start">
+      <div data-reveal>
+        <p class="lead">I have spent twenty years building the things that come next, and helping other people build theirs.</p>
+        {hasPortrait && (
+          <figure class="portrait">
+            <img src={u("/img/pete.jpg")} alt="Pete Woodbridge" loading="lazy" decoding="async" />
+            <figcaption class="muted">Pete Woodbridge · {site.location}</figcaption>
+          </figure>
+        )}
+      </div>
+      <div class="prose" data-reveal>
+        <p>I'm a creative engineer and technologist. I work on software development, innovation in realtime production, immersive experiences, creative AI, interactive media and the workflows underneath them. That has meant projects for major brands, artists, studios and partners across film and TV, music, games and live experiences, and it has meant leading teams of developers, engineers, UX designers and 3D artists on new software, games engines, hardware, data and AI products.</p>
+        <p><strong>Now</strong> I am the Digital &amp; Technology Cluster Lead for the Liverpool City Region, working with the region's businesses, universities, investors and talent to grow its digital and technology sector. I also direct <a href={site.dreamlab} target="_blank" rel="noopener">Dreamlab</a>, an R&amp;D lab and collective of 40+ experts, and write <a href={site.dreamMachine.book} target="_blank" rel="noopener">Dream Machine</a>, a living book, <a href={site.dreamMachine.newsletter} target="_blank" rel="noopener">newsletter</a> and <a href={site.dreamMachine.podcast} target="_blank" rel="noopener">podcast</a> about AI and the next creative economy.</p>
+        <p><strong>Before that</strong> I was R&amp;D and Innovation Lead on <a href={u("/work/musicfutures")}>MusicFutures</a>, a £7.2m programme I helped the region win, and Innovation Director at the <a href={u("/work/mediacity")}>MediaCity Immersive Technologies Innovation Hub</a>, where we backed 35+ collaborative projects on a £3.2m accelerator. Hands-on, I have been a creative technologist at <a href={u("/work/crucial-fx")}>Crucial FX</a>, a creative producer on the LED stage at <a href={u("/work/pathway")}>Pathway</a>, a senior R&amp;D technologist at <a href={u("/work/draw-and-code")}>Draw &amp; Code</a>, and Product Director at <a href={u("/work/room")}>Room</a>, building a new 3D web engine and patented immersive products.</p>
+        <p><strong>In universities</strong> I developed and led the world's first MA Immersive Arts at LJMU, co-directed its Experimental Technologies Lab, led curriculum for Manchester's £35m School of Digital Arts, and worked on award-winning open education and digital publishing at Coventry's Centre for Disruptive Media. I am a Fellow of the Royal Society of Arts and a Fellow of the Higher Education Academy.</p>
+        <p><strong>In the community</strong> I founded the <a href="https://www.meetup.com/Immersive-Liverpool/" target="_blank" rel="noopener">Immersive Liverpool</a> network in 2018 and the <a href="http://www.immersivestorylab.com/" target="_blank" rel="noopener">Immersive Storylab</a> collective in 2014. I have sat on the <a href="https://www.liverpoollep.org/growth-sectors/digital-creative/" target="_blank" rel="noopener">Liverpool LEP Digital Board</a>, the College of Experts at <a href="https://xrstories.co.uk/" target="_blank" rel="noopener">XR Stories</a>, review panels for innovation funding across the UK, and as an external bid reviewer for the <a href="https://www.ukri.org/councils/epsrc/" target="_blank" rel="noopener">EPSRC</a>.</p>
+        <p>Outside of all that I am a partner and dad, and a guitarist.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line">
+    <div class="container">
+      <p class="eyebrow" data-reveal>Roles</p>
+      <h2 class="display h-lg" data-reveal style="margin-bottom: clamp(24px,3vw,48px)">Where I've been.</h2>
+      <div class="timeline" data-reveal>
+        {timeline.map((t) => (
+          <div class="tl">
+            <div class="tl__when">{t.when}</div>
+            <div class="tl__role">{t.role}</div>
+            <div class="tl__org">{t.url ? <a href={t.url} target="_blank" rel="noopener">{t.org} ↗</a> : t.org}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section inverted">
+    <div class="container grid grid-3" style="align-items:start">
+      <div data-reveal>
+        <p class="eyebrow">Recognition</p>
+        <h2 class="display h-md">Awards &amp; fellowships</h2>
+      </div>
+      <div class="prose" data-reveal>
+        <p><a href={u("/work/bima-100")}><strong>BIMA 100, 2020.</strong></a> Named among the 100 most influential people in the UK digital and tech industry, in the Creatives and Designers category.</p>
+        <p><a href={u("/work/trailblazers")}><strong>500 UK Trailblazers, 2024.</strong></a> UKII Intelligence Report, sponsored by Verizon and Epic Games, for work in AI animation.</p>
+      </div>
+      <div class="prose" data-reveal>
+        <p><strong>FRSA.</strong> Fellow of the Royal Society of Arts.</p>
+        <p><strong>FHEA.</strong> Fellow of the Higher Education Academy.</p>
+        <p>Plus awards for creative AI workflows, and research grants from the AHRC, Innovate UK and commercial investors.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid-2" style="align-items:start">
+      <div data-reveal>
+        <p class="eyebrow">Worked with</p>
+        <h2 class="display h-md" style="margin-bottom:1.2rem">Brands, studios &amp; funders</h2>
+        <p class="muted measure">Commissions, consultancy and R&amp;D collaboration with organisations including:</p>
+        <div class="chips" style="margin-top:1rem">
+          {site.clients.map((c) => <span class="chip chip--solid">{c}</span>)}
+        </div>
+      </div>
+      <div data-reveal>
+        <p class="eyebrow">Funded R&amp;D</p>
+        <h2 class="display h-md" style="margin-bottom:1.2rem">Programmes &amp; grants</h2>
+        <p class="muted measure">Led and developed funded research and development with:</p>
+        <div class="chips" style="margin-top:1rem">
+          {site.funders.map((c) => <span class="chip chip--solid">{c}</span>)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line">
+    <div class="container feature">
+      <div class="feature__img" data-reveal style="aspect-ratio: 3/2">
+        <img src={u("/img/about-3.webp")} alt="A lab full of people at a Dreamlab event" loading="lazy" />
+      </div>
+      <div data-reveal>
+        <p class="eyebrow">Teaching &amp; talks</p>
+        <h2 class="display h-md" style="margin-bottom:1rem">Eight years of teaching digital technology.</h2>
+        <div class="prose">
+          <p>I have created industry-focused degree programmes and courses for universities and private training providers, set up <a href="https://www.hostsalford.com/services/gametech/" target="_blank" rel="noopener">industry bootcamps in gametech</a> for HOST in Salford, consulted on new creative technology degrees, and mentored programmes from <a href="https://www.ithra.com/en/special-programs/The-Creative-Solutions-Residency-Program/cycle-3" target="_blank" rel="noopener">Ithra</a> in Saudi Arabia to <a href="https://www.raindance.org/postgraduate/" target="_blank" rel="noopener">Raindance</a>. I have been an invited lecturer at Warwick, Zhejiang University of Media and Communications, the University of Ibadan and Stellenbosch University.</p>
+        </div>
+        <div class="chips" style="margin-top:1rem">
+          {teaching.map((t) => <span class="chip">{t}</span>)}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line cta">
+    <div class="container">
+      <h2 class="display h-xl" data-reveal>Say hello.</h2>
+      <div class="cta__row" data-reveal>
+        <p class="lead measure muted">If you have an idea or an opportunity to make the world a bit cooler than it is, I would like to hear it.</p>
+        <a class="btn btn--volt" href={u("/contact")}>Contact <span class="arrow">↗</span></a>
+      </div>
+    </div>
+  </section>
+</Base>

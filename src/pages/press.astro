@@ -1,0 +1,85 @@
+---
+import { u } from "../lib/url";
+import Base from "../layouts/Base.astro";
+import press from "../data/press.json";
+
+/**
+ * A private-ish reference page. It is deliberately not in the navigation, not in the sitemap
+ * and marked noindex, so it stays a handy list rather than something search engines surface.
+ */
+const totalLinks = press.reduce((n, item) => n + item.links.length, 0);
+const outlets = new Set(press.flatMap((i) => i.links.map((l) => new URL(l.url).hostname.replace(/^www\./, ""))));
+---
+<Base
+  title="Press"
+  description="A working list of press coverage, interviews and mentions."
+  noindex
+>
+  <section class="phead">
+    <div class="container">
+      <p class="eyebrow">Reference · not linked from the site</p>
+      <h1 class="display h-lg">Press</h1>
+      <p class="lead muted measure" style="margin-top:1rem">
+        Coverage, interviews and mentions, newest first.
+        {press.length} entries, {totalLinks} links, {outlets.size} outlets.
+      </p>
+      <p class="muted" style="margin-top:1rem; font-size:0.9rem">
+        Some of the older links have rotted. They are kept as a record of what was published and where.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container">
+      <ol class="press">
+        {press.map((item, i) => (
+          <li class="press__item">
+            <span class="press__num">{String(i + 1).padStart(2, "0")}</span>
+            <div class="press__body">
+              <p class="press__text">{item.text}</p>
+              <ul class="press__links">
+                {item.links.map((l) => (
+                  <li>
+                    <a href={l.url} target="_blank" rel="noopener">
+                      {l.label}
+                      <span class="press__host">{new URL(l.url).hostname.replace(/^www\./, "")}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {item.year && <span class="press__year">{item.year}</span>}
+          </li>
+        ))}
+      </ol>
+      <p class="muted" style="margin-top:3rem">
+        <a href={u("/work")} style="text-decoration:underline">Back to the work</a>
+      </p>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .phead { padding: 150px 0 clamp(24px, 3vw, 40px); }
+  .press { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  .press__item {
+    display: grid; grid-template-columns: 52px 1fr 72px; gap: 20px;
+    padding: 26px 0; border-bottom: 1px solid var(--line); align-items: start;
+  }
+  .press__num { font-family: var(--font-display); font-weight: 800; font-size: 0.85rem; color: var(--muted); padding-top: 4px; }
+  .press__text { margin: 0 0 12px; font-size: 1.05rem; line-height: 1.5; max-width: 70ch; }
+  .press__links { display: flex; flex-wrap: wrap; gap: 8px; }
+  .press__links a {
+    display: inline-flex; align-items: baseline; gap: 8px;
+    padding: 0.45em 0.9em; border: 1px solid var(--line); border-radius: 999px;
+    font-size: 0.88rem; font-weight: 600; transition: border-color 0.2s, color 0.2s, background 0.2s;
+  }
+  .press__links a:hover { border-color: var(--volt); color: var(--volt); }
+  .press__host { font-weight: 400; font-size: 0.78rem; color: var(--muted); }
+  .press__links a:hover .press__host { color: inherit; }
+  .press__year { font-family: var(--font-display); font-weight: 700; font-size: 0.85rem; color: var(--volt); text-align: right; padding-top: 4px; }
+  @media (max-width: 700px) {
+    .press__item { grid-template-columns: 1fr; gap: 8px; }
+    .press__num, .press__year { padding-top: 0; text-align: left; }
+  }
+</style>

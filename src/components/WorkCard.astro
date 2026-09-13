@@ -1,0 +1,23 @@
+---
+import { u } from "../lib/url";
+import type { Project } from "../data/work";
+interface Props { project: Project; index: number; size?: "lg" | "md"; reveal?: boolean }
+const { project: p, index, size = p.size, reveal = true } = Astro.props;
+const num = String(index + 1).padStart(2, "0");
+---
+<a class:list={["card", `card--${size}`]} href={u(`/work/${p.slug}`)} data-reveal={reveal ? "" : undefined} style={`--i:${index % 2}`}>
+  <div class="card__media">
+    <span class="card__num">{num}</span>
+    <img src={u(p.card)} alt={`${p.title}: ${p.tagline}`} loading="lazy" decoding="async" />
+    <video muted loop playsinline preload="none" aria-hidden="true">
+      <source src={u(p.cardVideo)} type="video/mp4" />
+    </video>
+  </div>
+  <div class="card__body">
+    <div>
+      <h3 class="card__title">{p.title}<span class="arrow" aria-hidden="true">↗</span></h3>
+      <p class="card__tag">{p.tagline}</p>
+    </div>
+    <div class="card__meta"><b>{p.role.split("·")[0].trim()}</b>{p.period}</div>
+  </div>
+</a>

@@ -1,0 +1,141 @@
+---
+import { u } from "../lib/url";
+import "../styles/global.css";
+import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
+import Seo from "../components/Seo.astro";
+import { ClientRouter } from "astro:transitions";
+import { site } from "../data/site";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  imageAlt?: string;
+  type?: "website" | "profile" | "article";
+  noindex?: boolean;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+}
+const {
+  title,
+  description = site.description,
+  image = "/img/og/default.jpg",
+  imageAlt,
+  type = "website",
+  noindex = false,
+  schema,
+} = Astro.props;
+const fullTitle = title ? `${title} — ${site.name}` : `${site.name} — ${site.shortRole}, Liverpool`;
+---
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <Seo
+      title={fullTitle}
+      description={description}
+      image={image}
+      imageAlt={imageAlt ?? fullTitle}
+      type={type}
+      noindex={noindex}
+      schema={schema}
+    />
+    <meta name="theme-color" content="#0a0a0b" />
+    <link rel="icon" href={u("/favicon.svg")} type="image/svg+xml" />
+    <link rel="icon" href={u("/favicon.ico")} sizes="32x32" />
+    <link rel="apple-touch-icon" href={u("/apple-touch-icon.png")} />
+    <link rel="manifest" href={u("/site.webmanifest")} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
+    <ClientRouter />
+  </head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <Nav />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer />
+
+    <script>
+      const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      const noHover = window.matchMedia("(hover: none)").matches;
+      const saveData = (navigator as any).connection?.saveData === true;
+
+      function initVideos() {
+        document.querySelectorAll<HTMLVideoElement>("video[data-src]").forEach((v) => {
+          if (v.dataset.loaded || reduced || saveData) return;
+          const small = window.innerWidth < 900 && v.dataset.srcSm;
+          v.src = small ? (v.dataset.srcSm as string) : (v.dataset.src as string);
+          v.dataset.loaded = "1";
+          v.addEventListener("playing", () => v.classList.add("is-ready"), { once: true });
+          v.play().catch(() => {});
+        });
+      }
+
+      function initCards() {
+        const cards = document.querySelectorAll<HTMLElement>(".card");
+        cards.forEach((card) => {
+          const v = card.querySelector<HTMLVideoElement>("video");
+          if (!v || reduced) return;
+          if (!noHover) {
+            card.addEventListener("pointerenter", () => { v.play().catch(() => {}); });
+            card.addEventListener("pointerleave", () => { v.pause(); });
+          }
+        });
+        if (noHover && !reduced && !saveData) {
+          const io = new IntersectionObserver((entries) => {
+            entries.forEach((e) => {
+              const card = e.target as HTMLElement;
+              const v = card.querySelector<HTMLVideoElement>("video");
+              if (!v) return;
+              if (e.isIntersecting && e.intersectionRatio > 0.6) { card.classList.add("is-playing"); v.play().catch(() => {}); }
+              else { card.classList.remove("is-playing"); v.pause(); }
+            });
+          }, { threshold: [0, 0.6, 1] });
+          cards.forEach((c) => io.observe(c));
+        }
+      }
+
+      function initReveal() {
+        const els = document.querySelectorAll<HTMLElement>("[data-reveal]");
+        if (reduced || !("IntersectionObserver" in window)) { els.forEach((el) => el.classList.add("is-in")); return; }
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); } });
+        }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+        els.forEach((el) => io.observe(el));
+      }
+
+      function initMenu() {
+        const btn = document.querySelector<HTMLButtonElement>("[data-menu]");
+        if (!btn) return;
+        const close = () => { document.body.classList.remove("menu-open"); btn.setAttribute("aria-expanded", "false"); };
+        btn.onclick = () => {
+          const open = document.body.classList.toggle("menu-open");
+          btn.setAttribute("aria-expanded", String(open));
+        };
+        document.querySelectorAll("[data-menu-panel] a").forEach((a) => a.addEventListener("click", close));
+        document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
+      }
+
+      function initNavShade() {
+        const nav = document.querySelector<HTMLElement>("[data-nav]");
+        if (!nav) return;
+        const onScroll = () => nav.classList.toggle("is-scrolled", window.scrollY > 40);
+        onScroll();
+        window.addEventListener("scroll", onScroll, { passive: true });
+      }
+
+      function init() {
+        document.body.classList.remove("menu-open");
+        initVideos(); initCards(); initReveal(); initMenu(); initNavShade();
+      }
+      document.addEventListener("astro:page-load", init);
+    </script>
+  </body>
+</html>

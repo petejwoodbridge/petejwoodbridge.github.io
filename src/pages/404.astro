@@ -1,0 +1,24 @@
+---
+import { u } from "../lib/url";
+import Base from "../layouts/Base.astro";
+import VideoBg from "../components/VideoBg.astro";
+---
+<Base
+  title="Page not found"
+  description="That page does not exist. Head back to the work, or get in touch."
+  image="/img/og/404.jpg"
+  noindex
+>
+  <section class="hero hero--page">
+    <VideoBg src={u("/video/dreamlab.mp4")} poster={u("/video/dreamlab.jpg")} soft />
+    <div class="container hero__inner">
+      <p class="eyebrow">Error 404</p>
+      <h1 class="display h-xl">Nothing here</h1>
+      <p class="hero__sub">That page has moved, been renamed, or never existed. The work is all still where you left it.</p>
+      <div class="btn-row hero__actions">
+        <a class="btn btn--volt" href={u("/work")}>See the work <span class="arrow">↗</span></a>
+        <a class="btn" href={u("/")}>Home</a>
+      </div>
+    </div>
+  </section>
+</Base>

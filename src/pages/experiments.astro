@@ -1,0 +1,182 @@
+---
+import { u } from "../lib/url";
+import Base from "../layouts/Base.astro";
+import experiments from "../data/experiments.json";
+const total = experiments.length;
+const withVideo = experiments.filter((e) => e.video).length;
+
+const experimentsSchema = {
+  "@type": "CollectionPage",
+  name: "Experiments by Pete Woodbridge",
+  mainEntity: {
+    "@type": "ItemList",
+    numberOfItems: total,
+    itemListElement: experiments.map((e, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: e.title,
+      ...(e.blurb ? { description: e.blurb } : {}),
+    })),
+  },
+};
+---
+<Base
+  title="Experiments"
+  description={`${total} prototypes, hacks, residencies, installations and odd ideas from twenty years of trying things. Mostly on video.`}
+  image="/img/og/experiments.jpg"
+  schema={experimentsSchema}
+>
+  <section class="xhead">
+    <div class="container">
+      <p class="eyebrow">Experiments</p>
+      <h1 class="display h-xl">{total} things I tried.</h1>
+      <div class="xhead__row">
+        <p class="lead muted measure">Prototypes, hacks, residencies, installations, talks, courses and odd ideas. {withVideo} of them are on video, and they play as you scroll. Tap any tile for the story and the links.</p>
+        <p class="xhead__hint muted">Scroll to play · click for details</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container">
+      <div class="xgrid">
+        {experiments.map((e, i) => (
+          <button class:list={["tile", { "tile--wide": i % 7 === 3 }]} type="button" data-open={e.slug} id={e.slug} aria-haspopup="dialog">
+            <span class="tile__media">
+              {(e.thumb || e.poster || e.image) && <img src={u(e.thumb ?? e.poster ?? e.image)} alt="" loading="lazy" decoding="async" />}
+              {e.video && <video muted loop playsinline preload="none" poster={u(e.poster ?? "") || undefined} data-xvideo={u(e.video)} aria-hidden="true"></video>}
+            </span>
+            <span class="tile__text">
+              <span class="tile__title">{e.title}</span>
+              {e.year && <span class="tile__year">{e.year}</span>}
+            </span>
+            {e.video && <span class="tile__badge" aria-hidden="true">▶</span>}
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {experiments.map((e) => (
+    <dialog class="xdlg" id={`dlg-${e.slug}`} data-slug={e.slug} aria-labelledby={`t-${e.slug}`}>
+      <div class="xdlg__inner">
+        <button class="xdlg__close" type="button" data-close aria-label="Close">×</button>
+        <div class="xdlg__media">
+          {e.video
+            ? <video muted loop playsinline preload="none" poster={u(e.poster ?? "") || undefined} data-dvideo={u(e.video)}></video>
+            : <img src={u(e.image ?? e.thumb ?? "")} alt="" />}
+        </div>
+        <div class="xdlg__body">
+          {e.meta && <p class="eyebrow">{e.meta}</p>}
+          <h2 class="display h-md" id={`t-${e.slug}`}>{e.title}</h2>
+          {e.blurb && <p class="lead" style="margin-top:0.8rem">{e.blurb}</p>}
+          {e.html && <div class="prose xdlg__prose" set:html={e.html} />}
+          {e.external && <p><a class="btn btn--volt" href={e.external} target="_blank" rel="noopener">Open <span class="arrow">↗</span></a></p>}
+          {e.links.length > 0 && (
+            <div class="xdlg__links">
+              <p class="eyebrow">Links</p>
+              <ul class="linklist">
+                {e.links.map((l) => <li><a href={l.url} target="_blank" rel="noopener">{l.label}</a></li>)}
+              </ul>
+            </div>
+          )}
+        </div>
+      </div>
+    </dialog>
+  ))}
+</Base>
+
+<style>
+  .xhead { padding: 150px 0 clamp(32px, 4vw, 56px); }
+  .xhead__row { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-top: 1.6rem; }
+  .xhead__hint { font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; }
+
+  .xgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  @media (max-width: 1100px) { .xgrid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 700px) { .xgrid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
+  .tile { position: relative; display: block; width: 100%; text-align: left; padding: 0; border-radius: 6px; overflow: hidden; background: var(--bg-2); aspect-ratio: 16 / 11; cursor: pointer; }
+  .tile--wide { grid-column: span 2; aspect-ratio: 32 / 11; }
+  @media (max-width: 700px) { .tile--wide { grid-column: span 2; aspect-ratio: 16 / 9; } }
+  .tile__media { position: absolute; inset: 0; }
+  .tile__media img, .tile__media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.9s var(--ease), opacity 0.6s ease; }
+  .tile__media video { opacity: 0; }
+  .tile.is-playing .tile__media video { opacity: 1; }
+  .tile:hover .tile__media img, .tile:hover .tile__media video { transform: scale(1.05); }
+  .tile__text { position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 14px 12px; display: flex; justify-content: space-between; align-items: flex-end; gap: 10px; background: linear-gradient(180deg, rgba(10,10,11,0) 0%, rgba(10,10,11,0.85) 100%); }
+  .tile__title { font-family: var(--font-display); font-weight: 800; font-size: clamp(0.95rem, 1.4vw, 1.25rem); letter-spacing: -0.03em; line-height: 1; text-transform: uppercase; }
+  .tile__year { font-size: 0.7rem; letter-spacing: 0.15em; color: var(--volt); flex: none; }
+  .tile__badge { position: absolute; top: 10px; right: 10px; width: 26px; height: 26px; border-radius: 50%; background: rgba(10,10,11,0.6); color: var(--volt); font-size: 0.6rem; display: grid; place-items: center; }
+  .tile:focus-visible { outline: 2px solid var(--volt); outline-offset: 2px; }
+
+  .xdlg { border: 0; padding: 0; background: transparent; max-width: min(1200px, 94vw); width: 100%; max-height: 92vh; color: var(--ink); }
+  .xdlg::backdrop { background: rgba(10,10,11,0.82); backdrop-filter: blur(6px); }
+  .xdlg__inner { position: relative; display: grid; grid-template-columns: 1.15fr 0.85fr; background: var(--bg-2); border-radius: 10px; overflow: hidden; max-height: 92vh; }
+  .xdlg__media { background: #000; }
+  .xdlg__media video, .xdlg__media img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 16/9; }
+  .xdlg__body { padding: clamp(24px, 3vw, 40px); overflow: auto; max-height: 92vh; }
+  .xdlg__prose { margin-top: 1rem; }
+  .xdlg__prose :global(h4) { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; margin: 1.2em 0 0.4em; }
+  .xdlg__links { margin-top: 1.5rem; }
+  .xdlg__links .linklist { columns: 1; }
+  .xdlg__close { position: absolute; top: 10px; right: 12px; z-index: 2; width: 40px; height: 40px; border-radius: 50%; background: rgba(10,10,11,0.6); color: #fff; font-size: 1.5rem; line-height: 1; }
+  .xdlg__close:hover { background: var(--volt); color: var(--volt-ink); }
+  @media (max-width: 900px) { .xdlg__inner { grid-template-columns: 1fr; overflow: auto; } .xdlg__body { max-height: none; overflow: visible; } }
+</style>
+
+<script>
+  function initExperiments() {
+    const grid = document.querySelector(".xgrid");
+    if (!grid) return;
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // play tiles while in view
+    const tiles = grid.querySelectorAll<HTMLElement>(".tile");
+    if (!reduced && "IntersectionObserver" in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((en) => {
+          const tile = en.target as HTMLElement;
+          const v = tile.querySelector<HTMLVideoElement>("video[data-xvideo]");
+          if (!v) return;
+          if (en.isIntersecting) {
+            if (!v.src) v.src = v.dataset.xvideo as string;
+            v.play().then(() => tile.classList.add("is-playing")).catch(() => {});
+          } else {
+            v.pause(); tile.classList.remove("is-playing");
+          }
+        });
+      }, { threshold: 0.35, rootMargin: "80px 0px" });
+      tiles.forEach((t) => io.observe(t));
+    }
+
+    // dialogs
+    const open = (slug: string, push = true) => {
+      const dlg = document.getElementById(`dlg-${slug}`) as HTMLDialogElement | null;
+      if (!dlg || dlg.open) return;
+      dlg.showModal();
+      const v = dlg.querySelector<HTMLVideoElement>("video[data-dvideo]");
+      if (v && !reduced) { if (!v.src) v.src = v.dataset.dvideo as string; v.play().catch(() => {}); }
+      if (push) history.replaceState(null, "", `#${slug}`);
+    };
+    const closeAll = () => {
+      document.querySelectorAll<HTMLDialogElement>("dialog.xdlg[open]").forEach((d) => {
+        d.querySelector("video")?.pause(); d.close();
+      });
+      if (location.hash) history.replaceState(null, "", location.pathname);
+    };
+    grid.addEventListener("click", (e) => {
+      const btn = (e.target as HTMLElement).closest<HTMLElement>("[data-open]");
+      if (btn) open(btn.dataset.open as string);
+    });
+    document.querySelectorAll<HTMLDialogElement>("dialog.xdlg").forEach((d) => {
+      d.querySelector("[data-close]")?.addEventListener("click", closeAll);
+      d.addEventListener("click", (e) => { if (e.target === d) closeAll(); });
+      d.addEventListener("cancel", (e) => { e.preventDefault(); closeAll(); });
+    });
+    const hash = location.hash.replace("#", "");
+    if (hash && document.getElementById(`dlg-${hash}`)) {
+      document.getElementById(hash)?.scrollIntoView({ block: "center" });
+      open(hash, false);
+    }
+  }
+  document.addEventListener("astro:page-load", initExperiments);
+</script>

@@ -1,0 +1,94 @@
+---
+import { u } from "../lib/url";
+import { site } from "../data/site";
+
+interface Props {
+  title: string;
+  description: string;
+  image: string;
+  imageAlt?: string;
+  type?: "website" | "profile" | "article";
+  noindex?: boolean;
+  schema?: Record<string, unknown> | Record<string, unknown>[];
+}
+const { title, description, image, imageAlt = title, type = "website", noindex = false, schema } = Astro.props;
+
+// Astro.site comes from `site` in astro.config.mjs. Everything canonical is derived from it.
+const base = Astro.site ?? new URL("http://localhost:4321");
+const canonical = new URL(Astro.url.pathname.replace(/\/$/, "") || "/", base);
+const ogImage = new URL(u(image), base);
+const person = {
+  "@type": "Person",
+  "@id": new URL("/#pete", base).toString(),
+  name: site.name,
+  givenName: "Pete",
+  familyName: "Woodbridge",
+  url: base.toString(),
+  jobTitle: site.role,
+  description: site.description,
+  sameAs: site.profiles,
+  address: { "@type": "PostalAddress", addressLocality: "Liverpool", addressCountry: "GB" },
+  knowsAbout: [
+    "Creative technology", "Artificial intelligence", "Realtime production", "Virtual production",
+    "Immersive experiences", "Projection mapping", "Unreal Engine", "Innovation strategy", "Research and development",
+  ],
+};
+/** Schema.org wants absolute URLs. Resolve any "/path" or "#id" in url/item/@id fields against the site root. */
+function absolutise(node: unknown): unknown {
+  if (Array.isArray(node)) return node.map(absolutise);
+  if (node && typeof node === "object") {
+    const out: Record<string, unknown> = {};
+    for (const [k, v] of Object.entries(node as Record<string, unknown>)) {
+      out[k] =
+        (k === "url" || k === "item" || k === "@id") && typeof v === "string" && /^[/#]/.test(v)
+          ? new URL(u(v), base).toString()
+          : absolutise(v);
+    }
+    return out;
+  }
+  return node;
+}
+
+const graph = [
+  person,
+  {
+    "@type": "WebSite",
+    "@id": new URL("/#website", base).toString(),
+    url: base.toString(),
+    name: site.name,
+    description: site.description,
+    publisher: { "@id": new URL("/#pete", base).toString() },
+    inLanguage: "en-GB",
+  },
+  ...(schema ? (Array.isArray(schema) ? schema : [schema]) : []),
+];
+const jsonld = { "@context": "https://schema.org", "@graph": absolutise(graph) };
+---
+<title>{title}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+{noindex
+  ? <meta name="robots" content="noindex, follow" />
+  : <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />}
+
+<meta property="og:type" content={type} />
+<meta property="og:site_name" content={site.name} />
+<meta property="og:locale" content="en_GB" />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={imageAlt} />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogImage} />
+<meta name="twitter:image:alt" content={imageAlt} />
+
+<meta name="author" content={site.name} />
+<link rel="sitemap" href={u("/sitemap-index.xml")} />
+
+<script type="application/ld+json" set:html={JSON.stringify(jsonld)} is:inline />

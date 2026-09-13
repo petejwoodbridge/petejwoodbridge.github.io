@@ -1,0 +1,156 @@
+---
+import { u } from "../lib/url";
+import Base from "../layouts/Base.astro";
+import VideoBg from "../components/VideoBg.astro";
+import Marquee from "../components/Marquee.astro";
+import WorkCard from "../components/WorkCard.astro";
+import { site } from "../data/site";
+import { mainProjects as projects } from "../data/work";
+import { existsSync } from "node:fs";
+// Drop a photo at site/public/img/pete.jpg and it appears here automatically on the next build.
+const hasPortrait = existsSync(new URL("../../public/img/pete.jpg", import.meta.url));
+
+const stats = [
+  { num: "20+", label: "years building creative technology, commercially" },
+  { num: "£12m", label: "of innovation programmes developed and led" },
+  { num: "50+", label: "funded R&D and innovation collaborations supported" },
+  { num: "100+", label: "businesses, agencies and organisations worked with" },
+];
+const pillars = [
+  { t: "Creative AI & realtime", d: "AI-augmented production workflows and tool-building. Not replacing people; making them faster, stranger and better at their thing." },
+  { t: "Immersive & live experiences", d: "Projection mapping, tracking, sensors and games engines for rooms, stages, stadiums and streets. Shared experiences at scale." },
+  { t: "Virtual production", d: "LED volumes, in-camera VFX, motion capture and volumetric pipelines, from a garage set-up to a 6,000 sq ft stage." },
+  { t: "Innovation leadership", d: "Programmes, clusters, labs and funding: turning a region's talent and ideas into projects, products and companies." },
+];
+
+const homeSchema = {
+  "@type": "ProfilePage",
+  name: `${site.name} — ${site.shortRole}`,
+  description: site.description,
+  mainEntity: { "@id": "#pete" },
+  hasPart: projects.map((p, i) => ({
+    "@type": "CreativeWork",
+    position: i + 1,
+    name: p.title,
+    description: p.tagline,
+    url: `/work/${p.slug}`,
+  })),
+};
+---
+<Base
+  image="/img/og/home.jpg"
+  schema={homeSchema}
+>
+  <section class="hero">
+    <VideoBg src={u("/video/hero.mp4")} srcSm="/video/hero-720.mp4" poster={u("/video/hero.jpg")} />
+    <div class="container hero__inner">
+      <p class="eyebrow">Pete Woodbridge · Creative technologist · Liverpool City Region</p>
+      <h1 class="display h-xl">Making the future</h1>
+      <div class="hero__meta">
+        <div>
+          <p class="hero__sub">Twenty years building the things that come next: creative AI, realtime production, immersive experiences, and the programmes and labs that make them happen.</p>
+          <div class="btn-row hero__actions">
+            <a class="btn btn--volt" href={u("/work")}>See the work <span class="arrow">↗</span></a>
+            <a class="btn" href={u("/about")}>About me</a>
+          </div>
+        </div>
+        <span class="hero__scroll">Scroll</span>
+      </div>
+    </div>
+  </section>
+
+  <Marquee items={site.clients} />
+
+  <section class="section">
+    <div class="container grid grid-2" style="align-items:start">
+      <div data-reveal>
+        <p class="eyebrow">Hello</p>
+        <p class="lead">I build things at the point where creativity and technology collide.</p>
+        {hasPortrait && (
+          <figure class="portrait portrait--home">
+            <img src={u("/img/pete.jpg")} alt="Pete Woodbridge" loading="lazy" decoding="async" />
+          </figure>
+        )}
+      </div>
+      <div class="prose" data-reveal>
+        <p>I'm Pete Woodbridge, a creative engineer, technologist and innovation lead. I work on software, realtime production, immersive experiences, creative AI and the workflows that sit underneath them, for brands, artists, studios and regions.</p>
+        <p>Right now that means leading the Digital &amp; Technology Cluster for the Liverpool City Region, directing the <a href={site.dreamlab} target="_blank" rel="noopener">Dreamlab</a> R&amp;D collective, and writing <a href={site.dreamMachine.book} target="_blank" rel="noopener">Dream Machine</a>, a living book about AI and the next creative economy.</p>
+        <p>Before that: R&amp;D lead on a £7.2m music innovation programme, innovation director at MediaCity, and hands-on technologist on LED stages, projection-mapped stadiums and mixed-reality games.</p>
+      </div>
+    </div>
+    <div class="container" style="margin-top:clamp(48px,6vw,96px)">
+      <div class="stats stagger" data-reveal>
+        {stats.map((s, i) => (
+          <div class="stat" style={`--i:${i}`}>
+            <div class="stat__num">{s.num}</div>
+            <div class="stat__label">{s.label}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line" id="work">
+    <div class="container">
+      <div class="grid grid-2" style="align-items:end; margin-bottom: clamp(32px,4vw,64px)">
+        <div data-reveal>
+          <p class="eyebrow">Selected work</p>
+          <h2 class="display h-lg">Labs, stages, programmes &amp; playable things</h2>
+        </div>
+        <p class="lead muted" data-reveal>Eight places where the work happened. Each one links out to the projects, people and partners involved.</p>
+      </div>
+      <div class="work-grid">
+        {projects.map((p, i) => <WorkCard project={p} index={i} />)}
+      </div>
+      <div style="margin-top:clamp(32px,4vw,56px)">
+        <a class="btn" href={u("/work")}>All work <span class="arrow">↗</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section inverted">
+    <div class="container">
+      <p class="eyebrow" data-reveal>What I do</p>
+      <h2 class="display h-lg" data-reveal style="max-width: 14ch; margin-bottom: clamp(32px,4vw,64px)">Four things, done properly.</h2>
+      <div class="pillars stagger" data-reveal>
+        {pillars.map((p, i) => (
+          <div class="pillar" style={`--i:${i}`}>
+            <div class="pillar__num">0{i + 1}</div>
+            <h3>{p.t}</h3>
+            <p>{p.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container feature">
+      <div data-reveal>
+        <p class="eyebrow">Now</p>
+        <h2 class="display h-md" style="margin-bottom:1.2rem">Digital &amp; Technology Cluster Lead, Liverpool City Region.</h2>
+        <div class="prose">
+          <p>My newest role: working with the region's businesses, universities, investors and talent to grow one of the UK's fastest-moving digital and technology economies. It follows the MusicFutures programme and the Immersive Liverpool network I founded in 2018, and it is the job I've been building towards for a long time.</p>
+          <p>I also direct <a href={site.dreamlab} target="_blank" rel="noopener">Dreamlab</a> and publish <a href={site.dreamMachine.newsletter} target="_blank" rel="noopener">Dream Machine</a>, a newsletter, <a href={site.dreamMachine.podcast} target="_blank" rel="noopener">podcast</a> and book tracking what AI is doing to film, music, games and media. It has been picked up by <a href="https://www.economist.com/business/2026/08/04/hollywood-is-entering-its-ai-era" target="_blank" rel="noopener">The Economist</a> and <a href="https://www.fastcompany.com/91568818/our-interest-in-ai-slop-is-hitting-a-ceiling" target="_blank" rel="noopener">Fast Company</a>.</p>
+        </div>
+        <div class="btn-row" style="margin-top:1.4rem">
+          <a class="btn" href={u("/about")}>More about me</a>
+          <a class="btn btn--ghost" href={site.dreamMachine.book} target="_blank" rel="noopener">The book <span class="arrow">↗</span></a>
+        </div>
+      </div>
+      <div class="feature__img" data-reveal>
+        <img src={u("/img/dream-machine-book.webp")} alt="Dream Machine: AI and the next creative economy, book and newsletter" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line cta">
+    <div class="container">
+      <h2 class="display h-xl" data-reveal>Let's make something.</h2>
+      <div class="cta__row" data-reveal>
+        <p class="lead measure muted">Commissions, consultancy, R&amp;D collaborations, talks, or just an idea you want to test on someone who has probably tried it once already.</p>
+        <a class="btn btn--volt" href={u("/contact")}>Get in touch <span class="arrow">↗</span></a>
+      </div>
+    </div>
+  </section>
+</Base>
