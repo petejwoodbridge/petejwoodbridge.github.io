@@ -7,7 +7,7 @@ import sitemap from "@astrojs/sitemap";
  * are all built from this, so it must match the real domain once it is live.
  * Set SITE_URL in your host's environment (Netlify/Vercel/Cloudflare) or edit the fallback below.
  */
-const SITE_URL = process.env.SITE_URL || "https://petewoodbridge.com";
+const SITE_URL = process.env.SITE_URL || "https://petejwoodbridge.github.io";
 
 /**
  * The sub-path the site is served from. "/" for a custom domain or a `<user>.github.io` repo;

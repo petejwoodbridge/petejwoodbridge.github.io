@@ -21,17 +21,24 @@ const person = {
   "@type": "Person",
   "@id": new URL("/#pete", base).toString(),
   name: site.name,
+  alternateName: site.alternateNames,
   givenName: "Pete",
   familyName: "Woodbridge",
   url: base.toString(),
-  jobTitle: site.role,
+  ...(site.portrait ? { image: new URL(u(site.portrait), base).toString() } : {}),
+  jobTitle: site.jobTitles,
   description: site.description,
   sameAs: site.profiles,
-  address: { "@type": "PostalAddress", addressLocality: "Liverpool", addressCountry: "GB" },
-  knowsAbout: [
-    "Creative technology", "Artificial intelligence", "Realtime production", "Virtual production",
-    "Immersive experiences", "Projection mapping", "Unreal Engine", "Innovation strategy", "Research and development",
-  ],
+  address: { "@type": "PostalAddress", addressLocality: "Liverpool", addressRegion: "Merseyside", addressCountry: "GB" },
+  homeLocation: { "@type": "Place", name: "Liverpool, United Kingdom" },
+  workLocation: site.areasServed.map((a) => ({ "@type": "Place", name: a })),
+  hasOccupation: {
+    "@type": "Occupation",
+    name: "Creative Technologist",
+    occupationLocation: { "@type": "City", name: "Liverpool" },
+    skills: site.expertise.join(", "),
+  },
+  knowsAbout: site.expertise,
 };
 /** Schema.org wants absolute URLs. Resolve any "/path" or "#id" in url/item/@id fields against the site root. */
 function absolutise(node: unknown): unknown {

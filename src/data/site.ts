@@ -1,10 +1,42 @@
 export const site = {
   name: "Pete Woodbridge",
+  // People search for both forms, and the older press coverage uses "Peter".
+  // These feed the structured data so search engines treat them as the same person.
+  alternateNames: ["Peter Woodbridge", "Pete J Woodbridge", "Peter J Woodbridge"],
   role: "Digital & Technology Cluster Lead, Liverpool City Region",
-  shortRole: "Creative technologist & innovation lead",
+  shortRole: "Creative Technologist",
+  jobTitles: [
+    "Creative Technologist",
+    "Digital & Technology Cluster Lead, Liverpool City Region",
+    "Innovation Director",
+    "Creative Producer",
+  ],
   location: "Liverpool, UK",
+  // Where the work actually happens. Used for location signals in structured data.
+  areasServed: ["Liverpool", "Liverpool City Region", "Manchester", "North West England", "United Kingdom"],
   description:
-    "Pete Woodbridge is a creative technologist and innovation lead working across creative AI, realtime production, immersive experiences and the programmes that make them happen. Digital & Technology Cluster Lead for the Liverpool City Region.",
+    "Pete Woodbridge is a creative technologist in Liverpool working across creative AI, virtual production, immersive experiences and realtime technology. Digital & Technology Cluster Lead for the Liverpool City Region, and director of the Dreamlab R&D collective.",
+  // The things people actually search for when they need this kind of work.
+  expertise: [
+    "Creative technology",
+    "Creative AI",
+    "Virtual production",
+    "In-camera VFX (ICVFX)",
+    "Immersive experiences",
+    "Projection mapping",
+    "Interactive installations",
+    "Realtime production",
+    "Unreal Engine",
+    "Motion capture",
+    "Volumetric capture",
+    "Mixed reality",
+    "Augmented reality",
+    "Games engines",
+    "Experiential technology",
+    "Innovation strategy",
+    "Research and development",
+    "Creative industries policy",
+  ],
   // TODO: add the email address you want on the contact page. Leave empty to hide the email button.
   email: "",
   // Portrait shown on the homepage and About page. Set to "" to hide it.
