@@ -19,6 +19,10 @@ export interface Project {
   cardVideo: string;
   size: "lg" | "md";
   tier?: "main" | "more";
+  /** Short label for the card, so every card's role line is a similar length. */
+  cardRole?: string;
+  /** A few recognisable names from that role, best known first. */
+  clients?: string[];
 }
 
 export const projects: Project[] = [
@@ -29,9 +33,9 @@ export const projects: Project[] = [
     orgUrl: "https://musicfutures.co.uk/",
     role: "R&D & Innovation Lead",
     period: "2025 – 2026",
-    tagline: "A £7.2 million programme to make the Liverpool City Region a global hub for music innovation, research and technology.",
+    tagline: "Building a £7.2 million programme so that artists, researchers and companies across the Liverpool City Region could get on and innovate.",
     intro:
-      "MusicFutures is a £7.2m research and business innovation programme funded by the Arts and Humanities Research Council and UK Research and Innovation. I helped the region win it, then helped build it.",
+      "MusicFutures is a £7.2m research and business innovation programme funded by the Arts and Humanities Research Council and UK Research and Innovation. I helped the region win it, then helped build the machinery that hands that money and support to other people.",
     body: [
       "MusicFutures brings together artists, researchers, entrepreneurs, SMEs and industry partners to position the Liverpool City Region as a global hub for music innovation. It was awarded £6.75m of AHRC funding plus industry co-investment over five years from 2025, working with 27 regional and national partners across universities, industry and regional stakeholders.",
       "My role sat at the centre of it: innovation strategy, technical research and development, funding programmes and cross-sector collaboration. The emphasis throughout was creative technology, immersive experiences, realtime production and AI-driven workflows, and how the next generation of music experiences gets made, distributed and paid for.",
@@ -54,6 +58,8 @@ export const projects: Project[] = [
     poster: "/video/musicfutures.jpg",
     card: "/img/card-musicfutures.webp",
     cardVideo: "/video/musicfutures-card.mp4",
+    cardRole: "Innovation Lead",
+    clients: ["AHRC", "UKRI", "University of Liverpool"],
     size: "lg",
   },
   {
@@ -63,9 +69,9 @@ export const projects: Project[] = [
     orgUrl: "https://dreamlab.org.uk/",
     role: "Director",
     period: "2024 – present",
-    tagline: "An R&D lab and collective of 40+ experts working across future media, AI, experiential technology and realtime innovation.",
+    tagline: "A lab and collective of 40+ experts, built so that independent innovators have somewhere to develop future media, AI and realtime work.",
     intro:
-      "Dreamlab is a research and development lab and collective based across MediaCity, Manchester, Liverpool and Cumbria. I direct it. We work with companies and innovators pushing the boundaries of media.",
+      "Dreamlab is a research and development lab and collective based across MediaCity, Manchester, Liverpool and Cumbria. I direct it. It exists to give independent studios, freelancers and innovators the room, kit and collaborators to push the boundaries of media, which is far harder to come by on your own.",
     body: [
       "The lab grew out of the MediaCity innovation programme and now supports innovation projects, IP development and initiatives across games, film and TV, music, animation, health, education and the creator economy. Our team of <a href=\"https://dreamlab.org.uk/team/\" target=\"_blank\" rel=\"noopener\">40+ experts</a> covers games-engine development in Unreal, Unity and the web; software architecture and deployment; AI product development across animation, 3D and sound; realtime and AI content workflows for film, TV, VFX and animation; immersive experiences and live-events technology; virtual production; 3D art; sensor-based and playable media; and training.",
       "Since launching in June 2024 the lab has assisted over 100 businesses and freelancers, helping them shape commercially viable innovations, win new work and solve day-to-day technical and market challenges. It is, arguably, the most diverse tech lab in any university in the UK, and it has hosted the Department for Science, Innovation and Technology more than once.",
@@ -98,6 +104,8 @@ export const projects: Project[] = [
     poster: "/video/dreamlab.jpg",
     card: "/img/card-dreamlab.webp",
     cardVideo: "/video/dreamlab-card.mp4",
+    cardRole: "Director",
+    clients: ["Meta", "Roblox", "Dock10", "MSG Sphere"],
     size: "md",
   },
   {
@@ -107,9 +115,9 @@ export const projects: Project[] = [
     orgUrl: "https://www.mediacityuk.co.uk/immersive-technologies-innovation-hub/",
     role: "R&D Innovation Director",
     period: "2023 – 2025",
-    tagline: "35+ funded R&D collaborations and over £2.7m into innovation and regional SMEs, within a year.",
+    tagline: "Backing other people's innovation: 35+ funded R&D collaborations and over £2.7m into regional companies, within a year.",
     intro:
-      "MediaCity is the biggest concentration of creative, media and tech businesses outside London: home to the BBC, ITV, Dock10, the University of Salford and 250+ businesses. I directed R&D and innovation for its Immersive Technologies Innovation Hub, a £3.2m accelerator programme.",
+      "MediaCity is the biggest concentration of creative, media and tech businesses outside London: home to the BBC, ITV, Dock10, the University of Salford and 250+ businesses. I directed R&D and innovation for its Immersive Technologies Innovation Hub, a £3.2m accelerator. The job was not to build the work myself, but to find the people with the good idea and get them funded, supported and shipped.",
     body: [
       "The hub supports a community of businesses shaping the future of media: immersive experiences, virtual production, sound and gaming technology. My job was to identify and support innovation across a portfolio of projects. Within a year we had built a portfolio of over 35 collaborative projects with the Manchester creative and tech community, with combined public and private investment of over £2.7m going directly into innovation and regional SMEs, alongside hundreds of business assists.",
       "Alongside the portfolio I ran community and talent development: events, hacks and labs with partners including Manchester Animation Festival, Beyond Conference, Creative UK, FutureEverything and Oxford Innovation, from virtual production film hacks to ComfyUI AI jams.",
@@ -170,6 +178,8 @@ export const projects: Project[] = [
     poster: "/video/mediacity.jpg",
     card: "/img/card-mediacity.webp",
     cardVideo: "/video/mediacity-card.mp4",
+    cardRole: "Innovation Director",
+    clients: ["BBC", "ITV", "NVIDIA", "Microsoft", "Dock10"],
     size: "md",
   },
   {
@@ -206,6 +216,8 @@ export const projects: Project[] = [
     poster: "/video/crucial-fx.jpg",
     card: "/img/card-crucial-fx.webp",
     cardVideo: "/video/crucial-fx-card.mp4",
+    cardRole: "Creative Technologist",
+    clients: ["IBM", "Kia", "Costa", "Monster"],
     size: "lg",
   },
   {
@@ -253,6 +265,8 @@ export const projects: Project[] = [
     poster: "/video/pathway.jpg",
     card: "/img/card-pathway.webp",
     cardVideo: "/video/pathway-card.mp4",
+    cardRole: "Creative Producer",
+    clients: ["BBC", "Sony", "McLaren", "ARRI", "Red Bull"],
     size: "lg",
   },
   {
@@ -285,7 +299,39 @@ export const projects: Project[] = [
     poster: "/video/draw-and-code.jpg",
     card: "/img/card-draw-and-code.webp",
     cardVideo: "/video/draw-and-code-card.mp4",
+    cardRole: "Senior R&D Technologist",
+    clients: ["Google", "Sony", "Warner", "Dolby", "Meta"],
     size: "md",
+  },
+  {
+    slug: "room",
+    title: "TMRW Foundation",
+    org: "TMRW Foundation",
+    orgUrl: "https://room3d.com/",
+    role: "Product Director",
+    period: "2020 – 2021",
+    tagline: "Product Director on Room: a browser-based 3D experience platform and a brand-new games engine, built for real people on the web. No goggles necessary.",
+    intro:
+      "Room is a web-based 3D experience platform for immersive events and experiences, built on a new RealityOS engine using WebGL and WebAssembly, and led by Crytek and CryEngine founder Cevat Yerli and a team of rockstars.",
+    body: [
+      "As Product Director I led and worked with teams of developers and engineers across games engine, front end, back end and infrastructure, plus UX designers and 3D artists, on software and experiences using WebGL, AI and more. I supported the roadmap for a bespoke games engine alongside the interactive features, products and patented applications built on top of it.",
+      "Room launched at SXSW in 2021 and went live globally in 2022. Best of all, it works directly in the browser: <a href=\"https://room3d.com/\" target=\"_blank\" rel=\"noopener\">try it</a>.",
+    ],
+    groups: [
+      { title: "Find out more", items: [
+        { label: "Room", url: "https://room3d.com/" },
+        { label: "New Straits Times: video meetings in virtual rooms", url: "https://www.nst.com.my/lifestyle/bots/2021/03/675307/tech-video-meetings-virtual-rooms-will-make-likes-zoom-seem-old-school" },
+        { label: "Tech.eu: Room goes live", url: "https://tech.eu/2022/10/10/bringing-teams-together-again-3d-video-communications-platform-room-goes-live-launches-their-founders-plan" },
+      ] },
+    ],
+    tags: ["Product", "3D web", "Games engine", "Leadership"],
+    video: "/video/room.mp4",
+    poster: "/video/room.jpg",
+    card: "/img/card-room.webp",
+    cardVideo: "/video/room-card.mp4",
+    cardRole: "Product Director",
+    clients: ["Crytek", "SXSW"],
+    size: "lg",
   },
   {
     slug: "xlab-ljmu",
@@ -322,6 +368,8 @@ export const projects: Project[] = [
     poster: "/video/xlab-ljmu.jpg",
     card: "/img/card-xlab-ljmu.webp",
     cardVideo: "/video/xlab-ljmu-card.mp4",
+    cardRole: "Co-Director",
+    clients: ["FACT Liverpool"],
     size: "md",
   },
   {
@@ -349,9 +397,51 @@ export const projects: Project[] = [
     poster: "/video/soda.jpg",
     card: "/img/card-soda.webp",
     cardVideo: "/video/soda-card.mp4",
+    cardRole: "Curriculum Lead",
+    clients: ["Manchester Met"],
     size: "lg",
   },
-  // ---------- second tier ----------
+  {
+    slug: "disruptive-media",
+    title: "Centre for Disruptive Media",
+    org: "Coventry University",
+    orgUrl: "https://disruptivemedia.org.uk/",
+    role: "Project Development Team & Lecturer",
+    period: "2010 - 2015",
+    tagline: "Pioneering digital learning: the UK's first university iTunes site, an early YouTube Edu partnership, and a photography course that lived inside an app.",
+    intro:
+      "Between 2010 and 2015 I worked as part of the project development team at the Centre for Disruptive Media at Coventry University, on innovations in using the web for teaching, research and open learning.",
+    body: [
+      "This included setting up partnerships with Apple and Google to create new ways to connect students to learning content. I created one of the first university iTunes sites in the UK and one of the first YouTube Edu partnerships.",
+      "I developed a number of software applications and innovations, including work featured in Wired, which helped the University win awards for its pioneering research in this area. It is where I built my first augmented reality campaign, and where I did a lot of work on digital publishing and archiving, as co-investigator on several major funded research projects.",
+      "The photography app got the most attention: a free, undergraduate-level class delivered entirely inside an app, covered by the <a href=\"http://www.bjp-online.com/british-journal-of-photography/news/2032274/photography-class-doors-world\" target=\"_blank\" rel=\"noopener\">British Journal of Photography</a>, <a href=\"http://www.professionalphotographer.co.uk/News-and-Reviews/2011/3/Coventry-University-launches-world-s-first-free-class-in-an-app\" target=\"_blank\" rel=\"noopener\">Professional Photographer</a>, <a href=\"http://pdnpulse.com/2011/02/free-undergrad-level-photo-courses-offered-online-and-in-app-by-uk-professor.html\" target=\"_blank\" rel=\"noopener\">PDN Pulse</a> and the <a href=\"http://www.timeshighereducation.co.uk/416937.article\" target=\"_blank\" rel=\"noopener\">Times Higher</a>. The open education work was later written up in a <a href=\"http://repository.jisc.ac.uk/6069/1/JR0041_OPEN_EDUCATION_REPORT_V3.pdf\" target=\"_blank\" rel=\"noopener\">JISC report</a>.",
+      "Alongside the research I taught at <a href=\"https://www.coventry.ac.uk/study-at-coventry/faculties-and-schools/arts-and-humanities/art-and-design/\" target=\"_blank\" rel=\"noopener\">Coventry School of Art and Design</a> on the Digital Media and Culture MA and the Media Production BA, and developed a pioneering <a href=\"https://www.coventry.ac.uk/course-structure/ug/2019-20/fah/digital-media-ba-hons/\" target=\"_blank\" rel=\"noopener\">BA in Digital Media</a>.",
+    ],
+    groups: [
+      { title: "Find out more", items: [
+        { label: "Centre for Disruptive Media", url: "https://disruptivemedia.org.uk/" },
+        { label: "Coventry School of Art and Design", url: "https://www.coventry.ac.uk/study-at-coventry/faculties-and-schools/arts-and-humanities/art-and-design/" },
+        { label: "BA Digital Media", url: "https://www.coventry.ac.uk/course-structure/ug/2019-20/fah/digital-media-ba-hons/" },
+        { label: "JISC open education report (PDF)", url: "http://repository.jisc.ac.uk/6069/1/JR0041_OPEN_EDUCATION_REPORT_V3.pdf" },
+      ] },
+    ],
+    press: [
+      { label: "BBC News: Shakespeare Unplugged", url: "http://www.bbc.co.uk/news/uk-england-coventry-warwickshire-18426672" },
+      { label: "British Journal of Photography: a photography class that opens doors", url: "http://www.bjp-online.com/british-journal-of-photography/news/2032274/photography-class-doors-world" },
+      { label: "Professional Photographer: world's first free class in an app", url: "http://www.professionalphotographer.co.uk/News-and-Reviews/2011/3/Coventry-University-launches-world-s-first-free-class-in-an-app" },
+      { label: "PDN Pulse: free undergraduate photo courses in an app", url: "http://pdnpulse.com/2011/02/free-undergrad-level-photo-courses-offered-online-and-in-app-by-uk-professor.html" },
+      { label: "Times Higher Education", url: "http://www.timeshighereducation.co.uk/416937.article" },
+      { label: "4RFV: the world's first phone app for a media degree", url: "http://www.4rfv.co.uk/industrynews.asp?id=133201" },
+    ],
+    tags: ["Open education", "Digital publishing", "Augmented reality", "Apps", "Teaching"],
+    video: "/video/disruptive-media.mp4",
+    poster: "/video/disruptive-media.jpg",
+    card: "/img/card-disruptive-media.webp",
+    cardVideo: "/video/disruptive-media-card.mp4",
+    cardRole: "Lecturer & R&D",
+    clients: ["Apple", "Google", "BBC", "JISC"],
+    size: "md",
+  },
   {
     slug: "dream-machine",
     tier: "more",
@@ -385,6 +475,8 @@ export const projects: Project[] = [
     poster: "/video/dream-machine.jpg",
     card: "/img/card-dream-machine.webp",
     cardVideo: "/video/dream-machine-card.mp4",
+    cardRole: "Author",
+    clients: ["The Economist", "Fast Company"],
     size: "md",
   },
   {
@@ -415,6 +507,8 @@ export const projects: Project[] = [
     poster: "/video/soundings.jpg",
     card: "/img/card-soundings.webp",
     cardVideo: "/video/soundings-card.mp4",
+    cardRole: "Data & Systems",
+    clients: ["Liverpool City Region"],
     size: "md",
   },
   {
@@ -443,6 +537,8 @@ export const projects: Project[] = [
     poster: "/video/playable.jpg",
     card: "/img/card-qube-smash.webp",
     cardVideo: "/video/playable-card.mp4",
+    cardRole: "Creative Technologist",
+    clients: ["Crucial FX"],
     size: "md",
   },
   {
@@ -475,35 +571,8 @@ export const projects: Project[] = [
     poster: "/video/aardman.jpg",
     card: "/img/card-aardman.webp",
     cardVideo: "/video/aardman-card.mp4",
-    size: "md",
-  },
-  {
-    slug: "room",
-    tier: "more",
-    title: "Room",
-    org: "TMRW Foundation",
-    orgUrl: "https://room3d.com/",
-    role: "Product Director",
-    period: "2020 – 2021",
-    tagline: "A browser-based 3D experience platform and a brand-new games engine, built for real people on the web. No goggles necessary.",
-    intro:
-      "Room is a web-based 3D experience platform for immersive events and experiences, built on a new RealityOS engine using WebGL and WebAssembly, and led by Crytek and CryEngine founder Cevat Yerli and a team of rockstars.",
-    body: [
-      "As Product Director I led and worked with teams of developers and engineers across games engine, front end, back end and infrastructure, plus UX designers and 3D artists, on software and experiences using WebGL, AI and more. I supported the roadmap for a bespoke games engine alongside the interactive features, products and patented applications built on top of it.",
-      "Room launched at SXSW in 2021 and went live globally in 2022. Best of all, it works directly in the browser: <a href=\"https://room3d.com/\" target=\"_blank\" rel=\"noopener\">try it</a>.",
-    ],
-    groups: [
-      { title: "Find out more", items: [
-        { label: "Room", url: "https://room3d.com/" },
-        { label: "New Straits Times: video meetings in virtual rooms", url: "https://www.nst.com.my/lifestyle/bots/2021/03/675307/tech-video-meetings-virtual-rooms-will-make-likes-zoom-seem-old-school" },
-        { label: "Tech.eu: Room goes live", url: "https://tech.eu/2022/10/10/bringing-teams-together-again-3d-video-communications-platform-room-goes-live-launches-their-founders-plan" },
-      ] },
-    ],
-    tags: ["Product", "3D web", "Games engine", "Leadership"],
-    video: "/video/room.mp4",
-    poster: "/video/room.jpg",
-    card: "/img/card-room.webp",
-    cardVideo: "/video/room-card.mp4",
+    cardRole: "Co-investigator",
+    clients: ["Aardman", "AHRC", "UKRI"],
     size: "md",
   },
   {
@@ -531,6 +600,8 @@ export const projects: Project[] = [
     poster: "/video/trailblazers.jpg",
     card: "/img/card-trailblazers.webp",
     cardVideo: "/video/trailblazers-card.mp4",
+    cardRole: "Award",
+    clients: ["Verizon", "Epic Games"],
     size: "md",
   },
   {
@@ -559,6 +630,8 @@ export const projects: Project[] = [
     poster: "/video/bima-100.jpg",
     card: "/img/card-bima-100.webp",
     cardVideo: "/video/bima-100-card.mp4",
+    cardRole: "Award",
+    clients: ["BIMA"],
     size: "md",
   },
 ];

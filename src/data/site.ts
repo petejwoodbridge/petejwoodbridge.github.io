@@ -4,18 +4,20 @@ export const site = {
   // These feed the structured data so search engines treat them as the same person.
   alternateNames: ["Peter Woodbridge", "Pete J Woodbridge", "Peter J Woodbridge"],
   role: "Digital & Technology Cluster Lead, Liverpool City Region",
-  shortRole: "Creative Technologist",
+  shortRole: "Creative technologist & innovation leader",
   jobTitles: [
     "Creative Technologist",
+    "Innovation Leader",
     "Digital & Technology Cluster Lead, Liverpool City Region",
     "Innovation Director",
+    "R&D Lead",
     "Creative Producer",
   ],
   location: "Liverpool, UK",
   // Where the work actually happens. Used for location signals in structured data.
   areasServed: ["Liverpool", "Liverpool City Region", "Manchester", "North West England", "United Kingdom"],
   description:
-    "Pete Woodbridge is a creative technologist in Liverpool working across creative AI, virtual production, immersive experiences and realtime technology. Digital & Technology Cluster Lead for the Liverpool City Region, and director of the Dreamlab R&D collective.",
+    "Pete Woodbridge is a creative technologist and innovation leader in Liverpool. He builds things across creative AI, virtual production and immersive experiences, and builds the programmes, labs and clusters that let other innovators do the same. Digital & Technology Cluster Lead for the Liverpool City Region.",
   // The things people actually search for when they need this kind of work.
   expertise: [
     "Creative technology",
@@ -34,7 +36,10 @@ export const site = {
     "Games engines",
     "Experiential technology",
     "Innovation strategy",
+    "Innovation leadership",
     "Research and development",
+    "Cluster development",
+    "R&D programmes",
     "Creative industries policy",
   ],
   // TODO: add the email address you want on the contact page. Leave empty to hide the email button.

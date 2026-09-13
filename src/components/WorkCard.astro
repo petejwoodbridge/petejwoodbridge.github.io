@@ -4,6 +4,8 @@ import type { Project } from "../data/work";
 interface Props { project: Project; index: number; size?: "lg" | "md"; reveal?: boolean }
 const { project: p, index, size = p.size, reveal = true } = Astro.props;
 const num = String(index + 1).padStart(2, "0");
+// Short label where one is set, so every card's role line stays a similar length.
+const role = p.cardRole ?? p.role.split("·")[0].trim();
 ---
 <a class:list={["card", `card--${size}`]} href={u(`/work/${p.slug}`)} data-reveal={reveal ? "" : undefined} style={`--i:${index % 2}`}>
   <div class="card__media">
@@ -14,10 +16,14 @@ const num = String(index + 1).padStart(2, "0");
     </video>
   </div>
   <div class="card__body">
-    <div>
+    <div class="card__top">
       <h3 class="card__title">{p.title}<span class="arrow" aria-hidden="true">↗</span></h3>
-      <p class="card__tag">{p.tagline}</p>
+      <span class="card__when">{p.period}</span>
     </div>
-    <div class="card__meta"><b>{p.role.split("·")[0].trim()}</b>{p.period}</div>
+    <p class="card__tag">{p.tagline}</p>
+    <p class="card__meta">
+      <span class="card__role">{role}</span>
+      {p.clients && p.clients.length > 0 && <span class="card__clients">{p.clients.join(" · ")}</span>}
+    </p>
   </div>
 </a>

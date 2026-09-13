@@ -131,6 +131,8 @@ a.chip:hover { border-color: var(--volt); color: var(--volt); }
 .vbg--soft .vbg__shade { background: linear-gradient(180deg, rgba(10,10,11,0.75) 0%, rgba(10,10,11,0.55) 50%, var(--bg) 100%); }
 /* for light/white footage: keep the graphic, lose the glare */
 .vbg--dim video, .vbg--dim img { filter: brightness(0.42) contrast(1.08); }
+/* for low-resolution archive footage: soften it on purpose rather than showing the pixels */
+.vbg--blur video, .vbg--blur img { filter: blur(6px) brightness(0.72) saturate(1.05); transform: scale(1.04); }
 
 /* ---------- hero ---------- */
 .hero { position: relative; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; padding-top: 120px; }
@@ -178,16 +180,20 @@ a.chip:hover { border-color: var(--volt); color: var(--volt); }
 .card:hover .card__media img, .card:hover .card__media video, .card.is-playing .card__media video { transform: scale(1.04); }
 .card:hover .card__media video, .card.is-playing .card__media video { opacity: 1; }
 .card__num { position: absolute; top: 14px; left: 16px; z-index: 2; font-family: var(--font-display); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.05em; color: #fff; mix-blend-mode: difference; }
-.card__body { display: flex; justify-content: space-between; gap: 20px; align-items: flex-start; padding-top: 16px; }
+.card__body { padding-top: 16px; }
+.card__top { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
 .card__title { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 2.4vw, 2.3rem); letter-spacing: -0.035em; line-height: 0.95; text-transform: uppercase; }
 .card__title .arrow { display: inline-block; margin-left: 0.25em; color: var(--volt); transition: transform 0.3s var(--ease); }
 .card:hover .card__title .arrow { transform: translate(4px, -4px); }
-.card__tag { margin: 0.5em 0 0; color: var(--muted); max-width: 44ch; }
-.card__meta { flex: 0 1 auto; min-width: 0; max-width: 42%; text-align: right; font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); padding-top: 0.45em; }
-.card__meta b { display: block; color: var(--ink); font-weight: 600; }
+.card__when { flex: none; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.card__tag { margin: 0.6em 0 0; color: var(--muted); max-width: 48ch; }
+/* one fixed size for every card, so the role lines read as a set rather than drifting */
+.card__meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 10px; margin: 0.9em 0 0; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.card__role { color: var(--ink); font-weight: 600; }
+.card__role::after { content: "·"; margin-left: 10px; color: var(--muted); }
+.card__clients { color: var(--muted); }
 @media (max-width: 700px) {
-  .card__body { flex-direction: column; gap: 8px; }
-  .card__meta { max-width: none; text-align: left; padding-top: 0; }
+  .card__top { flex-direction: column; align-items: flex-start; gap: 6px; }
 }
 
 /* ---------- pillars (inverted section) ---------- */

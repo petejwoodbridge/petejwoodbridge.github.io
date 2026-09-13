@@ -17,7 +17,7 @@ const pillars = [
   { t: "Creative AI & realtime", d: "AI-augmented production workflows and tool-building. Not replacing people; making them faster, stranger and better at their thing." },
   { t: "Immersive & live experiences", d: "Projection mapping, tracking, sensors and games engines for rooms, stages, stadiums and streets. Shared experiences at scale." },
   { t: "Virtual production", d: "LED volumes, in-camera VFX, motion capture and volumetric pipelines, from a garage set-up to a 6,000 sq ft stage." },
-  { t: "Innovation leadership", d: "Programmes, clusters, labs and funding: turning a region's talent and ideas into projects, products and companies." },
+  { t: "Innovation leadership", d: "The part people see less of. Programmes, clusters, labs and funding that turn a region's talent and ideas into real projects, products and companies. Creating the conditions, not just the work." },
 ];
 
 const homeSchema = {
@@ -41,11 +41,11 @@ const homeSchema = {
   <section class="hero">
     <VideoBg src={u("/video/hero.mp4")} srcSm={u("/video/hero-720.mp4")} poster={u("/video/hero.jpg")} />
     <div class="container hero__inner">
-      <p class="eyebrow">Pete Woodbridge · Creative technologist · Liverpool City Region</p>
+      <p class="eyebrow">Pete Woodbridge · Creative technologist &amp; innovation leader · Liverpool</p>
       <h1 class="display h-xl">Making the future</h1>
       <div class="hero__meta">
         <div>
-          <p class="hero__sub">Twenty years building the things that come next: creative AI, realtime production, immersive experiences, and the programmes and labs that make them happen.</p>
+          <p class="hero__sub">Twenty years building the things that come next, and building the programmes, labs and clusters that let other people build theirs.</p>
           <div class="btn-row hero__actions">
             <a class="btn btn--volt" href={u("/work")}>See the work <span class="arrow">↗</span></a>
             <a class="btn" href={u("/about")}>About me</a>
@@ -62,7 +62,7 @@ const homeSchema = {
     <div class="container grid grid-2" style="align-items:start">
       <div data-reveal>
         <p class="eyebrow">Hello</p>
-        <p class="lead">I build things at the point where creativity and technology collide.</p>
+        <p class="lead">I build things where creativity and technology collide, and I build the conditions for other people to do the same.</p>
         {site.portrait && (
           <figure class="portrait portrait--home">
             <img src={u(site.portrait)} alt="Pete Woodbridge, creative technologist based in Liverpool" width="400" height="400" loading="lazy" decoding="async" />
@@ -70,9 +70,9 @@ const homeSchema = {
         )}
       </div>
       <div class="prose" data-reveal>
-        <p>I'm Pete Woodbridge, a creative engineer, technologist and innovation lead. I work on software, realtime production, immersive experiences, creative AI and the workflows that sit underneath them, for brands, artists, studios and regions.</p>
+        <p>I'm Pete Woodbridge, a creative technologist and innovation leader. I still make things: software, realtime production, immersive experiences, creative AI and the workflows underneath them. I spend just as much time on the other side of it, designing the programmes, funding and labs that get other innovators the backing they need.</p>
         <p>Right now that means leading the Digital &amp; Technology Cluster for the Liverpool City Region, directing the <a href={site.dreamlab} target="_blank" rel="noopener">Dreamlab</a> R&amp;D collective, and writing <a href={site.dreamMachine.book} target="_blank" rel="noopener">Dream Machine</a>, a living book about AI and the next creative economy.</p>
-        <p>Before that: R&amp;D lead on a £7.2m music innovation programme, innovation director at MediaCity, and hands-on technologist on LED stages, projection-mapped stadiums and mixed-reality games.</p>
+        <p>Before that: R&amp;D lead on a £7.2m music innovation programme, innovation director at MediaCity backing 35+ collaborations, and hands-on technologist on LED stages, projection-mapped stadiums and mixed-reality games. Both halves of the job, in other words.</p>
       </div>
     </div>
     <div class="container" style="margin-top:clamp(48px,6vw,96px)">
@@ -94,7 +94,7 @@ const homeSchema = {
           <p class="eyebrow">Selected work</p>
           <h2 class="display h-lg">Labs, stages, programmes &amp; playable things</h2>
         </div>
-        <p class="lead muted" data-reveal>Eight places where the work happened. Each one links out to the projects, people and partners involved.</p>
+        <p class="lead muted" data-reveal>Ten places where the work happened, and some of the names involved. Each one links out to the projects and partners.</p>
       </div>
       <div class="work-grid">
         {projects.map((p, i) => <WorkCard project={p} index={i} />)}
@@ -133,7 +133,7 @@ const homeSchema = {
         <p class="eyebrow">Now</p>
         <h2 class="display h-md" style="margin-bottom:1.2rem">Digital &amp; Technology Cluster Lead, Liverpool City Region.</h2>
         <div class="prose">
-          <p>My newest role: working with the region's businesses, universities, investors and talent to grow one of the UK's fastest-moving digital and technology economies. It follows the MusicFutures programme and the Immersive Liverpool network I founded in 2018, and it is the job I've been building towards for a long time.</p>
+          <p>My newest role, and the clearest version of what I do: working with the region's businesses, universities, investors and talent to grow one of the UK's fastest-moving digital and technology economies. Less about what I build myself, more about what becomes possible for everyone else. It follows the MusicFutures programme and the Immersive Liverpool network I founded in 2018.</p>
           <p>I also direct <a href={site.dreamlab} target="_blank" rel="noopener">Dreamlab</a> and publish <a href={site.dreamMachine.newsletter} target="_blank" rel="noopener">Dream Machine</a>, a newsletter, <a href={site.dreamMachine.podcast} target="_blank" rel="noopener">podcast</a> and book tracking what AI is doing to film, music, games and media. It has been picked up by <a href="https://www.economist.com/business/2026/08/04/hollywood-is-entering-its-ai-era" target="_blank" rel="noopener">The Economist</a> and <a href="https://www.fastcompany.com/91568818/our-interest-in-ai-slop-is-hitting-a-ceiling" target="_blank" rel="noopener">Fast Company</a>.</p>
         </div>
         <div class="btn-row" style="margin-top:1.4rem">
