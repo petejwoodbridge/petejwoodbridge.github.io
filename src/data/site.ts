@@ -70,5 +70,5 @@ export const site = {
     "Sony", "Warner", "United Nations", "Meta", "Dolby", "ARRI", "McLaren", "Kia", "Monster", "Costa",
     "The FA", "Sport England", "Virgin", "JISC", "Granada TV",
   ],
-  funders: ["AHRC", "UKRI", "Innovate UK", "Arts Council England", "Heritage Lottery Fund", "Digital Catapult", "UNDP", "HEFCE", "JISC"],
+  funders: ["AHRC", "UKRI", "EPSRC", "Innovate UK", "Arts Council England", "Heritage Lottery Fund", "Digital Catapult", "CoSTAR", "UNDP", "HEFCE", "JISC"],
 };
