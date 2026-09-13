@@ -15,27 +15,26 @@ Requires Node 22+.
 
 ## Publish it on GitHub Pages
 
-The repo is set up to deploy itself. Push this folder to an empty GitHub repo:
+The repo is set up to deploy itself. On GitHub, name the repo exactly `petejwoodbridge.github.io`
+(rename the existing empty `site` repo, or create a new one). That makes it your GitHub user site, which
+serves from the root rather than a sub-path. Then push:
 
 ```bash
 git push -u origin main
 ```
 
-The remote is already pointed at `github.com/petejwoodbridge/site`, which publishes to
-`https://petejwoodbridge.github.io/site/`. The repo name becomes part of the address, so if you would rather
-it read `/petewoodbridge/`, rename the repo in Settings first and update the remote. Naming the repo
-`petejwoodbridge.github.io` instead drops the sub-path entirely and serves from the root.
-
 That is it. The workflow switches Pages on by itself the first time it runs, so there is nothing to
 click in Settings. Every later push to `main` rebuilds and republishes.
 
 Watch the first run under the repo's **Actions** tab. It takes a couple of minutes; the published address
-appears on the `deploy` job when it finishes, and also under Settings → Pages. The workflow in
-`.github/workflows/deploy.yml` reads the real published URL from your Pages settings and feeds it into the
-build, so canonical tags, the sitemap and social cards always match where the site actually lives.
+appears on the `deploy` job when it finishes, and also under Settings → Pages. The workflow reads the real
+published URL from your Pages settings and feeds it into the build, so canonical tags, the sitemap and
+social cards always match where the site actually lives.
 
-Because the site sits on a sub-path rather than a domain root, every internal link and asset is written
-through the `u()` helper in `src/lib/url.ts`.
+The site will be at **https://petejwoodbridge.github.io**.
+
+Every internal link and asset is written through the `u()` helper in `src/lib/url.ts`. At the domain root
+it does nothing, but it means the site still works unchanged if it ever moves to a sub-path.
 **If you add a link or an image, wrap its path in `u()`** or it will break once published:
 
 ```astro
