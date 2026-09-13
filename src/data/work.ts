@@ -310,12 +310,14 @@ export const projects: Project[] = [
     orgUrl: "https://www.tmrw.com/",
     role: "Product Director",
     period: "2020 – 2021",
-    tagline: "Product Director on Room: a browser-based 3D experience platform and a brand-new games engine, built for real people on the web. No goggles necessary.",
+    tagline: "Product Director on a state-of-the-art web-based realtime games engine, and the 3D experience platform built on top of it. No goggles necessary.",
     intro:
-      "Room is a web-based 3D experience platform for immersive events and experiences, built on a new RealityOS engine using WebGL and WebAssembly, and led by Crytek and CryEngine founder Cevat Yerli and a team of rockstars.",
+      "Foundational software engineering for 3D web engine applications, headed up by Crytek and CryEngine founder Cevat Yerli and a rock star team of engineers and designers.",
     body: [
-      "As Product Director I led and worked with teams of developers and engineers across games engine, front end, back end and infrastructure, plus UX designers and 3D artists, on software and experiences using WebGL, AI and more. I supported the roadmap for a bespoke games engine alongside the interactive features, products and patented applications built on top of it.",
-      "Room launched at SXSW in 2021 and went live globally in 2022. Best of all, it works directly in the browser: <a href=\"https://room3d.com/\" target=\"_blank\" rel=\"noopener\">try it</a>.",
+      "My work covered AI, WebAssembly, optimisation and UX innovation: the deep engineering that has to be right before anything built on top of it can feel effortless. Room, the platform it produced, puts immersive events and experiences in 3D directly in a browser, on a new RealityOS engine built with WebGL and WebAssembly. The aim throughout was a metaverse for real people on the open web, with no goggles necessary.",
+      "That work supported the development of several products, plus R&D and patents, with 200+ company patents pending by the time I left. It produced pioneering WebAssembly software features, tools and experiences, and a brand new, state-of-the-art web-based realtime games engine.",
+      "I led and directed agile engineering teams, both internal and outsourced, across the globe: games engine, front end, back end and infrastructure developers alongside UX designers and 3D artists.",
+      "Room launched at SXSW in 2021 and went live globally in 2022. Best of all, it runs straight in the browser: <a href=\"https://room3d.com/\" target=\"_blank\" rel=\"noopener\">try it</a>.",
     ],
     groups: [
       { title: "Find out more", items: [
@@ -325,7 +327,7 @@ export const projects: Project[] = [
         { label: "Tech.eu: Room goes live", url: "https://tech.eu/2022/10/10/bringing-teams-together-again-3d-video-communications-platform-room-goes-live-launches-their-founders-plan" },
       ] },
     ],
-    tags: ["Product", "3D web", "Games engine", "Leadership"],
+    tags: ["Product leadership", "3D web", "Games engine", "WebAssembly", "Patents", "Engineering teams"],
     video: "/video/room.mp4",
     poster: "/video/room.jpg",
     card: "/img/card-room.webp",
