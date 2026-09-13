@@ -61,9 +61,22 @@ export const site = {
   },
   nav: [
     { label: "Work", href: "/work" },
-    { label: "About", href: "/about" },
+    {
+      label: "About",
+      href: "/about",
+      // The parent stays clickable; the first child repeats it, because people
+      // hovering a menu do not always think to click the heading.
+      children: [
+        { label: "About", href: "/about" },
+        { label: "Speaking", href: "/speaking" },
+        { label: "Press", href: "/press" },
+        { label: "R&D", href: "/research" },
+        { label: "Events", href: "/events" },
+        { label: "Teaching", href: "/teaching" },
+      ],
+    },
     { label: "Contact", href: "/contact" },
-  ],
+  ] as { label: string; href: string; children?: { label: string; href: string }[] }[],
   clients: [
     "BBC", "ITV", "Aardman", "Google", "Intel", "Apple", "BT", "Red Bull", "NHS", "IBM", "Epic Games",
     "Sony", "Warner", "United Nations", "Meta", "Dolby", "ARRI", "McLaren", "Kia", "Monster", "Costa",

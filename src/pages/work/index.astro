@@ -3,6 +3,8 @@ import { u } from "../../lib/url";
 import Base from "../../layouts/Base.astro";
 import VideoBg from "../../components/VideoBg.astro";
 import WorkCard from "../../components/WorkCard.astro";
+import Marquee from "../../components/Marquee.astro";
+import { site } from "../../data/site";
 import { mainProjects, moreProjects } from "../../data/work";
 import experiments from "../../data/experiments.json";
 const withVideo = experiments.filter((e) => e.video).slice(0, 6);
@@ -37,6 +39,8 @@ const workSchema = {
       <p class="hero__sub">Some of the places where the work happened, and the projects, partners and people involved. Freelance, contracts and more.</p>
     </div>
   </section>
+
+  <Marquee items={site.clients} />
 
   <section class="section">
     <div class="container">

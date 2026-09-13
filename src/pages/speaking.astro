@@ -1,0 +1,103 @@
+---
+import { u } from "../lib/url";
+import Base from "../layouts/Base.astro";
+import VideoBg from "../components/VideoBg.astro";
+import speaking from "../data/speaking.json";
+
+// newest first, grouped by year
+const years = [...new Set(speaking.map((s) => s.year))].filter(Boolean).sort().reverse();
+const byYear = years.map((y) => ({ year: y, items: speaking.filter((s) => s.year === y) }));
+const undated = speaking.filter((s) => !s.year);
+
+const schema = {
+  "@type": "CollectionPage",
+  name: "Speaking by Pete Woodbridge",
+  mainEntity: {
+    "@type": "ItemList",
+    numberOfItems: speaking.length,
+    itemListElement: speaking.slice(0, 40).map((s, i) => ({
+      "@type": "ListItem", position: i + 1, name: s.text.slice(0, 110),
+    })),
+  },
+};
+---
+<Base
+  title="Speaking"
+  description={`Talks, panels, keynotes and workshops by Pete Woodbridge: ${speaking.length} appearances at national and international conferences on creative AI, virtual production, immersive technology and innovation.`}
+  image="/img/og/speaking.jpg"
+  schema={schema}
+>
+  <section class="hero hero--short">
+    <VideoBg src={u("/video/speaking.mp4")} poster={u("/video/speaking.jpg")} soft />
+    <div class="container hero__inner">
+      <p class="eyebrow">Speaking</p>
+      <h1 class="display h-xl">Talks, panels &amp; workshops</h1>
+      <p class="hero__sub">{speaking.length} appearances at national and international conferences, on creative AI, virtual production, immersive technology and how innovation actually gets done.</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container">
+      <p class="lead muted measure" data-reveal>
+        I speak and chair panels regularly, and run practical workshops. If you are programming an event and think
+        I would be useful, <a href={u("/contact")} style="text-decoration:underline">get in touch</a>.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container">
+      {byYear.map((group) => (
+        <div class="yr" data-reveal>
+          <h2 class="yr__year display">{group.year}</h2>
+          <ul class="yr__list">
+            {group.items.map((item) => (
+              <li class="talk">
+                <p class="talk__text">{item.text}</p>
+                {item.links.length > 0 && (
+                  <p class="talk__links">
+                    {item.links.map((l) => (
+                      <a href={l.url} target="_blank" rel="noopener">{l.label} <span aria-hidden="true">↗</span></a>
+                    ))}
+                  </p>
+                )}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+      {undated.length > 0 && (
+        <div class="yr" data-reveal>
+          <h2 class="yr__year display">Also</h2>
+          <ul class="yr__list">
+            {undated.map((item) => <li class="talk"><p class="talk__text">{item.text}</p></li>)}
+          </ul>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <section class="section section--line cta">
+    <div class="container">
+      <h2 class="display h-lg" data-reveal>Need a speaker?</h2>
+      <div class="cta__row" data-reveal>
+        <p class="lead measure muted">Conferences, panels, workshops and teaching. I am happiest when it is practical and there is something to argue about.</p>
+        <a class="btn btn--volt" href={u("/contact")}>Get in touch <span class="arrow">↗</span></a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .yr { display: grid; grid-template-columns: 120px 1fr; gap: clamp(16px, 3vw, 48px); padding: 28px 0; border-top: 1px solid var(--line); }
+  .yr__year { font-size: clamp(1.6rem, 3vw, 2.6rem); color: var(--volt); line-height: 1; }
+  .yr__list { display: flex; flex-direction: column; gap: 22px; }
+  .talk__text { margin: 0; font-size: 1.05rem; line-height: 1.5; max-width: 72ch; }
+  .talk__links { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 0; }
+  .talk__links a {
+    font-size: 0.84rem; font-weight: 600; padding: 0.42em 0.9em;
+    border: 1px solid var(--line); border-radius: 999px; transition: border-color 0.2s, color 0.2s;
+  }
+  .talk__links a:hover { border-color: var(--volt); color: var(--volt); }
+  @media (max-width: 700px) { .yr { grid-template-columns: 1fr; gap: 12px; } }
+</style>

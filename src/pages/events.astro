@@ -1,0 +1,98 @@
+---
+import { u } from "../lib/url";
+import Base from "../layouts/Base.astro";
+import VideoBg from "../components/VideoBg.astro";
+import events from "../data/events.json";
+
+const schema = {
+  "@type": "CollectionPage",
+  name: "Events organised by Pete Woodbridge",
+  mainEntity: {
+    "@type": "ItemList",
+    numberOfItems: events.length,
+    itemListElement: events.map((e, i) => ({
+      "@type": "ListItem", position: i + 1, name: e.title,
+      ...(e.description ? { description: e.description } : {}),
+      ...(e.url ? { url: e.url } : {}),
+    })),
+  },
+};
+---
+<Base
+  title="Events"
+  description="Events, labs, hacks and conferences organised by Pete Woodbridge, founder of the Immersive Liverpool network, bringing national and international speakers to the North West."
+  image="/img/og/events.jpg"
+  schema={schema}
+>
+  <section class="hero hero--short">
+    <VideoBg src={u("/video/events.mp4")} poster={u("/video/events.jpg")} soft />
+    <div class="container hero__inner">
+      <p class="eyebrow">Events</p>
+      <h1 class="display h-xl">Things I put on</h1>
+      <p class="hero__sub">Meetups, labs, hacks, symposia and conferences for the creative tech community in the North West.</p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container">
+      <p class="lead measure" data-reveal>
+        I set up <a href="https://www.meetup.com/immersive-liverpool/" target="_blank" rel="noopener" style="text-decoration:underline">Immersive Liverpool</a>
+        in 2018 and have run events for the creative tech community ever since, bringing national and international
+        speakers, workshops and conferences to the region.
+      </p>
+      <p class="muted measure" data-reveal style="margin-top:1rem">
+        Get in touch if you would like to help run something.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--tight">
+    <div class="container">
+      <div class="ev-grid">
+        {events.map((e) => {
+          const Tag = e.url ? "a" : "div";
+          return (
+            <Tag
+              class="ev"
+              data-reveal
+              {...(e.url ? { href: e.url, target: "_blank", rel: "noopener" } : {})}
+            >
+              <div class="ev__media">
+                <img src={u(e.image)} alt={e.title} loading="lazy" decoding="async" />
+              </div>
+              <div class="ev__body">
+                <h2 class="ev__title">{e.title}{e.url && <span class="arrow" aria-hidden="true"> ↗</span>}</h2>
+                {e.description && <p class="ev__desc">{e.description}</p>}
+              </div>
+            </Tag>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line cta">
+    <div class="container">
+      <h2 class="display h-lg" data-reveal>Want to put something on?</h2>
+      <div class="cta__row" data-reveal>
+        <p class="lead measure muted">I am always up for collaborating on events that get the right people in a room together.</p>
+        <a class="btn btn--volt" href={u("/contact")}>Get in touch <span class="arrow">↗</span></a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .ev-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(18px, 2.5vw, 36px); }
+  @media (max-width: 1000px) { .ev-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 640px) { .ev-grid { grid-template-columns: 1fr; } }
+  .ev { display: block; }
+  .ev__media { position: relative; overflow: hidden; border-radius: 6px; aspect-ratio: 4 / 3; background: var(--bg-2); }
+  .ev__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--ease); }
+  a.ev:hover .ev__media img { transform: scale(1.05); }
+  .ev__body { padding-top: 14px; }
+  .ev__title { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.15rem, 1.7vw, 1.5rem); letter-spacing: -0.03em; line-height: 1; text-transform: uppercase; }
+  .ev__title .arrow { color: var(--volt); display: inline-block; transition: transform 0.3s var(--ease); }
+  a.ev:hover .ev__title .arrow { transform: translate(3px, -3px); }
+  .ev__desc { margin: 0.55em 0 0; color: var(--muted); font-size: 0.95rem; line-height: 1.45; }
+</style>

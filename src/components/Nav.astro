@@ -8,15 +8,31 @@ const isActive = (href: string) => {
   const here = path.replace(/\/$/, "");
   return href === "/" ? here === target : here.startsWith(target);
 };
+// A parent is active when it or any of its children is the current page.
+const branchActive = (n: { href: string; children?: { href: string }[] }) =>
+  isActive(n.href) || (n.children ?? []).some((c) => isActive(c.href));
 ---
 <header class="nav" data-nav>
   <a class="nav__logo" href={u("/")} aria-label="Pete Woodbridge, home">
     <span>Pete</span><span>Woodbridge</span>
   </a>
   <nav class="nav__links" aria-label="Primary">
-    {site.nav.map((n) => (
-      <a href={u(n.href)} class:list={{ "is-active": isActive(n.href) }}>{n.label}</a>
-    ))}
+    {site.nav.map((n) =>
+      n.children ? (
+        <span class="nav__group" data-dropdown>
+          <a href={u(n.href)} class:list={["nav__parent", { "is-active": branchActive(n) }]} aria-expanded="false" aria-haspopup="true">
+            {n.label}<span class="nav__caret" aria-hidden="true">▾</span>
+          </a>
+          <span class="nav__menu" role="group" aria-label={`${n.label} pages`}>
+            {n.children.map((c) => (
+              <a href={u(c.href)} class:list={{ "is-active": isActive(c.href) }}>{c.label}</a>
+            ))}
+          </span>
+        </span>
+      ) : (
+        <a href={u(n.href)} class:list={{ "is-active": isActive(n.href) }}>{n.label}</a>
+      )
+    )}
     <a class="nav__ext" href={site.linkedin} target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
   </nav>
   <button class="nav__burger" data-menu aria-label="Open menu" aria-expanded="false" aria-controls="menu">
@@ -28,7 +44,18 @@ const isActive = (href: string) => {
   <div class="menu__inner">
     <ul class="menu__list">
       <li><a href={u("/")} class="display">Home</a></li>
-      {site.nav.map((n) => <li><a href={u(n.href)} class="display">{n.label}</a></li>)}
+      {site.nav.map((n) => (
+        <li>
+          <a href={u(n.href)} class="display">{n.label}</a>
+          {n.children && (
+            <ul class="menu__sub">
+              {n.children.filter((c) => c.href !== n.href).map((c) => (
+                <li><a href={u(c.href)}>{c.label}</a></li>
+              ))}
+            </ul>
+          )}
+        </li>
+      ))}
     </ul>
     <div class="menu__foot">
       <a href={site.linkedin} target="_blank" rel="noopener" class="btn btn--ghost">LinkedIn ↗</a>
@@ -59,25 +86,96 @@ const isActive = (href: string) => {
     font-size: 1.25rem; line-height: 0.85; display: flex; flex-direction: column;
   }
   .nav__links { display: flex; gap: clamp(18px, 2.4vw, 40px); align-items: center; font-weight: 600; font-size: 0.95rem; }
-  .nav__links a { position: relative; padding-block: 4px; }
-  .nav__links a::after { content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 2px; background: currentColor; transform: scaleX(0); transform-origin: left; transition: transform 0.3s var(--ease); }
-  .nav__links a:hover::after, .nav__links a.is-active::after { transform: scaleX(1); }
+  .nav__links > a, .nav__parent { position: relative; padding-block: 4px; }
+  .nav__links > a::after, .nav__parent::after {
+    content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 2px; background: currentColor;
+    transform: scaleX(0); transform-origin: left; transition: transform 0.3s var(--ease);
+  }
+  .nav__links > a:hover::after, .nav__links > a.is-active::after,
+  .nav__parent:hover::after, .nav__parent.is-active::after { transform: scaleX(1); }
   .nav__ext { opacity: 0.75; }
+  .nav__caret { font-size: 0.62em; margin-left: 0.45em; opacity: 0.7; display: inline-block; transition: transform 0.25s var(--ease); }
+
+  /* ---- dropdown ---- */
+  .nav__group { position: relative; display: inline-flex; }
+  .nav__menu {
+    position: absolute; top: 100%; left: 50%; transform: translate(-50%, 6px);
+    margin-top: 12px; min-width: 190px;
+    display: flex; flex-direction: column;
+    background: rgba(14, 14, 16, 0.94); backdrop-filter: blur(14px);
+    border: 1px solid var(--line); border-radius: 10px; padding: 8px;
+    opacity: 0; visibility: hidden; pointer-events: none;
+    transition: opacity 0.22s var(--ease), transform 0.22s var(--ease), visibility 0.22s;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+  }
+  /* a hit area bridging the gap, so the menu survives the pointer travelling to it */
+  .nav__menu::before { content: ""; position: absolute; inset: -14px 0 auto 0; height: 18px; }
+  .nav__group:hover .nav__menu,
+  .nav__group:focus-within .nav__menu,
+  .nav__group.is-open .nav__menu { opacity: 1; visibility: visible; pointer-events: auto; transform: translate(-50%, 0); }
+  .nav__group:hover .nav__caret, .nav__group.is-open .nav__caret { transform: rotate(180deg); }
+  .nav__menu a {
+    padding: 9px 14px; border-radius: 6px; font-size: 0.9rem; font-weight: 500; white-space: nowrap;
+    transition: background 0.18s, color 0.18s;
+  }
+  .nav__menu a:hover, .nav__menu a:focus-visible { background: rgba(243, 239, 230, 0.1); color: var(--volt); }
+  .nav__menu a.is-active { color: var(--volt); }
+
   .nav__burger { display: none; width: 44px; height: 44px; position: relative; }
   .nav__burger span { position: absolute; left: 10px; right: 10px; height: 2px; background: currentColor; transition: transform 0.3s var(--ease), top 0.3s var(--ease); }
   .nav__burger span:nth-child(1) { top: 17px; }
   .nav__burger span:nth-child(2) { top: 26px; }
   :global(body.menu-open) .nav__burger span:nth-child(1) { top: 21px; transform: rotate(45deg); }
   :global(body.menu-open) .nav__burger span:nth-child(2) { top: 21px; transform: rotate(-45deg); }
-  @media (max-width: 800px) { .nav__links { display: none; } .nav__burger { display: block; } }
+  @media (max-width: 900px) { .nav__links { display: none; } .nav__burger { display: block; } }
 
   .menu {
     position: fixed; inset: 0; z-index: 90; background: var(--bg);
     clip-path: inset(0 0 100% 0); transition: clip-path 0.6s var(--ease); visibility: hidden;
+    overflow-y: auto;
   }
   :global(body.menu-open) .menu { clip-path: inset(0 0 0 0); visibility: visible; }
-  .menu__inner { height: 100%; display: flex; flex-direction: column; justify-content: space-between; padding: 110px var(--gutter) 40px; }
-  .menu__list a { font-size: clamp(3rem, 14vw, 6rem); display: block; padding-block: 0.05em; }
-  .menu__list a:hover { color: var(--volt); }
+  .menu__inner { min-height: 100%; display: flex; flex-direction: column; justify-content: space-between; gap: 32px; padding: 110px var(--gutter) 40px; }
+  .menu__list > li + li { margin-top: 0.1em; }
+  .menu__list a.display { font-size: clamp(2.4rem, 11vw, 4.6rem); display: block; padding-block: 0.04em; }
+  .menu__list a.display:hover { color: var(--volt); }
+  .menu__sub { display: flex; flex-wrap: wrap; gap: 8px 10px; margin: 0.6em 0 1em; }
+  .menu__sub a {
+    font-size: 0.9rem; font-weight: 600; padding: 0.5em 0.95em;
+    border: 1px solid var(--line); border-radius: 999px;
+  }
+  .menu__sub a:hover { border-color: var(--volt); color: var(--volt); }
   .menu__foot { display: flex; flex-direction: column; gap: 16px; }
 </style>
+
+<script>
+  // Touch and keyboard need an explicit toggle; hover alone is a mouse-only affordance.
+  function initDropdowns() {
+    document.querySelectorAll<HTMLElement>("[data-dropdown]").forEach((group) => {
+      const parent = group.querySelector<HTMLAnchorElement>(".nav__parent");
+      if (!parent) return;
+      const coarse = window.matchMedia("(hover: none)").matches;
+      if (coarse) {
+        parent.addEventListener("click", (e) => {
+          if (!group.classList.contains("is-open")) {
+            e.preventDefault();
+            document.querySelectorAll(".nav__group.is-open").forEach((g) => g.classList.remove("is-open"));
+            group.classList.add("is-open");
+            parent.setAttribute("aria-expanded", "true");
+          }
+        });
+      }
+      group.addEventListener("mouseenter", () => parent.setAttribute("aria-expanded", "true"));
+      group.addEventListener("mouseleave", () => { parent.setAttribute("aria-expanded", "false"); group.classList.remove("is-open"); });
+    });
+    document.addEventListener("click", (e) => {
+      if (!(e.target as HTMLElement).closest("[data-dropdown]")) {
+        document.querySelectorAll(".nav__group.is-open").forEach((g) => g.classList.remove("is-open"));
+      }
+    });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") document.querySelectorAll(".nav__group.is-open").forEach((g) => g.classList.remove("is-open"));
+    });
+  }
+  document.addEventListener("astro:page-load", initDropdowns);
+</script>

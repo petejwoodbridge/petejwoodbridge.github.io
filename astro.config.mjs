@@ -22,8 +22,7 @@ export default defineConfig({
   trailingSlash: "ignore",
   integrations: [
     sitemap({
-      // /press is a private reference list: keep it out of search results entirely.
-      filter: (page) => !page.includes("/404") && !page.includes("/press"),
+      filter: (page) => !page.includes("/404"),
       changefreq: "monthly",
       lastmod: new Date(),
       serialize(item) {

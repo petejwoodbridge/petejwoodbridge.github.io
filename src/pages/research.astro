@@ -1,0 +1,110 @@
+---
+import { u } from "../lib/url";
+import Base from "../layouts/Base.astro";
+import VideoBg from "../components/VideoBg.astro";
+import { site } from "../data/site";
+
+const interests = [
+  {
+    t: "Convergent technology",
+    d: "New workflows and experiences that cross screen, sound, experiential and production software, rather than sitting neatly in one of them.",
+  },
+  {
+    t: "AI-augmented production",
+    d: "Workflows and tool-building that use AI to complement people, so they are better at making, learning and experiencing their thing. Not replacing them.",
+  },
+  {
+    t: "Virtual & realtime production",
+    d: "Games engines in film, animation, experiential work and events technology, and what adaptive, participatory and personalised fan experiences become when you have them.",
+  },
+  {
+    t: "Large-scale shared experiences",
+    d: "Sensors, data and tracking used to make interactive experiences that a lot of people can be inside at once.",
+  },
+];
+
+const schema = {
+  "@type": "CollectionPage",
+  name: "Research & development by Pete Woodbridge",
+  mainEntity: { "@id": "#pete" },
+};
+---
+<Base
+  title="R&D"
+  description="Commercially focused research and development by Pete Woodbridge: software prototyping, experimental content R&D, creative AI, realtime production and games engines, plus funded innovation programmes."
+  image="/img/og/research.jpg"
+  schema={schema}
+>
+  <section class="hero hero--short">
+    <VideoBg src={u("/video/research.mp4")} poster={u("/video/research.jpg")} soft />
+    <div class="container hero__inner">
+      <p class="eyebrow">Research &amp; development</p>
+      <h1 class="display h-xl">Working out what's next</h1>
+      <p class="hero__sub">Commercially focused R&amp;D, software prototyping and experimental content work, with the funding and programmes to get it made.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid-2" style="align-items:start">
+      <div data-reveal>
+        <p class="lead">I have had an interest in the future for my whole career, and a habit of building the thing rather than only writing about it.</p>
+      </div>
+      <div class="prose" data-reveal>
+        <p>I do commercially and industry-focused research and development, software prototyping and experimental content R&amp;D. I have worked with a lot of organisations on emerging technology innovations, inventions, patents and new ways of working, and helped set up companies, launch products and get platforms off the ground.</p>
+        <p>Current work spans creative production technology, software engineering, experiential technology, games engines, virtual production, data, AI and music. Since the early 2000s I have mostly been industry based, with spells as a senior researcher and academic at a number of universities.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section inverted">
+    <div class="container">
+      <p class="eyebrow" data-reveal>Particularly interested in</p>
+      <h2 class="display h-lg" data-reveal style="max-width: 16ch; margin-bottom: clamp(32px,4vw,64px)">Four things I keep coming back to.</h2>
+      <div class="pillars stagger" data-reveal>
+        {interests.map((p, i) => (
+          <div class="pillar" style={`--i:${i}`}>
+            <div class="pillar__num">0{i + 1}</div>
+            <h3>{p.t}</h3>
+            <p>{p.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid-2" style="align-items:start">
+      <div data-reveal>
+        <p class="eyebrow">Programmes</p>
+        <h2 class="display h-md">Where the R&amp;D happened</h2>
+      </div>
+      <div class="prose" data-reveal>
+        <p>I am part of the team that developed the <a href={u("/work/musicfutures")}>MusicFutures Creative Cluster</a> in the Liverpool City Region, working with 28 regional and national partners, which won £6.75m plus industry co-investment over five years from 2025.</p>
+        <p>Before that I led R&amp;D and innovation at the <a href={u("/work/mediacity")}>MediaCity Immersive Technologies Innovation Hub</a>, supporting over 35 funded collaborations with industry and hundreds of business assists on a £3.2m accelerator programme.</p>
+        <p>I have worked on research with the University of Liverpool's <a href="http://www.cava-research.org/" target="_blank" rel="noopener">Centre for Architecture and the Visual Arts</a> and at the <a href="https://www.ljmu.ac.uk/research/centres-and-institutes/institute-of-art-and-technology" target="_blank" rel="noopener">Institute of Art and Technology</a> at LJMU, where I co-ran the <a href={u("/work/xlab-ljmu")}>Experimental Technologies Lab</a>, winning grants from the AHRC, Innovate UK and commercial investors.</p>
+        <p>From 2015 to 2018 my R&amp;D was mainly with Manchester's <a href={u("/work/soda")}>School of Digital Arts</a>, focused on immersive storytelling. Between 2010 and 2015 it sat within the <a href={u("/work/disruptive-media")}>Centre for Disruptive Media</a> at Coventry University, working on digital engagement with new media, digital publishing and digital storytelling.</p>
+        <p>I also support R&amp;D across the UK: in the College of Experts at <a href="https://xrstories.co.uk/" target="_blank" rel="noopener">XR Stories</a> in York, and as an external bid reviewer and advisor for the <a href="https://www.ukri.org/councils/epsrc/" target="_blank" rel="noopener">EPSRC</a>, <a href="https://www.costarnetwork.co.uk/" target="_blank" rel="noopener">CoSTAR</a> and <a href="https://www.digicatapult.org.uk/" target="_blank" rel="noopener">Digital Catapult</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line">
+    <div class="container">
+      <p class="eyebrow" data-reveal>Funders</p>
+      <h2 class="display h-md" data-reveal style="margin-bottom:1.2rem">Grants &amp; programmes</h2>
+      <div class="chips" data-reveal>
+        {site.funders.map((f) => <span class="chip chip--solid">{f}</span>)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line cta">
+    <div class="container">
+      <h2 class="display h-lg" data-reveal>Got something to prototype?</h2>
+      <div class="cta__row" data-reveal>
+        <p class="lead measure muted">R&amp;D collaborations, funding bids, technical feasibility, or an idea that needs testing before anyone commits to it.</p>
+        <a class="btn btn--volt" href={u("/contact")}>Get in touch <span class="arrow">↗</span></a>
+      </div>
+    </div>
+  </section>
+</Base>
