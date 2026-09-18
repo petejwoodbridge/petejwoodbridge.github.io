@@ -113,10 +113,37 @@ const homeSchema = {
           <p class="eyebrow">Selected work</p>
           <h2 class="display h-lg">Labs, stages, programmes &amp; playable things</h2>
         </div>
-        <p class="lead muted" data-reveal>Ten places where the work happened, and some of the names involved. Each one links out to the projects and partners.</p>
+        <p class="lead muted" data-reveal>Ten places where the work happened, and some of the names involved, plus the freelance work running underneath all of it.</p>
       </div>
       <div class="work-grid">
         {projects.map((p, i) => <WorkCard project={p} index={i} />)}
+        <a class="card card--lg card--plain" href={u("/about")} data-reveal>
+          <div class="card__media card__media--type">
+            <span class="card__num">11</span>
+            <span class="card__big">2003<span class="card__big-sub">&rarr;</span></span>
+          </div>
+          <div class="card__body">
+            <div class="card__top">
+              <h3 class="card__title">Freelance &amp; consultancy<span class="arrow" aria-hidden="true">&#8599;</span></h3>
+              <span class="card__when">2003 &ndash; present</span>
+            </div>
+            <p class="card__tag">Independent work for brands, studios, universities and companies, running underneath every role on this page.</p>
+            <p class="card__meta"><span class="card__role">Creative technologist</span></p>
+          </div>
+        </a>
+        <a class="card card--md card--cta" href={u("/contact")} data-reveal>
+          <div class="card__media card__media--type">
+            <span class="card__num">12</span>
+            <span class="card__big card__big--cta">Work<br />with me</span>
+          </div>
+          <div class="card__body">
+            <div class="card__top">
+              <h3 class="card__title">Start something<span class="arrow" aria-hidden="true">&#8599;</span></h3>
+            </div>
+            <p class="card__tag">Commissions, consultancy, R&amp;D collaborations, talks and teaching.</p>
+            <p class="card__meta"><span class="card__role">Get in touch</span></p>
+          </div>
+        </a>
       </div>
       <div style="margin-top:clamp(32px,4vw,56px)">
         <a class="btn" href={u("/work")}>All work <span class="arrow">↗</span></a>
