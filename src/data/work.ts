@@ -67,7 +67,7 @@ export const projects: Project[] = [
     title: "Dreamlab",
     org: "Dreamlab",
     orgUrl: "https://dreamlab.org.uk/",
-    role: "Director",
+    role: "R&D Innovation Director",
     period: "2024 – present",
     tagline: "A lab and collective of 40+ experts, built so that independent innovators have somewhere to develop future media, AI and realtime work.",
     intro:
@@ -104,7 +104,7 @@ export const projects: Project[] = [
     poster: "/video/dreamlab.jpg",
     card: "/img/card-dreamlab.webp",
     cardVideo: "/video/dreamlab-card.mp4",
-    cardRole: "Director",
+    cardRole: "R&D Innovation Director",
     clients: ["Meta", "Roblox", "Dock10", "MSG Sphere"],
     size: "md",
   },
