@@ -75,10 +75,10 @@ export const site = {
       // hovering a menu do not always think to click the heading.
       children: [
         { label: "About", href: "/about" },
+        { label: "Events", href: "/events" },
+        { label: "R&D", href: "/research" },
         { label: "Speaking", href: "/speaking" },
         { label: "Press", href: "/press" },
-        { label: "R&D", href: "/research" },
-        { label: "Events", href: "/events" },
         { label: "Teaching", href: "/teaching" },
       ],
     },
