@@ -1,10 +1,27 @@
 ---
-interface Props { items: string[]; label?: string }
-const { items, label = "Organisations I have worked with" } = Astro.props;
-const loop = [...items, ...items];
+import { u } from "../lib/url";
+import { logos } from "../data/logos";
+interface Props { label?: string }
+const { label = "Organisations I have worked with" } = Astro.props;
+// Two passes so the track can translate -50% and loop seamlessly. The second
+// pass is decorative, so it is hidden from assistive tech.
+const loop = [...logos.map((l) => ({ l, dup: false })), ...logos.map((l) => ({ l, dup: true }))];
 ---
-<div class="marquee" role="marquee" aria-label={label}>
+<div class="marquee" aria-label={label} role="img">
   <div class="marquee__track">
-    {loop.map((it) => <span class="marquee__item">{it}</span>)}
+    {loop.map(({ l, dup }) => (
+      <span class="marquee__item">
+        <img
+          src={u(l.file)}
+          alt={dup ? "" : l.name}
+          width={l.w}
+          height={l.h}
+          style={`width:${l.w}px;height:${l.h}px`}
+          loading="lazy"
+          decoding="async"
+          aria-hidden={dup ? "true" : undefined}
+        />
+      </span>
+    ))}
   </div>
 </div>

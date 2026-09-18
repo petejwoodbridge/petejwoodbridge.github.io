@@ -84,6 +84,9 @@ export const site = {
     },
     { label: "Contact", href: "/contact" },
   ] as { label: string; href: string; children?: { label: string; href: string }[] }[],
+  // The full list. The ticker shows only those with a usable mark (see
+  // data/logos.ts); Costa, Monster, JISC and Granada TV have no obtainable
+  // logo yet, so they live here and in the About copy only.
   clients: [
     "BBC", "ITV", "Aardman", "Google", "Intel", "Apple", "BT", "Red Bull", "NHS", "IBM", "Epic Games",
     "Sony", "Warner", "United Nations", "Meta", "Dolby", "ARRI", "McLaren", "Kia", "Monster", "Costa",

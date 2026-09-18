@@ -156,8 +156,12 @@ a.chip:hover { border-color: var(--volt); color: var(--volt); }
 /* ---------- marquee ---------- */
 .marquee { overflow: hidden; white-space: nowrap; border-block: 1px solid var(--line); padding-block: 18px; position: relative; z-index: 1; background: var(--bg); }
 .marquee__track { display: inline-flex; gap: 0; will-change: transform; animation: marquee 60s linear infinite; }
-.marquee__item { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.1rem, 2vw, 1.6rem); letter-spacing: -0.02em; text-transform: uppercase; padding-inline: 1.4em; display: inline-flex; align-items: center; gap: 1.4em; color: var(--muted); }
-.marquee__item::after { content: "✦"; color: var(--volt); font-size: 0.7em; }
+.marquee__item { display: inline-flex; align-items: center; gap: 34px; padding-inline: 17px; }
+/* Widths come from the per-logo optical sizing, so only the scale varies here. */
+.marquee__item img { display: block; opacity: .62; transition: opacity .25s ease; transform: scale(.82); transform-origin: center; }
+.marquee__item::after { content: ""; width: 4px; height: 4px; border-radius: 50%; background: var(--volt); opacity: .4; flex: none; }
+.marquee:hover .marquee__item img { opacity: .85; }
+@media (min-width: 700px) { .marquee__item img { transform: scale(1); } }
 @keyframes marquee { to { transform: translateX(-50%); } }
 .marquee:hover .marquee__track { animation-play-state: paused; }
 
