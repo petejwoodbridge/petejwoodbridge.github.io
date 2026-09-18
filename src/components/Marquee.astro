@@ -16,7 +16,7 @@ const loop = [...logos.map((l) => ({ l, dup: false })), ...logos.map((l) => ({ l
           alt={dup ? "" : l.name}
           width={l.w}
           height={l.h}
-          style={`width:${l.w}px;height:${l.h}px`}
+          style={`--w:${l.w};--h:${l.h}`}
           loading="lazy"
           decoding="async"
           aria-hidden={dup ? "true" : undefined}
