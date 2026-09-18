@@ -20,6 +20,25 @@ export default defineConfig({
   site: SITE_URL,
   base: BASE_PATH,
   trailingSlash: "ignore",
+  // Stable asset filenames, deliberately not content-hashed.
+  //
+  // GitHub Pages serves EVERYTHING with Cache-Control: max-age=600, hashed assets
+  // included, so content hashing buys no extra caching here. What it does buy is a
+  // 10-minute window after any CSS change where a browser holding the previous
+  // index.html asks for a hash that no longer exists, gets a 404, and renders the
+  // site with no styles at all. Stable names turn that failure into "styles are up
+  // to 10 minutes stale", which is a far better way to be wrong.
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          assetFileNames: "_astro/[name][extname]",
+          entryFileNames: "_astro/[name].js",
+          chunkFileNames: "_astro/[name].js",
+        },
+      },
+    },
+  },
   integrations: [
     sitemap({
       filter: (page) => !page.includes("/404"),
