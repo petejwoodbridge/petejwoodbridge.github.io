@@ -14,10 +14,10 @@ const stats = [
   { num: "100+", label: "businesses, agencies and organisations worked with" },
 ];
 const pillars = [
-  { t: "Innovation leadership", d: "Developing programmes, clusters, labs and investment that turn a region's talent and ideas into real projects, products and companies. Creating the conditions, not just the work." },
-  { t: "AI & realtime", d: "AI augmented digital workflows, agentic software development and tool-building. Not replacing people; making them faster, stranger and better at their thing." },
-  { t: "Immersive & live experiences", d: "Projection mapping, tracking, sensors and games engines for rooms, stages, stadiums and streets. Shared experiences at scale." },
-  { t: "Virtual production", d: "LED volumes, in-camera VFX, motion capture and volumetric pipelines, from a garage set-up to a 6,000 sq ft stage." },
+  { t: "Innovation leadership", d: "Turning a region's talent and ideas into real projects, products and companies. Programmes, clusters, labs and investment are the means; creating the conditions is the point." },
+  { t: "AI & realtime", d: "Making people faster, stranger and better at their thing, never redundant. AI-augmented workflows, agentic software development and tool-building." },
+  { t: "Immersive & live experiences", d: "Giving thousands of people something to feel in the same room at the same time. Projection mapping, tracking, sensors and games engines, for rooms, stages, stadiums and streets." },
+  { t: "Virtual production", d: "Putting film-scale production within reach of teams who could never go near a backlot. LED volumes, in-camera VFX, motion capture and volumetric pipelines, from a garage set-up to a 6,000 sq ft stage." },
 ];
 
 const homeSchema = {
@@ -45,7 +45,7 @@ const homeSchema = {
       <h1 class="display h-xl">Making the future</h1>
       <div class="hero__meta">
         <div>
-          <p class="hero__sub">Creative AI, agentic workflows and software prototyping, and the programmes, labs and clusters that let other people build theirs.</p>
+          <p class="hero__sub">The technology was never the point; what people get to do with it is. I build the tools, and the programmes and labs that back everyone else's.</p>
           <div class="btn-row hero__actions">
             <a class="btn btn--volt" href={u("/work")}>See the work <span class="arrow">↗</span></a>
             <a class="btn" href={u("/about")}>About me</a>
@@ -83,6 +83,19 @@ const homeSchema = {
             <div class="stat__label">{s.label}</div>
           </div>
         ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line">
+    <div class="container grid grid-2" style="align-items:start">
+      <div data-reveal>
+        <p class="eyebrow">Why</p>
+        <h2 class="display h-lg" style="max-width:16ch">The technology was never the point.</h2>
+      </div>
+      <div class="prose" data-reveal>
+        <p>Every tool I have built — LED stages, projection systems, games engines, now agents — only ever mattered for what someone else could do once it existed. Technology for its own sake has never held me for long. What holds me is the person on the other side of it, who will make something extraordinary the moment the thing in front of them stops getting in the way.</p>
+        <p>Which is why the two halves of my work are really one. Hands-on, I build agents and tools that make people faster, stranger and better at their thing, never redundant. On the other side, I build the programmes, funding and labs that put all of that within reach of people who would otherwise never get near it.</p>
       </div>
     </div>
   </section>
