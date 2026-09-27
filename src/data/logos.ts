@@ -15,7 +15,6 @@ export const logos: Logo[] = [
   { name: "IBM", file: "/img/logos/ibm.png", w: 117, h: 44 },
   { name: "Epic Games", file: "/img/logos/epicgames.png", w: 38, h: 44 },
   { name: "Sony", file: "/img/logos/sony.png", w: 190, h: 34 },
-  { name: "Warner Bros.", file: "/img/logos/warner.png", w: 43, h: 44 },
   { name: "United Nations", file: "/img/logos/unitednations.png", w: 52, h: 44 },
   { name: "Meta", file: "/img/logos/meta.png", w: 66, h: 44 },
   { name: "Dolby", file: "/img/logos/dolby.png", w: 63, h: 44 },
