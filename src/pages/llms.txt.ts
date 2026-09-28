@@ -28,6 +28,8 @@ ${site.name} is an AI consultant, creative technologist and innovation leader ba
 - AI training and workshops: practical, hands-on training for teams, businesses, universities and skills providers.
 - AI R&D and funding: shaping AI research projects, partnerships and funding bids (Innovate UK, AHRC, EPSRC and others).
 
+Method: understand the work, find where AI earns its place, prove it with a working prototype, then hand it over with training. The same method ran through the MediaCity Immersive Technologies Innovation Hub (35+ funded R&D collaborations, £2.7m into regional innovation) and Dreamlab (100+ businesses and freelancers supported since 2024), including AI tools for fashion (Sairo, for Roblox), scriptwriting (Bellyfeel), digital characters (Dock10) and skills training (Scenegraph Studios).
+
 Areas served: ${site.areasServed.join(", ")}. Remote work UK-wide and internationally.
 
 ## Current roles

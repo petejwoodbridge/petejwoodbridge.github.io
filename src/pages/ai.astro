@@ -35,6 +35,24 @@ const services = [
   },
 ];
 
+// The method is not theory: it is how the MediaCity Innovation Hub and Dreamlab
+// portfolios were run, which is where the numbers below come from.
+const method = [
+  { t: "Understand the work", d: "Start with what the team actually does all day, and where it gets stuck, before any tool is mentioned." },
+  { t: "Find where AI earns its place", d: "Pick the few places where AI saves real time or makes something new possible, and be honest about the rest." },
+  { t: "Prove it with a prototype", d: "Build a working version quickly and test it with the people who will use it, before anyone commits a budget." },
+  { t: "Hand it over", d: "Train the team, document it and wire it into their tools, so it keeps working after I have gone." },
+];
+
+const methodProjects = [
+  { label: "Sairo: AI fashion tools for Roblox", url: "https://www.sairo.uk/work" },
+  { label: "Scenegraph Studios: AI Metahumans for skills training", url: "https://scenegraphstudios.com/products/pxl-persona/" },
+  { label: "Bellyfeel: AI scriptwriting tools", url: "https://bellyfeel.co.uk/" },
+  { label: "Byron's Lab: AI and sustainable programming", url: "https://www.instagram.com/byronsbulb/" },
+  { label: "Dock10: affordable digital characters", url: "https://www.dock10.co.uk/" },
+  { label: "ComfyUI AI hacks and Creative AI Jams at MediaCity", url: "https://www.linkedin.com/posts/mitih_rundiffusion-comfui-fashion-activity-7197000476502958080-HBIw" },
+];
+
 const who = [
   "Small and growing businesses taking their first serious steps with AI",
   "Creative, media, music and games studios",
@@ -63,6 +81,10 @@ const faqs = [
   {
     q: "Do you run AI training for teams?",
     a: "Yes. Practical AI workshops and training for businesses, creative teams, universities and skills providers, covering creative AI, AI agents and software prototyping, built on years of designing university courses and industry bootcamps.",
+  },
+  {
+    q: "Has your approach been used on real projects?",
+    a: "Yes, a lot of them. The same method of understanding the work, finding where AI helps, proving it with a prototype and handing it over shaped the MediaCity Immersive Technologies Innovation Hub's 35+ funded R&D collaborations and Dreamlab's support for over 100 businesses and freelancers, including AI tools for fashion, scriptwriting, digital characters and skills training.",
   },
   {
     q: "Will AI replace my team?",
@@ -147,7 +169,7 @@ const schema = [
       <div class="prose" data-reveal>
         <p>I'm Pete Woodbridge, an AI consultant, creative technologist and software prototyper based in Liverpool. I have spent twenty years building technology for organisations like the BBC, ITV, Aardman, Google, Sony and the NHS, and most of that work now is AI: agents, agentic workflows, AI-augmented production and fast software prototypes.</p>
         <p>I am also the Digital &amp; Technology Cluster Lead for the Liverpool City Region, so I spend my days with the region's businesses, universities and investors, and see where AI is working for them and where it is not. That view goes into every project.</p>
-        <p>The approach is simple. Understand the work first. Find the places where AI saves real time or makes something new possible. Prove it with a working prototype before anyone commits to it. Then help your team own it, so it keeps working after I have gone.</p>
+        <p>The approach is simple, and it has been tested on a lot of projects already. <a href="#method">Here is how it works.</a></p>
       </div>
     </div>
   </section>
@@ -168,7 +190,42 @@ const schema = [
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="method">
+    <div class="container">
+      <div class="grid grid-2" style="align-items:end; margin-bottom: clamp(32px,4vw,56px)">
+        <div data-reveal>
+          <p class="eyebrow">The method</p>
+          <h2 class="display h-lg" style="max-width:16ch">Tested on a lot of projects already.</h2>
+        </div>
+        <p class="lead muted" data-reveal>It is the same method that ran through the <a href={u("/work/mediacity")}>MediaCity Innovation Hub</a> and <a href={u("/work/dreamlab")}>Dreamlab</a>, across dozens of funded projects and over a hundred businesses, many of them building with AI.</p>
+      </div>
+      <ol class="steps stagger" data-reveal>
+        {method.map((m, i) => (
+          <li style={`--i:${i}`}>
+            <span class="steps__num">0{i + 1}</span>
+            <h3>{m.t}</h3>
+            <p class="muted">{m.d}</p>
+          </li>
+        ))}
+      </ol>
+      <div class="stats method__stats" data-reveal>
+        <div class="stat"><div class="stat__num">35+</div><div class="stat__label">funded R&amp;D collaborations through the MediaCity Innovation Hub</div></div>
+        <div class="stat"><div class="stat__num">100+</div><div class="stat__label">businesses and freelancers supported by Dreamlab since 2024</div></div>
+        <div class="stat"><div class="stat__num">£2.7m</div><div class="stat__label">public and private investment into regional innovation</div></div>
+      </div>
+      <div class="grid grid-2" style="align-items:start; margin-top: clamp(40px,5vw,72px)">
+        <div data-reveal>
+          <h3 class="display h-sm">Some of the AI work that came out of it</h3>
+          <p class="muted prose" style="margin-top:0.8rem">The hub's AI work was also featured in Verizon's <a href={u("/work/trailblazers")}>500 UK Trailblazers</a> report, supported by Epic Games.</p>
+        </div>
+        <ul class="linklist method__list" data-reveal>
+          {methodProjects.map((l) => <li><a href={l.url} target="_blank" rel="noopener">{l.label}</a></li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line">
     <div class="container grid grid-2" style="align-items:start">
       <div data-reveal>
         <p class="eyebrow">Who it is for</p>
@@ -229,6 +286,17 @@ const schema = [
   .services { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 28px; border-top: 2px solid var(--volt-ink); }
   .services .pillar { margin-right: 0; border-right: 0; border-bottom: 1px solid rgba(10,10,11,0.25); padding-right: 0; }
   @media (max-width: 900px) { .services { grid-template-columns: 1fr; } }
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(18px, 2.5vw, 36px); border-top: 1px solid var(--line); }
+  .steps li { padding-top: 24px; }
+  .steps__num { display: block; font-family: var(--font-display); font-weight: 700; color: var(--volt); font-size: 0.85rem; letter-spacing: 0.05em; margin-bottom: 0.9rem; }
+  .steps h3 { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.3rem, 1.8vw, 1.7rem); letter-spacing: -0.03em; line-height: 1; text-transform: uppercase; margin-bottom: 0.7rem; }
+  .steps p { margin: 0; font-size: 0.98rem; }
+  @media (max-width: 900px) { .steps { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .steps { grid-template-columns: 1fr; } }
+  .method__stats { margin-top: clamp(40px, 5vw, 72px); grid-template-columns: repeat(3, 1fr); }
+  .method__stats .stat:last-child { border-right: 0; }
+  @media (max-width: 900px) { .method__stats { grid-template-columns: 1fr; } .method__stats .stat { border-right: 0; border-bottom: 1px solid var(--line); } .method__stats .stat:last-child { border-bottom: 0; } }
+  .method__list { columns: 1; }
   .who { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
   .who li { padding: 14px 0; border-bottom: 1px solid var(--line); font-weight: 600; }
   .faq details { border-bottom: 1px solid var(--line); }
