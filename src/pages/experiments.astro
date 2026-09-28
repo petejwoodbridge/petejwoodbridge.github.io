@@ -44,7 +44,7 @@ const experimentsSchema = {
           <button class:list={["tile", { "tile--wide": i % 7 === 3 }]} type="button" data-open={e.slug} id={e.slug} aria-haspopup="dialog">
             <span class="tile__media">
               {(e.thumb || e.poster || e.image) && <img src={u(e.thumb ?? e.poster ?? e.image)} alt="" loading="lazy" decoding="async" />}
-              {e.video && <video muted loop playsinline preload="none" poster={u(e.poster ?? "") || undefined} data-xvideo={u(e.video)} aria-hidden="true"></video>}
+              {e.video && <video muted loop playsinline preload="none" data-xvideo={u(e.video)} aria-hidden="true"></video>}
             </span>
             <span class="tile__text">
               <span class="tile__title">{e.title}</span>
@@ -63,8 +63,8 @@ const experimentsSchema = {
         <button class="xdlg__close" type="button" data-close aria-label="Close">×</button>
         <div class="xdlg__media">
           {e.video
-            ? <video muted loop playsinline preload="none" poster={u(e.poster ?? "") || undefined} data-dvideo={u(e.video)}></video>
-            : <img src={u(e.image ?? e.thumb ?? "")} alt="" />}
+            ? <video muted loop playsinline preload="none" data-poster={e.poster ? u(e.poster) : undefined} data-dvideo={u(e.video)}></video>
+            : <img src={u(e.image ?? e.thumb ?? "")} alt="" loading="lazy" decoding="async" />}
         </div>
         <div class="xdlg__body">
           {e.meta && <p class="eyebrow">{e.meta}</p>}
@@ -154,7 +154,11 @@ const experimentsSchema = {
       if (!dlg || dlg.open) return;
       dlg.showModal();
       const v = dlg.querySelector<HTMLVideoElement>("video[data-dvideo]");
-      if (v && !reduced) { if (!v.src) v.src = v.dataset.dvideo as string; v.play().catch(() => {}); }
+      if (v) {
+        // Posters are held back until a dialog opens; 80 of them up front was 2MB of download.
+        if (v.dataset.poster && !v.poster) v.poster = v.dataset.poster;
+        if (!reduced) { if (!v.src) v.src = v.dataset.dvideo as string; v.play().catch(() => {}); }
+      }
       if (push) history.replaceState(null, "", `#${slug}`);
     };
     const closeAll = () => {

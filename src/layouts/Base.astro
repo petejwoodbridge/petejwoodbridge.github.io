@@ -68,7 +68,9 @@ const fullTitle = title ? `${title} — ${site.name}` : `${site.name} — Creati
     <script>
       const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const noHover = window.matchMedia("(hover: none)").matches;
-      const saveData = (navigator as any).connection?.saveData === true;
+      const conn = (navigator as any).connection;
+      // On data saver or a slow connection the poster stands in for the background video.
+      const saveData = conn?.saveData === true || /(^|-)2g|3g/.test(conn?.effectiveType ?? "");
 
       function initVideos() {
         const vids = document.querySelectorAll<HTMLVideoElement>("video[data-src]");
