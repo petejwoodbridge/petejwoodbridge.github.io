@@ -41,7 +41,7 @@ const homeSchema = {
   <section class="hero">
     <VideoBg src={u("/video/hero.mp4")} srcSm={u("/video/hero-720.mp4")} poster={u("/video/hero.jpg")} />
     <div class="container hero__inner">
-      <p class="eyebrow">Pete Woodbridge · Creative technologist &amp; innovation leader · Liverpool</p>
+      <p class="eyebrow">Pete Woodbridge · AI consultant, creative technologist &amp; innovation leader · Liverpool</p>
       <h1 class="display h-xl">I Build things &amp; Back people.</h1>
       <div class="hero__meta">
         <div>
@@ -170,6 +170,9 @@ const homeSchema = {
           {site.expertise.map((s) => <li>{s}</li>)}
         </ul>
       </div>
+      <div class="btn-row" data-reveal style="margin-top:clamp(28px,3vw,44px)">
+        <a class="btn" href={u("/ai")}>AI consultancy, prototyping &amp; training <span class="arrow">↗</span></a>
+      </div>
     </div>
   </section>
 
@@ -197,7 +200,7 @@ const homeSchema = {
     <div class="container">
       <h2 class="display h-xl" data-reveal>Tell me what you're building.</h2>
       <div class="cta__row" data-reveal>
-        <p class="lead measure muted">Commissions, consultancy, R&amp;D collaborations, talks, or just an idea you want to test on someone who has probably tried it once already.</p>
+        <p class="lead measure muted">Commissions, <a href={u("/ai")}>AI consultancy</a>, R&amp;D collaborations, talks, or just an idea you want to test on someone who has probably tried it once already.</p>
         <a class="btn btn--volt" href={u("/contact")}>Get in touch <span class="arrow">↗</span></a>
       </div>
     </div>

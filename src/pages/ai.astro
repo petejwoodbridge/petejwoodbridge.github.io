@@ -1,0 +1,241 @@
+---
+import { u } from "../lib/url";
+import Base from "../layouts/Base.astro";
+import VideoBg from "../components/VideoBg.astro";
+import { site } from "../data/site";
+
+// This page exists for people searching for AI help rather than for Pete by name:
+// "AI consultant Liverpool", "AI training for businesses Manchester" and so on.
+// Keep the services and FAQ in plain words; search engines and AI assistants both
+// quote them directly, and the FAQ feeds the FAQPage structured data below.
+const services = [
+  {
+    t: "AI strategy & adoption",
+    d: "Working out where AI genuinely earns its place in your organisation, and where it does not. A clear-eyed look at your workflows, the tools that fit them, and a plan your team can actually carry out.",
+  },
+  {
+    t: "AI agents & agentic workflows",
+    d: "Agents that do real work inside your processes: research, data gathering, reporting, production tasks. Built to make people faster and better at their jobs, never to make them redundant.",
+  },
+  {
+    t: "Rapid prototyping & software",
+    d: "Building the thing, fast enough to find out whether the idea holds up before anyone commits a budget to it. Python, APIs, ComfyUI, games engines and the web, wired into the tools you already use.",
+  },
+  {
+    t: "Creative AI for media",
+    d: "AI-augmented production workflows for film, TV, music, games, animation and live events, from someone who has spent twenty years inside those pipelines and tracks the field in Dream Machine.",
+  },
+  {
+    t: "AI training & workshops",
+    d: "Hands-on sessions that get teams from curious to capable: understanding what the tools can do, and prototyping an idea of their own in an afternoon. Built on eight years of university teaching.",
+  },
+  {
+    t: "AI R&D & funding",
+    d: "Shaping AI research and development projects, partnerships and funding bids. I have won grants from the AHRC and Innovate UK, and review bids for the EPSRC, CoSTAR and Digital Catapult.",
+  },
+];
+
+const who = [
+  "Small and growing businesses taking their first serious steps with AI",
+  "Creative, media, music and games studios",
+  "Agencies that want AI inside their production workflows",
+  "Universities, colleges and skills providers",
+  "Public sector bodies, clusters and innovation programmes",
+];
+
+const faqs = [
+  {
+    q: "Who is an AI consultant in Liverpool I can talk to?",
+    a: "Pete Woodbridge is a Liverpool-based AI consultant and creative technologist with over twenty years in digital technology and innovation. He advises on AI strategy, builds AI agents and prototypes, and runs AI training for teams, and is the Digital & Technology Cluster Lead for the Liverpool City Region.",
+  },
+  {
+    q: "Do you work with organisations outside Liverpool?",
+    a: "Yes. Most of the work is across the Liverpool City Region, Manchester and the wider North West, and projects run remotely across the UK and internationally.",
+  },
+  {
+    q: "We do not know where to start with AI. Can you help?",
+    a: "That is the most common starting point. It usually begins with a conversation about what your team does day to day, then a look at the workflows where AI could save time or open something new, then a small prototype to prove it before anything bigger is committed.",
+  },
+  {
+    q: "Can you build AI tools, or only advise on them?",
+    a: "Both. The work is hands-on: AI agents, agentic workflows, software prototypes and production tools, built in Python, with APIs, ComfyUI and games engines. Larger builds can draw on Dreamlab, an R&D lab and collective of 40+ experts.",
+  },
+  {
+    q: "Do you run AI training for teams?",
+    a: "Yes. Practical AI workshops and training for businesses, creative teams, universities and skills providers, covering creative AI, AI agents and software prototyping, built on years of designing university courses and industry bootcamps.",
+  },
+  {
+    q: "Will AI replace my team?",
+    a: "Not if it is done properly. The aim is always to make people faster and better at what they do, with AI taking on the repetitive work so the team can spend more time on the parts that need judgement and craft.",
+  },
+  {
+    q: "Can you help with funding for AI projects?",
+    a: "Yes. Pete has helped win and run innovation programmes worth over £12m, supported 50+ funded R&D collaborations, and reviews bids for national funders, so he can help shape AI R&D projects and funding applications.",
+  },
+  {
+    q: "How do I get in touch?",
+    a: "LinkedIn is the quickest way. Send a message with a line or two about what you are working on.",
+  },
+];
+
+const schema = [
+  {
+    "@type": "ProfessionalService",
+    "@id": "/ai#service",
+    name: "Pete Woodbridge — AI consultancy, training & prototyping",
+    description:
+      "AI consultancy, AI agents and agentic workflows, rapid software prototyping, creative AI and AI training for businesses, studios and public bodies in Liverpool, Manchester and the North West.",
+    url: "/ai",
+    image: "/img/og/research.jpg",
+    founder: { "@id": "#pete" },
+    employee: { "@id": "#pete" },
+    address: { "@type": "PostalAddress", addressLocality: "Liverpool", addressRegion: "Merseyside", addressCountry: "GB" },
+    areaServed: site.areasServed.map((a) => ({ "@type": "Place", name: a })),
+    knowsAbout: ["Artificial intelligence", "AI agents", "Agentic workflows", "Generative AI", "Creative AI", "Software prototyping", "AI training", "AI strategy"],
+    sameAs: [site.linkedin],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "AI services",
+      itemListElement: services.map((s) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: s.t, description: s.d, provider: { "@id": "#pete" } },
+      })),
+    },
+  },
+  {
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  },
+  {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "/" },
+      { "@type": "ListItem", position: 2, name: "AI consultancy", item: "/ai" },
+    ],
+  },
+];
+---
+<Base
+  title="AI Consultant in Liverpool: Strategy, Agents, Prototyping & Training"
+  description="AI consultancy in Liverpool, Manchester and the North West. Pete Woodbridge helps businesses, studios and public bodies adopt AI: strategy, AI agents and agentic workflows, rapid prototyping, creative AI and hands-on AI training."
+  image="/img/og/research.jpg"
+  imageAlt="Pete Woodbridge, AI consultant and creative technologist in Liverpool"
+  schema={schema}
+>
+  <section class="hero hero--short">
+    <VideoBg src={u("/video/soundings.mp4")} poster={u("/video/soundings.jpg")} soft />
+    <div class="container hero__inner">
+      <p class="eyebrow">AI consultancy · Liverpool &amp; the North West</p>
+      <h1 class="display h-xl">AI that makes people better at their thing.</h1>
+      <p class="hero__sub">AI strategy, agents, prototypes and training for businesses, studios and public bodies across Liverpool, Manchester and the North West. Advice from someone who builds it.</p>
+      <div class="btn-row hero__actions">
+        <a class="btn btn--volt" href={site.linkedin} target="_blank" rel="noopener">Talk to me about AI <span class="arrow">↗</span></a>
+        <a class="btn" href="#services">What I can help with</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid-2" style="align-items:start">
+      <div data-reveal>
+        <p class="lead">Most organisations do not need an AI revolution. They need someone who understands their work, knows what the tools can really do, and can build the first useful thing.</p>
+      </div>
+      <div class="prose" data-reveal>
+        <p>I'm Pete Woodbridge, an AI consultant, creative technologist and software prototyper based in Liverpool. I have spent twenty years building technology for organisations like the BBC, ITV, Aardman, Google, Sony and the NHS, and most of that work now is AI: agents, agentic workflows, AI-augmented production and fast software prototypes.</p>
+        <p>I am also the Digital &amp; Technology Cluster Lead for the Liverpool City Region, so I spend my days with the region's businesses, universities and investors, and see where AI is working for them and where it is not. That view goes into every project.</p>
+        <p>The approach is simple. Understand the work first. Find the places where AI saves real time or makes something new possible. Prove it with a working prototype before anyone commits to it. Then help your team own it, so it keeps working after I have gone.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section inverted" id="services">
+    <div class="container">
+      <p class="eyebrow" data-reveal>Services</p>
+      <h2 class="display h-lg" data-reveal style="max-width: 16ch; margin-bottom: clamp(32px,4vw,64px)">Where I can help with AI.</h2>
+      <div class="services stagger" data-reveal>
+        {services.map((s, i) => (
+          <div class="pillar" style={`--i:${i}`}>
+            <div class="pillar__num">0{i + 1}</div>
+            <h3>{s.t}</h3>
+            <p>{s.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid-2" style="align-items:start">
+      <div data-reveal>
+        <p class="eyebrow">Who it is for</p>
+        <h2 class="display h-md">Organisations that want AI to do real work.</h2>
+      </div>
+      <div data-reveal>
+        <ul class="who">
+          {who.map((w) => <li>{w}</li>)}
+        </ul>
+        <p class="muted" style="margin-top:1.4rem">Based in Liverpool, working across the Liverpool City Region, Manchester, the North West and the rest of the UK.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line">
+    <div class="container grid grid-2" style="align-items:start">
+      <div data-reveal>
+        <p class="eyebrow">Proof</p>
+        <h2 class="display h-md">AI work already in the world.</h2>
+      </div>
+      <div class="prose" data-reveal>
+        <p><a href={u("/work/soundings")}>Soundings</a> uses AI agents to sweep the Companies House register every month and map roughly 745,000 creative companies across 65 regions of the UK, with a full evidence briefing for the Liverpool City Region Combined Authority.</p>
+        <p><a href={u("/work/dream-machine")}>Dream Machine</a>, my newsletter, podcast and book on AI and the creative economy, has been picked up by <a href="https://www.economist.com/business/2026/08/04/hollywood-is-entering-its-ai-era" target="_blank" rel="noopener">The Economist</a> and <a href="https://www.fastcompany.com/91568818/our-interest-in-ai-slop-is-hitting-a-ceiling" target="_blank" rel="noopener">Fast Company</a>.</p>
+        <p>Through <a href={site.dreamlab} target="_blank" rel="noopener">Dreamlab</a>, an R&amp;D lab and collective of 40+ experts, I work on AI and realtime workflows and production technology projects. My <a href={u("/research")}>R&amp;D</a> and <a href={u("/teaching")}>teaching</a> pages have more on the AI work and the courses behind it.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line">
+    <div class="container grid grid-2" style="align-items:start">
+      <div data-reveal>
+        <p class="eyebrow">FAQ</p>
+        <h2 class="display h-md">Questions people ask about AI.</h2>
+      </div>
+      <div class="faq" data-reveal>
+        {faqs.map((f) => (
+          <details>
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line cta">
+    <div class="container">
+      <h2 class="display h-xl" data-reveal>What do you want AI to do?</h2>
+      <div class="cta__row" data-reveal>
+        <p class="lead measure muted">Tell me what your team does and where it gets stuck. If AI can help, we will find out quickly, and if it cannot, I will tell you.</p>
+        <a class="btn btn--volt" href={site.linkedin} target="_blank" rel="noopener">Message me on LinkedIn <span class="arrow">↗</span></a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .services { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 28px; border-top: 2px solid var(--volt-ink); }
+  .services .pillar { margin-right: 0; border-right: 0; border-bottom: 1px solid rgba(10,10,11,0.25); padding-right: 0; }
+  @media (max-width: 900px) { .services { grid-template-columns: 1fr; } }
+  .who { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  .who li { padding: 14px 0; border-bottom: 1px solid var(--line); font-weight: 600; }
+  .faq details { border-bottom: 1px solid var(--line); }
+  .faq details:first-child { border-top: 1px solid var(--line); }
+  .faq summary { cursor: pointer; list-style: none; padding: 18px 36px 18px 0; position: relative; font-weight: 700; font-size: 1.05rem; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; position: absolute; right: 4px; top: 14px; font-size: 1.4rem; color: var(--volt); transition: transform .25s ease; }
+  .faq details[open] summary::after { transform: rotate(45deg); }
+  .faq details p { margin: 0 0 18px; color: var(--muted, inherit); }
+</style>

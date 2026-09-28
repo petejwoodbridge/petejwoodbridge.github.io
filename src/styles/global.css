@@ -94,8 +94,8 @@ body::after {
 .measure { max-width: 68ch; }
 .measure-wide { max-width: 90ch; }
 .prose p { font-size: clamp(1.05rem, 1.35vw, 1.25rem); line-height: 1.6; }
-.prose a { text-decoration: underline; text-decoration-color: var(--volt); text-underline-offset: 0.18em; text-decoration-thickness: 1.5px; transition: color 0.2s; }
-.prose a:hover { color: var(--volt); }
+.prose a, .lead a, .hero__sub a { text-decoration: underline; text-decoration-color: var(--volt); text-underline-offset: 0.18em; text-decoration-thickness: 1.5px; transition: color 0.2s; }
+.prose a:hover, .lead a:hover, .hero__sub a:hover { color: var(--volt); }
 .prose ul { padding-left: 1.2em; list-style: disc; margin-bottom: 1.1em; }
 .prose li { margin-bottom: 0.35em; }
 .prose strong { color: #fff; }

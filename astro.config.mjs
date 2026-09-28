@@ -52,7 +52,7 @@ export default defineConfig({
         item.url = u.toString();
 
         if (path === "/") item.priority = 1.0;
-        else if (path === "/work" || path === "/about") item.priority = 0.9;
+        else if (path === "/work" || path === "/about" || path === "/ai") item.priority = 0.9;
         else if (path.startsWith("/work/")) item.priority = 0.8;
         else item.priority = 0.7;
         return item;

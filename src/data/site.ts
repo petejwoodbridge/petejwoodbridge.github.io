@@ -7,6 +7,7 @@ export const site = {
   shortRole: "Creative technologist & innovation leader",
   jobTitles: [
     "Creative Technologist",
+    "AI Consultant",
     "Innovation Leader",
     "AI & Software Prototyping Lead",
     "Digital & Technology Cluster Lead, Liverpool City Region",
@@ -18,14 +19,18 @@ export const site = {
   // Where the work actually happens. Used for location signals in structured data.
   areasServed: ["Liverpool", "Liverpool City Region", "Manchester", "North West England", "United Kingdom"],
   description:
-    "Pete Woodbridge is a creative technologist and innovation leader in Liverpool, working in creative AI, agentic workflows and software prototyping. He builds tools and prototypes, and builds the programmes, labs and clusters that let other innovators do the same. Digital & Technology Cluster Lead for the Liverpool City Region.",
+    "Pete Woodbridge is an AI consultant, creative technologist and innovation leader in Liverpool, working in creative AI, AI agents, agentic workflows and software prototyping, and helping businesses across the North West adopt AI. He builds tools and prototypes, and builds the programmes, labs and clusters that let other innovators do the same. Digital & Technology Cluster Lead for the Liverpool City Region.",
   // The things people actually search for when they need this kind of work.
   expertise: [
     "Innovation strategy",
     "Innovation leadership",
     "Cluster development",
     "R&D programmes",
+    "AI consultancy & strategy",
+    "AI adoption for businesses",
+    "AI training & workshops",
     "Creative AI",
+    "Generative AI",
     "AI agents & agentic workflows",
     "Software prototyping",
     "AI-augmented production workflows",
@@ -68,6 +73,7 @@ export const site = {
   },
   nav: [
     { label: "Work", href: "/work" },
+    { label: "AI", href: "/ai" },
     {
       label: "About",
       href: "/about",
