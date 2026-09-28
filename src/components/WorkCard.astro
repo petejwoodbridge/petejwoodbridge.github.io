@@ -10,7 +10,7 @@ const role = p.cardRole ?? p.role.split("·")[0].trim();
 <a class:list={["card", `card--${size}`]} href={u(`/work/${p.slug}`)} data-reveal={reveal ? "" : undefined} style={`--i:${index % 2}`}>
   <div class="card__media">
     <span class="card__num">{num}</span>
-    <img src={u(p.card)} alt={`${p.title}: ${p.tagline}`} loading="lazy" decoding="async" />
+    <img src={u(p.card)} alt={`${p.title}: ${p.tagline}`} loading={index < 2 ? "eager" : "lazy"} decoding="async" />
     <video muted loop playsinline preload="none" aria-hidden="true">
       <source src={u(p.cardVideo)} type="video/mp4" />
     </video>

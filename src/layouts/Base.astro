@@ -152,9 +152,23 @@ const fullTitle = title ? `${title} — ${site.name}` : `${site.name} — Creati
         window.addEventListener("scroll", onScroll, { passive: true });
       }
 
+      // Hide images that have not arrived yet and fade them in on load, so a slow
+      // connection shows the card's dark placeholder instead of a half-painted image.
+      // Images that failed stay hidden rather than showing a broken icon.
+      function initImages() {
+        document.querySelectorAll<HTMLImageElement>("main img:not(.vbg__poster)").forEach((img) => {
+          if (img.complete && img.naturalWidth) return;
+          img.classList.add("img-wait");
+          img.addEventListener("load", () => {
+            img.classList.add("img-in");
+            requestAnimationFrame(() => img.classList.remove("img-wait"));
+          }, { once: true });
+        });
+      }
+
       function init() {
         document.body.classList.remove("menu-open");
-        initVideos(); initCards(); initReveal(); initMenu(); initNavShade();
+        initImages(); initVideos(); initCards(); initReveal(); initMenu(); initNavShade();
       }
       document.addEventListener("astro:page-load", init);
     </script>
