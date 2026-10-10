@@ -10,9 +10,6 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 @font-face { font-family: "Instrument Sans"; font-style: italic; font-weight: 400 700; font-stretch: 100%; font-display: swap; src: url("/fonts/instrument-sans-italic.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
-/* Serif accent (.accent): one italic weight, latin only. Small, and one word swapping in late is fine, so not preloaded. */
-@font-face { font-family: "Instrument Serif"; font-style: italic; font-weight: 400; font-display: swap; src: url("/fonts/instrument-serif-italic.woff2") format("woff2");
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 
 :root {
   --bg: #0a0a0b;
@@ -25,7 +22,6 @@
 
   --font-display: "Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
   --font-body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-accent: "Instrument Serif", Georgia, "Times New Roman", serif;
 
   /* one pill everywhere: tags, chips and small link buttons (see .pill) */
   --pill-fs: 0.9rem;
@@ -107,10 +103,6 @@ body::after {
 .h-lg { font-size: clamp(2.6rem, 7.2vw, 7rem); }
 .h-md { font-size: clamp(2rem, 4.6vw, 4rem); }
 .h-sm { font-size: clamp(1.4rem, 2.4vw, 2rem); letter-spacing: -0.03em; line-height: 1; }
-/* Serif italic accent for one word in a display heading: <span class="accent">word</span>.
-   1.15em brings the serif's x-height and ascenders up to sit against the grotesque caps.
-   Use sparingly: one word, one heading per page at most. */
-.accent { font-family: var(--font-accent); font-style: italic; font-weight: 400; font-variation-settings: normal; font-size: 1.15em; text-transform: none; letter-spacing: -0.01em; }
 .eyebrow {
   font-family: var(--font-body); font-weight: 600; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase;
   color: var(--volt); margin-bottom: 1.2rem; display: inline-flex; align-items: center; gap: 0.7em;
