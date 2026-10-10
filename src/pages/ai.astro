@@ -26,7 +26,7 @@ const services = [
     d: "AI-augmented production workflows for film, TV, music, games, animation and live events, from someone who has spent twenty years inside those pipelines and tracks the field in Dream Machine.",
   },
   {
-    t: "AI training & workshops",
+    t: "AI training & workshops in Liverpool and Manchester",
     d: "Hands-on sessions that get teams from curious to capable: understanding what the tools can do, and prototyping an idea of their own in an afternoon. Built on eight years of university teaching.",
   },
   {
@@ -45,7 +45,7 @@ const method = [
 ];
 
 const methodProjects = [
-  { label: "Sairo: AI fashion tools for Roblox", url: "https://www.sairo.uk/work" },
+  { label: "Sairo: AI fashion tools for Roblox", url: "https://www.sairo.uk/" },
   { label: "Scenegraph Studios: AI Metahumans for skills training", url: "https://scenegraphstudios.com/products/pxl-persona/" },
   { label: "Bellyfeel: AI scriptwriting tools", url: "https://bellyfeel.co.uk/" },
   { label: "Byron's Lab: AI and sustainable programming", url: "https://www.instagram.com/byronsbulb/" },
@@ -114,7 +114,6 @@ const schema = [
     address: { "@type": "PostalAddress", addressLocality: "Liverpool", addressRegion: "Merseyside", addressCountry: "GB" },
     areaServed: site.areasServed.map((a) => ({ "@type": "Place", name: a })),
     knowsAbout: ["Artificial intelligence", "AI agents", "Agentic workflows", "Generative AI", "Creative AI", "Software prototyping", "AI training", "AI strategy"],
-    sameAs: [site.linkedin],
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "AI services",
@@ -142,8 +141,8 @@ const schema = [
 ];
 ---
 <Base
-  title="AI Consultant in Liverpool: Strategy, Agents, Prototyping & Training"
-  description="AI consultancy in Liverpool, Manchester and the North West. Pete Woodbridge helps businesses, studios and public bodies adopt AI: strategy, AI agents and agentic workflows, rapid prototyping, creative AI and hands-on AI training."
+  title="AI Consultant, Liverpool & Manchester"
+  description="AI consultancy in Liverpool and Manchester: AI strategy, AI agents, rapid prototyping and hands-on AI training for businesses across the North West."
   image="/img/og/research.jpg"
   imageAlt="Pete Woodbridge, AI consultant and creative technologist in Liverpool"
   schema={schema}
@@ -151,11 +150,11 @@ const schema = [
   <section class="hero hero--short">
     <VideoBg src={u("/video/soundings.mp4")} poster={u("/video/soundings.jpg")} soft />
     <div class="container hero__inner">
-      <p class="eyebrow">AI consultancy · Liverpool &amp; the North West</p>
-      <h1 class="display h-xl">AI that makes people better at their thing.</h1>
+      <h1 class="eyebrow">AI consultant in Liverpool &amp; Manchester</h1>
+      <p class="display h-xl" style="margin:0">AI that makes people better at their thing.</p>
       <p class="hero__sub">AI strategy, agents, prototypes and training for businesses, studios and public bodies across Liverpool, Manchester and the North West. Advice from someone who builds it.</p>
       <div class="btn-row hero__actions">
-        <a class="btn btn--volt" href={site.linkedin} target="_blank" rel="noopener">Talk to me about AI <span class="arrow">↗</span></a>
+        <a class="btn btn--volt" href={site.linkedin} target="_blank" rel="noopener">Talk to me about AI <span class="arrow" aria-hidden="true">↗</span></a>
         <a class="btn" href="#services">What I can help with</a>
       </div>
     </div>
@@ -276,7 +275,7 @@ const schema = [
       <h2 class="display h-xl" data-reveal>What do you want AI to do?</h2>
       <div class="cta__row" data-reveal>
         <p class="lead measure muted">Tell me what your team does and where it gets stuck. If AI can help, we will find out quickly, and if it cannot, I will tell you.</p>
-        <a class="btn btn--volt" href={site.linkedin} target="_blank" rel="noopener">Message me on LinkedIn <span class="arrow">↗</span></a>
+        <a class="btn btn--volt" href={site.linkedin} target="_blank" rel="noopener">Message me on LinkedIn <span class="arrow" aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>
@@ -299,11 +298,4 @@ const schema = [
   .method__list { columns: 1; }
   .who { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
   .who li { padding: 14px 0; border-bottom: 1px solid var(--line); font-weight: 600; }
-  .faq details { border-bottom: 1px solid var(--line); }
-  .faq details:first-child { border-top: 1px solid var(--line); }
-  .faq summary { cursor: pointer; list-style: none; padding: 18px 36px 18px 0; position: relative; font-weight: 700; font-size: 1.05rem; }
-  .faq summary::-webkit-details-marker { display: none; }
-  .faq summary::after { content: "+"; position: absolute; right: 4px; top: 14px; font-size: 1.4rem; color: var(--volt); transition: transform .25s ease; }
-  .faq details[open] summary::after { transform: rotate(45deg); }
-  .faq details p { margin: 0 0 18px; color: var(--muted, inherit); }
 </style>

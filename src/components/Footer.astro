@@ -10,16 +10,16 @@ const year = new Date().getFullYear();
         <p class="eyebrow">Get in touch</p>
         <p class="lead measure">Got an idea, a project or an opportunity to make the world a bit cooler than it is? I would love to hear about it.</p>
         <div class="btn-row" style="margin-top:1.4rem">
-          <a class="btn btn--volt" href={u("/contact")}>Contact <span class="arrow">↗</span></a>
-          <a class="btn" href={site.linkedin} target="_blank" rel="noopener">LinkedIn <span class="arrow">↗</span></a>
+          <a class="btn btn--volt" href={u("/contact")}>Contact <span class="arrow" aria-hidden="true">↗</span></a>
+          <a class="btn" href={site.linkedin} target="_blank" rel="noopener">LinkedIn <span class="arrow" aria-hidden="true">↗</span></a>
         </div>
       </div>
       <ul class="footer__links">
         <li><a href={u("/work")}>Work</a></li>
         <li><a href={u("/about")}>About</a></li>
         <li><a href={u("/contact")}>Contact</a></li>
-        <li><a href={site.dreamMachine.newsletter} target="_blank" rel="noopener">Dream Machine newsletter ↗</a></li>
-        <li><a href={site.dreamlab} target="_blank" rel="noopener">Dreamlab ↗</a></li>
+        <li><a href={site.dreamMachine.newsletter} target="_blank" rel="noopener">Dream Machine newsletter&nbsp;<span aria-hidden="true">↗</span></a></li>
+        <li><a href={site.dreamlab} target="_blank" rel="noopener">Dreamlab&nbsp;<span aria-hidden="true">↗</span></a></li>
       </ul>
     </div>
   </div>
@@ -34,9 +34,14 @@ const year = new Date().getFullYear();
 <style>
   .footer { border-top: 1px solid var(--line); padding-top: clamp(56px, 8vw, 120px); overflow: hidden; }
   .footer__top { display: grid; grid-template-columns: 1.4fr 0.6fr; gap: 48px; align-items: start; }
-  .footer__links { display: flex; flex-direction: column; gap: 10px; font-weight: 600; padding-top: 2.4rem; }
+  .footer__links { display: flex; flex-direction: column; gap: 0; font-weight: 600; padding-top: 2.4rem; }
+  /* 44px rows give each link a comfortable tap target without changing how the list reads */
+  .footer__links a { min-height: 44px; display: inline-flex; align-items: center; }
   .footer__links a:hover { color: var(--volt); }
-  .footer__mark { margin-top: clamp(48px, 7vw, 110px); padding-inline: var(--gutter); line-height: 0.8; }
+  .footer__mark { margin-top: clamp(48px, 7vw, 110px); padding-inline: var(--gutter); line-height: 0.8; overflow: hidden; max-width: 100%; }
+  /* The fill alone (#141416 on #0a0a0b) all but vanished. A hairline outline in the ink
+     colour keeps it a quiet sign-off, but one you can actually see. */
+  .footer__mark .wordmark { display: block; color: var(--bg-2); -webkit-text-stroke: 1px rgba(243, 239, 230, 0.16); }
   .footer__bottom { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; padding-block: 24px 32px; font-size: 0.85rem; border-top: 1px solid var(--line); margin-top: 24px; }
   @media (max-width: 800px) { .footer__top { grid-template-columns: 1fr; } .footer__links { padding-top: 0; } }
 </style>

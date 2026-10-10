@@ -2,7 +2,7 @@
 // so search engines, AI assistants and visitors all read the same list.
 
 export const academicRoles = [
-  { when: "2018 – 2020", what: "Programme Leader, MA Immersive Arts, and Director of the Experimental Technologies Lab", where: "Liverpool John Moores University", url: "https://www.ljmu.ac.uk/study/courses/postgraduates/immersive-media" },
+  { when: "2018 – 2020", what: "Programme Leader, MA Immersive Arts, and Director of the Experimental Technologies Lab", where: "Liverpool John Moores University", url: "https://web.archive.org/web/20230329032059/https://www.ljmu.ac.uk/study/courses/postgraduates/immersive-media" },
   { when: "2015 – 2019", what: "Senior Lecturer, and curriculum development lead for the £35m School of Digital Arts", where: "Manchester School of Art, Manchester Metropolitan University", url: "https://www.schoolofdigitalarts.mmu.ac.uk/" },
   { when: "2010 – 2015", what: "Digital Media and Culture MA, Media Production BA, and a pioneering BA in Digital Media", where: "Coventry School of Art and Design", url: "https://www.coventry.ac.uk/study-at-coventry/faculties-and-schools/arts-and-humanities/art-and-design/" },
 ];

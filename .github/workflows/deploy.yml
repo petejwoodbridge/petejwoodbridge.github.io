@@ -5,11 +5,10 @@ on:
     branches: [main]
   workflow_dispatch:
 
-# Allow the workflow to publish to Pages
+# Least privilege: read-only by default, and each job asks for what it needs.
+# Only the deploy job can write to Pages.
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 # One deploy at a time; don't cancel a run that is already publishing
 concurrency:
@@ -19,6 +18,10 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # configure-pages reads the Pages settings (origin and base path) through the API.
+    permissions:
+      contents: read
+      pages: read
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -56,6 +59,9 @@ jobs:
   deploy:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

@@ -3,25 +3,33 @@ import { u } from "../lib/url";
 import { logos } from "../data/logos";
 interface Props { label?: string }
 const { label = "Organisations I have worked with" } = Astro.props;
-// Two passes so the track can translate -50% and loop seamlessly. The second
-// pass is decorative, so it is hidden from assistive tech.
-const loop = [...logos.map((l) => ({ l, dup: false })), ...logos.map((l) => ({ l, dup: true }))];
+// Two passes so the track can translate -50% and loop seamlessly. The first is a real list,
+// so assistive tech hears every organisation by name; the second is decorative and hidden.
+const passes = [false, true];
 ---
-<div class="marquee" aria-label={label} role="img">
+<div class="marquee">
   <div class="marquee__track">
-    {loop.map(({ l, dup }) => (
-      <span class="marquee__item">
-        <img
-          src={u(l.file)}
-          alt={dup ? "" : l.name}
-          width={l.w}
-          height={l.h}
-          style={`--w:${l.w};--h:${l.h}`}
-          loading="lazy"
-          decoding="async"
-          aria-hidden={dup ? "true" : undefined}
-        />
-      </span>
+    {passes.map((dup) => (
+      <ul class="marquee__pass" aria-label={dup ? undefined : label} aria-hidden={dup ? "true" : undefined}>
+        {logos.map((l) => (
+          <li class="marquee__item">
+            <img
+              src={u(l.file)}
+              alt={dup ? "" : l.name}
+              width={l.w}
+              height={l.h}
+              style={`--w:${l.w};--h:${l.h}`}
+              loading="lazy"
+              decoding="async"
+            />
+          </li>
+        ))}
+      </ul>
     ))}
   </div>
 </div>
+
+<style>
+  /* Each pass lays its items out exactly as the track used to, so the -50% loop still lands seamlessly. */
+  .marquee__pass { display: inline-flex; flex: none; gap: 0; margin: 0; padding: 0; list-style: none; }
+</style>

@@ -25,3 +25,6 @@ Thumbs.db
 
 # scratch
 *.local
+
+# source renders dropped into public/ (e.g. "clip (1080p).mp4"); only the encoded web cuts ship
+public/video/**/* (*).mp4

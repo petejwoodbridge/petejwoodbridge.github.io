@@ -23,12 +23,15 @@ export interface Project {
   cardRole?: string;
   /** A few recognisable names from that role, best known first. */
   clients?: string[];
+  /** Keyword-led <title> for the project page, used instead of `title` when set. Keep it to 44 characters or fewer. */
+  seoTitle?: string;
 }
 
 export const projects: Project[] = [
   {
     slug: "musicfutures",
     title: "MusicFutures",
+    seoTitle: "MusicFutures: Music Innovation, Liverpool",
     org: "MusicFutures Creative Cluster",
     orgUrl: "https://musicfutures.co.uk/",
     role: "R&D & Innovation Lead",
@@ -65,6 +68,7 @@ export const projects: Project[] = [
   {
     slug: "dreamlab",
     title: "Dreamlab",
+    seoTitle: "Dreamlab: Creative AI & Realtime R&D Lab",
     org: "Dreamlab",
     orgUrl: "https://dreamlab.org.uk/",
     role: "R&D Innovation Director",
@@ -81,8 +85,8 @@ export const projects: Project[] = [
       { title: "Things people in the lab have made", items: [
         { label: "Krygon Studios at the MSG Sphere, Las Vegas", url: "https://www.linkedin.com/feed/update/urn:li:activity:7241016240960344064/" },
         { label: "Dock10: affordable digital characters", url: "https://www.dock10.co.uk/" },
-        { label: "PlayXD: mixed reality game with Meta", url: "https://playxd.co.uk/games/primal-rumble%C2%AE-coming-soon" },
-        { label: "Sairo: fashion AI tools for Roblox", url: "https://www.sairo.uk/work" },
+        { label: "PlayXD: mixed reality game with Meta", url: "https://web.archive.org/web/20241208121625/https://playxd.co.uk/games/primal-rumble%C2%AE-coming-soon" },
+        { label: "Sairo: fashion AI tools for Roblox", url: "https://www.sairo.uk/" },
         { label: "Byron's Lab: AI and sustainable programming", url: "https://www.instagram.com/byronsbulb/" },
         { label: "Scenegraph Studios: AI Metahumans for skills training", url: "https://scenegraphstudios.com/products/pxl-persona/" },
         { label: "Bellyfeel: AI scriptwriting tools", url: "https://bellyfeel.co.uk/" },
@@ -96,7 +100,7 @@ export const projects: Project[] = [
         { label: "The team", url: "https://dreamlab.org.uk/team/" },
         { label: "Dreamlab on LinkedIn", url: "https://www.linkedin.com/company/thedreamlabuk/" },
         { label: "Work with the lab", url: "https://dreamlab.org.uk/contact/" },
-        { label: "The lab space at MediaCity", url: "https://www.mediacityuk.co.uk/dreamlab/" },
+        { label: "The lab space at MediaCity", url: "https://web.archive.org/web/20250124135525/https://www.mediacityuk.co.uk/dreamlab/" },
       ] },
     ],
     tags: ["Creative AI", "Realtime production", "Software", "R&D lab"],
@@ -111,6 +115,7 @@ export const projects: Project[] = [
   {
     slug: "mediacity",
     title: "MediaCity Innovation Hub",
+    seoTitle: "MediaCity Immersive Tech Innovation Hub",
     org: "MediaCity Immersive Technologies Innovation Hub",
     orgUrl: "https://www.mediacityuk.co.uk/immersive-technologies-innovation-hub/",
     role: "R&D Innovation Director",
@@ -121,7 +126,7 @@ export const projects: Project[] = [
     body: [
       "The hub supports a community of businesses shaping the future of media: immersive experiences, virtual production, sound and gaming technology. My job was to identify and support innovation across a portfolio of projects. Within a year we had built a portfolio of over 35 collaborative projects with the Manchester creative and tech community, with combined public and private investment of over £2.7m going directly into innovation and regional SMEs, alongside hundreds of business assists.",
       "Alongside the portfolio I ran community and talent development: events, hacks and labs with partners including Manchester Animation Festival, Beyond Conference, Creative UK, FutureEverything and Oxford Innovation, from virtual production film hacks to ComfyUI AI jams.",
-      "The thing I am proudest of is the <a href=\"https://www.mediacityuk.co.uk/dreamlab/\" target=\"_blank\" rel=\"noopener\">DreamLab</a> collective and lab space we created there, bringing businesses, freelancers, research and innovation talent together in one place to help Greater Manchester navigate a future where creativity and technology collide. Our AI work was featured in the <a href=\"https://www.linkedin.com/feed/update/urn:li:activity:7141426196197564417/\" target=\"_blank\" rel=\"noopener\">500 UK Trailblazers</a> report from Verizon, supported by Epic Games.",
+      "The thing I am proudest of is the <a href=\"https://dreamlab.org.uk/\" target=\"_blank\" rel=\"noopener\">Dreamlab</a> collective and lab space we created there, bringing businesses, freelancers, research and innovation talent together in one place to help Greater Manchester navigate a future where creativity and technology collide. Our AI work was featured in the <a href=\"https://www.linkedin.com/feed/update/urn:li:activity:7141426196197564417/\" target=\"_blank\" rel=\"noopener\">500 UK Trailblazers</a> report from Verizon, supported by Epic Games.",
     ],
     groups: [
       { title: "Businesses supported", items: [
@@ -168,7 +173,7 @@ export const projects: Project[] = [
       { title: "Find out more", items: [
         { label: "MediaCity Innovation", url: "https://www.mediacityuk.co.uk/immersive-technologies-innovation-hub/" },
         { label: "The hub on LinkedIn", url: "https://www.linkedin.com/company/mitih/" },
-        { label: "DreamLab at MediaCity", url: "https://www.mediacityuk.co.uk/dreamlab/" },
+        { label: "Dreamlab at MediaCity", url: "https://web.archive.org/web/20250124135525/https://www.mediacityuk.co.uk/dreamlab/" },
         { label: "The Dreamlab team", url: "https://www.linkedin.com/feed/update/urn:li:activity:7245075867633094658" },
         { label: "DSIT visit", url: "https://www.linkedin.com/posts/danielmktb_applearkit-animation-salfordmediacity-activity-7232360350900248577-7rEF" },
       ] },
@@ -185,6 +190,7 @@ export const projects: Project[] = [
   {
     slug: "crucial-fx",
     title: "Crucial FX",
+    seoTitle: "Projection Mapping & Live Events, Crucial FX",
     org: "Crucial FX",
     orgUrl: "https://crucial-fx.com/",
     role: "Creative Technologist",
@@ -223,8 +229,9 @@ export const projects: Project[] = [
   {
     slug: "pathway",
     title: "Pathway Studios",
+    seoTitle: "Virtual Production at Pathway, Manchester",
     org: "Pathway",
-    orgUrl: "https://www.pathwayxr.studio/",
+    orgUrl: "https://web.archive.org/web/20230514153000/https://www.pathwayxr.studio/",
     role: "Creative Producer & Technologist",
     period: "2022",
     tagline: "Realtime content, in-camera VFX and innovation on a 6,000 sq ft LED volume in Manchester.",
@@ -233,7 +240,7 @@ export const projects: Project[] = [
     body: [
       "The facility and crew offer development and production, pre-visualisation, virtual art design and more, and innovate in areas such as machine learning and motion capture. I worked across production and R&D, and on the training and incubator programmes that grew around the stage.",
       "Partners and projects included BBC Three (Jason Derulo's <a href=\"https://www.youtube.com/watch?v=hdS1wEXzQY8&t=27s\" target=\"_blank\" rel=\"noopener\">Project Ikon</a>), ITV, a <a href=\"https://britishcinematographer.co.uk/pathway-partners-in-manchester-with-sony-for-virtual-production-special-event/\" target=\"_blank\" rel=\"noopener\">Sony</a> virtual production event, <a href=\"https://www.linkedin.com/feed/update/urn:li:activity:7195789184031162368/\" target=\"_blank\" rel=\"noopener\">McLaren</a>, advertising projects with <a href=\"https://www.tagww.com/\" target=\"_blank\" rel=\"noopener\">TAG</a>, <a href=\"https://www.thegatefilms.com/\" target=\"_blank\" rel=\"noopener\">Gate Films</a> and <a href=\"https://www.campaignlive.co.uk/article/national-energy-action-warm-country-twice-collective/1808835\" target=\"_blank\" rel=\"noopener\">National Energy Action</a>, an ARRI test shooting <a href=\"https://britishcinematographer.co.uk/virtual-production-on-65mm-film-pathway-reveals-innovative-test-film/\" target=\"_blank\" rel=\"noopener\">virtual production on 65mm film</a>, <a href=\"https://www.linkedin.com/posts/storyfuturesacademy_abertay-university-leads-groundbreaking-real-time-activity-7089929487303233536-_7Cr\" target=\"_blank\" rel=\"noopener\">5G innovation projects</a>, and work with <a href=\"https://www.hurricanefilms.net/\" target=\"_blank\" rel=\"noopener\">Hurricane Films</a>, <a href=\"https://www.3minuteswest.com/\" target=\"_blank\" rel=\"noopener\">Three Minutes West</a> and <a href=\"https://www.redbull.com/gb-en/collections/films\" target=\"_blank\" rel=\"noopener\">Red Bull</a>.",
-      "We also launched <a href=\"https://www.pathwayxr.studio/indie-incubator\" target=\"_blank\" rel=\"noopener\">Pathway Indie</a>, a £2m virtual production incubator for independent filmmakers, and delivered training programmes for universities and industry.",
+      "We also launched <a href=\"https://web.archive.org/web/20230103121140/https://www.pathwayxr.studio/indie-incubator\" target=\"_blank\" rel=\"noopener\">Pathway Indie</a>, a £2m virtual production incubator for independent filmmakers, and delivered training programmes for universities and industry.",
     ],
     groups: [
       { title: "Projects and partners", items: [
@@ -248,8 +255,8 @@ export const projects: Project[] = [
         { label: "Hurricane Films", url: "https://www.hurricanefilms.net/" },
         { label: "Three Minutes West", url: "https://www.3minuteswest.com/" },
         { label: "Red Bull Films", url: "https://www.redbull.com/gb-en/collections/films" },
-        { label: "Pathway Indie incubator", url: "https://www.pathwayxr.studio/indie-incubator" },
-        { label: "Pathway Virtual Production, Manchester", url: "https://www.pathwayxr.studio/" },
+        { label: "Pathway Indie incubator", url: "https://web.archive.org/web/20230103121140/https://www.pathwayxr.studio/indie-incubator" },
+        { label: "Pathway Virtual Production, Manchester", url: "https://web.archive.org/web/20230514153000/https://www.pathwayxr.studio/" },
       ] },
     ],
     press: [
@@ -317,12 +324,12 @@ export const projects: Project[] = [
       "My work covered AI, WebAssembly, optimisation and UX innovation: the deep engineering that has to be right before anything built on top of it can feel effortless. Room, the platform it produced, puts immersive events and experiences in 3D directly in a browser, on a new RealityOS engine built with WebGL and WebAssembly. The aim throughout was a metaverse for real people on the open web, with no goggles necessary.",
       "That work supported the development of several products, plus R&D and patents, with 200+ company patents pending by the time I left. It produced pioneering WebAssembly software features, tools and experiences, and a brand new, state-of-the-art web-based realtime games engine.",
       "I led and directed agile engineering teams, both internal and outsourced, across the globe: games engine, front end, back end and infrastructure developers alongside UX designers and 3D artists.",
-      "Room launched at SXSW in 2021 and went live globally in 2022. Best of all, it runs straight in the browser: <a href=\"https://room3d.com/\" target=\"_blank\" rel=\"noopener\">try it</a>.",
+      "Room launched at SXSW in 2021 and went live globally in 2022. Best of all, it runs straight in the browser: <a href=\"https://web.archive.org/web/20221020173953/https://room3d.com/\" target=\"_blank\" rel=\"noopener\">try it</a>.",
     ],
     groups: [
       { title: "Find out more", items: [
         { label: "TMRW Foundation", url: "https://www.tmrw.com/" },
-        { label: "Room", url: "https://room3d.com/" },
+        { label: "Room", url: "https://web.archive.org/web/20221020173953/https://room3d.com/" },
         { label: "New Straits Times: video meetings in virtual rooms", url: "https://www.nst.com.my/lifestyle/bots/2021/03/675307/tech-video-meetings-virtual-rooms-will-make-likes-zoom-seem-old-school" },
         { label: "Tech.eu: Room goes live", url: "https://tech.eu/2022/10/10/bringing-teams-together-again-3d-video-communications-platform-room-goes-live-launches-their-founders-plan" },
       ] },
@@ -339,6 +346,7 @@ export const projects: Project[] = [
   {
     slug: "xlab-ljmu",
     title: "XLab & MA Immersive Arts",
+    seoTitle: "MA Immersive Arts & XLab, LJMU Liverpool",
     org: "Liverpool John Moores University",
     orgUrl: "https://www.ljmu.ac.uk/research/centres-and-institutes/institute-of-art-and-technology/expertise/experimental-technologies-lab",
     role: "Co-Director, Experimental Technologies Lab · Programme Leader, MA Immersive Arts",
@@ -348,23 +356,23 @@ export const projects: Project[] = [
       "At LJMU I co-directed the Experimental Technologies Lab (XLab) in the Institute of Art and Technology with Dr Mark Wright, and developed and led the MA Immersive Arts, a first of its kind, at the Liverpool Screen School.",
     body: [
       "The <a href=\"https://www.ljmu.ac.uk/research/centres-and-institutes/institute-of-art-and-technology/expertise/experimental-technologies-lab\" target=\"_blank\" rel=\"noopener\">Experimental Technologies Lab</a> grew out of four years of research at FACTLab, a collaboration with Liverpool's <a href=\"https://www.fact.co.uk/\" target=\"_blank\" rel=\"noopener\">FACT</a>. Researchers, artists and technologists produce projects together as teams, using a methodology of active co-design: diverse people invited to explore creative technology through hands-on experimentation with electronics, immersive and interactive media and fabrication. Since 2015 the lab welcomed over 4,500 visitors, working across the <a href=\"https://twitter.com/ljmufablab\" target=\"_blank\" rel=\"noopener\">Liverpool Fab Lab</a>, <a href=\"https://www.ljmu.ac.uk/about-us/faculties/faculty-of-engineering-and-technology/live-lab\" target=\"_blank\" rel=\"noopener\">LiveLab</a> and the X-Gallery, with an immersive projection room, room-scale multiplayer VR, mixed reality headsets, holographic displays, 3D scanning, 8K stereoscopic 360 cameras, digital fabrication and more.",
-      "The <a href=\"https://www.ljmu.ac.uk/study/courses/postgraduates/immersive-arts\" target=\"_blank\" rel=\"noopener\">MA Immersive Arts</a> was designed so students would explore and experiment with augmented reality, mixed reality, projection mapping, holographics, future screens and virtual reality, run jointly between the Liverpool Screen School and the Liverpool School of Art and Design. Modules covered immersive storytelling, an immersive arts lab, a collaborative project with an external partner, research and proposal, and a major practice-based project. It was built in consultation with creative industry and arts partners and with the North West's immersive technology sector.",
+      "The <a href=\"https://web.archive.org/web/20201202092349/https://www.ljmu.ac.uk/study/courses/postgraduates/immersive-arts\" target=\"_blank\" rel=\"noopener\">MA Immersive Arts</a> was designed so students would explore and experiment with augmented reality, mixed reality, projection mapping, holographics, future screens and virtual reality, run jointly between the Liverpool Screen School and the Liverpool School of Art and Design. Modules covered immersive storytelling, an immersive arts lab, a collaborative project with an external partner, research and proposal, and a major practice-based project. It was built in consultation with creative industry and arts partners and with the North West's immersive technology sector.",
       "In December 2018 the team ran the <a href=\"https://www.ljmu.ac.uk/about-us/news/articles/2018/12/20/immersive-storytelling-experiences-symposium\" target=\"_blank\" rel=\"noopener\">Immersive Storytelling Experiences Research Symposium</a>, bringing 250+ companies and delegates from industry and academia to explore R&D in these mediums. In 2020 this body of work saw me named in the BIMA 100.",
     ],
     groups: [
       { title: "Find out more", items: [
         { label: "Experimental Technologies Lab", url: "https://www.ljmu.ac.uk/research/centres-and-institutes/institute-of-art-and-technology/expertise/experimental-technologies-lab" },
         { label: "Institute of Art and Technology", url: "https://www.ljmu.ac.uk/research/centres-and-institutes/institute-of-art-and-technology" },
-        { label: "Dr Mark Wright", url: "https://www.ljmu.ac.uk/about-us/staff-profiles/faculty-of-arts-professional-and-social-studies/liverpool-school-of-art-and-design/mark-wright" },
+        { label: "Dr Mark Wright", url: "https://web.archive.org/web/20241208142748/https://www.ljmu.ac.uk/about-us/staff-profiles/faculty-of-arts-professional-and-social-studies/liverpool-school-of-art-and-design/mark-wright" },
         { label: "FACT Liverpool", url: "https://www.fact.co.uk/" },
-        { label: "MA Immersive Arts", url: "https://www.ljmu.ac.uk/study/courses/postgraduates/immersive-arts" },
+        { label: "MA Immersive Arts", url: "https://web.archive.org/web/20201202092349/https://www.ljmu.ac.uk/study/courses/postgraduates/immersive-arts" },
         { label: "Immersive Storytelling Experiences Symposium", url: "https://www.ljmu.ac.uk/about-us/news/articles/2018/12/20/immersive-storytelling-experiences-symposium" },
         { label: "Immerse UK: the North West immersive sector (PDF)", url: "https://www.immerseuk.org/wp-content/uploads/2018/05/Immersive_Technologies_PDF_lowres.pdf" },
       ] },
     ],
     press: [
       { label: "LJMU: Immersive arts pioneer named among UK's 100 top creatives", url: "https://www.ljmu.ac.uk/about-us/news/articles/2020/5/6/immersive-arts-pioneer-named-among-uks-100-top-creatives" },
-      { label: "VRFocus: LJMU launches immersive arts degree", url: "https://www.vrfocus.com/2019/06/liverpools-john-moores-university-launches-immersive-arts-degree-looking-at-vr-ar/" },
+      { label: "VRFocus: LJMU launches immersive arts degree", url: "https://web.archive.org/web/20210927165310/https://www.vrfocus.com/2019/06/liverpools-john-moores-university-launches-immersive-arts-degree-looking-at-vr-ar/" },
     ],
     tags: ["Research lab", "Co-design", "Course design", "Mixed reality", "Teaching"],
     video: "/video/xlab-ljmu.mp4",
@@ -392,7 +400,7 @@ export const projects: Project[] = [
     groups: [
       { title: "Find out more", items: [
         { label: "School of Digital Arts (SODA)", url: "https://www.schoolofdigitalarts.mmu.ac.uk/" },
-        { label: "Immersive Storylab", url: "http://www.immersivestorylab.com/" },
+        { label: "Immersive Storylab", url: "https://web.archive.org/web/20191225135432/http://www.immersivestorylab.com/" },
       ] },
     ],
     tags: ["Curriculum design", "Digital storytelling", "Teaching", "Immersive storytelling"],
@@ -408,31 +416,31 @@ export const projects: Project[] = [
     slug: "disruptive-media",
     title: "Centre for Disruptive Media",
     org: "Coventry University",
-    orgUrl: "https://disruptivemedia.org.uk/",
+    orgUrl: "https://web.archive.org/web/20160529091842/http://disruptivemedia.org.uk/",
     role: "Project Development Team & Lecturer",
-    period: "2010 - 2015",
+    period: "2010 – 2015",
     tagline: "Pioneering digital learning: the UK's first university iTunes site, an early YouTube Edu partnership, and a photography course that lived inside an app.",
     intro:
       "Between 2010 and 2015 I worked as part of the project development team at the Centre for Disruptive Media at Coventry University, on innovations in using the web for teaching, research and open learning.",
     body: [
       "This included setting up partnerships with Apple and Google to create new ways to connect students to learning content. I created one of the first university iTunes sites in the UK and one of the first YouTube Edu partnerships.",
       "I developed a number of software applications and innovations, including work featured in Wired, which helped the University win awards for its pioneering research in this area. It is where I built my first augmented reality campaign, and where I did a lot of work on digital publishing and archiving, as co-investigator on several major funded research projects.",
-      "The photography app got the most attention: a free, undergraduate-level class delivered entirely inside an app, covered by the <a href=\"http://www.bjp-online.com/british-journal-of-photography/news/2032274/photography-class-doors-world\" target=\"_blank\" rel=\"noopener\">British Journal of Photography</a>, <a href=\"http://www.professionalphotographer.co.uk/News-and-Reviews/2011/3/Coventry-University-launches-world-s-first-free-class-in-an-app\" target=\"_blank\" rel=\"noopener\">Professional Photographer</a>, <a href=\"http://pdnpulse.com/2011/02/free-undergrad-level-photo-courses-offered-online-and-in-app-by-uk-professor.html\" target=\"_blank\" rel=\"noopener\">PDN Pulse</a> and the <a href=\"http://www.timeshighereducation.co.uk/416937.article\" target=\"_blank\" rel=\"noopener\">Times Higher</a>. The open education work was later written up in a <a href=\"http://repository.jisc.ac.uk/6069/1/JR0041_OPEN_EDUCATION_REPORT_V3.pdf\" target=\"_blank\" rel=\"noopener\">JISC report</a>.",
-      "Alongside the research I taught at <a href=\"https://www.coventry.ac.uk/study-at-coventry/faculties-and-schools/arts-and-humanities/art-and-design/\" target=\"_blank\" rel=\"noopener\">Coventry School of Art and Design</a> on the Digital Media and Culture MA and the Media Production BA, and developed a pioneering <a href=\"https://www.coventry.ac.uk/course-structure/ug/2019-20/fah/digital-media-ba-hons/\" target=\"_blank\" rel=\"noopener\">BA in Digital Media</a>.",
+      "The photography app got the most attention: a free, undergraduate-level class delivered entirely inside an app, covered by the <a href=\"https://web.archive.org/web/20110415114137/http://www.bjp-online.com/british-journal-of-photography/news/2032274/photography-class-doors-world\" target=\"_blank\" rel=\"noopener\">British Journal of Photography</a>, <a href=\"https://web.archive.org/web/20150924082229/http://www.professionalphotographer.co.uk/News-and-Reviews/2011/3/Coventry-University-launches-world-s-first-free-class-in-an-app\" target=\"_blank\" rel=\"noopener\">Professional Photographer</a>, <a href=\"https://web.archive.org/web/20130617141910/http://pdnpulse.com/2011/02/free-undergrad-level-photo-courses-offered-online-and-in-app-by-uk-professor.html\" target=\"_blank\" rel=\"noopener\">PDN Pulse</a> and the <a href=\"http://www.timeshighereducation.co.uk/416937.article\" target=\"_blank\" rel=\"noopener\">Times Higher</a>. The open education work was later written up in a <a href=\"http://repository.jisc.ac.uk/6069/1/JR0041_OPEN_EDUCATION_REPORT_V3.pdf\" target=\"_blank\" rel=\"noopener\">JISC report</a>.",
+      "Alongside the research I taught at <a href=\"https://www.coventry.ac.uk/study-at-coventry/faculties-and-schools/arts-and-humanities/art-and-design/\" target=\"_blank\" rel=\"noopener\">Coventry School of Art and Design</a> on the Digital Media and Culture MA and the Media Production BA, and developed a pioneering <a href=\"https://web.archive.org/web/20190822135820/https://www.coventry.ac.uk/course-structure/ug/2019-20/fah/digital-media-ba-hons/\" target=\"_blank\" rel=\"noopener\">BA in Digital Media</a>.",
     ],
     groups: [
       { title: "Find out more", items: [
-        { label: "Centre for Disruptive Media", url: "https://disruptivemedia.org.uk/" },
+        { label: "Centre for Disruptive Media", url: "https://web.archive.org/web/20160529091842/http://disruptivemedia.org.uk/" },
         { label: "Coventry School of Art and Design", url: "https://www.coventry.ac.uk/study-at-coventry/faculties-and-schools/arts-and-humanities/art-and-design/" },
-        { label: "BA Digital Media", url: "https://www.coventry.ac.uk/course-structure/ug/2019-20/fah/digital-media-ba-hons/" },
+        { label: "BA Digital Media", url: "https://web.archive.org/web/20190822135820/https://www.coventry.ac.uk/course-structure/ug/2019-20/fah/digital-media-ba-hons/" },
         { label: "JISC open education report (PDF)", url: "http://repository.jisc.ac.uk/6069/1/JR0041_OPEN_EDUCATION_REPORT_V3.pdf" },
       ] },
     ],
     press: [
       { label: "BBC News: Shakespeare Unplugged", url: "http://www.bbc.co.uk/news/uk-england-coventry-warwickshire-18426672" },
-      { label: "British Journal of Photography: a photography class that opens doors", url: "http://www.bjp-online.com/british-journal-of-photography/news/2032274/photography-class-doors-world" },
-      { label: "Professional Photographer: world's first free class in an app", url: "http://www.professionalphotographer.co.uk/News-and-Reviews/2011/3/Coventry-University-launches-world-s-first-free-class-in-an-app" },
-      { label: "PDN Pulse: free undergraduate photo courses in an app", url: "http://pdnpulse.com/2011/02/free-undergrad-level-photo-courses-offered-online-and-in-app-by-uk-professor.html" },
+      { label: "British Journal of Photography: a photography class that opens doors", url: "https://web.archive.org/web/20110415114137/http://www.bjp-online.com/british-journal-of-photography/news/2032274/photography-class-doors-world" },
+      { label: "Professional Photographer: world's first free class in an app", url: "https://web.archive.org/web/20150924082229/http://www.professionalphotographer.co.uk/News-and-Reviews/2011/3/Coventry-University-launches-world-s-first-free-class-in-an-app" },
+      { label: "PDN Pulse: free undergraduate photo courses in an app", url: "https://web.archive.org/web/20130617141910/http://pdnpulse.com/2011/02/free-undergrad-level-photo-courses-offered-online-and-in-app-by-uk-professor.html" },
       { label: "Times Higher Education", url: "http://www.timeshighereducation.co.uk/416937.article" },
       { label: "4RFV: the world's first phone app for a media degree", url: "http://www.4rfv.co.uk/industrynews.asp?id=133201" },
     ],
@@ -557,7 +565,7 @@ export const projects: Project[] = [
       "Qube Smash combines tracking, realtime games engines, immersive spaces and a bit of magic to create a new, out-of-this-world playable sports experience. I had a lot of fun on this one.",
     body: [
       "Built with the team at <a href=\"https://www.linkedin.com/company/crucial-fx/\" target=\"_blank\" rel=\"noopener\">Crucial FX</a>, the game turns a projection-mapped room into a pitch: players are tracked in real time and the environment reacts to every kick. It is a template for a category of playable, location-based sports experiences that fit venues from fan zones to shopping centres.",
-      "Read the launch story at <a href=\"https://crucial-fx.com/pulse/meet-qube-smash-an-original-mixed-reality-immersive-football-game/\" target=\"_blank\" rel=\"noopener\">Crucial FX</a>, or see the wider work in <a href=\"/work/crucial-fx\">Crucial FX</a>.",
+      "Read the launch story at <a href=\"https://crucial-fx.com/pulse/meet-qube-smash-an-original-mixed-reality-immersive-football-game/\" target=\"_blank\" rel=\"noopener\">Crucial FX</a>, or see the wider work in <a href=\"/work/crucial-fx/\">Crucial FX</a>.",
     ],
     groups: [
       { title: "Find out more", items: [
@@ -587,7 +595,7 @@ export const projects: Project[] = [
       "The University of Liverpool's Centre for Architecture and Visual Arts secured more than £500,000 of UKRI/AHRC funding to develop an immersive Shaun the Sheep experience in China for Aardman. I was a co-investigator, representing LJMU.",
     body: [
       "Led by Professor Richard Koeck with Dr Shan Luo and Aardman senior producer Stephanie Owen, the project set out to build a genuinely new cinematic, AI-driven, spatially immersive way of storytelling: visitors of all ages interacting directly with a Shaun the Sheep story in real time, without headsets, gloves or personal devices, in partnership with the <a href=\"http://www.sta.edu.cn/\" target=\"_blank\" rel=\"noopener\">Shanghai Theatre Academy</a>.",
-      "It was funded through the AHRC Research-Industry Creative Partnership and the UKRI Fund for International Collaboration, with a combined project value of £1.08 million, and brought together three academic partners with Aardman, the Media Industry Association and Digital Fun, supported by the University's <a href=\"https://www.liverpool.ac.uk/engineering/research/vec/\" target=\"_blank\" rel=\"noopener\">Virtual Engineering Centre</a>.",
+      "It was funded through the AHRC Research-Industry Creative Partnership and the UKRI Fund for International Collaboration, with a combined project value of £1.08 million, and brought together three academic partners with Aardman, the Media Industry Association and Digital Fun, supported by the University's <a href=\"https://web.archive.org/web/20191209094457/https://www.liverpool.ac.uk/engineering/research/vec/\" target=\"_blank\" rel=\"noopener\">Virtual Engineering Centre</a>.",
     ],
     groups: [
       { title: "Find out more", items: [
@@ -620,7 +628,8 @@ export const projects: Project[] = [
     intro:
       "The UKII Intelligence Report 2024, by We Are Incandescence and sponsored by Verizon and Epic Games, named 500 trailblazers in UK science, technology and innovation. I was included in the creative industries category for my work in AI animation.",
     body: [
-      "The work recognised came out of the MediaCity innovation programme and Dreamlab: AI-augmented animation and production workflows, tool-building with ComfyUI and realtime engines, and the community hacks and jams that spread those techniques across the North West's studios.",
+      "The work recognised came out of the <a href=\"/work/mediacity/\">MediaCity innovation programme</a> and <a href=\"/work/dreamlab/\">Dreamlab</a>: AI-augmented animation and production workflows, tool-building with ComfyUI and realtime engines, and the community hacks and jams that spread those techniques across the North West's studios.",
+      "The MediaCity hub's own AI work was featured in the same report.",
     ],
     groups: [
       { title: "Find out more", items: [
@@ -642,19 +651,19 @@ export const projects: Project[] = [
     tier: "more",
     title: "BIMA 100",
     org: "British Interactive Media Association",
-    orgUrl: "https://bima.co.uk/bima-programmes/bima-100-2020/",
+    orgUrl: "https://web.archive.org/web/20200922105515/https://bima.co.uk/bima-programmes/bima-100-2020/",
     role: "Award · Creatives and Designers",
     period: "2020",
     tagline: "Named among the 100 most influential, pioneering and changemaking people in the UK digital and tech industry.",
     intro:
       "Every year BIMA, the UK's largest digital and tech community, searches for the 100 most influential, pioneering and groundbreaking people in the industry. In 2020 an independent panel put me in the Creatives and Designers category.",
     body: [
-      "The selection followed a year of pioneering creative technology and immersive experience projects: the MA Immersive Arts, the Experimental Technologies Lab, the Immersive Storytelling Experiences Symposium and the Immersive Liverpool network.",
+      "The selection followed a year of pioneering creative technology and immersive experience projects: the <a href=\"/work/xlab-ljmu/\">MA Immersive Arts and the Experimental Technologies Lab</a> at LJMU, the Immersive Storytelling Experiences Symposium and the <a href=\"/work/immersive-liverpool/\">Immersive Liverpool network</a>. LJMU announced it as an immersive arts pioneer named among the UK's 100 top creatives.",
       "My advice at the time, for anyone starting out, still stands: go for it, start making, take risks, collaborate and experiment at the boundaries of what you do.",
     ],
     groups: [
       { title: "Find out more", items: [
-        { label: "BIMA 100 2020", url: "https://bima.co.uk/bima-programmes/bima-100-2020/" },
+        { label: "BIMA 100 2020", url: "https://web.archive.org/web/20200922105515/https://bima.co.uk/bima-programmes/bima-100-2020/" },
         { label: "LJMU press release", url: "https://www.ljmu.ac.uk/about-us/news/articles/2020/5/6/immersive-arts-pioneer-named-among-uks-100-top-creatives" },
       ] },
     ],
@@ -679,15 +688,15 @@ export const projects: Project[] = [
     intro:
       "In January 2018 we started the Immersive Liverpool network to bring people together across the city region and start thinking seriously about what immersive technologies could do across a number of sectors.",
     body: [
-      "The first event was at Sensor City and focused on <a href=\"https://www.meetup.com/Immersive-Liverpool/events/246060419/\" target=\"_blank\" rel=\"noopener\">mixed reality</a>, with speakers from <a href=\"https://www.laval-virtual.org/\" target=\"_blank\" rel=\"noopener\">Laval Virtual</a> and <a href=\"https://www.investliverpool.com/press-releases/podcast-series/\" target=\"_blank\" rel=\"noopener\">Invest Liverpool</a>, and demos ranging from virtual reality to holographic experiences and mobile apps. February took us to the VR Here arcade for shared experiences in immersive environments with <a href=\"https://vtime.net/\" target=\"_blank\" rel=\"noopener\">vTime</a> and Synthetic Worlds. March was storytelling in augmented reality, with <a href=\"https://www.bbc.co.uk/rd\" target=\"_blank\" rel=\"noopener\">BBC R&amp;D</a>, <a href=\"https://www.drawandcode.com/\" target=\"_blank\" rel=\"noopener\">Draw &amp; Code</a> and the Immersive Storylab, and a live link to the Laval Virtual Festival in France.",
-      "In April we took a delegation of ten companies and organisations to the ARVR Innovate Conference in Dublin, to build collaborations with our twin city across the Irish Sea. In May, with the <a href=\"https://www.bima.co.uk/Councils/Immersive-Tech\" target=\"_blank\" rel=\"noopener\">BIMA Immersive Tech Thinktank</a> and the <a href=\"https://alderhey.nhs.uk/innovation\" target=\"_blank\" rel=\"noopener\">Alder Hey Innovation Unit</a>, we looked at immersive technology in healthcare: surgeons working in mixed reality, training innovations from the <a href=\"https://news.liverpool.ac.uk/2018/01/03/royal-society-medicine-itn-showcase-award-winning-university-project/\" target=\"_blank\" rel=\"noopener\">University of Liverpool Medical School</a>, Diabetes UK and Immersive Interactive.",
+      "The first event was at Sensor City and focused on <a href=\"https://www.meetup.com/Immersive-Liverpool/events/246060419/\" target=\"_blank\" rel=\"noopener\">mixed reality</a>, with speakers from <a href=\"https://www.laval-virtual.org/\" target=\"_blank\" rel=\"noopener\">Laval Virtual</a> and Invest Liverpool, and demos ranging from virtual reality to holographic experiences and mobile apps. February took us to the VR Here arcade for shared experiences in immersive environments with <a href=\"https://vtime.net/\" target=\"_blank\" rel=\"noopener\">vTime</a> and Synthetic Worlds. March was storytelling in augmented reality, with <a href=\"https://www.bbc.co.uk/rd\" target=\"_blank\" rel=\"noopener\">BBC R&amp;D</a>, <a href=\"https://www.drawandcode.com/\" target=\"_blank\" rel=\"noopener\">Draw &amp; Code</a> and the Immersive Storylab, and a live link to the Laval Virtual Festival in France.",
+      "In April we took a delegation of ten companies and organisations to the ARVR Innovate Conference in Dublin, to build collaborations with our twin city across the Irish Sea. In May, with the <a href=\"https://web.archive.org/web/20190821090029/https://www.bima.co.uk/Councils/Immersive-Tech\" target=\"_blank\" rel=\"noopener\">BIMA Immersive Tech Thinktank</a> and the <a href=\"https://alderhey.nhs.uk/innovation\" target=\"_blank\" rel=\"noopener\">Alder Hey Innovation Unit</a>, we looked at immersive technology in healthcare: surgeons working in mixed reality, training innovations from the <a href=\"https://news.liverpool.ac.uk/2018/01/03/royal-society-medicine-itn-showcase-award-winning-university-project/\" target=\"_blank\" rel=\"noopener\">University of Liverpool Medical School</a>, Diabetes UK and Immersive Interactive.",
       "In June we supported <a href=\"https://www.eventbrite.co.uk/e/immersive-technologies-disrupting-the-future-of-healthcare-tickets-46878789722\" target=\"_blank\" rel=\"noopener\">Immersive Technologies Disrupting the Future of Healthcare</a> at the International Festival for Business, which drew over 200 people. In December 2018 we supported the Immersive Storytelling Experiences Research Symposium, with more than 250 companies and delegates exploring R&amp;D in the field. In March 2019 we supported the Storyhack XR residency, and in April ran an interactive video workshop with artist Sam Meech.",
-      "Alongside the events we worked with Liverpool City Council on a strategy for the region, and the network was one of the strands of work cited when I was named in the <a href=\"/work/bima-100\">BIMA 100</a>. It is still going, now as <a href=\"https://www.meetup.com/immersive-liverpool/\" target=\"_blank\" rel=\"noopener\">Immersive Liverpool, the city region's creative technology network</a>: around 880 members, twenty-odd events on the Meetup, and a remit that has widened with the field to take in creative AI, games, realtime content and virtual production. These days it is mostly an online community that gets together once or twice a year, and it still feeds the wider <a href=\"/events\">events programme</a> I run across the region.",
+      "Alongside the events we worked with Liverpool City Council on a strategy for the region, and the network was one of the strands of work cited when I was named in the <a href=\"/work/bima-100/\">BIMA 100</a>. It is still going, now as <a href=\"https://www.meetup.com/immersive-liverpool/\" target=\"_blank\" rel=\"noopener\">Immersive Liverpool, the city region's creative technology network</a>: around 880 members, twenty-odd events on the Meetup, and a remit that has widened with the field to take in creative AI, games, realtime content and virtual production. These days it is mostly an online community that gets together once or twice a year, and it still feeds the wider <a href=\"/events/\">events programme</a> I run across the region.",
     ],
     groups: [
       { title: "Find out more", items: [
         { label: "Immersive Liverpool on Meetup", url: "https://www.meetup.com/Immersive-Liverpool/" },
-        { label: "BIMA Immersive Tech Thinktank", url: "https://www.bima.co.uk/Councils/Immersive-Tech" },
+        { label: "BIMA Immersive Tech Thinktank", url: "https://web.archive.org/web/20190821090029/https://www.bima.co.uk/Councils/Immersive-Tech" },
         { label: "Alder Hey Innovation Unit", url: "https://alderhey.nhs.uk/innovation" },
       ] },
     ],

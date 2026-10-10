@@ -35,20 +35,21 @@ const homeSchema = {
 };
 ---
 <Base
+  description={site.metaDescription ?? site.description}
   image="/img/og/home.jpg"
   schema={homeSchema}
 >
   <section class="hero">
     <VideoBg src={u("/video/hero.mp4")} srcSm={u("/video/hero-720.mp4")} poster={u("/video/hero.jpg")} />
     <div class="container hero__inner">
-      <p class="eyebrow">Pete Woodbridge · AI consultant, creative technologist &amp; innovation leader · Liverpool</p>
-      <h1 class="display h-xl">I Build things &amp; Back people.</h1>
+      <h1 class="eyebrow">Pete Woodbridge — AI consultant &amp; creative technologist, Liverpool</h1>
+      <p class="display h-xl" style="margin:0">I build things &amp; back people.</p>
       <div class="hero__meta">
         <div>
-          <p class="hero__sub">Software Development, Creative Technology, tools, products and workflows… plus the programmes, labs and funding that get other innovators backed.</p>
+          <p class="hero__sub">Software development, creative technology, tools, products and workflows, plus the programmes, labs and funding that get other innovators backed.</p>
           <div class="btn-row hero__actions">
-            <a class="btn btn--volt" href={u("/work")}>See the work <span class="arrow">↗</span></a>
-            <a class="btn" href={u("/about")}>About me</a>
+            <a class="btn btn--volt" href={u("/ai")}>Work with me on AI <span class="arrow" aria-hidden="true">↗</span></a>
+            <a class="btn" href={u("/work")}>See the work</a>
           </div>
         </div>
         <span class="hero__scroll">Scroll</span>
@@ -72,13 +73,13 @@ const homeSchema = {
       <div class="prose" data-reveal>
         <p>I'm Pete Woodbridge, a creative technologist, engineer and innovation leader based in Liverpool.</p>
         <p>I have 20+ years of experience across digital and technology roles, R&amp;D and innovation, and building programmes that help the next generation of innovators and technical talent.</p>
-        <p>Working on projects for major brands, artists, labs, studios, skills providers and other partners — the BBC, ITV, Aardman, Google, Sony, Epic Games, the NHS and the United Nations among them.</p>
+        <p>I have worked on projects for major brands, artists, labs, studios, skills providers and other partners, among them the BBC, ITV, Aardman, Google, Sony, Epic Games, the NHS and the United Nations.</p>
         <p>Right now I am the Digital &amp; Technology Cluster Lead for the Liverpool City Region, growing the region's digital and technology sector with its businesses, universities, investors and talent. I also direct <a href={site.dreamlab} target="_blank" rel="noopener">Dreamlab</a>, an R&amp;D lab and collective of 40+ experts, and write <a href={site.dreamMachine.book} target="_blank" rel="noopener">Dream Machine</a>, a living book about AI and the next creative economy.</p>
         <p>Until recently I was R&amp;D and Innovation Lead on <a href={u("/work/musicfutures")}>MusicFutures</a>, a £7.2m programme I helped the region win, and Innovation Director at the <a href={u("/work/mediacity")}>MediaCity Innovation Hub</a>, where we backed 35+ collaborative projects on a £3.2m accelerator, leading to major acquisitions, impact and investment.</p>
-        <p>Before that, I've worked in studios, start-ups and universities, and for brands. Hands-on R&amp;D, development and production across software, AI and computer vision, interactive and sensor-based media, projection mapping and live event technology, games engines, VR/XR and mixed reality, motion and volumetric capture, virtual production and in-camera VFX — inventing in Python, Unreal Engine, Unity, the web, JavaScript and more.</p>
+        <p>Before that, I worked in studios, start-ups and universities, and for brands. Hands-on R&amp;D, development and production across software, AI and computer vision, interactive and sensor-based media, projection mapping and live event technology, games engines, VR/XR and mixed reality, motion and volumetric capture, virtual production and in-camera VFX — inventing in Python, Unreal Engine, Unity, the web, JavaScript and more.</p>
         <p>And now creative AI and agentic workflows, creative technology and software engineering.</p>
         <p>One eye always on what's next — technically and strategically, for the customer, the people and the opportunity.</p>
-        <p>Keep experimenting</p>
+        <p>Keep experimenting.</p>
       </div>
     </div>
     <div class="container" style="margin-top:clamp(48px,6vw,96px)">
@@ -101,7 +102,7 @@ const homeSchema = {
       </div>
       <div class="prose" data-reveal>
         <p>Every tool I have built — immersive rooms, LED stages, interactive systems, games engine tools, data engineering and agentic systems — only ever mattered for what someone else could do once it existed. Technology for its own sake has never held me for long. What holds me is the person on the other side of it, who will make something extraordinary the moment the thing in front of them stops getting in the way.</p>
-        <p>Which is why the two halves of my work are really one. Hands-on, I build tools, platforms, workflows and systems that make people faster, stranger and better at their thing, never redundant. On the other side, I build the programmes, funding and labs that put all of that within reach of people who would otherwise never get near it.</p>
+        <p>Which is why the two halves of my work are really one. Hands-on, I build tools, platforms, workflows and systems for the people doing the work. On the other side, I build the programmes, funding and labs that put all of that within reach of people who would otherwise never get near it.</p>
       </div>
     </div>
   </section>
@@ -146,7 +147,7 @@ const homeSchema = {
         </a>
       </div>
       <div style="margin-top:clamp(32px,4vw,56px)">
-        <a class="btn" href={u("/work")}>All work <span class="arrow">↗</span></a>
+        <a class="btn" href={u("/work")}>All work <span class="arrow" aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>
@@ -171,7 +172,7 @@ const homeSchema = {
         </ul>
       </div>
       <div class="btn-row" data-reveal style="margin-top:clamp(28px,3vw,44px)">
-        <a class="btn" href={u("/ai")}>AI consultancy, prototyping &amp; training <span class="arrow">↗</span></a>
+        <a class="btn" href={u("/ai")}>AI consultancy, prototyping &amp; training <span class="arrow" aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>
@@ -187,7 +188,7 @@ const homeSchema = {
         </div>
         <div class="btn-row" style="margin-top:1.4rem">
           <a class="btn" href={u("/about")}>More about me</a>
-          <a class="btn btn--ghost" href={site.dreamMachine.book} target="_blank" rel="noopener">The book <span class="arrow">↗</span></a>
+          <a class="btn btn--ghost" href={site.dreamMachine.book} target="_blank" rel="noopener">The book <span class="arrow" aria-hidden="true">↗</span></a>
         </div>
       </div>
       <div class="feature__img" data-reveal>
@@ -201,7 +202,7 @@ const homeSchema = {
       <h2 class="display h-xl" data-reveal>Tell me what you're building.</h2>
       <div class="cta__row" data-reveal>
         <p class="lead measure muted">Commissions, <a href={u("/ai")}>AI consultancy</a>, R&amp;D collaborations, talks, or just an idea you want to test on someone who has probably tried it once already.</p>
-        <a class="btn btn--volt" href={u("/contact")}>Get in touch <span class="arrow">↗</span></a>
+        <a class="btn btn--volt" href={u("/contact")}>Get in touch <span class="arrow" aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>

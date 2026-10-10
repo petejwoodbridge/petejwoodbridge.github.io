@@ -18,7 +18,7 @@ interface Props {
 }
 const {
   title,
-  description = site.description,
+  description = site.metaDescription,
   image = "/img/og/default.jpg",
   imageAlt,
   type = "website",
@@ -33,6 +33,7 @@ const fullTitle = title ? `${title} — ${site.name}` : `${site.name} — AI Con
 <!doctype html>
 <html lang="en-GB">
   <head>
+    <script is:inline>document.documentElement.classList.add("js");try{if(localStorage.getItem("motion")==="off")document.documentElement.classList.add("no-motion")}catch(e){}</script>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <Seo
@@ -49,12 +50,7 @@ const fullTitle = title ? `${title} — ${site.name}` : `${site.name} — AI Con
     <link rel="icon" href={u("/favicon.ico")} sizes="32x32" />
     <link rel="apple-touch-icon" href={u("/apple-touch-icon.png")} />
     <link rel="manifest" href={u("/site.webmanifest")} />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preload" href={u("/fonts/bricolage-grotesque.woff2")} as="font" type="font/woff2" crossorigin />
     <ClientRouter />
   </head>
   <body>
@@ -71,8 +67,36 @@ const fullTitle = title ? `${title} — ${site.name}` : `${site.name} — AI Con
       const conn = (navigator as any).connection;
       // On data saver or a slow connection the poster stands in for the background video.
       const saveData = conn?.saveData === true || /(^|-)2g|3g/.test(conn?.effectiveType ?? "");
+      // Set by the inline script in <head> and by the motion toggle in the nav.
+      const motionOff = () => document.documentElement.classList.contains("no-motion");
 
-      function initVideos() {
+      // Each page load gets one controller. Aborting it removes every listener added with its
+      // signal and disconnects every observer passed to `watch`, so moving between pages does
+      // not pile up scroll, keydown and observer callbacks from the pages before.
+      let ctl: AbortController | undefined;
+      const watch = (io: IntersectionObserver, signal: AbortSignal) => {
+        signal.addEventListener("abort", () => io.disconnect(), { once: true });
+        return io;
+      };
+      // Observing an element again fires a fresh callback, which picks up anything already in view.
+      const reobserve = (io: IntersectionObserver, els: Iterable<Element>) => {
+        for (const el of els) { io.unobserve(el); io.observe(el); }
+      };
+
+      // Run once the page has fully loaded and the browser has a quiet moment. After a
+      // client-side navigation the document is already complete, so it only waits for idle.
+      function afterLoad(fn: () => void, signal: AbortSignal) {
+        const idle = () => {
+          if (signal.aborted) return;
+          const run = () => { if (!signal.aborted) fn(); };
+          if ("requestIdleCallback" in window) (window as any).requestIdleCallback(run, { timeout: 2000 });
+          else setTimeout(run, 300);
+        };
+        if (document.readyState === "complete") idle();
+        else window.addEventListener("load", idle, { once: true, signal });
+      }
+
+      function initVideos(signal: AbortSignal) {
         const vids = document.querySelectorAll<HTMLVideoElement>("video[data-src]");
         if (!vids.length || reduced || saveData) return;
 
@@ -81,98 +105,132 @@ const fullTitle = title ? `${title} — ${site.name}` : `${site.name} — AI Con
           const small = window.innerWidth < 900 && v.dataset.srcSm;
           v.src = small ? (v.dataset.srcSm as string) : (v.dataset.src as string);
           v.dataset.loaded = "1";
-          v.addEventListener("playing", () => v.classList.add("is-ready"), { once: true });
+          v.addEventListener("playing", () => v.classList.add("is-ready"), { once: true, signal });
           v.play().catch(() => {});
         };
 
-        // The poster image carries the page on its own, so hold the video back until the
-        // browser is idle and only fetch the ones actually on screen. Downloading several
-        // megabytes while the page is still painting is what made navigation feel slow.
-        const arm = () => {
-          if (!("IntersectionObserver" in window)) { vids.forEach(start); return; }
-          const io = new IntersectionObserver((entries) => {
-            entries.forEach((e) => {
-              if (e.isIntersecting) { start(e.target as HTMLVideoElement); io.unobserve(e.target); }
-            });
-          }, { rootMargin: "150px" });
-          vids.forEach((v) => io.observe(v));
-        };
-        if ("requestIdleCallback" in window) (window as any).requestIdleCallback(arm, { timeout: 1200 });
-        else setTimeout(arm, 500);
+        // The poster image carries the page on its own, so hold the video back until the page
+        // has loaded and the browser is idle, then only fetch the ones actually on screen.
+        // Downloading several megabytes while the page is still painting is what made
+        // navigation feel slow. With motion paused nothing starts until it is switched back on.
+        if (!("IntersectionObserver" in window)) {
+          afterLoad(() => { if (!motionOff()) vids.forEach(start); }, signal);
+          return;
+        }
+        let armed = false;
+        const io = watch(new IntersectionObserver((entries) => {
+          entries.forEach((e) => {
+            if (e.isIntersecting && !motionOff()) { start(e.target as HTMLVideoElement); io.unobserve(e.target); }
+          });
+        }, { rootMargin: "150px" }), signal);
+        afterLoad(() => { armed = true; vids.forEach((v) => io.observe(v)); }, signal);
+        document.addEventListener("motion:change", () => {
+          if (armed && !motionOff()) reobserve(io, [...vids].filter((v) => !v.dataset.loaded));
+        }, { signal });
       }
 
-      function initCards() {
+      function initCards(signal: AbortSignal) {
         const cards = document.querySelectorAll<HTMLElement>(".card");
         cards.forEach((card) => {
           const v = card.querySelector<HTMLVideoElement>("video");
           if (!v || reduced) return;
           if (!noHover) {
-            card.addEventListener("pointerenter", () => { v.play().catch(() => {}); });
-            card.addEventListener("pointerleave", () => { v.pause(); });
+            card.addEventListener("pointerenter", () => { if (!motionOff()) v.play().catch(() => {}); }, { signal });
+            card.addEventListener("pointerleave", () => { v.pause(); }, { signal });
           }
         });
-        if (noHover && !reduced && !saveData) {
-          const io = new IntersectionObserver((entries) => {
+        if (noHover && !reduced && !saveData && "IntersectionObserver" in window) {
+          const io = watch(new IntersectionObserver((entries) => {
             entries.forEach((e) => {
               const card = e.target as HTMLElement;
               const v = card.querySelector<HTMLVideoElement>("video");
               if (!v) return;
-              if (e.isIntersecting && e.intersectionRatio > 0.6) { card.classList.add("is-playing"); v.play().catch(() => {}); }
+              if (e.isIntersecting && e.intersectionRatio > 0.6 && !motionOff()) { card.classList.add("is-playing"); v.play().catch(() => {}); }
               else { card.classList.remove("is-playing"); v.pause(); }
             });
-          }, { threshold: [0, 0.6, 1] });
+          }, { threshold: [0, 0.6, 1] }), signal);
           cards.forEach((c) => io.observe(c));
+          document.addEventListener("motion:change", () => { if (!motionOff()) reobserve(io, cards); }, { signal });
         }
       }
 
-      function initReveal() {
+      function initReveal(signal: AbortSignal) {
         const els = document.querySelectorAll<HTMLElement>("[data-reveal]");
         if (reduced || !("IntersectionObserver" in window)) { els.forEach((el) => el.classList.add("is-in")); return; }
-        const io = new IntersectionObserver((entries) => {
+        const io = watch(new IntersectionObserver((entries) => {
           entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("is-in"); io.unobserve(e.target); } });
-        }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+        }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" }), signal);
         els.forEach((el) => io.observe(el));
       }
 
-      function initMenu() {
+      // While the menu is open everything behind it is inert, so neither focus nor a screen
+      // reader's virtual cursor can wander off into the page it covers. The burger and the
+      // motion toggle stay live because they sit on top of the open menu.
+      function initMenu(signal: AbortSignal) {
         const btn = document.querySelector<HTMLButtonElement>("[data-menu]");
-        if (!btn) return;
-        const close = () => { document.body.classList.remove("menu-open"); btn.setAttribute("aria-expanded", "false"); };
-        btn.onclick = () => {
-          const open = document.body.classList.toggle("menu-open");
+        const panel = document.querySelector<HTMLElement>("[data-menu-panel]");
+        if (!btn || !panel) return;
+        const behind = () => document.querySelectorAll<HTMLElement>(
+          "body > .skip, main, footer, [data-nav] > :not([data-menu]):not([data-motion])"
+        );
+        const isOpen = () => document.body.classList.contains("menu-open");
+        const setOpen = (open: boolean) => {
+          document.body.classList.toggle("menu-open", open);
           btn.setAttribute("aria-expanded", String(open));
+          btn.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+          behind().forEach((el) => { el.inert = open; });
+          if (open) panel.querySelector<HTMLElement>("a")?.focus();
         };
-        document.querySelectorAll("[data-menu-panel] a").forEach((a) => a.addEventListener("click", close));
-        document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
+        const close = () => {
+          if (!isOpen()) return;
+          const hadFocus = panel.contains(document.activeElement);
+          setOpen(false);
+          if (hadFocus) btn.focus();
+        };
+        btn.addEventListener("click", () => { if (isOpen()) close(); else setOpen(true); }, { signal });
+        panel.querySelectorAll("a").forEach((a) => a.addEventListener("click", close, { signal }));
+        document.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); }, { signal });
       }
 
-      function initNavShade() {
+      function initNavShade(signal: AbortSignal) {
         const nav = document.querySelector<HTMLElement>("[data-nav]");
         if (!nav) return;
         const onScroll = () => nav.classList.toggle("is-scrolled", window.scrollY > 40);
         onScroll();
-        window.addEventListener("scroll", onScroll, { passive: true });
+        window.addEventListener("scroll", onScroll, { passive: true, signal });
       }
 
       // Hide images that have not arrived yet and fade them in on load, so a slow
       // connection shows the card's dark placeholder instead of a half-painted image.
       // Images that failed stay hidden rather than showing a broken icon.
-      function initImages() {
+      function initImages(signal: AbortSignal) {
         document.querySelectorAll<HTMLImageElement>("main img:not(.vbg__poster)").forEach((img) => {
           if (img.complete && img.naturalWidth) return;
           img.classList.add("img-wait");
           img.addEventListener("load", () => {
             img.classList.add("img-in");
             requestAnimationFrame(() => img.classList.remove("img-wait"));
-          }, { once: true });
+          }, { once: true, signal });
         });
       }
 
       function init() {
+        ctl?.abort();
+        ctl = new AbortController();
+        const { signal } = ctl;
         document.body.classList.remove("menu-open");
-        initImages(); initVideos(); initCards(); initReveal(); initMenu(); initNavShade();
+        initImages(signal); initVideos(signal); initCards(signal); initReveal(signal); initMenu(signal); initNavShade(signal);
       }
       document.addEventListener("astro:page-load", init);
+      document.addEventListener("astro:before-swap", (e) => {
+        ctl?.abort();
+        // The router copies the incoming page's <html> attributes over the current ones, which
+        // would drop the classes the inline <head> script set. Carry them across.
+        const root = (e as any).newDocument?.documentElement as HTMLElement | undefined;
+        if (!root) return;
+        root.classList.add("js");
+        root.classList.toggle("no-motion", motionOff());
+      });
     </script>
   </body>
 </html>

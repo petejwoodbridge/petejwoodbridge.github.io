@@ -1,9 +1,15 @@
 ---
+import { existsSync } from "node:fs";
 import { u } from "../lib/url";
 import Base from "../layouts/Base.astro";
 import experiments from "../data/experiments.json";
 const total = experiments.length;
 const withVideo = experiments.filter((e) => e.video).length;
+// Tiles play a short, light `<name>-tile.mp4` loop where one has been cut; the dialog keeps the full file.
+const tileVideo = (v: string) => {
+  const t = v.replace(/\.mp4$/, "-tile.mp4");
+  return t !== v && existsSync(`public${t}`) ? t : v;
+};
 
 const experimentsSchema = {
   "@type": "CollectionPage",
@@ -44,7 +50,7 @@ const experimentsSchema = {
           <button class:list={["tile", { "tile--wide": i % 7 === 3 }]} type="button" data-open={e.slug} id={e.slug} aria-haspopup="dialog">
             <span class="tile__media">
               {(e.thumb || e.poster || e.image) && <img src={u(e.thumb ?? e.poster ?? e.image)} alt="" loading="lazy" decoding="async" />}
-              {e.video && <video muted loop playsinline preload="none" data-xvideo={u(e.video)} aria-hidden="true"></video>}
+              {e.video && <video muted loop playsinline preload="none" data-xvideo={u(tileVideo(e.video))} aria-hidden="true"></video>}
             </span>
             <span class="tile__text">
               <span class="tile__title">{e.title}</span>
@@ -63,7 +69,7 @@ const experimentsSchema = {
         <button class="xdlg__close" type="button" data-close aria-label="Close">×</button>
         <div class="xdlg__media">
           {e.video
-            ? <video muted loop playsinline preload="none" data-poster={e.poster ? u(e.poster) : undefined} data-dvideo={u(e.video)}></video>
+            ? <video muted loop playsinline controls preload="none" aria-label={e.title} data-poster={e.poster ? u(e.poster) : undefined} data-dvideo={u(e.video)}></video>
             : <img src={u(e.image ?? e.thumb ?? "")} alt="" loading="lazy" decoding="async" />}
         </div>
         <div class="xdlg__body">
@@ -71,7 +77,7 @@ const experimentsSchema = {
           <h2 class="display h-md" id={`t-${e.slug}`}>{e.title}</h2>
           {e.blurb && <p class="lead" style="margin-top:0.8rem">{e.blurb}</p>}
           {e.html && <div class="prose xdlg__prose" set:html={e.html} />}
-          {e.external && <p><a class="btn btn--volt" href={e.external} target="_blank" rel="noopener">Open <span class="arrow">↗</span></a></p>}
+          {e.external && <p><a class="btn btn--volt" href={e.external} target="_blank" rel="noopener">Open <span class="sr-only">{e.title}</span> <span class="arrow" aria-hidden="true">↗</span></a></p>}
           {e.links.length > 0 && (
             <div class="xdlg__links">
               <p class="eyebrow">Links</p>
@@ -91,7 +97,7 @@ const experimentsSchema = {
   .xhead__row { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-top: 1.6rem; }
   .xhead__hint { font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; }
 
-  .xgrid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .xgrid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-flow: dense; gap: 14px; }
   @media (max-width: 1100px) { .xgrid { grid-template-columns: repeat(3, 1fr); } }
   @media (max-width: 700px) { .xgrid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
   .tile { position: relative; display: block; width: 100%; text-align: left; padding: 0; border-radius: 6px; overflow: hidden; background: var(--bg-2); aspect-ratio: 16 / 11; cursor: pointer; }
@@ -101,7 +107,7 @@ const experimentsSchema = {
   .tile__media img, .tile__media video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.9s var(--ease), opacity 0.6s ease; }
   .tile__media video { opacity: 0; }
   .tile.is-playing .tile__media video { opacity: 1; }
-  .tile:hover .tile__media img, .tile:hover .tile__media video { transform: scale(1.05); }
+  @media (hover: hover) { .tile:hover .tile__media img, .tile:hover .tile__media video { transform: scale(1.05); } }
   .tile__text { position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 14px 12px; display: flex; justify-content: space-between; align-items: flex-end; gap: 10px; background: linear-gradient(180deg, rgba(10,10,11,0) 0%, rgba(10,10,11,0.85) 100%); }
   .tile__title { font-family: var(--font-display); font-weight: 800; font-size: clamp(0.95rem, 1.4vw, 1.25rem); letter-spacing: -0.03em; line-height: 1; text-transform: uppercase; }
   .tile__year { font-size: 0.7rem; letter-spacing: 0.15em; color: var(--volt); flex: none; }
@@ -118,34 +124,63 @@ const experimentsSchema = {
   .xdlg__prose :global(h4) { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; margin: 1.2em 0 0.4em; }
   .xdlg__links { margin-top: 1.5rem; }
   .xdlg__links .linklist { columns: 1; }
-  .xdlg__close { position: absolute; top: 10px; right: 12px; z-index: 2; width: 40px; height: 40px; border-radius: 50%; background: rgba(10,10,11,0.6); color: #fff; font-size: 1.5rem; line-height: 1; }
+  .xdlg__close { position: absolute; top: 10px; right: 12px; z-index: 2; width: 44px; height: 44px; border-radius: 50%; background: rgba(10,10,11,0.6); color: #fff; font-size: 1.5rem; line-height: 1; }
   .xdlg__close:hover { background: var(--volt); color: var(--volt-ink); }
   @media (max-width: 900px) { .xdlg__inner { grid-template-columns: 1fr; overflow: auto; } .xdlg__body { max-height: none; overflow: visible; } }
 </style>
 
 <script>
+  // One controller per page load: aborting it drops the listeners and observers set up below.
+  let ctl: AbortController | undefined;
+
+  // Same wait as the layout's background videos: page fully loaded, then an idle moment.
+  function afterLoad(fn: () => void, signal: AbortSignal) {
+    const idle = () => {
+      if (signal.aborted) return;
+      const run = () => { if (!signal.aborted) fn(); };
+      if ("requestIdleCallback" in window) (window as any).requestIdleCallback(run, { timeout: 2000 });
+      else setTimeout(run, 300);
+    };
+    if (document.readyState === "complete") idle();
+    else window.addEventListener("load", idle, { once: true, signal });
+  }
+
   function initExperiments() {
+    ctl?.abort();
+    ctl = undefined;
     const grid = document.querySelector(".xgrid");
     if (!grid) return;
+    ctl = new AbortController();
+    const { signal } = ctl;
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const conn = (navigator as any).connection;
+    const saveData = conn?.saveData === true || /(^|-)2g|3g/.test(conn?.effectiveType ?? "");
+    const motionOff = () => document.documentElement.classList.contains("no-motion");
 
-    // play tiles while in view
+    // play tiles while in view, once the page has settled, unless motion or data is being saved
     const tiles = grid.querySelectorAll<HTMLElement>(".tile");
-    if (!reduced && "IntersectionObserver" in window) {
+    if (!reduced && !saveData && "IntersectionObserver" in window) {
       const io = new IntersectionObserver((entries) => {
         entries.forEach((en) => {
           const tile = en.target as HTMLElement;
           const v = tile.querySelector<HTMLVideoElement>("video[data-xvideo]");
           if (!v) return;
-          if (en.isIntersecting) {
+          if (en.isIntersecting && !motionOff()) {
             if (!v.src) v.src = v.dataset.xvideo as string;
             v.play().then(() => tile.classList.add("is-playing")).catch(() => {});
           } else {
-            v.pause(); tile.classList.remove("is-playing");
+            v.pause();
+            if (!en.isIntersecting) tile.classList.remove("is-playing");
           }
         });
       }, { threshold: 0.35, rootMargin: "80px 0px" });
-      tiles.forEach((t) => io.observe(t));
+      signal.addEventListener("abort", () => io.disconnect(), { once: true });
+      let armed = false;
+      afterLoad(() => { armed = true; tiles.forEach((t) => io.observe(t)); }, signal);
+      // Motion switched back on: observing again starts whatever is on screen now.
+      document.addEventListener("motion:change", () => {
+        if (armed && !motionOff()) tiles.forEach((t) => { io.unobserve(t); io.observe(t); });
+      }, { signal });
     }
 
     // dialogs
@@ -157,24 +192,28 @@ const experimentsSchema = {
       if (v) {
         // Posters are held back until a dialog opens; 80 of them up front was 2MB of download.
         if (v.dataset.poster && !v.poster) v.poster = v.dataset.poster;
-        if (!reduced) { if (!v.src) v.src = v.dataset.dvideo as string; v.play().catch(() => {}); }
+        // The source is always attached so the controls work; it only plays by itself when
+        // motion is allowed. preload="none" keeps it from downloading until then.
+        if (!v.src) v.src = v.dataset.dvideo as string;
+        if (!reduced && !motionOff()) v.play().catch(() => {});
       }
-      if (push) history.replaceState(null, "", `#${slug}`);
+      // Keep the router's history state: replacing it with null breaks the Back button.
+      if (push) history.replaceState(history.state, "", `#${slug}`);
     };
     const closeAll = () => {
       document.querySelectorAll<HTMLDialogElement>("dialog.xdlg[open]").forEach((d) => {
         d.querySelector("video")?.pause(); d.close();
       });
-      if (location.hash) history.replaceState(null, "", location.pathname);
+      if (location.hash) history.replaceState(history.state, "", location.pathname + location.search);
     };
     grid.addEventListener("click", (e) => {
       const btn = (e.target as HTMLElement).closest<HTMLElement>("[data-open]");
       if (btn) open(btn.dataset.open as string);
-    });
+    }, { signal });
     document.querySelectorAll<HTMLDialogElement>("dialog.xdlg").forEach((d) => {
-      d.querySelector("[data-close]")?.addEventListener("click", closeAll);
-      d.addEventListener("click", (e) => { if (e.target === d) closeAll(); });
-      d.addEventListener("cancel", (e) => { e.preventDefault(); closeAll(); });
+      d.querySelector("[data-close]")?.addEventListener("click", closeAll, { signal });
+      d.addEventListener("click", (e) => { if (e.target === d) closeAll(); }, { signal });
+      d.addEventListener("cancel", (e) => { e.preventDefault(); closeAll(); }, { signal });
     });
     const hash = location.hash.replace("#", "");
     if (hash && document.getElementById(`dlg-${hash}`)) {
@@ -183,4 +222,5 @@ const experimentsSchema = {
     }
   }
   document.addEventListener("astro:page-load", initExperiments);
+  document.addEventListener("astro:before-swap", () => ctl?.abort());
 </script>

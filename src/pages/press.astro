@@ -7,11 +7,14 @@ import press from "../data/press.json";
  * Linked from the About menu. Coverage, interviews and mentions, newest first.
  */
 const totalLinks = press.reduce((n, item) => n + item.links.length, 0);
-const outlets = new Set(press.flatMap((i) => i.links.map((l) => new URL(l.url).hostname.replace(/^www\./, ""))));
+// Dead links point at a Wayback Machine snapshot; show (and count) the original outlet, not archive.org.
+const archived = (url: string) => /^https:\/\/web\.archive\.org\/web\/\d+\//.test(url);
+const host = (url: string) => new URL(url.replace(/^https:\/\/web\.archive\.org\/web\/\d+\//, "")).hostname.replace(/^www\./, "");
+const outlets = new Set(press.flatMap((i) => i.links.map((l) => host(l.url))));
 ---
 <Base
-  title="Press"
-  description="Press coverage, interviews and mentions of Pete Woodbridge: 41 entries across 61 outlets, from The Economist and Fast Company to the BBC and British Cinematographer."
+  title="Press & Interviews"
+  description={`Press coverage and interviews with Pete Woodbridge: ${press.length} entries across ${outlets.size} outlets, from The Economist and Fast Company to the BBC.`}
   image="/img/og/press.jpg"
 >
   <section class="phead">
@@ -23,7 +26,7 @@ const outlets = new Set(press.flatMap((i) => i.links.map((l) => new URL(l.url).h
         {press.length} entries, {totalLinks} links, {outlets.size} outlets.
       </p>
       <p class="muted" style="margin-top:1rem; font-size:0.9rem">
-        Some of the older links have rotted. They are kept as a record of what was published and where.
+        Some of the older links have rotted. Where the Internet Archive kept a copy, the link goes there; where it did not, the entry stays as a record of what was published and where.
       </p>
     </div>
   </section>
@@ -36,16 +39,18 @@ const outlets = new Set(press.flatMap((i) => i.links.map((l) => new URL(l.url).h
             <span class="press__num">{String(i + 1).padStart(2, "0")}</span>
             <div class="press__body">
               <p class="press__text">{item.text}</p>
-              <ul class="press__links">
-                {item.links.map((l) => (
-                  <li>
-                    <a href={l.url} target="_blank" rel="noopener">
-                      {l.label}
-                      <span class="press__host">{new URL(l.url).hostname.replace(/^www\./, "")}</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
+              {item.links.length > 0 && (
+                <ul class="press__links">
+                  {item.links.map((l) => (
+                    <li>
+                      <a href={l.url} target="_blank" rel="noopener">
+                        {l.label}
+                        <span class="press__host">{host(l.url)}{archived(l.url) && " · archived"}</span>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </div>
             {item.year && <span class="press__year">{item.year}</span>}
           </li>
@@ -69,7 +74,7 @@ const outlets = new Set(press.flatMap((i) => i.links.map((l) => new URL(l.url).h
   .press__text { margin: 0 0 12px; font-size: 1.05rem; line-height: 1.5; max-width: 70ch; overflow-wrap: anywhere; }
   .press__links { display: flex; flex-wrap: wrap; gap: 8px; min-width: 0; }
   .press__links a {
-    display: inline-flex; align-items: baseline; gap: 8px; flex-wrap: wrap;
+    display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; min-height: 44px;
     max-width: 100%; min-width: 0; overflow-wrap: anywhere;
     padding: 0.45em 0.9em; border: 1px solid var(--line); border-radius: 999px;
     font-size: 0.88rem; font-weight: 600; transition: border-color 0.2s, color 0.2s, background 0.2s;

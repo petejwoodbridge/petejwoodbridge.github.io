@@ -15,7 +15,8 @@ const { title, description, image, imageAlt = title, type = "website", noindex =
 
 // Astro.site comes from `site` in astro.config.mjs. Everything canonical is derived from it.
 const base = Astro.site ?? new URL("http://localhost:4321");
-const canonical = new URL(Astro.url.pathname.replace(/\/$/, "") || "/", base);
+// Always the trailing-slash form: it is the URL GitHub Pages actually serves (the bare one 301s).
+const canonical = new URL(Astro.url.pathname.replace(/\/?$/, "/"), base);
 const ogImage = new URL(u(image), base);
 const person = {
   "@type": "Person",
@@ -28,7 +29,11 @@ const person = {
   ...(site.portrait ? { image: new URL(u(site.portrait), base).toString() } : {}),
   jobTitle: site.jobTitles,
   description: site.description,
+  // Profiles of Pete himself only. Organisations he works with go in `affiliation`,
+  // because sameAs tells search engines "this is the same entity".
   sameAs: site.profiles,
+  affiliation: site.affiliations.map((a) => ({ "@type": "Organization", name: a.name, url: a.url, description: a.role })),
+  award: site.awards,
   address: { "@type": "PostalAddress", addressLocality: "Liverpool", addressRegion: "Merseyside", addressCountry: "GB" },
   homeLocation: { "@type": "Place", name: "Liverpool, United Kingdom" },
   workLocation: site.areasServed.map((a) => ({ "@type": "Place", name: a })),
@@ -38,17 +43,18 @@ const person = {
     occupationLocation: { "@type": "City", name: "Liverpool" },
     skills: site.expertise.join(", "),
   })),
-  makesOffer: { "@type": "Offer", itemOffered: { "@id": new URL("/ai#service", base).toString() } },
+  makesOffer: { "@type": "Offer", itemOffered: { "@id": new URL(u("/ai#service"), base).toString() } },
   knowsAbout: site.expertise,
 };
-/** Schema.org wants absolute URLs. Resolve any "/path" or "#id" in url/item/@id fields against the site root. */
+/** Schema.org wants absolute URLs. Resolve any "/path" or "#id" in url/item/@id/image/logo fields against the site root. */
+const ABSOLUTE = new Set(["url", "item", "@id", "image", "logo"]);
 function absolutise(node: unknown): unknown {
   if (Array.isArray(node)) return node.map(absolutise);
   if (node && typeof node === "object") {
     const out: Record<string, unknown> = {};
     for (const [k, v] of Object.entries(node as Record<string, unknown>)) {
       out[k] =
-        (k === "url" || k === "item" || k === "@id") && typeof v === "string" && /^[/#]/.test(v)
+        ABSOLUTE.has(k) && typeof v === "string" && /^[/#]/.test(v)
           ? new URL(u(v), base).toString()
           : absolutise(v);
     }
@@ -70,6 +76,7 @@ const graph = [
   },
   ...(schema ? (Array.isArray(schema) ? schema : [schema]) : []),
 ];
+// Serialised below with "<" escaped, so no string in the data can close the script tag early.
 const jsonld = { "@context": "https://schema.org", "@graph": absolutise(graph) };
 ---
 <title>{title}</title>
@@ -99,4 +106,4 @@ const jsonld = { "@context": "https://schema.org", "@graph": absolutise(graph) }
 <meta name="author" content={site.name} />
 <link rel="sitemap" href={u("/sitemap-index.xml")} />
 
-<script type="application/ld+json" set:html={JSON.stringify(jsonld)} is:inline />
+<script type="application/ld+json" set:html={JSON.stringify(jsonld).replace(/</g, "\\u003c")} is:inline />

@@ -1,5 +1,6 @@
 ---
-import { withExt } from "../lib/url";
+import { existsSync } from "node:fs";
+import { u, withExt } from "../lib/url";
 /** Full-bleed background video. Source is attached by the layout script so small screens can take a lighter file.
  *  `soft`  – stronger top-to-bottom shade, for busy footage.
  *  `dim`   – darkens the footage itself, for light/white footage that would otherwise swallow the text. */
@@ -15,13 +16,20 @@ interface Props {
   blur?: boolean;
   class?: string;
 }
-const { src, srcSm, poster: posterJpg, soft = false, dim = false, priority = true, blur = false, class: cls = "" } = Astro.props;
+const { src, srcSm: srcSmProp, poster: posterJpg, soft = false, dim = false, priority = true, blur = false, class: cls = "" } = Astro.props;
 // Every poster in public/video has a WebP twin, about a quarter lighter at the same look.
 // The poster is each page's first big paint, so that saving lands where it counts.
 const poster = /\.jpg(\?|$)/.test(posterJpg) ? withExt(posterJpg, ".webp") : posterJpg;
+// Phones take a lighter `<name>-480.mp4` cut where one sits next to the full file in public/.
+// `src` arrives already prefixed and versioned, so strip both to find the file on disk.
+const base = import.meta.env.BASE_URL.replace(/\/+$/, "");
+const srcPath = src.split("?")[0];
+const rawPath = base && srcPath.startsWith(base) ? srcPath.slice(base.length) : srcPath;
+const smPath = rawPath.replace(/\.mp4$/, "-480.mp4");
+const srcSm = srcSmProp ?? (smPath !== rawPath && existsSync(`public${smPath}`) ? u(smPath) : src);
 ---
 <div class:list={["vbg", { "vbg--soft": soft, "vbg--dim": dim, "vbg--blur": blur }, cls]} aria-hidden="true">
   <img class="vbg__poster" src={poster} alt="" loading="eager" decoding="async" fetchpriority={priority ? "high" : "auto"} />
-  <video muted loop playsinline preload="none" poster={poster} data-src={src} data-src-sm={srcSm ?? src}></video>
+  <video muted loop playsinline preload="none" poster={poster} data-src={src} data-src-sm={srcSm}></video>
   <div class="vbg__shade"></div>
 </div>

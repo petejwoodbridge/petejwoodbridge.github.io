@@ -1,16 +1,18 @@
 ---
 import { u } from "../lib/url";
 import type { Project } from "../data/work";
-interface Props { project: Project; index: number; size?: "lg" | "md"; reveal?: boolean }
-const { project: p, index, size = p.size, reveal = true } = Astro.props;
+/** `eager` for the cards above the fold, whose images should not wait for lazy loading. */
+interface Props { project: Project; index: number; size?: "lg" | "md"; reveal?: boolean; eager?: boolean }
+const { project: p, index, size = p.size, reveal = true, eager = false } = Astro.props;
 const num = String(index + 1).padStart(2, "0");
 // Short label where one is set, so every card's role line stays a similar length.
 const role = p.cardRole ?? p.role.split("·")[0].trim();
 ---
 <a class:list={["card", `card--${size}`]} href={u(`/work/${p.slug}`)} data-reveal={reveal ? "" : undefined} style={`--i:${index % 2}`}>
   <div class="card__media">
-    <span class="card__num">{num}</span>
-    <img src={u(p.card)} alt={`${p.title}: ${p.tagline}`} loading={index < 2 ? "eager" : "lazy"} decoding="async" />
+    <span class="card__num" aria-hidden="true">{num}</span>
+    {/* The title and tagline are already in the link text, so the image adds nothing to its name. */}
+    <img src={u(p.card)} alt="" loading={eager ? "eager" : "lazy"} decoding="async" />
     <video muted loop playsinline preload="none" aria-hidden="true">
       <source src={u(p.cardVideo)} type="video/mp4" />
     </video>

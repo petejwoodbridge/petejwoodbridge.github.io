@@ -19,7 +19,9 @@ const BASE_PATH = process.env.BASE_PATH || "/";
 export default defineConfig({
   site: SITE_URL,
   base: BASE_PATH,
-  trailingSlash: "ignore",
+  // GitHub Pages serves each page as a folder index and 301-redirects "/about" to "/about/",
+  // so the slash form is the real URL. Links, canonicals and the sitemap all use it.
+  trailingSlash: "always",
   // Stable asset filenames, deliberately not content-hashed.
   //
   // GitHub Pages serves EVERYTHING with Cache-Control: max-age=600, hashed assets
@@ -43,17 +45,13 @@ export default defineConfig({
     sitemap({
       filter: (page) => !page.includes("/404"),
       changefreq: "monthly",
-      lastmod: new Date(),
+      // No lastmod: stamping every URL with the build date tells crawlers everything changed.
       serialize(item) {
-        // Strip trailing slashes so sitemap URLs match the canonical tags exactly.
-        const u = new URL(item.url);
-        const path = u.pathname.replace(/\/+$/, "") || "/";
-        u.pathname = path;
-        item.url = u.toString();
-
+        // Sitemap URLs keep their trailing slash, matching the canonical tags exactly.
+        const path = new URL(item.url).pathname;
         if (path === "/") item.priority = 1.0;
-        else if (path === "/work" || path === "/about" || path === "/ai") item.priority = 0.9;
-        else if (path.startsWith("/work/") || path === "/teaching") item.priority = 0.8;
+        else if (path === "/work/" || path === "/about/" || path === "/ai/") item.priority = 0.9;
+        else if (path.startsWith("/work/") || path === "/teaching/") item.priority = 0.8;
         else item.priority = 0.7;
         return item;
       },

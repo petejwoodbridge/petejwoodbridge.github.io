@@ -19,8 +19,8 @@ const schema = {
 };
 ---
 <Base
-  title="Events"
-  description="Events, labs, hacks and conferences organised by Pete Woodbridge, founder of the Immersive Liverpool network, bringing national and international speakers to the North West."
+  title="Events & Community"
+  description="Meetups, labs, hacks and conferences run by Pete Woodbridge, founder of Immersive Liverpool, bringing national and international speakers to the North West."
   image="/img/og/events.jpg"
   schema={schema}
 >
@@ -76,7 +76,7 @@ const schema = {
       <h2 class="display h-lg" data-reveal>Want to put something on?</h2>
       <div class="cta__row" data-reveal>
         <p class="lead measure muted">I am always up for collaborating on events that get the right people in a room together.</p>
-        <a class="btn btn--volt" href={u("/contact")}>Get in touch <span class="arrow">↗</span></a>
+        <a class="btn btn--volt" href={u("/contact")}>Get in touch <span class="arrow" aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>
@@ -89,10 +89,10 @@ const schema = {
   .ev { display: block; }
   .ev__media { position: relative; overflow: hidden; border-radius: 6px; aspect-ratio: 4 / 3; background: var(--bg-2); }
   .ev__media img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--ease); }
-  a.ev:hover .ev__media img { transform: scale(1.05); }
+  @media (hover: hover) { a.ev:hover .ev__media img { transform: scale(1.05); } }
   .ev__body { padding-top: 14px; }
   .ev__title { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.15rem, 1.7vw, 1.5rem); letter-spacing: -0.03em; line-height: 1; text-transform: uppercase; }
   .ev__title .arrow { color: var(--volt); display: inline-block; transition: transform 0.3s var(--ease); }
-  a.ev:hover .ev__title .arrow { transform: translate(3px, -3px); }
+  @media (hover: hover) { a.ev:hover .ev__title .arrow { transform: translate(3px, -3px); } }
   .ev__desc { margin: 0.55em 0 0; color: var(--muted); font-size: 0.95rem; line-height: 1.45; }
 </style>

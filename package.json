@@ -7,13 +7,14 @@
   },
   "scripts": {
     "dev": "astro dev",
+    "prebuild": "node scripts/check-public-size.mjs",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.7.4",
-    "astro": "^7.3.2"
+    "astro": "^7.3.8"
   },
   "allowScripts": {
     "esbuild": true

@@ -26,8 +26,8 @@ const workSchema = {
 };
 ---
 <Base
-  title="Work"
-  description="Selected work by Pete Woodbridge: MusicFutures, Dreamlab, MediaCity, Crucial FX, Pathway Studios, Draw & Code, XLab at LJMU and SODA Manchester, plus books, awards and experiments."
+  title="Work: AI, Virtual Production & Innovation"
+  description="Selected work by Pete Woodbridge: MusicFutures, Dreamlab, MediaCity, Crucial FX, Pathway Studios, Draw & Code, XLab at LJMU and SODA, plus books and awards."
   image="/img/og/work.jpg"
   schema={workSchema}
 >
@@ -45,7 +45,7 @@ const workSchema = {
   <section class="section">
     <div class="container">
       <div class="work-grid">
-        {mainProjects.map((p, i) => <WorkCard project={p} index={i} />)}
+        {mainProjects.map((p, i) => <WorkCard project={p} index={i} eager={i < 2} />)}
       </div>
     </div>
   </section>
@@ -74,7 +74,7 @@ const workSchema = {
         </div>
         <div data-reveal>
           <p class="lead muted">Prototypes, hacks, residencies, installations, talks and odd ideas from twenty years of trying things. Mostly on video.</p>
-          <a class="btn btn--volt" href={u("/experiments")} style="margin-top:1rem">Open the experiments <span class="arrow">↗</span></a>
+          <a class="btn btn--volt" href={u("/experiments")} style="margin-top:1rem">Open the experiments <span class="arrow" aria-hidden="true">↗</span></a>
         </div>
       </div>
       <div class="strip" data-reveal>
@@ -98,7 +98,7 @@ const workSchema = {
   .strip { display: grid; grid-template-columns: repeat(6, 1fr); gap: 12px; }
   .strip__item { position: relative; aspect-ratio: 16/10; overflow: hidden; border-radius: 6px; background: var(--bg-2); }
   .strip__item img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s var(--ease); }
-  .strip__item:hover img { transform: scale(1.06); }
+  @media (hover: hover) { .strip__item:hover img { transform: scale(1.06); } }
   .strip__item span { position: absolute; left: 10px; bottom: 8px; right: 10px; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; text-shadow: 0 1px 8px rgba(0,0,0,0.8); }
   @media (max-width: 900px) { .strip { grid-template-columns: repeat(3, 1fr); } }
 </style>

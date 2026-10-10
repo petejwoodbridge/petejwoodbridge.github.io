@@ -20,7 +20,7 @@ const branchActive = (n: { href: string; children?: { href: string }[] }) =>
     {site.nav.map((n) =>
       n.children ? (
         <span class="nav__group" data-dropdown>
-          <a href={u(n.href)} class:list={["nav__parent", { "is-active": branchActive(n) }]} aria-expanded="false" aria-haspopup="true">
+          <a href={u(n.href)} class:list={["nav__parent", { "is-active": branchActive(n) }]} aria-expanded="false">
             {n.label}<span class="nav__caret" aria-hidden="true">▾</span>
           </a>
           <span class="nav__menu" role="group" aria-label={`${n.label} pages`}>
@@ -35,12 +35,17 @@ const branchActive = (n: { href: string; children?: { href: string }[] }) =>
     )}
     <a class="nav__ext" href={site.linkedin} target="_blank" rel="noopener">LinkedIn <span aria-hidden="true">↗</span></a>
   </nav>
+  {/* Pauses the background footage, card loops and marquee (WCAG 2.2.2). The name stays
+      fixed and aria-pressed carries the state; the icon flips between pause and play. */}
+  <button class="nav__motion" type="button" data-motion aria-pressed="false" aria-label="Pause motion">
+    <span class="nav__motion-icon" aria-hidden="true"></span>
+  </button>
   <button class="nav__burger" data-menu aria-label="Open menu" aria-expanded="false" aria-controls="menu">
     <span></span><span></span>
   </button>
 </header>
 
-<div class="menu" id="menu" data-menu-panel>
+<nav class="menu" id="menu" data-menu-panel aria-label="Menu">
   <div class="menu__inner">
     <ul class="menu__list">
       <li><a href={u("/")} class="display">Home</a></li>
@@ -58,11 +63,11 @@ const branchActive = (n: { href: string; children?: { href: string }[] }) =>
       ))}
     </ul>
     <div class="menu__foot">
-      <a href={site.linkedin} target="_blank" rel="noopener" class="btn btn--ghost">LinkedIn ↗</a>
+      <a href={site.linkedin} target="_blank" rel="noopener" class="btn btn--ghost">LinkedIn <span aria-hidden="true">↗</span></a>
       <p class="muted">{site.role}</p>
     </div>
   </div>
-</div>
+</nav>
 
 <style>
   .nav {
@@ -85,7 +90,7 @@ const branchActive = (n: { href: string; children?: { href: string }[] }) =>
     font-family: var(--font-display); font-weight: 800; text-transform: uppercase; letter-spacing: -0.04em;
     font-size: 1.25rem; line-height: 0.85; display: flex; flex-direction: column;
   }
-  .nav__links { display: flex; gap: clamp(18px, 2.4vw, 40px); align-items: center; font-weight: 600; font-size: 0.95rem; }
+  .nav__links { margin-left: auto; display: flex; gap: clamp(18px, 2.4vw, 40px); align-items: center; font-weight: 600; font-size: 0.95rem; }
   .nav__links > a, .nav__parent { position: relative; padding-block: 4px; }
   .nav__links > a::after, .nav__parent::after {
     content: ""; position: absolute; left: 0; right: 0; bottom: -2px; height: 2px; background: currentColor;
@@ -110,16 +115,34 @@ const branchActive = (n: { href: string; children?: { href: string }[] }) =>
   }
   /* a hit area bridging the gap, so the menu survives the pointer travelling to it */
   .nav__menu::before { content: ""; position: absolute; inset: -14px 0 auto 0; height: 18px; }
-  .nav__group:hover .nav__menu,
   .nav__group:focus-within .nav__menu,
   .nav__group.is-open .nav__menu { opacity: 1; visibility: visible; pointer-events: auto; transform: translate(-50%, 0); }
-  .nav__group:hover .nav__caret, .nav__group.is-open .nav__caret { transform: rotate(180deg); }
+  .nav__group.is-open .nav__caret { transform: rotate(180deg); }
+  /* hover-opening only where there is a real pointer; touch opens by tap (is-open), so it cannot stick */
+  @media (hover: hover) {
+    .nav__group:hover .nav__menu { opacity: 1; visibility: visible; pointer-events: auto; transform: translate(-50%, 0); }
+    .nav__group:hover .nav__caret { transform: rotate(180deg); }
+  }
   .nav__menu a {
     padding: 9px 14px; border-radius: 6px; font-size: 0.9rem; font-weight: 500; white-space: nowrap;
     transition: background 0.18s, color 0.18s;
   }
   .nav__menu a:hover, .nav__menu a:focus-visible { background: rgba(243, 239, 230, 0.1); color: var(--volt); }
   .nav__menu a.is-active { color: var(--volt); }
+  /* Escape hides a panel opened by hover or focus until the pointer or focus leaves the group. */
+  .nav__group.is-dismissed .nav__menu { opacity: 0; visibility: hidden; pointer-events: none; transform: translate(-50%, 6px); }
+  .nav__group.is-dismissed .nav__caret { transform: none; }
+
+  /* ---- motion toggle: a small outlined pause/play glyph, quiet until it is pressed ---- */
+  .nav__motion { width: 44px; height: 44px; display: grid; place-items: center; margin-left: clamp(8px, 1.4vw, 24px); opacity: 0.7; transition: opacity 0.2s, color 0.2s; }
+  .nav__motion:hover, .nav__motion:focus-visible { opacity: 1; }
+  .nav__motion[aria-pressed="true"] { opacity: 1; color: var(--volt); }
+  .nav__motion-icon { position: relative; width: 24px; height: 24px; border: 1px solid currentColor; border-radius: 50%; }
+  .nav__motion-icon::before, .nav__motion-icon::after { content: ""; position: absolute; top: 7px; width: 2px; height: 8px; background: currentColor; }
+  .nav__motion-icon::before { left: 7px; }
+  .nav__motion-icon::after { right: 7px; }
+  .nav__motion[aria-pressed="true"] .nav__motion-icon::before { left: 8px; top: 6px; width: 8px; height: 10px; clip-path: polygon(0 0, 100% 50%, 0 100%); }
+  .nav__motion[aria-pressed="true"] .nav__motion-icon::after { display: none; }
 
   .nav__burger { display: none; width: 44px; height: 44px; position: relative; }
   .nav__burger span { position: absolute; left: 10px; right: 10px; height: 2px; background: currentColor; transition: transform 0.3s var(--ease), top 0.3s var(--ease); }
@@ -127,55 +150,117 @@ const branchActive = (n: { href: string; children?: { href: string }[] }) =>
   .nav__burger span:nth-child(2) { top: 26px; }
   :global(body.menu-open) .nav__burger span:nth-child(1) { top: 21px; transform: rotate(45deg); }
   :global(body.menu-open) .nav__burger span:nth-child(2) { top: 21px; transform: rotate(-45deg); }
-  @media (max-width: 900px) { .nav__links { display: none; } .nav__burger { display: block; } }
+  @media (max-width: 900px) { .nav__links { display: none; } .nav__motion { margin-left: auto; } .nav__burger { display: block; } }
 
   .menu {
     position: fixed; inset: 0; z-index: 90; background: var(--bg);
-    clip-path: inset(0 0 100% 0); transition: clip-path 0.6s var(--ease); visibility: hidden;
+    /* visibility waits for the wipe to finish on close, and flips at once on open */
+    clip-path: inset(0 0 100% 0); visibility: hidden;
+    transition: clip-path 0.6s var(--ease), visibility 0s 0.6s;
     overflow-y: auto;
   }
-  :global(body.menu-open) .menu { clip-path: inset(0 0 0 0); visibility: visible; }
+  :global(body.menu-open) .menu { clip-path: inset(0 0 0 0); visibility: visible; transition-delay: 0s; }
   .menu__inner { min-height: 100%; display: flex; flex-direction: column; justify-content: space-between; gap: 32px; padding: 110px var(--gutter) 40px; }
   .menu__list > li + li { margin-top: 0.1em; }
   .menu__list a.display { font-size: clamp(2.4rem, 11vw, 4.6rem); display: block; padding-block: 0.04em; }
-  .menu__list a.display:hover { color: var(--volt); }
   .menu__sub { display: flex; flex-wrap: wrap; gap: 8px 10px; margin: 0.6em 0 1em; }
   .menu__sub a {
-    font-size: 0.9rem; font-weight: 600; padding: 0.5em 0.95em;
+    font-size: 0.9rem; font-weight: 600; padding: 0.5em 0.95em; min-height: 44px;
+    display: inline-flex; align-items: center;
     border: 1px solid var(--line); border-radius: 999px;
   }
-  .menu__sub a:hover { border-color: var(--volt); color: var(--volt); }
+  @media (hover: hover) {
+    .menu__list a.display:hover { color: var(--volt); }
+    .menu__sub a:hover { border-color: var(--volt); color: var(--volt); }
+  }
   .menu__foot { display: flex; flex-direction: column; gap: 16px; }
 </style>
 
 <script>
+  // One controller per page load, so document listeners are not added again on every navigation.
+  let ctl: AbortController | undefined;
+
   // Touch and keyboard need an explicit toggle; hover alone is a mouse-only affordance.
-  function initDropdowns() {
+  // aria-expanded follows whatever is actually showing the panel: hover, focus or a tap.
+  function initDropdowns(signal: AbortSignal) {
+    const closers: ((dismiss: boolean) => void)[] = [];
     document.querySelectorAll<HTMLElement>("[data-dropdown]").forEach((group) => {
       const parent = group.querySelector<HTMLAnchorElement>(".nav__parent");
       if (!parent) return;
+      let hover = false, focus = false;
+      const sync = () => {
+        if (!hover && !focus) group.classList.remove("is-dismissed");
+        const shown = !group.classList.contains("is-dismissed") && (hover || focus || group.classList.contains("is-open"));
+        parent.setAttribute("aria-expanded", String(shown));
+      };
+      closers.push((dismiss) => {
+        group.classList.remove("is-open");
+        if (dismiss && (hover || focus)) group.classList.add("is-dismissed");
+        sync();
+      });
       const coarse = window.matchMedia("(hover: none)").matches;
       if (coarse) {
         parent.addEventListener("click", (e) => {
           if (!group.classList.contains("is-open")) {
             e.preventDefault();
-            document.querySelectorAll(".nav__group.is-open").forEach((g) => g.classList.remove("is-open"));
+            closers.forEach((c) => c(false));
             group.classList.add("is-open");
-            parent.setAttribute("aria-expanded", "true");
+            sync();
           }
-        });
+        }, { signal });
       }
-      group.addEventListener("mouseenter", () => parent.setAttribute("aria-expanded", "true"));
-      group.addEventListener("mouseleave", () => { parent.setAttribute("aria-expanded", "false"); group.classList.remove("is-open"); });
+      group.addEventListener("mouseenter", () => { hover = true; sync(); }, { signal });
+      group.addEventListener("mouseleave", () => { hover = false; group.classList.remove("is-open"); sync(); }, { signal });
+      group.addEventListener("focusin", () => { focus = true; sync(); }, { signal });
+      group.addEventListener("focusout", (e) => {
+        focus = group.contains(e.relatedTarget as Node | null);
+        if (!focus) group.classList.remove("is-open");
+        sync();
+      }, { signal });
     });
     document.addEventListener("click", (e) => {
-      if (!(e.target as HTMLElement).closest("[data-dropdown]")) {
-        document.querySelectorAll(".nav__group.is-open").forEach((g) => g.classList.remove("is-open"));
+      if (!(e.target as HTMLElement).closest("[data-dropdown]")) closers.forEach((c) => c(false));
+    }, { signal });
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") closers.forEach((c) => c(true));
+    }, { signal });
+  }
+
+  // Pause motion: stops the marquee and scroll cue (CSS on html.no-motion), pauses every
+  // video, and tells the layout's video starters to hold off. The choice is remembered.
+  // Turning motion back on resumes only the videos it paused that are still on screen;
+  // the starters pick up anything in view that never began.
+  function inView(el: Element) {
+    const r = el.getBoundingClientRect();
+    return r.width > 0 && r.height > 0 && r.bottom > 0 && r.top < window.innerHeight;
+  }
+  function setMotion(off: boolean) {
+    document.documentElement.classList.toggle("no-motion", off);
+    try { localStorage.setItem("motion", off ? "off" : "on"); } catch {}
+    document.querySelectorAll("[data-motion]").forEach((b) => b.setAttribute("aria-pressed", String(off)));
+    document.querySelectorAll<HTMLVideoElement>("video").forEach((v) => {
+      if (off) {
+        if (!v.paused) { v.dataset.motionPaused = ""; v.pause(); }
+      } else if (v.dataset.motionPaused !== undefined) {
+        delete v.dataset.motionPaused;
+        if (inView(v)) v.play().catch(() => {});
       }
     });
-    document.addEventListener("keydown", (e) => {
-      if (e.key === "Escape") document.querySelectorAll(".nav__group.is-open").forEach((g) => g.classList.remove("is-open"));
+    document.dispatchEvent(new CustomEvent("motion:change", { detail: { off } }));
+  }
+  function initMotion(signal: AbortSignal) {
+    const off = document.documentElement.classList.contains("no-motion");
+    document.querySelectorAll<HTMLButtonElement>("[data-motion]").forEach((b) => {
+      b.setAttribute("aria-pressed", String(off));
+      b.addEventListener("click", () => setMotion(b.getAttribute("aria-pressed") !== "true"), { signal });
     });
   }
-  document.addEventListener("astro:page-load", initDropdowns);
+
+  document.addEventListener("astro:page-load", () => {
+    ctl?.abort();
+    ctl = new AbortController();
+    initDropdowns(ctl.signal);
+    initMotion(ctl.signal);
+  });
+  document.addEventListener("astro:before-swap", () => ctl?.abort());
 </script>

@@ -1,5 +1,6 @@
 import type { APIRoute } from "astro";
 import { site } from "../data/site";
+import { u } from "../lib/url";
 import { mainProjects, moreProjects } from "../data/work";
 import { academicRoles, visitingRoles, credentials } from "../data/teaching";
 
@@ -10,13 +11,24 @@ import { academicRoles, visitingRoles, credentials } from "../data/teaching";
  */
 export const GET: APIRoute = ({ site: siteUrl }) => {
   const origin = siteUrl?.toString().replace(/\/+$/, "") ?? "";
-  const base = import.meta.env.BASE_URL.replace(/\/+$/, "");
-  const url = (p: string) => `${origin}${base}${p}`;
+  // u() adds the base path and the trailing slash pages are served under.
+  const url = (p: string) => `${origin}${u(p)}`;
+  const updated = new Date().toISOString().slice(0, 10);
   const project = (p: { slug: string; title: string; tagline: string }) => `- [${p.title}](${url(`/work/${p.slug}`)}): ${p.tagline}`;
 
   const body = `# ${site.name}
 
 > ${site.description}
+
+Last updated: ${updated}
+
+## Quick facts
+
+- Name: ${site.name} (also written ${site.alternateNames.join(", ")})
+- Based in: Liverpool, UK
+- Current roles: Digital & Technology Cluster Lead for the Liverpool City Region; Director of Dreamlab; author of Dream Machine
+- Credentials: ${credentials.join("; ")}
+- Recognition: ${site.awards.join("; ")}
 
 ${site.name} is an AI consultant, creative technologist and innovation leader based in Liverpool, UK, with over twenty years in digital technology, R&D and innovation. He works with businesses, creative studios, universities and public bodies across the Liverpool City Region, Manchester, the North West of England and the rest of the UK. Clients and partners have included ${site.clients.slice(0, 12).join(", ")}.
 
@@ -38,6 +50,16 @@ Areas served: ${site.areasServed.join(", ")}. Remote work UK-wide and internatio
 - ${site.role}
 - Director of Dreamlab, an R&D lab and collective of 40+ experts (${site.dreamlab})
 - Author of Dream Machine, a newsletter, podcast and book about AI and the creative economy, cited by The Economist and Fast Company
+  - Newsletter: ${site.dreamMachine.newsletter}
+  - Podcast: ${site.dreamMachine.podcast}
+  - Book: ${site.dreamMachine.book}
+
+## Recognition and press
+
+- Dream Machine has been cited by The Economist and Fast Company.
+- BIMA 100, 2020: named among the 100 most influential people in the UK digital and tech industry.
+- 500 UK Trailblazers, 2024: UKII Intelligence Report, for work in AI animation.
+- Press coverage and interviews: ${url("/press")}
 
 ## Teaching, lecturing and curriculum design
 

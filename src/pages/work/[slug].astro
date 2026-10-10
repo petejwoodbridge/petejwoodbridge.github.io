@@ -11,6 +11,23 @@ const { project: p } = Astro.props;
 const { prev, next } = neighbours(p.slug);
 
 const years = p.period.match(/\d{4}/g) ?? [];
+
+// Meta description: the tagline plus a short role and date tail, kept within 158 characters.
+// If the tail will not fit, the tagline goes alone; a tagline that is itself too long is cut at its
+// last clause break (or word) before the limit.
+const MAX = 158;
+const tagline = /[.!?]$/.test(p.tagline) ? p.tagline : `${p.tagline}.`;
+const tail = ` ${p.cardRole ?? p.role}, ${p.period}.`;
+const clip = (t: string) => {
+  if (t.length <= MAX) return t;
+  const cut = t.slice(0, MAX - 1);
+  const clause = Math.max(cut.lastIndexOf(", "), cut.lastIndexOf(": "), cut.lastIndexOf("; "));
+  return `${cut.slice(0, clause > 100 ? clause : cut.lastIndexOf(" ")).replace(/[\s,;:.–-]+$/, "")}…`;
+};
+const description = tagline.length + tail.length <= MAX ? tagline + tail : clip(tagline);
+
+// A pointer from each project to the service or page it most relates to.
+const academic = ["xlab-ljmu", "soda", "disruptive-media"].includes(p.slug);
 const projectSchema = [
   {
     "@type": "CreativeWork",
@@ -41,8 +58,8 @@ const projectSchema = [
 ];
 ---
 <Base
-  title={p.title}
-  description={`${p.tagline} ${p.role}, ${p.org}, ${p.period}.`}
+  title={p.seoTitle ?? p.title}
+  description={description}
   image={`/img/og/${p.slug}.jpg`}
   imageAlt={`${p.title} — ${p.tagline}`}
   type="article"
@@ -61,7 +78,7 @@ const projectSchema = [
     <div class="container">
       <dl class="project-meta" data-reveal>
         <div><dt>Role</dt><dd>{p.role}</dd></div>
-        <div><dt>Organisation</dt><dd><a href={p.orgUrl} target="_blank" rel="noopener">{p.org} ↗</a></dd></div>
+        <div><dt>Organisation</dt><dd><a href={p.orgUrl} target="_blank" rel="noopener">{p.org} <span aria-hidden="true">↗</span></a></dd></div>
         <div><dt>When</dt><dd>{p.period}</dd></div>
         <div><dt>Areas</dt><dd class="muted" style="font-weight:500">{p.tags.join(" · ")}</dd></div>
       </dl>
@@ -76,10 +93,15 @@ const projectSchema = [
       <div>
         <div class="prose" data-reveal>
           {p.body.map((html) => <p set:html={html} />)}
+          {academic ? (
+            <p>Related: my <a href={u("/teaching")}>teaching, lecturing and curriculum design</a>.</p>
+          ) : (
+            <p>Related: <a href={u("/ai")}>AI consultancy, prototyping and training</a> in Liverpool and Manchester.</p>
+          )}
         </div>
         {p.groups?.map((g) => (
           <div class="group" data-reveal>
-            <h3 class="display h-sm group__title">{g.title}</h3>
+            <h2 class="display h-sm group__title">{g.title}</h2>
             <ul class="linklist">
               {g.items.map((l) => <li><a href={l.url} target="_blank" rel="noopener">{l.label}</a></li>)}
             </ul>
@@ -87,7 +109,7 @@ const projectSchema = [
         ))}
         {p.press && p.press.length > 0 && (
           <div class="group" data-reveal>
-            <h3 class="display h-sm group__title">In the press</h3>
+            <h2 class="display h-sm group__title">In the press</h2>
             <ul class="linklist">
               {p.press.map((l) => <li><a href={l.url} target="_blank" rel="noopener">{l.label}</a></li>)}
             </ul>

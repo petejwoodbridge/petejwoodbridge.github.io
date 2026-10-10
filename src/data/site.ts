@@ -5,21 +5,22 @@ export const site = {
   alternateNames: ["Peter Woodbridge", "Pete J Woodbridge", "Peter J Woodbridge"],
   role: "Digital & Technology Cluster Lead, Liverpool City Region",
   shortRole: "Creative technologist & innovation leader",
+  // The four that matter most, in order. A long list dilutes the signal.
   jobTitles: [
-    "Creative Technologist",
     "AI Consultant",
+    "Creative Technologist",
     "Innovation Leader",
-    "AI & Software Prototyping Lead",
     "Digital & Technology Cluster Lead, Liverpool City Region",
-    "Innovation Director",
-    "R&D Lead",
-    "Creative Producer",
   ],
   location: "Liverpool, UK",
   // Where the work actually happens. Used for location signals in structured data.
   areasServed: ["Liverpool", "Liverpool City Region", "Manchester", "North West England", "United Kingdom"],
   description:
     "Pete Woodbridge is an AI consultant, creative technologist and innovation leader in Liverpool, working in creative AI, AI agents, agentic workflows and software prototyping, and helping businesses across the North West adopt AI. He builds tools and prototypes, and builds the programmes, labs and clusters that let other innovators do the same. Digital & Technology Cluster Lead for the Liverpool City Region.",
+  // The <meta name="description"> for the homepage. The description above is too long for a
+  // search snippet (Google cuts at about 155-160 characters), so pages get this one instead.
+  metaDescription:
+    "Pete Woodbridge, AI consultant and creative technologist in Liverpool: AI strategy, agents, prototyping and AI training across Manchester and the North West.",
   // The things people actually search for when they need this kind of work.
   expertise: [
     "Innovation strategy",
@@ -58,12 +59,18 @@ export const site = {
   email: "",
   // Portrait shown on the homepage and About page. Set to "" to hide it.
   portrait: "/img/pete.jpg",
-  // Where else you exist online. Used for search-engine structured data (sameAs).
+  // Where else Pete himself exists online. Used for search-engine structured data (sameAs),
+  // which means "this is the same person", so organisation sites do not belong here.
   profiles: [
     "https://www.linkedin.com/in/petewoodbridge/",
-    "https://musicfutures.co.uk/",
-    "https://dreamlab.org.uk/",
   ],
+  // Organisations Pete works or has worked with. Structured data `affiliation`.
+  affiliations: [
+    { name: "Dreamlab", url: "https://dreamlab.org.uk/", role: "Director" },
+    { name: "MusicFutures", url: "https://musicfutures.co.uk/", role: "R&D & Innovation Lead (past)" },
+  ],
+  // Structured data `award`.
+  awards: ["BIMA 100 (2020)", "UKII Intelligence Report: 500 UK Trailblazers (2024)"],
   linkedin: "https://www.linkedin.com/in/petewoodbridge/",
   dreamlab: "https://dreamlab.org.uk/",
   dreamMachine: {
@@ -83,6 +90,7 @@ export const site = {
         { label: "About", href: "/about" },
         { label: "Events", href: "/events" },
         { label: "R&D", href: "/research" },
+        { label: "Experiments", href: "/experiments" },
         { label: "Speaking", href: "/speaking" },
         { label: "Press", href: "/press" },
         { label: "Teaching", href: "/teaching" },

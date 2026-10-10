@@ -9,21 +9,63 @@ const years = [...new Set(speaking.map((s) => s.year))].filter(Boolean).sort().r
 const byYear = years.map((y) => ({ year: y, items: speaking.filter((s) => s.year === y) }));
 const undated = speaking.filter((s) => !s.year);
 
-const schema = {
-  "@type": "CollectionPage",
-  name: "Speaking by Pete Woodbridge",
-  mainEntity: {
-    "@type": "ItemList",
-    numberOfItems: speaking.length,
-    itemListElement: speaking.slice(0, 40).map((s, i) => ({
-      "@type": "ListItem", position: i + 1, name: s.text.slice(0, 110),
+// Topics are drawn from the talks listed below; keep them to what the list actually shows.
+const topics = [
+  { t: "Creative AI and AI in music", d: "Creativity + AI: Music at Creative Manchester; Technology, AI and Music at Modern Music Cities" },
+  { t: "Practical AI", d: "Practical AI in Action, a workshop at Beyond Conference" },
+  { t: "AI and copyright", d: "Copyright and AI panel at the Innovate UK BridgeAI Annual Showcase" },
+  { t: "AI, spatial computing and realtime", d: "When Spatial Meets AI at ARVR Innovate, Dublin; AI and realtime convergence at Modern Audiences Conference" },
+  { t: "Virtual production and digital puppetry", d: "Virtual Production: State of the Art in Liverpool; digital puppetry at Manchester Animation Festival" },
+  { t: "Immersive technology and storytelling", d: "Immersive and AR storytelling talks at ARVR Innovate, Laval Virtual and the Northern Media Summit" },
+  { t: "Music tech beyond the capital", d: "Beyond the Capital at Sound City; Write the Future: Music and Technology Conference" },
+  { t: "Innovation in the media industries", d: "Panel at Prolific North's Digital Cities Festival" },
+];
+
+// Answer first, in plain words: search engines and AI assistants quote these, and they feed the FAQPage data below.
+const faqs = [
+  {
+    q: "Is Pete Woodbridge available as a keynote speaker on creative AI?",
+    a: "Yes. Pete Woodbridge is a Liverpool-based speaker on creative AI, virtual production and immersive technology, and gives keynotes, panel talks and practical workshops at national and international conferences. LinkedIn is the quickest way to get in touch.",
+  },
+  {
+    q: "What does he speak about?",
+    a: "Creative AI and AI in music, practical AI for creative teams, AI and copyright, virtual production, immersive technology and storytelling, and how innovation actually gets done in the media and music industries.",
+  },
+  {
+    q: "Where has he spoken recently?",
+    a: "Recent appearances include Sound City Conference, Creativity + AI: Music at the University of Manchester, Beyond Conference, Manchester Animation Festival, the Innovate UK BridgeAI Annual Showcase and ARVR Innovate in Dublin. The full list is on this page.",
+  },
+  {
+    q: "Does he run workshops and chair panels as well as giving talks?",
+    a: "Yes. He runs practical workshops, such as Practical AI in Action at Beyond Conference and a digital puppetry workshop at Manchester Animation Festival, and has organised and chaired panels including Virtual Production: State of the Art in Liverpool.",
+  },
+];
+
+const schema = [
+  {
+    "@type": "CollectionPage",
+    name: "Speaking by Pete Woodbridge",
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: speaking.length,
+      itemListElement: speaking.slice(0, 40).map((s, i) => ({
+        "@type": "ListItem", position: i + 1, name: s.text.slice(0, 110),
+      })),
+    },
+  },
+  {
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
     })),
   },
-};
+];
 ---
 <Base
-  title="Speaking"
-  description={`Talks, panels, keynotes and workshops by Pete Woodbridge: ${speaking.length} appearances at national and international conferences on creative AI, virtual production, immersive technology and innovation.`}
+  title="AI & Virtual Production Speaker"
+  description={`${speaking.length} talks, panels, keynotes and workshops by Pete Woodbridge on creative AI, virtual production, immersive technology and innovation.`}
   image="/img/og/speaking.jpg"
   schema={schema}
 >
@@ -42,6 +84,20 @@ const schema = {
         I speak and chair panels regularly, and run practical workshops. If you are programming an event and think
         I would be useful, <a href={u("/contact")} style="text-decoration:underline">get in touch</a>.
       </p>
+    </div>
+  </section>
+
+  <section class="section section--tight section--line">
+    <div class="container grid grid-2" style="align-items:start">
+      <div data-reveal>
+        <p class="eyebrow">Topics</p>
+        <h2 class="display h-md">What I talk about.</h2>
+      </div>
+      <ul class="topics" data-reveal>
+        {topics.map((t) => (
+          <li><strong>{t.t}</strong><span class="muted">{t.d}</span></li>
+        ))}
+      </ul>
     </div>
   </section>
 
@@ -77,12 +133,29 @@ const schema = {
     </div>
   </section>
 
+  <section class="section section--line">
+    <div class="container grid grid-2" style="align-items:start">
+      <div data-reveal>
+        <p class="eyebrow">FAQ</p>
+        <h2 class="display h-md">Questions about speaking.</h2>
+      </div>
+      <div class="faq" data-reveal>
+        {faqs.map((f) => (
+          <details>
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <section class="section section--line cta">
     <div class="container">
       <h2 class="display h-lg" data-reveal>Need a speaker?</h2>
       <div class="cta__row" data-reveal>
         <p class="lead measure muted">Conferences, panels, workshops and teaching. I am happiest when it is practical and there is something to argue about.</p>
-        <a class="btn btn--volt" href={u("/contact")}>Get in touch <span class="arrow">↗</span></a>
+        <a class="btn btn--volt" href={u("/contact")}>Get in touch <span class="arrow" aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>
@@ -95,9 +168,13 @@ const schema = {
   .talk__text { margin: 0; font-size: 1.05rem; line-height: 1.5; max-width: 72ch; }
   .talk__links { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 0; }
   .talk__links a {
-    font-size: 0.84rem; font-weight: 600; padding: 0.42em 0.9em;
+    font-size: 0.84rem; font-weight: 600; padding: 0.42em 0.9em; min-height: 44px; display: inline-flex; align-items: center;
     border: 1px solid var(--line); border-radius: 999px; transition: border-color 0.2s, color 0.2s;
   }
   .talk__links a:hover { border-color: var(--volt); color: var(--volt); }
   @media (max-width: 700px) { .yr { grid-template-columns: 1fr; gap: 12px; } }
+  .topics { border-top: 1px solid var(--line); }
+  .topics li { display: flex; flex-direction: column; gap: 4px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .topics strong { font-weight: 700; }
+  .topics span { font-size: 0.95rem; line-height: 1.45; }
 </style>
