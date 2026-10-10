@@ -187,7 +187,7 @@ const schema = [
     font-size: 0.84rem; font-weight: 600; padding: 0.42em 0.9em; min-height: 44px; display: inline-flex; align-items: center;
     border: 1px solid var(--line); border-radius: 999px; transition: border-color 0.2s, color 0.2s;
   }
-  .talk__links a:hover { border-color: var(--volt); color: var(--volt); }
+  @media (hover: hover) { .talk__links a:hover { border-color: var(--volt); color: var(--volt); } }
   @media (max-width: 700px) { .yr { grid-template-columns: 1fr; gap: 12px; } }
   .topics { border-top: 1px solid var(--line); }
   .topics li { display: flex; flex-direction: column; gap: 4px; padding: 14px 0; border-bottom: 1px solid var(--line); }

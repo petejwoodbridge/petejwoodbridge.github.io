@@ -1,8 +1,10 @@
 ---
+import { existsSync } from "node:fs";
 import { u } from "../../lib/url";
 import Base from "../../layouts/Base.astro";
 import VideoBg from "../../components/VideoBg.astro";
 import { projects, neighbours } from "../../data/work";
+import { site } from "../../data/site";
 
 export function getStaticPaths() {
   return projects.map((p) => ({ params: { slug: p.slug }, props: { project: p } }));
@@ -29,9 +31,56 @@ const description = tagline.length + tail.length <= MAX ? tagline + tail : clip(
 // A pointer from each project to the service or page it most relates to.
 const academic = ["xlab-ljmu", "soda", "disruptive-media"].includes(p.slug);
 const programme = ["musicfutures", "mediacity", "dreamlab"].includes(p.slug);
+// Projects where virtual production was part of the job also point at the /virtual-production hub.
+const vp = ["pathway", "draw-and-code", "xlab-ljmu", "mediacity", "crucial-fx", "dreamlab"].includes(p.slug);
+
+// The share card where one exists, otherwise the card image.
+const image = existsSync(`public/img/og/${p.slug}.jpg`) ? `/img/og/${p.slug}.jpg` : p.card;
+const pageUrl = `/work/${p.slug}`;
+
+// Dream Machine is a book, a podcast and a newsletter: give each its own node, linked from the project.
+// No datePublished on the book: the site states no publication year for it.
+const dm = site.dreamMachine;
+const dreamMachineSchema =
+  p.slug === "dream-machine"
+    ? [
+        {
+          "@type": "Book",
+          "@id": `${pageUrl}#book`,
+          name: "Dream Machine: AI and the Next Creative Economy",
+          author: { "@id": "#pete" },
+          url: dm.book,
+          description: p.body[0],
+          about: ["Artificial intelligence", "Creative industries", "Creative AI"],
+          inLanguage: "en-GB",
+          image,
+        },
+        {
+          "@type": "PodcastSeries",
+          "@id": `${pageUrl}#podcast`,
+          name: "Dream Machine",
+          description: "The Dream Machine podcast goes deeper on AI and the creative economy with the people doing the work.",
+          author: { "@id": "#pete" },
+          url: dm.podcast,
+          inLanguage: "en-GB",
+        },
+        {
+          "@type": "CreativeWorkSeries",
+          "@id": `${pageUrl}#newsletter`,
+          name: "Dream Machine newsletter",
+          description: "Regular updates on AI news, tools, trends, research and policy for the creative industries.",
+          author: { "@id": "#pete" },
+          url: dm.newsletter,
+          inLanguage: "en-GB",
+        },
+      ]
+    : [];
 const projectSchema = [
   {
     "@type": "CreativeWork",
+    "@id": `${pageUrl}#work`,
+    url: pageUrl,
+    image,
     name: p.title,
     headline: `${p.title} — ${p.role}`,
     description: p.tagline,
@@ -47,13 +96,15 @@ const projectSchema = [
     ...(p.press?.length
       ? { subjectOf: p.press.map((l) => ({ "@type": "NewsArticle", headline: l.label, url: l.url })) }
       : {}),
+    ...(dreamMachineSchema.length ? { hasPart: dreamMachineSchema.map((n) => ({ "@id": n["@id"] })) } : {}),
   },
+  ...dreamMachineSchema,
   {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "/" },
       { "@type": "ListItem", position: 2, name: "Work", item: "/work" },
-      { "@type": "ListItem", position: 3, name: p.title, item: `/work/${p.slug}` },
+      { "@type": "ListItem", position: 3, name: p.title, item: pageUrl },
     ],
   },
 ];
@@ -61,13 +112,16 @@ const projectSchema = [
 <Base
   title={p.seoTitle ?? p.title}
   description={description}
-  image={`/img/og/${p.slug}.jpg`}
+  image={image}
   imageAlt={`${p.title} — ${p.tagline}`}
   type="article"
   schema={projectSchema}
 >
   <section class="hero hero--page">
-    <VideoBg src={u(p.video)} poster={u(p.poster)} />
+    {/* Named so a work card's image morphs into this hero on navigation (WorkCard carries the same name). */}
+    <div class="hero__media" transition:name={`project-${p.slug}`}>
+      <VideoBg src={u(p.video)} poster={u(p.poster)} />
+    </div>
     <div class="container hero__inner">
       <p class="eyebrow">{p.org} · {p.period}</p>
       <h1 class="display h-xl">{p.title}</h1>
@@ -101,6 +155,7 @@ const projectSchema = [
           ) : (
             <p>Related: <a href={u("/ai")}>AI consultancy, prototyping and training</a> in Liverpool and Manchester.</p>
           )}
+          {vp && <p>More on <a href={u("/virtual-production")}>virtual production, LED volumes and ICVFX</a> in Manchester and the North West.</p>}
         </div>
         {p.groups?.map((g) => (
           <div class="group" data-reveal>
@@ -129,6 +184,8 @@ const projectSchema = [
 </Base>
 
 <style>
+  /* Fills the hero exactly as the video did on its own, so the named view-transition box has the hero's size. */
+  .hero__media { position: absolute; inset: 0; z-index: 0; }
   .group { margin-top: clamp(32px, 4vw, 56px); }
   .group__title { margin-bottom: 12px; color: var(--volt); }
 </style>

@@ -1,0 +1,305 @@
+---
+import { u } from "../lib/url";
+import Base from "../layouts/Base.astro";
+import VideoBg from "../components/VideoBg.astro";
+import WorkCard from "../components/WorkCard.astro";
+import { site } from "../data/site";
+import { projects } from "../data/work";
+
+// A hub for people searching "virtual production", "LED volume", "ICVFX" and
+// "virtual production Manchester / Liverpool / North West". Every fact here is already
+// on the site (data/work.ts, data/experiments.json, data/speaking.json); keep it that way.
+// The FAQ feeds the FAQPage structured data below, so edit the two together.
+
+// Card sizes pair up 7 + 5 across each row of the 12-column grid.
+const picks: { slug: string; size: "lg" | "md" }[] = [
+  { slug: "pathway", size: "lg" },
+  { slug: "draw-and-code", size: "md" },
+  { slug: "mediacity", size: "md" },
+  { slug: "crucial-fx", size: "lg" },
+  { slug: "dreamlab", size: "lg" },
+  { slug: "xlab-ljmu", size: "md" },
+];
+const cards = picks.flatMap((c) => {
+  const p = projects.find((x) => x.slug === c.slug);
+  return p ? [{ p, size: c.size }] : [];
+});
+
+const help = [
+  {
+    t: "Producing on LED stages",
+    d: "Shoots, tests and R&D on LED volumes: realtime environments, camera tracking and in-camera VFX, and the planning around them.",
+  },
+  {
+    t: "Small, affordable set-ups",
+    d: "Ways in for teams without a stage budget. Projectors, trackers, old TVs and DMX lighting can get you further than you would think.",
+  },
+  {
+    t: "Motion & volumetric capture",
+    d: "Capture pipelines into Unreal Engine and Unity for games, live performance, digital humans and mixed reality.",
+  },
+  {
+    t: "Training & curriculum",
+    d: "Virtual production, Unreal Engine and motion capture training for universities, colleges and industry, and courses built around them.",
+  },
+  {
+    t: "R&D & innovation programmes",
+    d: "Shaping virtual production R&D projects, hacks and labs, and helping studios find partners and funding to try something new.",
+  },
+];
+
+// Straight from the Pathway entry in data/work.ts.
+const pathway = [
+  { label: "BBC Three: Project Ikon with Jason Derulo", url: "https://www.youtube.com/watch?v=hdS1wEXzQY8&t=27s" },
+  { label: "ARRI: virtual production on 65mm film", url: "https://britishcinematographer.co.uk/virtual-production-on-65mm-film-pathway-reveals-innovative-test-film/" },
+  { label: "Sony virtual production event", url: "https://britishcinematographer.co.uk/pathway-partners-in-manchester-with-sony-for-virtual-production-special-event/" },
+  { label: "McLaren", url: "https://www.linkedin.com/feed/update/urn:li:activity:7195789184031162368/" },
+  { label: "National Energy Action: Warm This Winter", url: "https://www.campaignlive.co.uk/article/national-energy-action-warm-country-twice-collective/1808835" },
+  { label: "Pathway Indie: a $2.5m in-kind incubator", url: "https://web.archive.org/web/20230103121140/https://www.pathwayxr.studio/indie-incubator" },
+  { label: "5G innovation projects", url: "https://www.linkedin.com/posts/storyfuturesacademy_abertay-university-leads-groundbreaking-real-time-activity-7089929487303233536-_7Cr" },
+];
+const press = projects.find((p) => p.slug === "pathway")?.press ?? [];
+
+// Experiments live as dialogs on /experiments, opened by their #slug.
+const experiments = [
+  { label: "Garage VP: virtual production for next to nothing", href: u("/experiments#dreamlab") },
+  { label: "VP Futures: six weeks of virtual production training", href: u("/experiments#vpfutures") },
+  { label: "Virtual production and performance, shot at Pathway", href: u("/experiments#dreammachine") },
+  { label: "A volumetric capture studio built in three days", href: u("/experiments#volcap") },
+  { label: "Virtual Pop: a motion-captured digital popstar", href: u("/experiments#discodex") },
+];
+const talks = [
+  { label: "Virtual Production: State of the Art, Liverpool (organiser and chair)", url: "https://www.investliverpool.com/news/film-gaming-event-virtual-production-the-state-of-the-art/" },
+  { label: "VP Film Hack at MediaCity (video)", url: "https://vimeo.com/1016761443/d2efddae6f" },
+  { label: "Virtual Production 2.0 at MediaCity", url: "https://www.linkedin.com/posts/petewoodbridge_virtualproduction-activity-7165988828300701696-op7A" },
+];
+
+const faqs = [
+  {
+    q: "Who can help with virtual production in Manchester, Liverpool and the North West?",
+    a: "Pete Woodbridge is a creative technologist and producer based in Liverpool. He was creative producer and technologist at Pathway, a 6,000 sq ft LED volume in Manchester, as the stage launched, worked on virtual production and motion capture R&D at Draw & Code in Liverpool, and directed R&D at the MediaCity Immersive Technologies Innovation Hub, where virtual production was part of the portfolio. He now directs Dreamlab, whose team includes virtual production specialists.",
+  },
+  {
+    q: "What is ICVFX?",
+    a: "In-camera visual effects. Actors are filmed in front of an LED wall showing a realtime games-engine environment, and the camera is tracked so the background moves with it. The effect is captured on the day, in camera, rather than added later in post-production. It is the core technique of most LED volume work.",
+  },
+  {
+    q: "What virtual production work has he done?",
+    a: "At Pathway in Manchester: BBC Three's Project Ikon with Jason Derulo, an ARRI test shooting virtual production on 65mm film, a Sony virtual production event, work with McLaren, advertising projects, and Pathway Indie, a $2.5m in-kind virtual production incubator for independent filmmakers. The work was covered by Broadcast, British Cinematographer and TVB Europe.",
+  },
+  {
+    q: "Can virtual production work on a small budget?",
+    a: "Yes, within limits. In 2022 Pete built an indie virtual production set-up in his garage for next to nothing, using a projector, trackers and kit from his filmmaking days, with projection mapping, old TVs and DMX lighting to work around the limitations. Making the technology affordable and accessible for smaller organisations is still the point of the work at Dreamlab.",
+  },
+  {
+    q: "Does he do motion capture and volumetric capture?",
+    a: "Yes. At Draw & Code he built motion capture pipelines for games projects with Avalon and commercial work such as Taskmaster VR. In 2020 he helped build a 19-camera volumetric capture studio in Liverpool in three days with LJMU Immersive Arts, Volograms and others, and he has worked on motion capture for Dex, a digital popstar, with Sum Vivas.",
+  },
+  {
+    q: "Does he teach or train people in virtual production?",
+    a: "Yes. He teaches virtual production, Unreal Engine and motion capture, delivered training programmes for universities and industry at Pathway, and was curriculum advisor for industry bootcamps in games technology at HOST in Salford. He trained on Virtual Production Futures, the six-week course run by Industrial Light & Magic, Epic Games and the National Film and Television School.",
+  },
+  {
+    q: "How do I get in touch about a virtual production project?",
+    a: "Use the contact page or send a message on LinkedIn, with a line or two about the shoot, test or programme you have in mind.",
+  },
+];
+
+const description =
+  "Virtual production, LED volumes and ICVFX in Manchester, Liverpool and the North West: producing, R&D, motion capture and training, from garage to LED stage.";
+
+const schema = [
+  {
+    "@type": "WebPage",
+    "@id": "/virtual-production#page",
+    url: "/virtual-production",
+    name: "Virtual production, LED volumes and ICVFX",
+    description,
+    image: "/img/og/virtual-production.jpg",
+    inLanguage: "en-GB",
+    isPartOf: { "@id": "#website" },
+    about: [
+      { "@type": "Thing", name: "Virtual production" },
+      { "@type": "Thing", name: "In-camera visual effects (ICVFX)" },
+      { "@type": "Thing", name: "LED volume" },
+      { "@type": "Thing", name: "Motion capture" },
+    ],
+    author: { "@id": "#pete" },
+    mainEntity: { "@id": "/virtual-production#service" },
+    mentions: cards.map(({ p }) => ({ "@type": "CreativeWork", name: p.title, url: `/work/${p.slug}` })),
+  },
+  {
+    "@type": "Service",
+    "@id": "/virtual-production#service",
+    name: "Virtual production consultancy and production",
+    serviceType: ["Virtual production", "In-camera VFX (ICVFX)", "LED volume production", "Motion capture", "Volumetric capture", "Virtual production training"],
+    description:
+      "Producing, R&D, training and advice for virtual production: LED volumes, in-camera VFX, realtime environments, motion and volumetric capture, and affordable set-ups for smaller teams.",
+    provider: { "@id": "#pete" },
+    url: "/virtual-production",
+    image: "/img/og/virtual-production.jpg",
+    areaServed: site.areasServed.map((a) => ({ "@type": "Place", name: a })),
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Virtual production services",
+      itemListElement: help.map((s) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: s.t, description: s.d, provider: { "@id": "#pete" } },
+      })),
+    },
+  },
+  {
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+  },
+  {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "/" },
+      { "@type": "ListItem", position: 2, name: "Virtual production", item: "/virtual-production" },
+    ],
+  },
+];
+---
+<Base
+  title="Virtual Production, LED Volumes & ICVFX"
+  description={description}
+  image="/img/og/virtual-production.jpg"
+  imageAlt="Virtual production on an LED volume: Pete Woodbridge, creative technologist and producer"
+  schema={schema}
+>
+  <section class="hero hero--short">
+    <VideoBg src={u("/video/pathway.mp4")} poster={u("/video/pathway.jpg")} soft />
+    <div class="container hero__inner">
+      <h1 class="eyebrow">Virtual production in Manchester, Liverpool &amp; the North West</h1>
+      <p class="display h-xl" style="margin:0">Film-scale production, within reach.</p>
+      <p class="hero__sub">LED volumes, in-camera VFX, motion capture and volumetric pipelines, from a garage set-up to a 6,000 sq ft stage in Manchester. Producing, R&amp;D, training and advice.</p>
+      <div class="btn-row hero__actions">
+        <a class="btn btn--volt" href={u("/contact")}>Talk about a shoot or a stage <span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="btn" href="#pathway">The work at Pathway</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid-2" style="align-items:start">
+      <div data-reveal>
+        <p class="lead">Virtual production should not only be for teams with a backlot budget. Most of my work in it has been about getting it into the hands of everyone else.</p>
+      </div>
+      <div class="prose" data-reveal>
+        <p>In 2022 I was creative producer and technologist at <a href={u("/work/pathway")}>Pathway</a>, a production and innovation lab in Manchester built around a 6,000 sq ft LED volume, as the stage launched. I worked across production and R&amp;D, and on the training and incubator programmes that grew around the stage.</p>
+        <p>Before that, at <a href={u("/work/draw-and-code")}>Draw &amp; Code</a> in Liverpool, I worked on mixed reality and virtual production R&amp;D: motion capture, tracking, projection mapping and pipelines in Unreal Engine and Unity. At <a href={u("/work/crucial-fx")}>Crucial FX</a> the same tools went live, with nDisplay, OptiTrack tracking, Notch, Disguise and large-scale LED for brand events.</p>
+        <p>Then the job turned to backing other people. At the <a href={u("/work/mediacity")}>MediaCity Innovation Hub</a> virtual production was one of the areas our portfolio supported, with film hacks and labs alongside. Now the team at <a href={u("/work/dreamlab")}>Dreamlab</a> includes virtual production specialists, and the lab itself started as a cheap set-up in my garage.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section inverted" id="help">
+    <div class="container">
+      <p class="eyebrow" data-reveal>What I can help with</p>
+      <h2 class="display h-lg" data-reveal style="max-width: 16ch; margin-bottom: clamp(32px,4vw,64px)">Virtual production, start to stage.</h2>
+      <div class="services stagger" data-reveal>
+        {help.map((s, i) => (
+          <div class="pillar" style={`--i:${i}`}>
+            <div class="pillar__num">0{i + 1}</div>
+            <h3>{s.t}</h3>
+            <p>{s.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="pathway">
+    <div class="container grid grid-2" style="align-items:start">
+      <div data-reveal>
+        <p class="eyebrow">Pathway, Manchester</p>
+        <h2 class="display h-md">A 6,000 sq ft LED volume, as it launched.</h2>
+        <p class="muted prose" style="margin-top:0.8rem">Realtime content and in-camera VFX for broadcast, advertising and film. We also launched Pathway Indie, a $2.5m in-kind virtual production incubator for independent filmmakers.</p>
+      </div>
+      <div data-reveal>
+        <h3 class="display h-sm vp__title">Projects and partners</h3>
+        <ul class="linklist">
+          {pathway.map((l) => <li><a href={l.url} target="_blank" rel="noopener">{l.label}</a></li>)}
+        </ul>
+        {press.length > 0 && (
+          <>
+            <h3 class="display h-sm vp__title" style="margin-top: clamp(28px,3vw,44px)">In the press</h3>
+            <ul class="linklist">
+              {press.map((l) => <li><a href={l.url} target="_blank" rel="noopener">{l.label}</a></li>)}
+            </ul>
+          </>
+        )}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line">
+    <div class="container">
+      <div class="grid grid-2" style="align-items:end; margin-bottom: clamp(32px,4vw,64px)">
+        <div data-reveal>
+          <p class="eyebrow">Work</p>
+          <h2 class="display h-lg">Stages, studios &amp; labs.</h2>
+        </div>
+        <p class="lead muted" data-reveal>The roles where virtual production, motion capture and realtime pipelines were part of the job.</p>
+      </div>
+      <div class="work-grid">
+        {cards.map(({ p, size }, i) => <WorkCard project={p} index={i} size={size} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line">
+    <div class="container grid grid-2" style="align-items:start">
+      <div data-reveal>
+        <p class="eyebrow">Experiments &amp; talks</p>
+        <h2 class="display h-md">Trying it out, and talking about it.</h2>
+        <p class="muted prose" style="margin-top:0.8rem">More in <a href={u("/experiments")}>experiments</a>, <a href={u("/speaking")}>speaking</a> and <a href={u("/teaching")}>teaching</a>.</p>
+      </div>
+      <div data-reveal>
+        <h3 class="display h-sm vp__title">Experiments</h3>
+        <ul class="linklist">
+          {experiments.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+        </ul>
+        <h3 class="display h-sm vp__title" style="margin-top: clamp(28px,3vw,44px)">Talks, hacks and labs</h3>
+        <ul class="linklist">
+          {talks.map((l) => <li><a href={l.url} target="_blank" rel="noopener">{l.label}</a></li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line">
+    <div class="container grid grid-2" style="align-items:start">
+      <div data-reveal>
+        <p class="eyebrow">FAQ</p>
+        <h2 class="display h-md">Questions about virtual production.</h2>
+      </div>
+      <div class="faq" data-reveal>
+        {faqs.map((f) => (
+          <details>
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line cta">
+    <div class="container">
+      <h2 class="display h-xl" data-reveal>Got a shoot in mind?</h2>
+      <div class="cta__row" data-reveal>
+        <p class="lead measure muted">A stage day, a test, a cheaper way in or a course for your team. Tell me what you are trying to make and we can work out the right set-up for it.</p>
+        <a class="btn btn--volt" href={u("/contact")}>Talk about virtual production <span class="arrow" aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .services { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 28px; border-top: 2px solid var(--volt-ink); }
+  .services .pillar { margin-right: 0; border-right: 0; border-bottom: 1px solid rgba(10,10,11,0.25); padding-right: 0; }
+  @media (max-width: 900px) { .services { grid-template-columns: 1fr; } }
+  .vp__title { margin-bottom: 12px; color: var(--volt); }
+</style>

@@ -51,7 +51,9 @@ export default defineConfig({
         const path = new URL(item.url).pathname;
         if (path === "/") item.priority = 1.0;
         else if (path === "/work/" || path === "/about/" || path === "/ai/") item.priority = 0.9;
-        else if (path.startsWith("/work/") || path === "/teaching/") item.priority = 0.8;
+        else if (path.startsWith("/work/") || path === "/teaching/" || path === "/virtual-production/") item.priority = 0.8;
+        // One page per experiment: worth indexing, but below the main pages.
+        else if (path.startsWith("/experiments/") && path !== "/experiments/") item.priority = 0.5;
         else item.priority = 0.7;
         return item;
       },

@@ -2,12 +2,16 @@
    Pete Woodbridge — global styles
    Bold, dark, video-first. Display: Bricolage Grotesque. Body: Instrument Sans.
 ------------------------------------------------------------------- */
-/* Self-hosted variable fonts, latin subset only (Bricolage is preloaded in Base.astro). */
-@font-face { font-family: "Bricolage Grotesque"; font-style: normal; font-weight: 300 800; font-stretch: 100%; font-display: swap; src: url("/fonts/bricolage-grotesque.woff2") format("woff2");
+/* Self-hosted variable fonts, latin subset only (Bricolage is preloaded in Base.astro). Bricolage is cut to
+   wght 700–800, the only weights the site uses (opsz 12–96 kept for the small labels); re-cut it if a lighter one is wanted. */
+@font-face { font-family: "Bricolage Grotesque"; font-style: normal; font-weight: 700 800; font-stretch: 100%; font-display: swap; src: url("/fonts/bricolage-grotesque.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 @font-face { font-family: "Instrument Sans"; font-style: normal; font-weight: 400 700; font-stretch: 100%; font-display: swap; src: url("/fonts/instrument-sans.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 @font-face { font-family: "Instrument Sans"; font-style: italic; font-weight: 400 700; font-stretch: 100%; font-display: swap; src: url("/fonts/instrument-sans-italic.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+/* Serif accent (.accent): one italic weight, latin only. Small, and one word swapping in late is fine, so not preloaded. */
+@font-face { font-family: "Instrument Serif"; font-style: italic; font-weight: 400; font-display: swap; src: url("/fonts/instrument-serif-italic.woff2") format("woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
 
 :root {
@@ -21,6 +25,13 @@
 
   --font-display: "Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
   --font-body: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-accent: "Instrument Serif", Georgia, "Times New Roman", serif;
+
+  /* one pill everywhere: tags, chips and small link buttons (see .pill) */
+  --pill-fs: 0.9rem;
+  --pill-fw: 600;
+  --pill-pad: 0.6em 1.1em;
+  --pill-line: var(--line);
 
   --gutter: clamp(20px, 4vw, 72px);
   --max: 1680px;
@@ -96,6 +107,10 @@ body::after {
 .h-lg { font-size: clamp(2.6rem, 7.2vw, 7rem); }
 .h-md { font-size: clamp(2rem, 4.6vw, 4rem); }
 .h-sm { font-size: clamp(1.4rem, 2.4vw, 2rem); letter-spacing: -0.03em; line-height: 1; }
+/* Serif italic accent for one word in a display heading: <span class="accent">word</span>.
+   1.15em brings the serif's x-height and ascenders up to sit against the grotesque caps.
+   Use sparingly: one word, one heading per page at most. */
+.accent { font-family: var(--font-accent); font-style: italic; font-weight: 400; font-variation-settings: normal; font-size: 1.15em; text-transform: none; letter-spacing: -0.01em; }
 .eyebrow {
   font-family: var(--font-body); font-weight: 600; font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase;
   color: var(--volt); margin-bottom: 1.2rem; display: inline-flex; align-items: center; gap: 0.7em;
@@ -129,14 +144,25 @@ body::after {
 }
 .btn-row { display: flex; flex-wrap: wrap; gap: 12px; }
 
-.chips { display: flex; flex-wrap: wrap; gap: 10px; }
-.chip {
-  display: inline-block; padding: 0.55em 1em; border-radius: 999px; border: 1px solid var(--line);
-  font-size: 0.9rem; font-weight: 500; transition: border-color 0.2s, color 0.2s, background 0.2s;
+/* ---------- pills ---------- */
+/* One pill for tags, chips and small link buttons. .chip and .skills__list li are the same
+   component under older names. Links and buttons get a 44px touch target and a volt hover;
+   inside .inverted the outline goes ink and the hover fills ink. Nav.astro's .menu__sub a
+   reads the same --pill-* tokens. */
+.pill, .chip, .skills__list li {
+  display: inline-flex; align-items: center; gap: 0.5em;
+  padding: var(--pill-pad); border: 1px solid var(--pill-line); border-radius: 999px;
+  font-size: var(--pill-fs); font-weight: var(--pill-fw); line-height: 1.35;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
 }
-a.chip { display: inline-flex; align-items: center; min-height: 44px; }
-@media (hover: hover) { a.chip:hover { border-color: var(--volt); color: var(--volt); } }
-.chip--solid { background: var(--bg-2); }
+a.pill, button.pill, a.chip { min-height: 44px; }
+.pill--solid, .chip--solid { background: var(--bg-2); }
+.inverted { --pill-line: rgba(10, 10, 11, 0.3); }
+@media (hover: hover) {
+  a.pill:hover, button.pill:hover, a.chip:hover { border-color: var(--volt); color: var(--volt); }
+  .inverted a.pill:hover, .inverted button.pill:hover, .inverted a.chip:hover { border-color: var(--volt-ink); background: var(--volt-ink); color: var(--volt); }
+}
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
 
 /* ---------- video background ---------- */
 .vbg { position: absolute; inset: 0; overflow: hidden; z-index: 0; background: var(--bg); }
@@ -152,8 +178,8 @@ a.chip { display: inline-flex; align-items: center; min-height: 44px; }
 /* heroes carry text over footage: 0.6+ shade where it sits keeps ink at 4.5:1 even over white */
 .hero .vbg__shade { background: linear-gradient(180deg, rgba(10,10,11,0.5) 0%, rgba(10,10,11,0.6) 45%, var(--bg) 100%); }
 .vbg--soft .vbg__shade { background: linear-gradient(180deg, rgba(10,10,11,0.78) 0%, rgba(10,10,11,0.62) 50%, var(--bg) 100%); }
-/* on phones the text fills most of the hero, so shade all of it */
-@media (max-width: 700px) { .hero .vbg__shade, .hero .vbg--soft .vbg__shade { background: linear-gradient(180deg, rgba(10,10,11,0.62) 0%, rgba(10,10,11,0.72) 40%, rgba(10,10,11,0.86) 70%, var(--bg) 100%); } }
+/* on phones and tablets the text fills most of the hero, so shade all of it */
+@media (max-width: 900px) { .hero .vbg__shade, .hero .vbg--soft .vbg__shade { background: linear-gradient(180deg, rgba(10,10,11,0.62) 0%, rgba(10,10,11,0.72) 40%, rgba(10,10,11,0.86) 70%, var(--bg) 100%); } }
 /* for light/white footage: keep the graphic, lose the glare */
 .vbg--dim video, .vbg--dim img { filter: brightness(0.42) contrast(1.08); }
 /* for low-resolution archive footage: soften it on purpose rather than showing the pixels */
@@ -167,7 +193,7 @@ a.chip { display: inline-flex; align-items: center; min-height: 44px; }
 .hero__meta { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; }
 .hero__scroll { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 12px; }
 .hero__scroll::after { content: ""; width: 1px; height: 48px; background: var(--muted); animation: drop 2s var(--ease) infinite; transform-origin: top; }
-@media (max-width: 700px) { .hero__scroll { display: none; } }
+@media (max-width: 900px) { .hero__scroll { display: none; } }
 @keyframes drop { 0% { transform: scaleY(0); opacity: 0; } 40% { transform: scaleY(1); opacity: 1; } 100% { transform: scaleY(1) translateY(20px); opacity: 0; } }
 .hero--page { min-height: 72svh; }
 
@@ -191,7 +217,7 @@ a.chip { display: inline-flex; align-items: center; min-height: 44px; }
 .marquee__item img { display: block; flex: none; opacity: .62; transition: opacity .25s ease;
   width: calc(var(--w) * var(--logo-scale) * 1px); height: calc(var(--h) * var(--logo-scale) * 1px); }
 .marquee__item::after { content: ""; width: 4px; height: 4px; border-radius: 50%; background: var(--volt); opacity: .4; flex: none; }
-@media (min-width: 700px) { .marquee { --logo-scale: 1; } }
+@media (min-width: 560px) { .marquee { --logo-scale: 1; } }
 @keyframes marquee { to { transform: translateX(-50%); } }
 @media (hover: hover) { .marquee:hover .marquee__item img { opacity: .85; } .marquee:hover .marquee__track { animation-play-state: paused; } }
 /* site-wide motion pause (the toggle in Base.astro sets html.no-motion) */
@@ -238,7 +264,7 @@ html.no-motion .marquee__track, html.no-motion .hero__scroll::after { animation-
 .card__role { color: var(--ink); font-weight: 600; }
 .card__role::after { content: "·"; margin-left: 10px; color: var(--muted); }
 .card__clients { color: var(--muted); }
-@media (max-width: 700px) {
+@media (max-width: 560px) {
   .card__top { flex-direction: column; align-items: flex-start; gap: 6px; }
 }
 
@@ -267,8 +293,7 @@ html.no-motion .marquee__track, html.no-motion .hero__scroll::after { animation-
 /* plain-language list of what people commission, inside the inverted section */
 .skills { margin-top: clamp(40px, 5vw, 72px); border-top: 2px solid var(--volt-ink); padding-top: 28px; }
 .skills__title { font-family: var(--font-display); font-weight: 800; font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 1.2rem; }
-.skills__list { display: flex; flex-wrap: wrap; gap: 10px 8px; }
-.skills__list li { font-size: 0.95rem; font-weight: 600; padding: 0.5em 1em; border: 1px solid rgba(10, 10, 11, 0.3); border-radius: 999px; }
+.skills__list { display: flex; flex-wrap: wrap; gap: 10px; }
 
 /* ---------- split / feature ---------- */
 .feature { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: clamp(28px, 5vw, 80px); align-items: center; }
@@ -283,7 +308,7 @@ html.no-motion .marquee__track, html.no-motion .hero__scroll::after { animation-
 .tl__role { font-weight: 600; font-size: 1.1rem; letter-spacing: -0.01em; }
 .tl__org { color: var(--muted); }
 @media (hover: hover) { .tl__org a:hover { color: var(--volt); } }
-@media (max-width: 800px) { .tl { grid-template-columns: 1fr; gap: 4px; } }
+@media (max-width: 900px) { .tl { grid-template-columns: 1fr; gap: 4px; } }
 
 /* ---------- link lists ---------- */
 .linklist { columns: 2; column-gap: 40px; }
@@ -291,7 +316,7 @@ html.no-motion .marquee__track, html.no-motion .hero__scroll::after { animation-
 .linklist a { display: flex; justify-content: space-between; gap: 12px; align-items: baseline; padding: 10px 0; min-height: 44px; }
 @media (hover: hover) { .linklist a:hover { color: var(--volt); } }
 .linklist a::after { content: "↗"; color: var(--muted); font-size: 0.85em; flex: none; }
-@media (max-width: 800px) { .linklist { columns: 1; } }
+@media (max-width: 900px) { .linklist { columns: 1; } }
 
 /* ---------- project page ---------- */
 .project-meta { display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px; padding: 28px 0; border-block: 1px solid var(--line); }
@@ -309,7 +334,7 @@ html.no-motion .marquee__track, html.no-motion .hero__scroll::after { animation-
 .pager a + a { border-left: 1px solid var(--line); text-align: right; align-items: flex-end; }
 .pager__label { font-size: 0.75rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
 .pager__title { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.6rem, 3.4vw, 3rem); letter-spacing: -0.04em; line-height: 0.95; text-transform: uppercase; }
-@media (max-width: 700px) { .pager { grid-template-columns: 1fr; } .pager a + a { border-left: 0; border-top: 1px solid var(--line); } }
+@media (max-width: 560px) { .pager { grid-template-columns: 1fr; } .pager a + a { border-left: 0; border-top: 1px solid var(--line); } }
 
 /* ---------- CTA ---------- */
 .cta { text-align: left; }
@@ -323,6 +348,17 @@ html.no-motion .marquee__track, html.no-motion .hero__scroll::after { animation-
 /* children step in one after another; --i is set inline on each child */
 .js .stagger > * { opacity: 0; transform: translateY(20px); transition: opacity 0.8s var(--ease), transform 0.9s var(--ease); transition-delay: calc(var(--i, 0) * 80ms); }
 .js .stagger.is-in > * { opacity: 1; transform: none; }
+
+/* ---------- page transitions ---------- */
+/* ClientRouter view transitions. A work card's media and its project hero share
+   transition:name="project-<slug>", so the image grows into the hero (and back).
+   Unlayered, so these beat Astro's @layer astro fade timings. */
+::view-transition-group(*) { animation-duration: 0.5s; animation-timing-function: var(--ease); }
+/* both snapshots fill the morphing box, cropped, rather than scaling by width between 16:10 and the hero */
+::view-transition-old(*), ::view-transition-new(*) { height: 100%; object-fit: cover; animation-duration: 0.45s; animation-timing-function: ease; }
+/* cards with no partner on the next page get out of the way fast, so they never sit over the morph */
+::view-transition-old(*):only-child { animation-duration: 0.18s; }
+html.no-motion::view-transition-group(*), html.no-motion::view-transition-old(*), html.no-motion::view-transition-new(*) { animation: none !important; }
 
 /* ---------- FAQ ---------- */
 .faq details { border-bottom: 1px solid var(--line); }
@@ -342,4 +378,5 @@ html.no-motion .marquee__track, html.no-motion .hero__scroll::after { animation-
   .js [data-reveal], .js .stagger > * { opacity: 1; transform: none; transition: none; }
   .hero__scroll::after { animation: none; }
   .faq summary::after { transition: none; }
+  ::view-transition-group(*), ::view-transition-old(*), ::view-transition-new(*) { animation: none !important; }
 }

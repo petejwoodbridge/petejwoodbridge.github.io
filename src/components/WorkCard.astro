@@ -9,7 +9,9 @@ const num = String(index + 1).padStart(2, "0");
 const role = p.cardRole ?? p.role.split("·")[0].trim();
 ---
 <a class:list={["card", `card--${size}`]} href={u(`/work/${p.slug}`)} data-reveal={reveal ? "" : undefined} style={`--i:${index % 2}`}>
-  <div class="card__media">
+  {/* Shares its name with the project page hero, so the router morphs one into the other.
+       Each project is rendered once per page (home: main list; /work: main + more, disjoint). */}
+  <div class="card__media" transition:name={`project-${p.slug}`}>
     <span class="card__num" aria-hidden="true">{num}</span>
     {/* The title and tagline are already in the link text, so the image adds nothing to its name. */}
     <img src={u(p.card)} alt="" loading={eager ? "eager" : "lazy"} decoding="async" />

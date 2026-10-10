@@ -19,11 +19,43 @@ const totalLinks = press.reduce((n, item) => n + item.links.length, 0);
 const archived = (url: string) => /^https:\/\/web\.archive\.org\/web\/\d+\//.test(url);
 const host = (url: string) => new URL(url.replace(/^https:\/\/web\.archive\.org\/web\/\d+\//, "")).hostname.replace(/^www\./, "");
 const outlets = new Set(press.flatMap((i) => i.links.map((l) => host(l.url))));
+
+// The coverage as a list search engines can read: each entry named by its text, linked to its first link.
+const description = `Press coverage and interviews with Pete Woodbridge: ${press.length} entries across ${outlets.size} outlets, from The Economist and Fast Company to the BBC.`;
+const schema = [
+  {
+    "@type": "CollectionPage",
+    "@id": "/press#page",
+    url: "/press",
+    name: "Press and interviews: Pete Woodbridge",
+    description,
+    about: { "@id": "#pete" },
+    inLanguage: "en-GB",
+    mainEntity: {
+      "@type": "ItemList",
+      numberOfItems: press.length,
+      itemListElement: press.map((item, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: item.text,
+        ...(item.links[0] ? { url: item.links[0].url } : {}),
+      })),
+    },
+  },
+  {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "/" },
+      { "@type": "ListItem", position: 2, name: "Press", item: "/press" },
+    ],
+  },
+];
 ---
 <Base
   title="Press & Interviews"
-  description={`Press coverage and interviews with Pete Woodbridge: ${press.length} entries across ${outlets.size} outlets, from The Economist and Fast Company to the BBC.`}
+  description={description}
   image="/img/og/press.jpg"
+  schema={schema}
 >
   <section class="phead">
     <div class="container">
@@ -99,9 +131,8 @@ const outlets = new Set(press.flatMap((i) => i.links.map((l) => host(l.url))));
     padding: 0.45em 0.9em; border: 1px solid var(--line); border-radius: 999px;
     font-size: 0.88rem; font-weight: 600; transition: border-color 0.2s, color 0.2s, background 0.2s;
   }
-  .press__links a:hover { border-color: var(--volt); color: var(--volt); }
+  @media (hover: hover) { .press__links a:hover { border-color: var(--volt); color: var(--volt); } .press__links a:hover .press__host { color: inherit; } }
   .press__host { font-weight: 400; font-size: 0.78rem; color: var(--muted); }
-  .press__links a:hover .press__host { color: inherit; }
   .press__year { font-family: var(--font-display); font-weight: 700; font-size: 0.85rem; color: var(--volt); text-align: right; padding-top: 4px; }
   @media (max-width: 700px) {
     .press__item { grid-template-columns: 1fr; gap: 8px; }

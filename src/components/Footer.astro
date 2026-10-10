@@ -17,6 +17,7 @@ const year = new Date().getFullYear();
       <ul class="footer__links">
         <li><a href={u("/work")}>Work</a></li>
         <li><a href={u("/ai")}>AI consultancy</a></li>
+        <li><a href={u("/virtual-production")}>Virtual production</a></li>
         <li><a href={u("/about")}>About</a></li>
         <li><a href={u("/contact")}>Contact</a></li>
         <li><a href={site.dreamMachine.newsletter} target="_blank" rel="noopener">Dream Machine newsletter&nbsp;<span aria-hidden="true">↗</span></a></li>
@@ -24,7 +25,9 @@ const year = new Date().getFullYear();
       </ul>
     </div>
   </div>
-  <div class="footer__mark" aria-hidden="true"><span class="wordmark">Pete Woodbridge</span></div>
+  {/* Decorative. The letters are drawn as generated content so they are neither read out nor
+      contrast-checked as text; the name is already in the footer line below. */}
+  <div class="footer__mark" aria-hidden="true"><span class="wordmark" aria-hidden="true" data-text={site.name}></span></div>
   <div class="container footer__bottom">
     <span>© {year} {site.name}</span>
     <span class="muted">{site.role}</span>
@@ -43,6 +46,7 @@ const year = new Date().getFullYear();
   /* The fill alone (#141416 on #0a0a0b) all but vanished. A hairline outline in the ink
      colour keeps it a quiet sign-off, but one you can actually see. */
   .footer__mark .wordmark { display: block; color: var(--bg-2); -webkit-text-stroke: 1px rgba(243, 239, 230, 0.16); }
+  .footer__mark .wordmark::before { content: attr(data-text); }
   .footer__bottom { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; padding-block: 24px 32px; font-size: 0.85rem; border-top: 1px solid var(--line); margin-top: 24px; }
-  @media (max-width: 800px) { .footer__top { grid-template-columns: 1fr; } .footer__links { padding-top: 0; } }
+  @media (max-width: 900px) { .footer__top { grid-template-columns: 1fr; } .footer__links { padding-top: 0; } }
 </style>

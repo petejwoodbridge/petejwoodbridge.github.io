@@ -49,6 +49,13 @@ Method: understand the work, find where AI earns its place, prove it with a work
 
 Areas served: ${site.areasServed.join(", ")}. Remote work UK-wide and internationally.
 
+## Virtual production
+
+- Creative producer and technologist at Pathway, a 6,000 sq ft LED volume in Manchester, as the stage launched (2022). Projects and partners included BBC Three's Project Ikon with Jason Derulo, an ARRI test shooting virtual production on 65mm film, a Sony virtual production event, McLaren, and Pathway Indie, a $2.5m in-kind virtual production incubator for independent filmmakers. Covered by Broadcast, British Cinematographer and TVB Europe.
+- Virtual production, motion capture and mixed reality R&D at Draw & Code, Liverpool (2021-2022); trained on Virtual Production Futures (Industrial Light & Magic, Epic Games, National Film and Television School).
+- Also: LED, nDisplay and tracking for live events at Crucial FX; virtual production in the MediaCity Innovation Hub portfolio; an indie virtual production set-up built in a garage for next to nothing (2022); volumetric capture and motion capture experiments.
+- More: ${url("/virtual-production")}
+
 ## Current roles
 
 - ${site.role}
@@ -83,6 +90,7 @@ ${visitingRoles.map((r) => `- ${r.what}, ${r.where}`).join("\n")}
 ## Key pages
 
 - [AI consultancy, prototyping and training](${url("/ai")}): services, who it is for, and FAQ
+- [Virtual production, LED volumes and ICVFX](${url("/virtual-production")}): virtual production in Manchester, Liverpool and the North West, Pathway's LED stage, motion capture, training and FAQ
 - [About](${url("/about")}): background and career
 - [Work](${url("/work")}): selected projects and roles
 - [R&D and innovation programmes](${url("/research")}): MusicFutures, the MediaCity Innovation Hub, Dreamlab, funders and bid reviewing

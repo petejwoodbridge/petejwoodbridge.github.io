@@ -2,6 +2,7 @@
 import { u } from "../lib/url";
 import Base from "../layouts/Base.astro";
 import VideoBg from "../components/VideoBg.astro";
+import EmailLink from "../components/EmailLink.astro";
 import { site } from "../data/site";
 
 const contactSchema = {
@@ -24,7 +25,7 @@ const contactSchema = {
       <p class="hero__sub">Talks, panels and press comment on AI and the creative economy; commissions, <a href={u("/ai")}>AI consultancy and training</a>, R&amp;D collaborations and teaching.</p>
       <div class="btn-row hero__actions">
         <a class="btn btn--volt" href={site.linkedin} target="_blank" rel="noopener">Message me on LinkedIn <span class="arrow" aria-hidden="true">↗</span></a>
-        {site.email && <a class="btn" href={`mailto:${site.email}`}>{site.email}</a>}
+        <EmailLink class="btn" label="Email me" />
       </div>
     </div>
   </section>
@@ -46,7 +47,7 @@ const contactSchema = {
           <p class="muted">Innovation programmes, funded R&amp;D, funding bids and course design. <a href={u("/research")}>Programmes</a> · <a href={u("/teaching")}>Teaching</a></p>
         </li>
       </ol>
-      <p class="lead" data-reveal style="margin-top:clamp(24px,3vw,40px)">Whichever it is, <a href={site.linkedin} target="_blank" rel="noopener">message me on LinkedIn</a> with a line or two about what you are working on.</p>
+      <p class="lead" data-reveal style="margin-top:clamp(24px,3vw,40px)">Whichever it is, <a href={site.linkedin} target="_blank" rel="noopener">message me on LinkedIn</a> or <EmailLink label="email me" /> with a line or two about what you are working on.</p>
     </div>
   </section>
 

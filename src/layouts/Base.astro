@@ -33,8 +33,14 @@ const fullTitle = title ? `${title} — ${site.name}` : `${site.name} — AI Con
 <!doctype html>
 <html lang="en-GB">
   <head>
-    <script is:inline>document.documentElement.classList.add("js");try{if(localStorage.getItem("motion")==="off")document.documentElement.classList.add("no-motion")}catch(e){}</script>
     <meta charset="utf-8" />
+    {/* GitHub Pages cannot send headers, so the policy rides in a meta tag (frame-ancestors is ignored there).
+         Everything is same-origin: scripts, styles, fonts, images, video and the router's fetches.
+         'unsafe-inline' stays for scripts because Astro inlines small bundled scripts whose hashes change
+         every build, and for styles because of scoped <style> blocks and style="" attributes.
+         The only data: URL is the film grain SVG in global.css. Add an origin here before embedding anything external. */}
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
+    <script is:inline>document.documentElement.classList.add("js");try{if(localStorage.getItem("motion")==="off")document.documentElement.classList.add("no-motion")}catch(e){}</script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <Seo
       title={fullTitle}
@@ -222,6 +228,15 @@ const fullTitle = title ? `${title} — ${site.name}` : `${site.name} — AI Con
         initImages(signal); initVideos(signal); initCards(signal); initReveal(signal); initMenu(signal); initNavShade(signal);
       }
       document.addEventListener("astro:page-load", init);
+      // Going back from a project, its hero morphs into the card. Cards already on screen are
+      // shown at once (before the new page is captured), or the morph would land on a card
+      // still hidden for its reveal and then fade in a second time.
+      document.addEventListener("astro:after-swap", () => {
+        document.querySelectorAll<HTMLElement>(".card[data-reveal]").forEach((c) => {
+          const r = c.getBoundingClientRect();
+          if (r.bottom > 0 && r.top < window.innerHeight) c.classList.add("is-in");
+        });
+      });
       document.addEventListener("astro:before-swap", (e) => {
         ctl?.abort();
         // The router copies the incoming page's <html> attributes over the current ones, which

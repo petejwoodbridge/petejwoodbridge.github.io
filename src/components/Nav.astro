@@ -163,11 +163,12 @@ const branchActive = (n: { href: string; children?: { href: string }[] }) =>
   .menu__inner { min-height: 100%; display: flex; flex-direction: column; justify-content: space-between; gap: 32px; padding: 110px var(--gutter) 40px; }
   .menu__list > li + li { margin-top: 0.1em; }
   .menu__list a.display { font-size: clamp(2.4rem, 11vw, 4.6rem); display: block; padding-block: 0.04em; }
-  .menu__sub { display: flex; flex-wrap: wrap; gap: 8px 10px; margin: 0.6em 0 1em; }
+  .menu__sub { display: flex; flex-wrap: wrap; gap: 10px; margin: 0.6em 0 1em; }
+  /* the shared pill (global.css .pill), via its tokens since scoped styles cannot extend it */
   .menu__sub a {
-    font-size: 0.9rem; font-weight: 600; padding: 0.5em 0.95em; min-height: 44px;
+    font-size: var(--pill-fs); font-weight: var(--pill-fw); padding: var(--pill-pad); line-height: 1.35; min-height: 44px;
     display: inline-flex; align-items: center;
-    border: 1px solid var(--line); border-radius: 999px;
+    border: 1px solid var(--pill-line); border-radius: 999px; transition: border-color 0.2s, color 0.2s;
   }
   @media (hover: hover) {
     .menu__list a.display:hover { color: var(--volt); }

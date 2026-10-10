@@ -3,6 +3,7 @@ import { existsSync } from "node:fs";
 import { u } from "../lib/url";
 import Base from "../layouts/Base.astro";
 import experiments from "../data/experiments.json";
+import { experimentDialogsVersion } from "../data/experiments-dialog";
 const total = experiments.length;
 const withVideo = experiments.filter((e) => e.video).length;
 // Tiles play a short, light `<name>-tile.mp4` loop where one has been cut; the dialog keeps the full file.
@@ -46,8 +47,10 @@ const experimentsSchema = {
   <section class="section section--tight">
     <div class="container">
       <div class="xgrid">
+        {/* Each tile is a real link to the experiment's own page, for crawlers and for no-JS; the script opens
+            the dialog instead. No prefetch: hovering across the grid would otherwise fetch page after page nobody opens. */}
         {experiments.map((e, i) => (
-          <button class:list={["tile", { "tile--wide": i % 7 === 3 }]} type="button" data-open={e.slug} id={e.slug} aria-haspopup="dialog">
+          <a class:list={["tile", { "tile--wide": i % 7 === 3 }]} href={u(`/experiments/${e.slug}`)} data-open={e.slug} id={e.slug} data-astro-prefetch="false" aria-describedby={e.blurb ? `d-${e.slug}` : undefined}>
             <span class="tile__media">
               {(e.thumb || e.poster || e.image) && <img src={u(e.thumb ?? e.poster ?? e.image)} alt="" loading="lazy" decoding="async" />}
               {e.video && <video muted loop playsinline preload="none" data-xvideo={u(tileVideo(e.video))} aria-hidden="true"></video>}
@@ -57,39 +60,34 @@ const experimentsSchema = {
               {e.year && <span class="tile__year">{e.year}</span>}
             </span>
             {e.video && <span class="tile__badge" aria-hidden="true">▶</span>}
-          </button>
+            {/* The blurb stays in the page for search engines; the full story is on the linked page.
+                Hidden from the button's name, but read out as its description. */}
+            {e.blurb && <span class="sr-only" id={`d-${e.slug}`} aria-hidden="true">{e.blurb}</span>}
+          </a>
         ))}
       </div>
     </div>
   </section>
 
-  {experiments.map((e) => (
-    <dialog class="xdlg" id={`dlg-${e.slug}`} data-slug={e.slug} aria-labelledby={`t-${e.slug}`}>
-      <div class="xdlg__inner">
-        <button class="xdlg__close" type="button" data-close aria-label="Close">×</button>
-        <div class="xdlg__media">
-          {e.video
-            ? <video muted loop playsinline controls preload="none" aria-label={e.title} data-poster={e.poster ? u(e.poster) : undefined} data-dvideo={u(e.video)}></video>
-            : <img src={u(e.image ?? e.thumb ?? "")} alt="" loading="lazy" decoding="async" />}
+  {/* One dialog for every experiment, filled from /experiments.json when a tile opens it. */}
+  <dialog class="xdlg" id="xdlg" aria-labelledby="xdlg-title" data-src={u(`/experiments.json?v=${experimentDialogsVersion}`)}>
+    <div class="xdlg__inner">
+      <button class="xdlg__close" type="button" data-close aria-label="Close">×</button>
+      <div class="xdlg__media" data-f="media"></div>
+      <div class="xdlg__body">
+        <p class="eyebrow" data-f="meta" hidden></p>
+        <h2 class="display h-md" id="xdlg-title" data-f="title"></h2>
+        <p class="lead" style="margin-top:0.8rem" data-f="blurb" hidden></p>
+        <div class="prose xdlg__prose" data-f="html" hidden></div>
+        <p data-f="ext" hidden><a class="btn btn--volt" href={u("/experiments/")} target="_blank" rel="noopener">Open <span data-f="extname"></span> <span class="arrow" aria-hidden="true">↗</span></a></p>
+        <div class="xdlg__links" data-f="links" hidden>
+          <p class="eyebrow">Links</p>
+          <ul class="linklist"></ul>
         </div>
-        <div class="xdlg__body">
-          {e.meta && <p class="eyebrow">{e.meta}</p>}
-          <h2 class="display h-md" id={`t-${e.slug}`}>{e.title}</h2>
-          {e.blurb && <p class="lead" style="margin-top:0.8rem">{e.blurb}</p>}
-          {e.html && <div class="prose xdlg__prose" set:html={e.html} />}
-          {e.external && <p><a class="btn btn--volt" href={e.external} target="_blank" rel="noopener">Open <span class="sr-only">{e.title}</span> <span class="arrow" aria-hidden="true">↗</span></a></p>}
-          {e.links.length > 0 && (
-            <div class="xdlg__links">
-              <p class="eyebrow">Links</p>
-              <ul class="linklist">
-                {e.links.map((l) => <li><a href={l.url} target="_blank" rel="noopener">{l.label}</a></li>)}
-              </ul>
-            </div>
-          )}
-        </div>
+        <p class="xdlg__page"><a class="btn btn--ghost" href={u("/experiments/")} data-f="page">Full page <span class="sr-only" data-f="pagename"></span> <span class="arrow" aria-hidden="true">→</span></a></p>
       </div>
-    </dialog>
-  ))}
+    </div>
+  </dialog>
 </Base>
 
 <style>
@@ -118,18 +116,24 @@ const experimentsSchema = {
   .xdlg::backdrop { background: rgba(10,10,11,0.82); backdrop-filter: blur(6px); }
   .xdlg__inner { position: relative; display: grid; grid-template-columns: 1.15fr 0.85fr; background: var(--bg-2); border-radius: 10px; overflow: hidden; max-height: 92vh; }
   .xdlg__media { background: #000; }
-  .xdlg__media video, .xdlg__media img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 16/9; }
+  /* The media is created per experiment by the script, so it needs :global to be styled. */
+  .xdlg__media :global(video), .xdlg__media :global(img) { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 16/9; }
+  .xdlg [hidden] { display: none; }
   .xdlg__body { padding: clamp(24px, 3vw, 40px); overflow: auto; max-height: 92vh; }
   .xdlg__prose { margin-top: 1rem; }
   .xdlg__prose :global(h4) { font-family: var(--font-display); font-weight: 700; text-transform: uppercase; letter-spacing: -0.02em; margin: 1.2em 0 0.4em; }
   .xdlg__links { margin-top: 1.5rem; }
   .xdlg__links .linklist { columns: 1; }
+  .xdlg__page { margin-top: 1.5rem; }
   .xdlg__close { position: absolute; top: 10px; right: 12px; z-index: 2; width: 44px; height: 44px; border-radius: 50%; background: rgba(10,10,11,0.6); color: #fff; font-size: 1.5rem; line-height: 1; }
   .xdlg__close:hover { background: var(--volt); color: var(--volt-ink); }
   @media (max-width: 900px) { .xdlg__inner { grid-template-columns: 1fr; overflow: auto; } .xdlg__body { max-height: none; overflow: visible; } }
 </style>
 
 <script>
+  import { navigate } from "astro:transitions/client";
+  import type { ExperimentDialog as Dialog } from "../data/experiments-dialog";
+
   // One controller per page load: aborting it drops the listeners and observers set up below.
   let ctl: AbortController | undefined;
 
@@ -183,43 +187,111 @@ const experimentsSchema = {
       }, { signal });
     }
 
-    // dialogs
-    const open = (slug: string, push = true) => {
-      const dlg = document.getElementById(`dlg-${slug}`) as HTMLDialogElement | null;
-      if (!dlg || dlg.open) return;
+    // The dialog: one for every experiment, filled from the JSON on first open.
+    const dlg = document.getElementById("xdlg") as HTMLDialogElement | null;
+    if (!dlg) return;
+    const f = (name: string) => dlg.querySelector<HTMLElement>(`[data-f="${name}"]`)!;
+    // Tiles are links to each experiment's page; with the script running they open the dialog.
+    tiles.forEach((t) => t.setAttribute("aria-haspopup", "dialog"));
+    let want = "";
+    const open = async (slug: string, push = true) => {
+      if (dlg.open) return;
+      want = slug;
+      const all = await load(dlg.dataset.src as string);
+      // Another tile was picked, or the page was left, while the data was on its way.
+      if (want !== slug || signal.aborted || dlg.open) return;
+      const tile = document.getElementById(slug) as HTMLAnchorElement | null;
+      const d = all?.[slug];
+      // No data (offline, or the fetch failed): go to the experiment's own page instead.
+      if (!d) { if (tile?.href) navigate(tile.href, { history: push ? "auto" : "replace" }); return; }
+      fill(d, tile?.href ?? "");
       dlg.showModal();
-      const v = dlg.querySelector<HTMLVideoElement>("video[data-dvideo]");
-      if (v) {
-        // Posters are held back until a dialog opens; 80 of them up front was 2MB of download.
-        if (v.dataset.poster && !v.poster) v.poster = v.dataset.poster;
-        // The source is always attached so the controls work; it only plays by itself when
-        // motion is allowed. preload="none" keeps it from downloading until then.
-        if (!v.src) v.src = v.dataset.dvideo as string;
-        if (!reduced && !motionOff()) v.play().catch(() => {});
-      }
+      // The last experiment's scroll position would otherwise carry over.
+      dlg.querySelectorAll(".xdlg__inner, .xdlg__body").forEach((n) => (n.scrollTop = 0));
+      const v = f("media").querySelector("video");
+      // It only plays by itself when motion is allowed; preload="none" keeps it from downloading until then.
+      if (v && !reduced && !saveData && !motionOff()) v.play().catch(() => {});
       // Keep the router's history state: replacing it with null breaks the Back button.
       if (push) history.replaceState(history.state, "", `#${slug}`);
     };
-    const closeAll = () => {
-      document.querySelectorAll<HTMLDialogElement>("dialog.xdlg[open]").forEach((d) => {
-        d.querySelector("video")?.pause(); d.close();
-      });
+    const fill = (d: Dialog, page: string) => {
+      stopVideo();
+      const media = f("media");
+      media.replaceChildren();
+      if (d.v) {
+        // The source is always attached so the controls work. Posters wait for the dialog too;
+        // 80 of them up front was 2MB of download.
+        const v = Object.assign(document.createElement("video"), { muted: true, loop: true, playsInline: true, controls: true, preload: "none", src: d.v });
+        if (d.p) v.poster = d.p;
+        v.setAttribute("aria-label", d.t);
+        media.append(v);
+      } else if (d.i) {
+        media.append(Object.assign(document.createElement("img"), { src: d.i, alt: "", decoding: "async" }));
+      }
+      const text = (name: string, value?: string) => { const n = f(name); n.textContent = value ?? ""; n.hidden = !value; };
+      text("meta", d.m);
+      f("title").textContent = d.t;
+      text("blurb", d.b);
+      const html = f("html");
+      html.innerHTML = d.h ?? "";
+      html.hidden = !d.h;
+      const ext = f("ext");
+      ext.hidden = !d.x;
+      if (d.x) ext.querySelector("a")!.href = d.x;
+      f("extname").textContent = d.t;
+      (f("page") as HTMLAnchorElement).href = page;
+      f("page").parentElement!.hidden = !page;
+      f("pagename").textContent = `for ${d.t}`;
+      const links = f("links");
+      links.hidden = !d.l?.length;
+      links.querySelector("ul")!.replaceChildren(...(d.l ?? []).map(([label, url]) => {
+        const li = document.createElement("li");
+        li.append(Object.assign(document.createElement("a"), { href: url, target: "_blank", rel: "noopener", textContent: label }));
+        return li;
+      }));
+    };
+    // Pause and drop the source, so a closed dialog stops downloading.
+    const stopVideo = () => {
+      const v = f("media").querySelector("video");
+      if (v) { v.pause(); v.removeAttribute("src"); v.load(); }
+    };
+    const close = () => {
+      want = "";
+      stopVideo();
+      if (dlg.open) dlg.close();
       if (location.hash) history.replaceState(history.state, "", location.pathname + location.search);
     };
+    // Start fetching as soon as a tile looks likely to be opened, so the click rarely waits.
+    const warm = () => { load(dlg.dataset.src as string); };
+    grid.addEventListener("pointerover", warm, { signal, once: true });
+    grid.addEventListener("focusin", warm, { signal, once: true });
     grid.addEventListener("click", (e) => {
-      const btn = (e.target as HTMLElement).closest<HTMLElement>("[data-open]");
-      if (btn) open(btn.dataset.open as string);
+      const tile = (e.target as HTMLElement).closest<HTMLElement>("[data-open]");
+      // A new-tab or modified click goes to the page as a normal link would.
+      if (!tile || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      // Stops the router following the link too.
+      e.preventDefault();
+      open(tile.dataset.open as string);
     }, { signal });
-    document.querySelectorAll<HTMLDialogElement>("dialog.xdlg").forEach((d) => {
-      d.querySelector("[data-close]")?.addEventListener("click", closeAll, { signal });
-      d.addEventListener("click", (e) => { if (e.target === d) closeAll(); }, { signal });
-      d.addEventListener("cancel", (e) => { e.preventDefault(); closeAll(); }, { signal });
-    });
-    const hash = location.hash.replace("#", "");
-    if (hash && document.getElementById(`dlg-${hash}`)) {
-      document.getElementById(hash)?.scrollIntoView({ block: "center" });
+    dlg.querySelector("[data-close]")?.addEventListener("click", close, { signal });
+    dlg.addEventListener("click", (e) => { if (e.target === dlg) close(); }, { signal });
+    dlg.addEventListener("cancel", (e) => { e.preventDefault(); close(); }, { signal });
+    signal.addEventListener("abort", () => { want = ""; stopVideo(); }, { once: true });
+    const hash = location.hash.slice(1);
+    const tile = hash ? document.getElementById(hash) : null;
+    if (tile?.dataset.open) {
+      tile.scrollIntoView({ block: "center" });
       open(hash, false);
     }
+  }
+
+  // Fetched once and kept across page swaps; a failed fetch is forgotten so the next open retries.
+  let data: Promise<Record<string, Dialog> | null> | undefined;
+  function load(src: string) {
+    data ??= fetch(src)
+      .then((r) => (r.ok ? r.json() : Promise.reject(r.status)))
+      .catch(() => { data = undefined; return null; });
+    return data;
   }
   document.addEventListener("astro:page-load", initExperiments);
   document.addEventListener("astro:before-swap", () => ctl?.abort());

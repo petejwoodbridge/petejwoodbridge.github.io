@@ -2,6 +2,7 @@
 import { u } from "../lib/url";
 import Base from "../layouts/Base.astro";
 import VideoBg from "../components/VideoBg.astro";
+import EmailLink from "../components/EmailLink.astro";
 import { site } from "../data/site";
 
 // This page exists for people searching for AI help rather than for Pete by name:
@@ -92,11 +93,11 @@ const faqs = [
   },
   {
     q: "Can you help with funding for AI projects?",
-    a: "Yes. Pete has helped win and run innovation programmes worth over £12m, supported 50+ funded R&D collaborations across all his programmes, and reviews bids for national funders, so he can help shape AI R&D projects and funding applications.",
+    a: "Yes. Pete has developed and led £12m of innovation programmes and projects, supported 50+ funded R&D collaborations across all his programmes, and reviews bids for national funders, so he can help shape AI R&D projects and funding applications.",
   },
   {
     q: "How do I get in touch?",
-    a: "LinkedIn is the quickest way. Send a message with a line or two about what you are working on.",
+    a: "LinkedIn is the quickest way, or email through the contact page. Send a line or two about what you are working on.",
   },
 ];
 
@@ -276,7 +277,10 @@ const schema = [
       <h2 class="display h-xl" data-reveal>What do you want AI to do?</h2>
       <div class="cta__row" data-reveal>
         <p class="lead measure muted">Tell me what your team does and where it gets stuck. If AI can help, we will find out quickly, and if it cannot, I will tell you.</p>
-        <a class="btn btn--volt" href={site.linkedin} target="_blank" rel="noopener">Message me on LinkedIn <span class="arrow" aria-hidden="true">↗</span></a>
+        <div class="btn-row">
+          <a class="btn btn--volt" href={site.linkedin} target="_blank" rel="noopener">Message me on LinkedIn <span class="arrow" aria-hidden="true">↗</span></a>
+          <EmailLink class="btn" label="Email me" />
+        </div>
       </div>
     </div>
   </section>
