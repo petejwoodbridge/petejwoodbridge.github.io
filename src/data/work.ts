@@ -40,7 +40,7 @@ export const projects: Project[] = [
     intro:
       "MusicFutures is a £7.2m research and business innovation programme funded by the Arts and Humanities Research Council and UK Research and Innovation. I helped the region win it, then helped build the machinery that hands that money and support to other people.",
     body: [
-      "MusicFutures brings together artists, researchers, entrepreneurs, SMEs and industry partners to position the Liverpool City Region as a global hub for music innovation. It was awarded £6.75m of AHRC funding plus industry co-investment over five years from 2025, working with 27 regional and national partners across universities, industry and regional stakeholders.",
+      "MusicFutures brings together artists, researchers, entrepreneurs, SMEs and industry partners to position the Liverpool City Region as a global hub for music innovation. It is a £7.2m programme running over five years from 2025, working with 28 regional and national partners across universities, industry and regional stakeholders.",
       "My role sat at the centre of it: innovation strategy, technical research and development, funding programmes and cross-sector collaboration. The emphasis throughout was creative technology, immersive experiences, realtime production and AI-driven workflows, and how the next generation of music experiences gets made, distributed and paid for.",
       "Alongside the programme I led data-mapping research into the UK creative industries. The headline finding, that Liverpool is the UK's most musical big-city economy with an AI sector rapidly catching up, was covered by the <a href=\"https://news.liverpool.ac.uk/2026/08/04/liverpool-is-uks-most-musical-big-city-economy-with-ai-sector-rapidly-catching-up/\" target=\"_blank\" rel=\"noopener\">University of Liverpool</a>, <a href=\"https://www.insidermedia.com/news/north-west/one-in-five-creative-businesses-in-the-lcr-operate-in-music-report\" target=\"_blank\" rel=\"noopener\">Insider Media</a> and <a href=\"https://www.thebusinessdesk.com/northwest/news/2176917-liverpool-city-region-setting-pace-in-fast-expanding-music-and-ai-sectors\" target=\"_blank\" rel=\"noopener\">The Business Desk</a>.",
     ],
@@ -73,11 +73,11 @@ export const projects: Project[] = [
     orgUrl: "https://dreamlab.org.uk/",
     role: "R&D Innovation Director",
     period: "2024 – present",
-    tagline: "A lab and collective of 40+ experts, built so that independent innovators have somewhere to develop future media, AI and realtime work.",
+    tagline: "A lab and collective of 48+ experts, built so that independent innovators have somewhere to develop future media, AI and realtime work.",
     intro:
       "Dreamlab is a research and development lab and collective based across MediaCity, Manchester, Liverpool and Cumbria. I direct it. It exists to give independent studios, freelancers and innovators the room, kit and collaborators to push the boundaries of media, which is far harder to come by on your own.",
     body: [
-      "The lab grew out of the MediaCity innovation programme and now supports innovation projects, IP development and initiatives across games, film and TV, music, animation, health, education and the creator economy. Our team of <a href=\"https://dreamlab.org.uk/team/\" target=\"_blank\" rel=\"noopener\">40+ experts</a> covers games-engine development in Unreal, Unity and the web; software architecture and deployment; AI product development across animation, 3D and sound; realtime and AI content workflows for film, TV, VFX and animation; immersive experiences and live-events technology; virtual production; 3D art; sensor-based and playable media; and training.",
+      "The lab grew out of the MediaCity innovation programme and now supports innovation projects, IP development and initiatives across games, film and TV, music, animation, health, education and the creator economy. Our team of <a href=\"https://dreamlab.org.uk/team/\" target=\"_blank\" rel=\"noopener\">48+ experts</a> covers games-engine development in Unreal, Unity and the web; software architecture and deployment; AI product development across animation, 3D and sound; realtime and AI content workflows for film, TV, VFX and animation; immersive experiences and live-events technology; virtual production; 3D art; sensor-based and playable media; and training.",
       "Since launching in June 2024 the lab has assisted over 100 businesses and freelancers, helping them shape commercially viable innovations, win new work and solve day-to-day technical and market challenges. It is, arguably, the most diverse tech lab in any university in the UK, and it has hosted the Department for Science, Innovation and Technology more than once.",
       "It started somewhere much smaller. In 2022 I spent evenings and weekends turning the garage at home into an indie virtual production set-up, built for next to nothing with a projector, trackers and kit from my filmmaking days. The point was the same then as now: make this technology affordable and accessible for smaller organisations.",
     ],
@@ -120,13 +120,13 @@ export const projects: Project[] = [
     orgUrl: "https://www.mediacityuk.co.uk/immersive-technologies-innovation-hub/",
     role: "R&D Innovation Director",
     period: "2023 – 2025",
-    tagline: "Backing other people's innovation: 35+ funded R&D collaborations and over £2.7m into regional companies, within a year.",
+    tagline: "Backing other people's innovation: 35+ funded R&D collaborations on a £3.2m innovation accelerator.",
     intro:
       "MediaCity is the biggest concentration of creative, media and tech businesses outside London: home to the BBC, ITV, Dock10, the University of Salford and 250+ businesses. I directed R&D and innovation for its Immersive Technologies Innovation Hub, a £3.2m accelerator. The job was not to build the work myself, but to find the people with the good idea and get them funded, supported and shipped.",
     body: [
-      "The hub supports a community of businesses shaping the future of media: immersive experiences, virtual production, sound and gaming technology. My job was to identify and support innovation across a portfolio of projects. Within a year we had built a portfolio of over 35 collaborative projects with the Manchester creative and tech community, with combined public and private investment of over £2.7m going directly into innovation and regional SMEs, alongside hundreds of business assists.",
+      "The hub supports a community of businesses shaping the future of media: immersive experiences, virtual production, sound and gaming technology. My job was to identify and support innovation across a portfolio of projects. Within a year we had built a portfolio of over 35 collaborative projects with the Manchester creative and tech community, on a £3.2m accelerator, with the investment going directly into innovation and regional SMEs, alongside hundreds of business assists.",
       "Alongside the portfolio I ran community and talent development: events, hacks and labs with partners including Manchester Animation Festival, Beyond Conference, Creative UK, FutureEverything and Oxford Innovation, from virtual production film hacks to ComfyUI AI jams.",
-      "The thing I am proudest of is the <a href=\"https://dreamlab.org.uk/\" target=\"_blank\" rel=\"noopener\">Dreamlab</a> collective and lab space we created there, bringing businesses, freelancers, research and innovation talent together in one place to help Greater Manchester navigate a future where creativity and technology collide. Our AI work was featured in the <a href=\"https://www.linkedin.com/feed/update/urn:li:activity:7141426196197564417/\" target=\"_blank\" rel=\"noopener\">500 UK Trailblazers</a> report from Verizon, supported by Epic Games.",
+      "The thing I am proudest of is the <a href=\"https://dreamlab.org.uk/\" target=\"_blank\" rel=\"noopener\">Dreamlab</a> collective and lab space we created there, bringing businesses, freelancers, research and innovation talent together in one place to help Greater Manchester navigate a future where creativity and technology collide. That AI workflow work saw me named one of the <a href=\"https://www.linkedin.com/feed/update/urn:li:activity:7141426196197564417/\" target=\"_blank\" rel=\"noopener\">500 UK Trailblazers</a> in Verizon's report, supported by Epic Games.",
     ],
     groups: [
       { title: "Businesses supported", items: [
@@ -183,7 +183,7 @@ export const projects: Project[] = [
     poster: "/video/mediacity.jpg",
     card: "/img/card-mediacity.webp",
     cardVideo: "/video/mediacity-card.mp4",
-    cardRole: "Innovation Director",
+    cardRole: "R&D Innovation Director",
     clients: ["BBC", "ITV", "NVIDIA", "Microsoft", "Dock10"],
     size: "md",
   },
@@ -240,7 +240,7 @@ export const projects: Project[] = [
     body: [
       "The facility and crew offer development and production, pre-visualisation, virtual art design and more, and innovate in areas such as machine learning and motion capture. I worked across production and R&D, and on the training and incubator programmes that grew around the stage.",
       "Partners and projects included BBC Three (Jason Derulo's <a href=\"https://www.youtube.com/watch?v=hdS1wEXzQY8&t=27s\" target=\"_blank\" rel=\"noopener\">Project Ikon</a>), ITV, a <a href=\"https://britishcinematographer.co.uk/pathway-partners-in-manchester-with-sony-for-virtual-production-special-event/\" target=\"_blank\" rel=\"noopener\">Sony</a> virtual production event, <a href=\"https://www.linkedin.com/feed/update/urn:li:activity:7195789184031162368/\" target=\"_blank\" rel=\"noopener\">McLaren</a>, advertising projects with <a href=\"https://www.tagww.com/\" target=\"_blank\" rel=\"noopener\">TAG</a>, <a href=\"https://www.thegatefilms.com/\" target=\"_blank\" rel=\"noopener\">Gate Films</a> and <a href=\"https://www.campaignlive.co.uk/article/national-energy-action-warm-country-twice-collective/1808835\" target=\"_blank\" rel=\"noopener\">National Energy Action</a>, an ARRI test shooting <a href=\"https://britishcinematographer.co.uk/virtual-production-on-65mm-film-pathway-reveals-innovative-test-film/\" target=\"_blank\" rel=\"noopener\">virtual production on 65mm film</a>, <a href=\"https://www.linkedin.com/posts/storyfuturesacademy_abertay-university-leads-groundbreaking-real-time-activity-7089929487303233536-_7Cr\" target=\"_blank\" rel=\"noopener\">5G innovation projects</a>, and work with <a href=\"https://www.hurricanefilms.net/\" target=\"_blank\" rel=\"noopener\">Hurricane Films</a>, <a href=\"https://www.3minuteswest.com/\" target=\"_blank\" rel=\"noopener\">Three Minutes West</a> and <a href=\"https://www.redbull.com/gb-en/collections/films\" target=\"_blank\" rel=\"noopener\">Red Bull</a>.",
-      "We also launched <a href=\"https://web.archive.org/web/20230103121140/https://www.pathwayxr.studio/indie-incubator\" target=\"_blank\" rel=\"noopener\">Pathway Indie</a>, a £2m virtual production incubator for independent filmmakers, and delivered training programmes for universities and industry.",
+      "We also launched <a href=\"https://web.archive.org/web/20230103121140/https://www.pathwayxr.studio/indie-incubator\" target=\"_blank\" rel=\"noopener\">Pathway Indie</a>, a $2.5m in-kind virtual production incubator for independent filmmakers, and delivered training programmes for universities and industry.",
     ],
     groups: [
       { title: "Projects and partners", items: [
@@ -264,7 +264,7 @@ export const projects: Project[] = [
       { label: "TVB Europe: Virtual production finds a Pathway in Manchester", url: "https://www.tvbeurope.com/production-post/virtual-production-finds-a-pathway-in-manchester" },
       { label: "British Cinematographer: Pathway launches Manchester innovation lab", url: "https://britishcinematographer.co.uk/pathway-launches-manchester-based-virtual-production-innovation-lab/" },
       { label: "Broadcast: Pathway opens Manchester virtual production facility", url: "https://www.broadcastnow.co.uk/tech/pathway-opens-manchester-virtual-production-facility/5177193.article" },
-      { label: "Broadcast: £2m virtual production incubator", url: "https://www.broadcastnow.co.uk/tech/pathway-launches-2m-virtual-production-innovation-incubator/5177667.article" },
+      { label: "Broadcast: Pathway's virtual production incubator", url: "https://www.broadcastnow.co.uk/tech/pathway-launches-2m-virtual-production-innovation-incubator/5177667.article" },
       { label: "British Cinematographer: incubator to kickstart a creative rebellion", url: "https://britishcinematographer.co.uk/pathway-opens-2-5m-in-kind-incubator-to-kickstart-creative-rebellion-in-virtual-production/" },
     ],
     tags: ["Virtual production", "ICVFX", "LED volume", "Producing", "Training"],
@@ -353,11 +353,11 @@ export const projects: Project[] = [
     period: "2018 – 2020",
     tagline: "Co-designing the future at the intersection of art, games, media, performance and technology, and launching the world's first MA in Immersive Arts.",
     intro:
-      "At LJMU I co-directed the Experimental Technologies Lab (XLab) in the Institute of Art and Technology with Dr Mark Wright, and developed and led the MA Immersive Arts, a first of its kind, at the Liverpool Screen School.",
+      "At LJMU I co-directed the Experimental Technologies Lab (XLab) in the Institute of Art and Technology with Dr Mark Wright, and developed and led the world's first MA Immersive Arts at the Liverpool Screen School.",
     body: [
       "The <a href=\"https://www.ljmu.ac.uk/research/centres-and-institutes/institute-of-art-and-technology/expertise/experimental-technologies-lab\" target=\"_blank\" rel=\"noopener\">Experimental Technologies Lab</a> grew out of four years of research at FACTLab, a collaboration with Liverpool's <a href=\"https://www.fact.co.uk/\" target=\"_blank\" rel=\"noopener\">FACT</a>. Researchers, artists and technologists produce projects together as teams, using a methodology of active co-design: diverse people invited to explore creative technology through hands-on experimentation with electronics, immersive and interactive media and fabrication. Since 2015 the lab welcomed over 4,500 visitors, working across the <a href=\"https://twitter.com/ljmufablab\" target=\"_blank\" rel=\"noopener\">Liverpool Fab Lab</a>, <a href=\"https://www.ljmu.ac.uk/about-us/faculties/faculty-of-engineering-and-technology/live-lab\" target=\"_blank\" rel=\"noopener\">LiveLab</a> and the X-Gallery, with an immersive projection room, room-scale multiplayer VR, mixed reality headsets, holographic displays, 3D scanning, 8K stereoscopic 360 cameras, digital fabrication and more.",
       "The <a href=\"https://web.archive.org/web/20201202092349/https://www.ljmu.ac.uk/study/courses/postgraduates/immersive-arts\" target=\"_blank\" rel=\"noopener\">MA Immersive Arts</a> was designed so students would explore and experiment with augmented reality, mixed reality, projection mapping, holographics, future screens and virtual reality, run jointly between the Liverpool Screen School and the Liverpool School of Art and Design. Modules covered immersive storytelling, an immersive arts lab, a collaborative project with an external partner, research and proposal, and a major practice-based project. It was built in consultation with creative industry and arts partners and with the North West's immersive technology sector.",
-      "In December 2018 the team ran the <a href=\"https://www.ljmu.ac.uk/about-us/news/articles/2018/12/20/immersive-storytelling-experiences-symposium\" target=\"_blank\" rel=\"noopener\">Immersive Storytelling Experiences Research Symposium</a>, bringing 250+ companies and delegates from industry and academia to explore R&D in these mediums. In 2020 this body of work saw me named in the BIMA 100.",
+      "In December 2018 the team ran the <a href=\"https://www.ljmu.ac.uk/about-us/news/articles/2018/12/20/immersive-storytelling-experiences-symposium\" target=\"_blank\" rel=\"noopener\">Immersive Storytelling Experiences Research Symposium</a>, bringing over 200 delegates from industry and academia to explore R&D in these mediums. In 2020 this body of work saw me named in the BIMA 100.",
     ],
     groups: [
       { title: "Find out more", items: [
@@ -389,7 +389,7 @@ export const projects: Project[] = [
     org: "Manchester Metropolitan University",
     orgUrl: "https://www.schoolofdigitalarts.mmu.ac.uk/",
     role: "Curriculum Development Lead · Senior Lecturer",
-    period: "2015 – 2019",
+    period: "2015 – 2018",
     tagline: "Shaping the curriculum for a £35 million school built for the digital storytellers of the future.",
     intro:
       "I was on the strategic development team for the £35m School of Digital Arts in Manchester as curriculum development lead, through the bidding and formation stage of the new school.",
@@ -624,9 +624,9 @@ export const projects: Project[] = [
     orgUrl: "https://www.linkedin.com/feed/update/urn:li:activity:7141433657994477568/",
     role: "Award",
     period: "2024",
-    tagline: "Named one of 500 trailblazers in UK innovation for work in AI animation.",
+    tagline: "Named one of 500 trailblazers in UK innovation for AI workflow innovation.",
     intro:
-      "The UKII Intelligence Report 2024, by We Are Incandescence and sponsored by Verizon and Epic Games, named 500 trailblazers in UK science, technology and innovation. I was included in the creative industries category for my work in AI animation.",
+      "The UKII Intelligence Report 2024, by We Are Incandescence and sponsored by Verizon and Epic Games, named 500 trailblazers in UK science, technology and innovation. I was included in the creative industries category for my AI workflow innovation.",
     body: [
       "The work recognised came out of the <a href=\"/work/mediacity/\">MediaCity innovation programme</a> and <a href=\"/work/dreamlab/\">Dreamlab</a>: AI-augmented animation and production workflows, tool-building with ComfyUI and realtime engines, and the community hacks and jams that spread those techniques across the North West's studios.",
       "The MediaCity hub's own AI work was featured in the same report.",
@@ -637,7 +637,7 @@ export const projects: Project[] = [
         { label: "MediaCity AI work featured in the report", url: "https://www.linkedin.com/feed/update/urn:li:activity:7141426196197564417/" },
       ] },
     ],
-    tags: ["Award", "AI animation"],
+    tags: ["Award", "AI workflows"],
     video: "/video/trailblazers.mp4",
     poster: "/video/trailblazers.jpg",
     card: "/img/card-trailblazers.webp",

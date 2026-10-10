@@ -41,14 +41,14 @@ ${site.name} is an AI consultant, creative technologist and innovation leader ba
 - AI training and workshops: practical, hands-on training for teams, businesses, universities and skills providers.
 - AI R&D and funding: shaping AI research projects, partnerships and funding bids (Innovate UK, AHRC, EPSRC and others).
 
-Method: understand the work, find where AI earns its place, prove it with a working prototype, then hand it over with training. The same method ran through the MediaCity Immersive Technologies Innovation Hub (35+ funded R&D collaborations, £2.7m into regional innovation) and Dreamlab (100+ businesses and freelancers supported since 2024), including AI tools for fashion (Sairo, for Roblox), scriptwriting (Bellyfeel), digital characters (Dock10) and skills training (Scenegraph Studios).
+Method: understand the work, find where AI earns its place, prove it with a working prototype, then hand it over with training. The same method ran through the MediaCity Immersive Technologies Innovation Hub (35+ funded R&D collaborations on a £3.2m accelerator) and Dreamlab (100+ businesses and freelancers supported since 2024), including AI tools for fashion (Sairo, for Roblox), scriptwriting (Bellyfeel), digital characters (Dock10) and skills training (Scenegraph Studios).
 
 Areas served: ${site.areasServed.join(", ")}. Remote work UK-wide and internationally.
 
 ## Current roles
 
 - ${site.role}
-- Director of Dreamlab, an R&D lab and collective of 40+ experts (${site.dreamlab})
+- Director of Dreamlab, an R&D lab and collective of 48+ experts (${site.dreamlab})
 - Author of Dream Machine, a newsletter, podcast and book about AI and the creative economy, cited by The Economist and Fast Company
   - Newsletter: ${site.dreamMachine.newsletter}
   - Podcast: ${site.dreamMachine.podcast}
@@ -58,12 +58,12 @@ Areas served: ${site.areasServed.join(", ")}. Remote work UK-wide and internatio
 
 - Dream Machine has been cited by The Economist and Fast Company.
 - BIMA 100, 2020: named among the 100 most influential people in the UK digital and tech industry.
-- 500 UK Trailblazers, 2024: UKII Intelligence Report, for work in AI animation.
+- 500 UK Trailblazers, 2024: UKII Intelligence Report, for AI workflow innovation.
 - Press coverage and interviews: ${url("/press")}
 
 ## Teaching, lecturing and curriculum design
 
-${site.name} is a lecturer, visiting lecturer and curriculum designer in creative AI and creative technology: AI agents and agentic workflows, software prototyping, virtual production, Unreal Engine, motion capture and immersive technology. He built and led the world's first MA Immersive Arts at Liverpool John Moores University (2018). ${credentials.join("; ")}. Available for guest lectures, workshops, industry training and curriculum design: ${url("/teaching")}
+${site.name} is a lecturer, visiting lecturer and curriculum designer in creative AI and creative technology: AI agents and agentic workflows, software prototyping, virtual production, Unreal Engine, motion capture and immersive technology. He built and led the world's first MA Immersive Arts at Liverpool John Moores University (2019). ${credentials.join("; ")}. Available for guest lectures, workshops, industry training and curriculum design: ${url("/teaching")}
 
 Academic roles:
 ${academicRoles.map((r) => `- ${r.when}: ${r.what}, ${r.where}`).join("\n")}
