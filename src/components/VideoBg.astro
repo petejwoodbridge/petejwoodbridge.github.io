@@ -1,4 +1,5 @@
 ---
+import { withExt } from "../lib/url";
 /** Full-bleed background video. Source is attached by the layout script so small screens can take a lighter file.
  *  `soft`  – stronger top-to-bottom shade, for busy footage.
  *  `dim`   – darkens the footage itself, for light/white footage that would otherwise swallow the text. */
@@ -17,7 +18,7 @@ interface Props {
 const { src, srcSm, poster: posterJpg, soft = false, dim = false, priority = true, blur = false, class: cls = "" } = Astro.props;
 // Every poster in public/video has a WebP twin, about a quarter lighter at the same look.
 // The poster is each page's first big paint, so that saving lands where it counts.
-const poster = posterJpg.replace(/\.jpg$/, ".webp");
+const poster = /\.jpg(\?|$)/.test(posterJpg) ? withExt(posterJpg, ".webp") : posterJpg;
 ---
 <div class:list={["vbg", { "vbg--soft": soft, "vbg--dim": dim, "vbg--blur": blur }, cls]} aria-hidden="true">
   <img class="vbg__poster" src={poster} alt="" loading="eager" decoding="async" fetchpriority={priority ? "high" : "auto"} />
