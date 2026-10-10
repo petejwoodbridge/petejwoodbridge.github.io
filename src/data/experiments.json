@@ -478,10 +478,10 @@
   "blurb": "Spatial Sound & 360 Video Collaboration with Kinicho's Sonic Enginer.",
   "meta": "Spatial Sound Collaboration,2020",
   "year": "2020",
-  "html": "<p>Collaboration with Kinicho, spatial audio specialists, exploring a new volumetric sound recording and deployment technique for their sonic reality engine. Using just regular cheap headphones.\n\n\n\nListen, headphones on, <a href=\"https://www.youtube.com/watch?v=B5z-gaxW5pM\" target=\"_blank\" rel=\"noopener\">here</a></p>",
+  "html": "<p>Collaboration with Kinicho, spatial audio specialists, exploring a new volumetric sound recording and deployment technique for their sonic reality engine. Using just regular cheap headphones.\n\n\n\nWith headphones on, <a href=\"https://www.youtube.com/watch?v=B5z-gaxW5pM\" target=\"_blank\" rel=\"noopener\">listen to Klezmer-ish on YouTube</a>.</p>",
   "links": [
    {
-    "label": "here",
+    "label": "Listen to Klezmer-ish on YouTube (headphones on)",
     "url": "https://www.youtube.com/watch?v=B5z-gaxW5pM"
    }
   ],
