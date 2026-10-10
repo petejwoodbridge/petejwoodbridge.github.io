@@ -1,6 +1,7 @@
 import type { APIRoute } from "astro";
 import { site } from "../data/site";
 import { mainProjects, moreProjects } from "../data/work";
+import { academicRoles, visitingRoles, credentials } from "../data/teaching";
 
 /**
  * llms.txt (https://llmstxt.org): a plain-text summary for AI assistants and AI search
@@ -38,6 +39,16 @@ Areas served: ${site.areasServed.join(", ")}. Remote work UK-wide and internatio
 - Director of Dreamlab, an R&D lab and collective of 40+ experts (${site.dreamlab})
 - Author of Dream Machine, a newsletter, podcast and book about AI and the creative economy, cited by The Economist and Fast Company
 
+## Teaching, lecturing and curriculum design
+
+${site.name} is a lecturer, visiting lecturer and curriculum designer in creative AI and creative technology: AI agents and agentic workflows, software prototyping, virtual production, Unreal Engine, motion capture and immersive technology. He built and led the world's first MA Immersive Arts at Liverpool John Moores University (2018). ${credentials.join("; ")}. Available for guest lectures, workshops, industry training and curriculum design: ${url("/teaching")}
+
+Academic roles:
+${academicRoles.map((r) => `- ${r.when}: ${r.what}, ${r.where}`).join("\n")}
+
+Visiting lectureships, mentoring and advisory roles:
+${visitingRoles.map((r) => `- ${r.what}, ${r.where}`).join("\n")}
+
 ## Contact
 
 - LinkedIn (quickest): ${site.linkedin}
@@ -49,7 +60,7 @@ Areas served: ${site.areasServed.join(", ")}. Remote work UK-wide and internatio
 - [About](${url("/about")}): background and career
 - [Work](${url("/work")}): selected projects and roles
 - [R&D](${url("/research")}): creative AI, agentic workflows, software prototyping and digital twins
-- [Teaching](${url("/teaching")}): AI and creative technology teaching and course design
+- [Teaching](${url("/teaching")}): creative AI and creative technology teaching, visiting lectureships, curriculum design and FAQ
 - [Speaking](${url("/speaking")}): talks and keynotes on AI, virtual production and innovation
 - [Press](${url("/press")}): press coverage and interviews
 - [Experiments](${url("/experiments")}): prototypes and experiments

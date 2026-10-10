@@ -2,6 +2,7 @@
 import { u } from "../lib/url";
 import Base from "../layouts/Base.astro";
 import VideoBg from "../components/VideoBg.astro";
+import { academicRoles, visitingRoles, credentials } from "../data/teaching";
 
 const subjects = [
   // what I am mostly asked for now, first
@@ -14,28 +15,124 @@ const subjects = [
   "Digital media & culture",
 ];
 
-const places = [
-  { when: "2018 – 2020", what: "Programme Leader, MA Immersive Arts, and Director of the Experimental Technologies Lab", where: "Liverpool John Moores University", url: "https://www.ljmu.ac.uk/study/courses/postgraduates/immersive-media" },
-  { when: "2015 – 2019", what: "Senior Lecturer, and curriculum development lead for the £35m School of Digital Arts", where: "Manchester School of Art, Manchester Metropolitan University", url: "https://www.schoolofdigitalarts.mmu.ac.uk/" },
-  { when: "2010 – 2015", what: "Digital Media and Culture MA, Media Production BA, and a pioneering BA in Digital Media", where: "Coventry School of Art and Design", url: "https://www.coventry.ac.uk/study-at-coventry/faculties-and-schools/arts-and-humanities/art-and-design/" },
+const places = academicRoles;
+const visiting = visitingRoles;
+
+// People find this page by searching for a guest lecturer, a visiting lecturer or someone to design
+// a course in creative AI or creative technology. The FAQ answers those searches in plain words;
+// search engines and AI assistants quote it, and it feeds the FAQPage structured data below.
+const faqs = [
+  {
+    q: "Who is Pete Woodbridge as an educator?",
+    a: "Pete Woodbridge is a lecturer, curriculum designer and visiting lecturer in creative AI and creative technology, based in Liverpool. He built and led the world's first MA Immersive Arts at Liverpool John Moores University, was Senior Lecturer and curriculum development lead for Manchester's £35m School of Digital Arts, and taught at Coventry. He is a Fellow of the Higher Education Academy and of the Royal Society of Arts.",
+  },
+  {
+    q: "What does Pete Woodbridge teach?",
+    a: "Mostly creative AI, AI agents and agentic workflows, and software prototyping with Python, ComfyUI and APIs. Underneath that: virtual production, Unreal Engine, motion capture, immersive and interactive technology, and media production.",
+  },
+  {
+    q: "Which universities has he lectured at?",
+    a: "As staff: Liverpool John Moores University, Manchester Metropolitan University and Coventry University. As a visiting lecturer: the University of Manchester, the University of Warwick, Zhejiang University of Media and Communications in China, Stellenbosch University in South Africa and the University of Ibadan in Nigeria.",
+  },
+  {
+    q: "What courses and curriculum has he designed?",
+    a: "The world's first MA Immersive Arts at LJMU (2018), curriculum for Manchester's School of Digital Arts, a pioneering BA in Digital Media at Coventry, industry bootcamps in games technology for HOST in Salford, and bootcamp curriculum for In4 Group. He has also consulted for Nottingham Trent University on new creative technology degrees.",
+  },
+  {
+    q: "Has he mentored on international programmes?",
+    a: "Yes. He has mentored on the Ithra Creative Solutions residency programme in Saudi Arabia and on the Raindance postgraduate degree in film in London.",
+  },
+  {
+    q: "Is he available for guest lectures, workshops or curriculum design?",
+    a: "Yes. Guest lectures, workshops, industry training and curriculum design in creative AI, agentic workflows, software prototyping, virtual production and immersive technology, for universities, colleges and skills providers in the UK and internationally. LinkedIn is the quickest way to get in touch.",
+  },
 ];
 
-const schema = {
-  "@type": "CollectionPage",
-  name: "Teaching by Pete Woodbridge",
-  mainEntity: { "@id": "#pete" },
-};
+const universities = visiting.filter((v) => v.university).map((v) => ({ "@type": "CollegeOrUniversity", name: v.org, ...(v.url ? { url: v.url } : {}) }));
+const advisoryOrgs = visiting.filter((v) => !v.university).map((v) => ({ "@type": "Organization", name: v.org, ...(v.url ? { url: v.url } : {}) }));
+
+const schema = [
+  {
+    "@type": "ProfilePage",
+    "@id": "/teaching#page",
+    url: "/teaching",
+    name: "Pete Woodbridge: creative AI lecturer and curriculum designer",
+    about: { "@id": "#pete" },
+    mainEntity: { "@id": "#pete" },
+    inLanguage: "en-GB",
+  },
+  // Adds the teaching side to the site-wide Person node; same @id, so search engines merge them.
+  {
+    "@type": "Person",
+    "@id": "#pete",
+    hasCredential: credentials.map((name) => ({ "@type": "EducationalOccupationalCredential", name, credentialCategory: "Professional fellowship" })),
+    hasOccupation: [
+      { "@type": "Occupation", name: "Lecturer in creative technology", skills: subjects.join(", ") },
+      { "@type": "Occupation", name: "Curriculum designer" },
+      { "@type": "Occupation", name: "Visiting lecturer" },
+    ],
+    affiliation: [
+      { "@type": "CollegeOrUniversity", name: "Liverpool John Moores University", url: "https://www.ljmu.ac.uk/" },
+      { "@type": "CollegeOrUniversity", name: "Manchester Metropolitan University", url: "https://www.mmu.ac.uk/" },
+      { "@type": "CollegeOrUniversity", name: "Coventry University", url: "https://www.coventry.ac.uk/" },
+      ...universities,
+      ...advisoryOrgs,
+    ],
+    makesOffer: { "@type": "Offer", itemOffered: { "@id": "/teaching#service" } },
+  },
+  {
+    "@type": "Service",
+    "@id": "/teaching#service",
+    name: "Guest lectures, workshops and curriculum design in creative AI and creative technology",
+    serviceType: ["Guest lecturing", "Visiting lectureships", "Curriculum design", "Industry training", "Workshops"],
+    description: "Guest lectures, workshops, industry training and curriculum design in creative AI, AI agents and agentic workflows, software prototyping, virtual production and immersive technology.",
+    provider: { "@id": "#pete" },
+    audience: { "@type": "EducationalAudience", educationalRole: "Universities, colleges and skills providers" },
+    areaServed: ["United Kingdom", "Worldwide"],
+    url: "/teaching",
+  },
+  {
+    "@type": "Course",
+    name: "MA Immersive Arts",
+    description: "The world's first MA in Immersive Arts, developed and led by Pete Woodbridge at Liverpool Screen School from 2018: virtual production, games engines, immersive and interactive media.",
+    provider: { "@type": "CollegeOrUniversity", name: "Liverpool John Moores University", url: "https://www.ljmu.ac.uk/" },
+    creator: { "@id": "#pete" },
+    dateCreated: "2018",
+    educationalCredentialAwarded: "MA",
+    url: "/work/xlab-ljmu",
+  },
+  {
+    "@type": "Course",
+    name: "Industry bootcamps in games technology",
+    description: "Industry bootcamps bringing Unreal Engine and realtime talent into the games and creative industries, with curriculum by Pete Woodbridge.",
+    provider: { "@type": "Organization", name: "HOST Salford", url: "https://www.hostsalford.com/services/gametech/" },
+    creator: { "@id": "#pete" },
+  },
+  {
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({ "@type": "Question", name: f.q, acceptedAnswer: { "@type": "Answer", text: f.a } })),
+  },
+  {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "/" },
+      { "@type": "ListItem", position: 2, name: "Teaching", item: "/teaching" },
+    ],
+  },
+];
 ---
 <Base
-  title="Teaching"
-  description="Teaching creative AI, agentic workflows and software prototyping, alongside virtual production and immersive technology. Built the world's first MA Immersive Arts at LJMU and curriculum for Manchester's £35m School of Digital Arts."
+  title="Creative AI Lecturer & Curriculum Designer"
+  description="Creative AI lecturer and curriculum designer. Built the world's first MA Immersive Arts; visiting lecturer at Manchester, Warwick, Stellenbosch and Zhejiang."
   image="/img/og/teaching.jpg"
+  imageAlt="Pete Woodbridge, creative AI lecturer and curriculum designer"
+  type="profile"
   schema={schema}
 >
   <section class="hero hero--short">
     <VideoBg src={u("/video/teaching.mp4")} poster={u("/video/teaching.jpg")} soft />
     <div class="container hero__inner">
-      <p class="eyebrow">Teaching</p>
+      <p class="eyebrow">Teaching, lecturing &amp; curriculum design</p>
       <h1 class="display h-xl">Teaching the next lot</h1>
       <p class="hero__sub">Creative AI, agentic workflows and software prototyping, on top of twenty years of production craft. Around eight years of teaching it, and building the courses that did not exist yet.</p>
     </div>
@@ -49,8 +146,8 @@ const schema = {
       <div class="prose" data-reveal>
         <p>These days that mostly means creative AI, agentic workflows and software prototyping: building agents and tools that do real work, wiring them into production with Python, ComfyUI and APIs, and getting people to the point where they can prototype an idea themselves in an afternoon. I also run <a href={u("/ai")}>AI training and workshops</a> for businesses and teams. It is the same job I have always done, which is creating industry-focused courses in the places where teaching has not caught up with the tools yet.</p>
         <p>In 2018 I developed and taught the world's first <a href={u("/work/xlab-ljmu")}>MA Immersive Arts</a> at LJMU's Liverpool Screen School, alongside directing the Experimental Technologies Lab. Before that I was Senior Lecturer at Manchester School of Art, leading creative technology across several degrees, and curriculum development lead during the bid and formation of the <a href={u("/work/soda")}>School of Digital Arts</a>. Earlier still, at <a href={u("/work/disruptive-media")}>Coventry</a>, I taught on the Digital Media and Culture MA and the Media Production BA, and built a pioneering BA in Digital Media along with several award-winning open education products.</p>
-        <p>Elsewhere I have been curriculum advisor for HOST in Salford, setting up <a href="https://www.hostsalford.com/services/gametech/" target="_blank" rel="noopener">industry bootcamps in games technology</a> to bring more Unreal and realtime talent into the industry, and consulted for Nottingham Trent University on new creative technology degrees. I have mentored projects and people on the <a href="https://www.ithra.com/en/special-programs/The-Creative-Solutions-Residency-Program/cycle-3" target="_blank" rel="noopener">Ithra Creative Solutions</a> programme in Saudi Arabia and the <a href="https://www.raindance.org/postgraduate/" target="_blank" rel="noopener">Raindance postgraduate degree in film</a>.</p>
-        <p>Over the years I have been an invited lecturer at Warwick University, Zhejiang University of Media and Communications in China, the University of Ibadan in Nigeria and Stellenbosch University in South Africa, and worked on digital learning projects for organisations including the BBC, Avid and HEFCE.</p>
+        <p>Elsewhere I have been curriculum advisor for HOST in Salford, setting up <a href="https://www.hostsalford.com/services/gametech/" target="_blank" rel="noopener">industry bootcamps in games technology</a> to bring more Unreal and realtime talent into the industry, designed bootcamp curriculum for In4 Group, and consulted for Nottingham Trent University on new creative technology degrees. I have mentored projects and people on the <a href="https://www.ithra.com/en/special-programs/The-Creative-Solutions-Residency-Program/cycle-3" target="_blank" rel="noopener">Ithra Creative Solutions</a> programme in Saudi Arabia and the <a href="https://www.raindance.org/postgraduate/" target="_blank" rel="noopener">Raindance postgraduate degree in film</a>.</p>
+        <p>Over the years I have been an invited lecturer at the University of Manchester, Warwick University, Zhejiang University of Media and Communications in China, the University of Ibadan in Nigeria and Stellenbosch University in South Africa, and worked on digital learning projects for organisations including the BBC, Avid and HEFCE. I am a Fellow of the Higher Education Academy and of the Royal Society of Arts, and I also give <a href={u("/speaking")}>talks and keynotes</a> on AI, virtual production and innovation.</p>
       </div>
     </div>
   </section>
@@ -68,6 +165,16 @@ const schema = {
           </div>
         ))}
       </div>
+      <h3 class="display h-md" data-reveal style="margin: clamp(40px,5vw,72px) 0 clamp(20px,2.4vw,36px)">Visiting lectureships and advisory roles</h3>
+      <div class="timeline" data-reveal>
+        {visiting.map((t) => (
+          <div class="tl">
+            <div class="tl__when">{t.kind}</div>
+            <div class="tl__role">{t.what}</div>
+            <div class="tl__org">{t.url ? <a href={t.url} target="_blank" rel="noopener">{t.where} ↗</a> : t.where}</div>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 
@@ -82,13 +189,40 @@ const schema = {
     </div>
   </section>
 
+  <section class="section section--line">
+    <div class="container grid grid-2" style="align-items:start">
+      <div data-reveal>
+        <p class="eyebrow">FAQ</p>
+        <h2 class="display h-md">Questions about teaching.</h2>
+      </div>
+      <div class="faq" data-reveal>
+        {faqs.map((f) => (
+          <details>
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
   <section class="section section--line cta">
     <div class="container">
       <h2 class="display h-lg" data-reveal>Need a course building?</h2>
       <div class="cta__row" data-reveal>
-        <p class="lead measure muted">Curriculum design, guest lectures, workshops and industry training in creative technology.</p>
+        <p class="lead measure muted">Curriculum design, guest lectures, workshops and industry training in creative AI and creative technology.</p>
         <a class="btn btn--volt" href={u("/contact")}>Get in touch <span class="arrow">↗</span></a>
       </div>
     </div>
   </section>
 </Base>
+
+<style>
+  .faq details { border-bottom: 1px solid var(--line); }
+  .faq details:first-child { border-top: 1px solid var(--line); }
+  .faq summary { cursor: pointer; list-style: none; padding: 18px 36px 18px 0; position: relative; font-weight: 700; font-size: 1.05rem; }
+  .faq summary::-webkit-details-marker { display: none; }
+  .faq summary::after { content: "+"; position: absolute; right: 4px; top: 14px; font-size: 1.4rem; color: var(--volt); transition: transform .25s ease; }
+  .faq details[open] summary::after { transform: rotate(45deg); }
+  .faq details p { margin: 0 0 18px; color: var(--muted, inherit); }
+</style>
