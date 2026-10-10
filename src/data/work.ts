@@ -308,7 +308,7 @@ export const projects: Project[] = [
     card: "/img/card-draw-and-code.webp",
     cardVideo: "/video/draw-and-code-card.mp4",
     cardRole: "Senior R&D Technologist",
-    clients: ["Google", "Sony", "Dolby", "Meta"],
+    clients: ["Dolby", "Meta", "Google", "Entain"],
     size: "md",
   },
   {
@@ -381,7 +381,7 @@ export const projects: Project[] = [
     card: "/img/card-xlab-ljmu.webp",
     cardVideo: "/video/xlab-ljmu-card.mp4",
     cardRole: "Co-Director",
-    clients: ["FACT Liverpool"],
+    clients: ["Aardman"],
     size: "md",
   },
   {
