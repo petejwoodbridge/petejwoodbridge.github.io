@@ -3,7 +3,6 @@ import { u } from "../../lib/url";
 import Base from "../../layouts/Base.astro";
 import VideoBg from "../../components/VideoBg.astro";
 import WorkCard from "../../components/WorkCard.astro";
-import Marquee from "../../components/Marquee.astro";
 import { site } from "../../data/site";
 import { mainProjects, moreProjects } from "../../data/work";
 import experiments from "../../data/experiments.json";
@@ -36,11 +35,9 @@ const workSchema = {
     <div class="container hero__inner">
       <p class="eyebrow">Work</p>
       <h1 class="display h-xl">Labs, stages, programmes &amp; playable things.</h1>
-      <p class="hero__sub">Some of the places where the work happened, and the projects, partners and people involved. Freelance, contracts and more.</p>
+      <p class="hero__sub">Labs, LED stages, universities and funded programmes, and the partners and people involved.</p>
     </div>
   </section>
-
-  <Marquee />
 
   <section class="section">
     <div class="container">
@@ -55,7 +52,7 @@ const workSchema = {
       <div class="grid grid-2" style="align-items:end; margin-bottom: clamp(32px,4vw,64px)">
         <div data-reveal>
           <p class="eyebrow">Also</p>
-          <h2 class="display h-lg">Books, awards &amp; side quests</h2>
+          <h2 class="display h-lg">Books, awards &amp; tools I've built</h2>
         </div>
         <p class="lead muted" data-reveal>Things that sit alongside the main roles: a living book about creative AI, a pair of data engines, a mixed-reality football game, a regional immersive network and a couple of nice awards.</p>
       </div>

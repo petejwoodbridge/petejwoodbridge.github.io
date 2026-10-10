@@ -28,6 +28,7 @@ const description = tagline.length + tail.length <= MAX ? tagline + tail : clip(
 
 // A pointer from each project to the service or page it most relates to.
 const academic = ["xlab-ljmu", "soda", "disruptive-media"].includes(p.slug);
+const programme = ["musicfutures", "mediacity", "dreamlab"].includes(p.slug);
 const projectSchema = [
   {
     "@type": "CreativeWork",
@@ -95,6 +96,8 @@ const projectSchema = [
           {p.body.map((html) => <p set:html={html} />)}
           {academic ? (
             <p>Related: my <a href={u("/teaching")}>teaching, lecturing and curriculum design</a>.</p>
+          ) : programme ? (
+            <p>Related: <a href={u("/research")}>R&amp;D and innovation programmes</a> and how to <a href={u("/contact")}>work with me</a>.</p>
           ) : (
             <p>Related: <a href={u("/ai")}>AI consultancy, prototyping and training</a> in Liverpool and Manchester.</p>
           )}

@@ -21,7 +21,7 @@ const contactSchema = {
     <div class="container hero__inner">
       <h1 class="eyebrow">Contact Pete Woodbridge</h1>
       <p class="display h-xl" style="margin:0">Got an idea?</p>
-      <p class="hero__sub">Commissions, <a href={u("/ai")}>AI consultancy and training</a>, R&amp;D collaborations, talks, teaching, or an idea you want a second opinion on. LinkedIn is the quickest way to reach me.</p>
+      <p class="hero__sub">Talks, panels and press comment on AI and the creative economy; commissions, <a href={u("/ai")}>AI consultancy and training</a>, R&amp;D collaborations and teaching.</p>
       <div class="btn-row hero__actions">
         <a class="btn btn--volt" href={site.linkedin} target="_blank" rel="noopener">Message me on LinkedIn <span class="arrow" aria-hidden="true">↗</span></a>
         {site.email && <a class="btn" href={`mailto:${site.email}`}>{site.email}</a>}
@@ -30,6 +30,27 @@ const contactSchema = {
   </section>
 
   <section class="section">
+    <div class="container">
+      <p class="eyebrow" data-reveal>Three ways to work with me</p>
+      <ol class="ways" data-reveal>
+        <li>
+          <h2 class="display h-sm">AI consultancy, prototyping &amp; training</h2>
+          <p class="muted">Find where AI earns its place, build the first useful thing, and train the team to use it. <a href={u("/ai")}>AI consultancy</a></p>
+        </li>
+        <li>
+          <h2 class="display h-sm">Talks, panels &amp; press comment</h2>
+          <p class="muted">Keynotes, panels and workshops on AI and the creative economy, and comment for journalists. <a href={u("/speaking")}>Speaking</a></p>
+        </li>
+        <li>
+          <h2 class="display h-sm">Programmes, R&amp;D &amp; curriculum</h2>
+          <p class="muted">Innovation programmes, funded R&amp;D, funding bids and course design. <a href={u("/research")}>Programmes</a> · <a href={u("/teaching")}>Teaching</a></p>
+        </li>
+      </ol>
+      <p class="lead" data-reveal style="margin-top:clamp(24px,3vw,40px)">Whichever it is, <a href={site.linkedin} target="_blank" rel="noopener">message me on LinkedIn</a> with a line or two about what you are working on.</p>
+    </div>
+  </section>
+
+  <section class="section section--line">
     <div class="container grid grid-3" style="align-items:start">
       <div data-reveal>
         <p class="eyebrow">Follow</p>
@@ -64,6 +85,12 @@ const contactSchema = {
 </Base>
 
 <style>
+  .ways { list-style: none; margin: 1rem 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(18px, 2.5vw, 36px); border-top: 1px solid var(--line); }
+  .ways li { padding-top: 24px; }
+  .ways h2 { margin-bottom: 0.8rem; }
+  .ways p { margin: 0; }
+  .ways a { color: var(--ink); text-decoration: underline; font-weight: 600; }
+  @media (max-width: 900px) { .ways { grid-template-columns: 1fr; } }
   .list { margin-top: 1rem; display: flex; flex-direction: column; gap: 8px; font-weight: 600; }
   .list a:hover { color: var(--volt); }
 </style>

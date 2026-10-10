@@ -1,11 +1,19 @@
 ---
 import { u } from "../lib/url";
 import Base from "../layouts/Base.astro";
-import press from "../data/press.json";
+import pressData from "../data/press.json";
+import { site } from "../data/site";
 
 /**
- * Linked from the About menu. Coverage, interviews and mentions, newest first.
+ * Linked from the About menu. Coverage, interviews and mentions, most notable first.
+ * The Economist and Fast Company always lead; everything else keeps its order in press.json.
  */
+const featured = ["economist.com", "fastcompany.com"];
+const rank = (item: (typeof pressData)[number]) => {
+  const i = featured.findIndex((f) => item.links.some((l) => l.url.includes(f)));
+  return i === -1 ? featured.length : i;
+};
+const press = [...pressData].sort((a, b) => rank(a) - rank(b));
 const totalLinks = press.reduce((n, item) => n + item.links.length, 0);
 // Dead links point at a Wayback Machine snapshot; show (and count) the original outlet, not archive.org.
 const archived = (url: string) => /^https:\/\/web\.archive\.org\/web\/\d+\//.test(url);
@@ -22,12 +30,21 @@ const outlets = new Set(press.flatMap((i) => i.links.map((l) => host(l.url))));
       <p class="eyebrow">Coverage &amp; interviews</p>
       <h1 class="display h-lg">Press</h1>
       <p class="lead muted measure" style="margin-top:1rem">
-        Coverage, interviews and mentions, newest first.
-        {press.length} entries, {totalLinks} links, {outlets.size} outlets.
+        Most notable first. For comment on AI and the creative economy, <a href={site.linkedin} target="_blank" rel="noopener" style="text-decoration:underline">message me on LinkedIn</a>.
       </p>
-      <p class="muted" style="margin-top:1rem; font-size:0.9rem">
-        Some of the older links have rotted. Where the Internet Archive kept a copy, the link goes there; where it did not, the entry stays as a record of what was published and where.
-      </p>
+      <p class="muted" style="margin-top:0.6rem; font-size:0.9rem">{press.length} entries, {totalLinks} links, {outlets.size} outlets.</p>
+    </div>
+  </section>
+
+  <section class="section section--tight section--line">
+    <div class="container grid grid-2" style="align-items:start">
+      <div data-reveal>
+        <p class="eyebrow">Short bio</p>
+        <h2 class="display h-sm">For programmes and press</h2>
+      </div>
+      <div class="prose" data-reveal>
+        <p>{site.shortBio}</p>
+      </div>
     </div>
   </section>
 
@@ -56,8 +73,11 @@ const outlets = new Set(press.flatMap((i) => i.links.map((l) => host(l.url))));
           </li>
         ))}
       </ol>
-      <p class="muted" style="margin-top:3rem">
-        <a href={u("/work")} style="text-decoration:underline">Back to the work</a>
+      <p class="lead" style="margin-top:3rem">
+        Need a speaker or a comment? See <a href={u("/speaking")} style="text-decoration:underline">talks and panels</a>, or <a href={u("/contact")} style="text-decoration:underline">get in touch</a>.
+      </p>
+      <p class="muted" style="margin-top:1.4rem; font-size:0.9rem">
+        Some of the older links have rotted. Where the Internet Archive kept a copy, the link goes there; where it did not, the entry stays as a record of what was published and where.
       </p>
     </div>
   </section>

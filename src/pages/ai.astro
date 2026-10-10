@@ -14,24 +14,24 @@ const services = [
     d: "Working out where AI genuinely earns its place in your organisation, and where it does not. A clear-eyed look at your workflows, the tools that fit them, and a plan your team can actually carry out.",
   },
   {
-    t: "AI agents & agentic workflows",
-    d: "Agents that do real work inside your processes: research, data gathering, reporting, production tasks. Built to make people faster and better at their jobs, never to make them redundant.",
-  },
-  {
     t: "Rapid prototyping & software",
     d: "Building the thing, fast enough to find out whether the idea holds up before anyone commits a budget to it. Python, APIs, ComfyUI, games engines and the web, wired into the tools you already use.",
-  },
-  {
-    t: "Creative AI for media",
-    d: "AI-augmented production workflows for film, TV, music, games, animation and live events, from someone who has spent twenty years inside those pipelines and tracks the field in Dream Machine.",
   },
   {
     t: "AI training & workshops in Liverpool and Manchester",
     d: "Hands-on sessions that get teams from curious to capable: understanding what the tools can do, and prototyping an idea of their own in an afternoon. Built on over a decade of university teaching.",
   },
   {
+    t: "Creative AI for media",
+    d: "AI-augmented animation and production workflows for film, TV, music, games and live events: tools built with ComfyUI and realtime engines, and the hacks and jams that spread them across the North West's studios. From someone who has spent twenty years inside those pipelines.",
+  },
+  {
+    t: "AI agents & agentic workflows",
+    d: "Agents that take on the legwork inside your processes: research, data gathering, reporting, production tasks. Built to make people faster and better at their jobs, never to make them redundant.",
+  },
+  {
     t: "AI R&D & funding",
-    d: "Shaping AI research and development projects, partnerships and funding bids. I have won grants from the AHRC and Innovate UK, and review bids for the EPSRC, CoSTAR and Digital Catapult.",
+    d: "Shaping AI research and development projects, partnerships and funding bids. Past projects have won grants from the AHRC and Innovate UK, and I review bids for the EPSRC, CoSTAR and Digital Catapult.",
   },
 ];
 
@@ -152,9 +152,9 @@ const schema = [
     <div class="container hero__inner">
       <h1 class="eyebrow">AI consultant in Liverpool &amp; Manchester</h1>
       <p class="display h-xl" style="margin:0">AI that makes people better at their thing.</p>
-      <p class="hero__sub">AI strategy, agents, prototypes and training for businesses, studios and public bodies across Liverpool, Manchester and the North West. Advice from someone who builds it.</p>
+      <p class="hero__sub">Tell me what your team does and where it gets stuck. I'll help you find where AI earns its place, build the first useful thing, and train your team to use it. Advice from someone who builds it.</p>
       <div class="btn-row hero__actions">
-        <a class="btn btn--volt" href={site.linkedin} target="_blank" rel="noopener">Talk to me about AI <span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="btn btn--volt" href={site.linkedin} target="_blank" rel="noopener">Message me on LinkedIn about AI <span class="arrow" aria-hidden="true">↗</span></a>
         <a class="btn" href="#services">What I can help with</a>
       </div>
     </div>
@@ -166,9 +166,24 @@ const schema = [
         <p class="lead">Most organisations do not need an AI revolution. They need someone who understands their work, knows what the tools can really do, and can build the first useful thing.</p>
       </div>
       <div class="prose" data-reveal>
-        <p>I'm Pete Woodbridge, an AI consultant, creative technologist and software prototyper based in Liverpool. I have spent twenty years building technology for organisations like the BBC, ITV, Aardman, Google, Sony and the NHS, and most of that work now is AI: agents, agentic workflows, AI-augmented production and fast software prototypes.</p>
-        <p>I am also the Digital &amp; Technology Cluster Lead for the Liverpool City Region, so I spend my days with the region's businesses, universities and investors, and see where AI is working for them and where it is not. That view goes into every project.</p>
-        <p>The approach is simple, and it has been tested on a lot of projects already. <a href="#method">Here is how it works.</a></p>
+        <p>I'm Pete Woodbridge, an AI consultant, creative technologist and software prototyper based in Liverpool. I've spent twenty years building technology with organisations like the BBC, Aardman and the NHS, and most of that work now is AI: agents, agentic workflows, AI-augmented production and fast software prototypes.</p>
+        <p>I am also the Digital &amp; Technology Cluster Lead for the Liverpool City Region, so I spend my days with the region's businesses, universities and investors, and see where AI is working for them and where it is not. That view goes into every project. Alongside the regional role I still take on independent work, as I have since 2003.</p>
+        <p>Not knowing where to start is the most common starting point. <a href="#method">It is four steps</a>, and it has already run across 35+ funded projects.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line">
+    <div class="container grid grid-2" style="align-items:start">
+      <div data-reveal>
+        <p class="eyebrow">Who it is for</p>
+        <h2 class="display h-md">Organisations that want AI to do real work.</h2>
+      </div>
+      <div data-reveal>
+        <ul class="who">
+          {who.map((w) => <li>{w}</li>)}
+        </ul>
+        <p class="muted" style="margin-top:1.4rem">Based in Liverpool, working across the Liverpool City Region, Manchester, the North West and the rest of the UK.</p>
       </div>
     </div>
   </section>
@@ -194,7 +209,7 @@ const schema = [
       <div class="grid grid-2" style="align-items:end; margin-bottom: clamp(32px,4vw,56px)">
         <div data-reveal>
           <p class="eyebrow">The method</p>
-          <h2 class="display h-lg" style="max-width:16ch">Tested on a lot of projects already.</h2>
+          <h2 class="display h-lg" style="max-width:16ch">Tested on 35+ funded projects.</h2>
         </div>
         <p class="lead muted" data-reveal>It is the same method that ran through the <a href={u("/work/mediacity")}>MediaCity Innovation Hub</a> and <a href={u("/work/dreamlab")}>Dreamlab</a>, across dozens of funded projects and over a hundred businesses, many of them building with AI.</p>
       </div>
@@ -215,7 +230,7 @@ const schema = [
       <div class="grid grid-2" style="align-items:start; margin-top: clamp(40px,5vw,72px)">
         <div data-reveal>
           <h3 class="display h-sm">Some of the AI work that came out of it</h3>
-          <p class="muted prose" style="margin-top:0.8rem">That work saw me named one of Verizon's <a href={u("/work/trailblazers")}>500 UK Trailblazers</a>, supported by Epic Games, for AI workflow innovation.</p>
+          <p class="muted prose" style="margin-top:0.8rem">That work saw me named one of the <a href={u("/work/trailblazers")}>500 UK Trailblazers</a> in the UKII Intelligence Report 2024, sponsored by Verizon and Epic Games, for AI workflow innovation.</p>
         </div>
         <ul class="linklist method__list" data-reveal>
           {methodProjects.map((l) => <li><a href={l.url} target="_blank" rel="noopener">{l.label}</a></li>)}
@@ -227,28 +242,14 @@ const schema = [
   <section class="section section--line">
     <div class="container grid grid-2" style="align-items:start">
       <div data-reveal>
-        <p class="eyebrow">Who it is for</p>
-        <h2 class="display h-md">Organisations that want AI to do real work.</h2>
-      </div>
-      <div data-reveal>
-        <ul class="who">
-          {who.map((w) => <li>{w}</li>)}
-        </ul>
-        <p class="muted" style="margin-top:1.4rem">Based in Liverpool, working across the Liverpool City Region, Manchester, the North West and the rest of the UK.</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section--line">
-    <div class="container grid grid-2" style="align-items:start">
-      <div data-reveal>
         <p class="eyebrow">Proof</p>
-        <h2 class="display h-md">AI work already in the world.</h2>
+        <h2 class="display h-md">Where it has already helped.</h2>
       </div>
       <div class="prose" data-reveal>
+        <p>Since 2024 the team at <a href={u("/work/dreamlab")}>Dreamlab</a> has helped over 100 businesses and freelancers shape commercially viable innovations, win new work and solve day-to-day technical and market challenges. The lab's 48+ experts work on AI and realtime workflows and production technology, and larger builds can draw on them.</p>
+        <p>The creative work goes back further. I was creative producer and technologist at <a href={u("/work/pathway")}>Pathway</a>, a 6,000 sq ft LED volume in Manchester, as the stage launched. Partners and projects there included BBC Three's Project Ikon with Jason Derulo, an ARRI test shooting virtual production on 65mm film, Sony and McLaren.</p>
         <p><a href={u("/work/soundings")}>Soundings</a> uses AI agents to sweep the Companies House register every month and map roughly 745,000 creative companies across 65 regions of the UK, with a full evidence briefing for the Liverpool City Region Combined Authority.</p>
-        <p><a href={u("/work/dream-machine")}>Dream Machine</a>, my newsletter, podcast and book on AI and the creative economy, has been picked up by <a href="https://www.economist.com/business/2026/08/04/hollywood-is-entering-its-ai-era" target="_blank" rel="noopener">The Economist</a> and <a href="https://www.fastcompany.com/91568818/our-interest-in-ai-slop-is-hitting-a-ceiling" target="_blank" rel="noopener">Fast Company</a>.</p>
-        <p>Through <a href={site.dreamlab} target="_blank" rel="noopener">Dreamlab</a>, an R&amp;D lab and collective of 48+ experts, I work on AI and realtime workflows and production technology projects. My <a href={u("/research")}>R&amp;D</a> and <a href={u("/teaching")}>teaching</a> pages have more on the AI work and the courses behind it.</p>
+        <p><a href={u("/work/dream-machine")}>Dream Machine</a>, my newsletter, podcast and book on AI and the creative economy, has been cited by <a href="https://www.economist.com/business/2026/08/04/hollywood-is-entering-its-ai-era" target="_blank" rel="noopener">The Economist</a> and <a href="https://www.fastcompany.com/91568818/our-interest-in-ai-slop-is-hitting-a-ceiling" target="_blank" rel="noopener">Fast Company</a>. My <a href={u("/research")}>programmes</a> and <a href={u("/teaching")}>teaching</a> pages have more on the funded work and the courses behind it.</p>
       </div>
     </div>
   </section>

@@ -17,16 +17,16 @@ export const site = {
   areasServed: ["Liverpool", "Liverpool City Region", "Manchester", "North West England", "United Kingdom"],
   description:
     "Pete Woodbridge is an AI consultant, creative technologist and innovation leader in Liverpool, working in creative AI, AI agents, agentic workflows and software prototyping, and helping businesses across the North West adopt AI. He builds tools and prototypes, and builds the programmes, labs and clusters that let other innovators do the same. Digital & Technology Cluster Lead for the Liverpool City Region.",
+  // Third-person bio for event programmes and press. Shown on /speaking and /press, and in llms.txt.
+  // Only facts already on the site; keep it around 75 words.
+  shortBio:
+    "Pete Woodbridge is a Liverpool-based AI consultant and creative technologist, and Digital & Technology Cluster Lead for the Liverpool City Region. He writes Dream Machine, a book, newsletter and podcast on AI and the next creative economy, cited by The Economist and Fast Company, and directs the R&D lab Dreamlab. He has worked with the BBC, Aardman, Google and Epic Games, and was named in the BIMA 100 and the 500 UK Trailblazers for AI workflow innovation.",
   // The <meta name="description"> for the homepage. The description above is too long for a
   // search snippet (Google cuts at about 155-160 characters), so pages get this one instead.
   metaDescription:
     "Pete Woodbridge, AI consultant and creative technologist in Liverpool: AI strategy, agents, prototyping and AI training across Manchester and the North West.",
   // The things people actually search for when they need this kind of work.
   expertise: [
-    "Innovation strategy",
-    "Innovation leadership",
-    "Cluster development",
-    "R&D programmes",
     "AI consultancy & strategy",
     "AI adoption for businesses",
     "AI training & workshops",
@@ -52,6 +52,10 @@ export const site = {
     "Mixed reality",
     "Augmented reality",
     "Experiential technology",
+    "Innovation strategy",
+    "Innovation leadership",
+    "Cluster development",
+    "R&D programmes",
     "Research and development",
     "Creative industries policy",
   ],

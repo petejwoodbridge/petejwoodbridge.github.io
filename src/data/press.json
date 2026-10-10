@@ -1,5 +1,25 @@
 [
  {
+  "text": "The Economist cites my Dream Machine research in 'Hollywood is entering its AI era'.",
+  "links": [
+   {
+    "label": "AI and Hollywood in the Economist",
+    "url": "https://www.economist.com/business/2026/08/04/hollywood-is-entering-its-ai-era"
+   }
+  ],
+  "year": "2026"
+ },
+ {
+  "text": "Fast Company interviewed me about the Slop Ceiling, a chapter of my book Dream Machine.",
+  "links": [
+   {
+    "label": "Slop Ceiling with Fast Company",
+    "url": "https://www.fastcompany.com/91568818/our-interest-in-ai-slop-is-hitting-a-ceiling"
+   }
+  ],
+  "year": "2026"
+ },
+ {
   "text": "Press links about my Data Mapping research into the UK Creative Industries - University of Liverpool, Insider Media, Business Desk + MusicFutures (was also interviewed about it on BBC Merseyside)",
   "links": [
    {
@@ -17,26 +37,6 @@
    {
     "label": "MusicFutures",
     "url": "https://musicfutures.co.uk/liverpool-is-uks-most-musical-big-city-economy/"
-   }
-  ],
-  "year": null
- },
- {
-  "text": "'Dream Machine' book and research mentioned in this article on AI and Hollywood in the Economist",
-  "links": [
-   {
-    "label": "AI and Hollywood in the Economist",
-    "url": "https://www.economist.com/business/2026/08/04/hollywood-is-entering-its-ai-era"
-   }
-  ],
-  "year": null
- },
- {
-  "text": "Interview about my new book 'Dream Machine', discussing a chapter called the Slop Ceiling with Fast Company",
-  "links": [
-   {
-    "label": "Slop Ceiling with Fast Company",
-    "url": "https://www.fastcompany.com/91568818/our-interest-in-ai-slop-is-hitting-a-ceiling"
    }
   ],
   "year": null
@@ -62,10 +62,10 @@
   "year": null
  },
  {
-  "text": "Recognised as one of 500 UK Trailblazers in the UKII Verizon Report 2024, sponsored by Epic Games, for my AI workflow innovations.",
+  "text": "Named one of the 500 UK Trailblazers in the UKII Intelligence Report 2024, sponsored by Verizon and Epic Games, for AI workflow innovation.",
   "links": [
    {
-    "label": "500 UK Trailblazers in the UKII Verizon Report 2024",
+    "label": "500 UK Trailblazers, UKII Intelligence Report 2024",
     "url": "https://www.linkedin.com/feed/update/urn:li:activity:7141433657994477568/"
    }
   ],

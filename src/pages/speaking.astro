@@ -3,6 +3,7 @@ import { u } from "../lib/url";
 import Base from "../layouts/Base.astro";
 import VideoBg from "../components/VideoBg.astro";
 import speaking from "../data/speaking.json";
+import { site } from "../data/site";
 
 // newest first, grouped by year
 const years = [...new Set(speaking.map((s) => s.year))].filter(Boolean).sort().reverse();
@@ -11,6 +12,7 @@ const undated = speaking.filter((s) => !s.year);
 
 // Topics are drawn from the talks listed below; keep them to what the list actually shows.
 const topics = [
+  { t: "AI and the next creative economy", d: "The thread through Dream Machine, and through talks from Beyond Conference to Sound City" },
   { t: "Creative AI and AI in music", d: "Creativity + AI: Music at Creative Manchester; Technology, AI and Music at Modern Music Cities" },
   { t: "Practical AI", d: "Practical AI in Action, a workshop at Beyond Conference" },
   { t: "AI and copyright", d: "Copyright and AI panel at the Innovate UK BridgeAI Annual Showcase" },
@@ -29,7 +31,7 @@ const faqs = [
   },
   {
     q: "What does he speak about?",
-    a: "Creative AI and AI in music, practical AI for creative teams, AI and copyright, virtual production, immersive technology and storytelling, and how innovation actually gets done in the media and music industries.",
+    a: "AI and the next creative economy, creative AI and AI in music, practical AI for creative teams, AI and copyright, virtual production, immersive technology and storytelling, and how innovation actually gets done in the media and music industries.",
   },
   {
     q: "Where has he spoken recently?",
@@ -65,7 +67,7 @@ const schema = [
 ---
 <Base
   title="AI & Virtual Production Speaker"
-  description={`${speaking.length} talks, panels, keynotes and workshops by Pete Woodbridge on creative AI, virtual production, immersive technology and innovation.`}
+  description="Talks, panels, keynotes and workshops by Pete Woodbridge on AI and the creative economy, creative AI, virtual production and immersive technology."
   image="/img/og/speaking.jpg"
   schema={schema}
 >
@@ -74,16 +76,30 @@ const schema = [
     <div class="container hero__inner">
       <p class="eyebrow">Speaking</p>
       <h1 class="display h-xl">Talks, panels &amp; workshops</h1>
-      <p class="hero__sub">{speaking.length} appearances at national and international conferences, on creative AI, virtual production, immersive technology and how innovation actually gets done.</p>
+      <p class="hero__sub">Talks, panels and workshops at national and international conferences, on AI and the creative economy, virtual production, immersive technology and how innovation actually gets done.</p>
     </div>
   </section>
 
   <section class="section section--tight">
     <div class="container">
-      <p class="lead muted measure" data-reveal>
-        I speak and chair panels regularly, and run practical workshops. If you are programming an event and think
-        I would be useful, <a href={u("/contact")} style="text-decoration:underline">get in touch</a>.
+      <p class="lead measure" data-reveal>
+        I talk about what AI is actually doing to film, music, games and media, and how to make people better at their work with it, never redundant. I write <a href={u("/work/dream-machine")} style="text-decoration:underline">Dream Machine</a>, cited by The Economist and Fast Company.
       </p>
+      <p class="muted measure" data-reveal style="margin-top:1rem">
+        Recent stages include Sound City, Beyond Conference, Manchester Animation Festival and ARVR Innovate in Dublin.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section--tight section--line">
+    <div class="container grid grid-2" style="align-items:start">
+      <div data-reveal>
+        <p class="eyebrow">Short bio</p>
+        <h2 class="display h-sm">For programmes and press</h2>
+      </div>
+      <div class="prose" data-reveal>
+        <p>{site.shortBio}</p>
+      </div>
     </div>
   </section>
 
@@ -155,7 +171,7 @@ const schema = [
       <h2 class="display h-lg" data-reveal>Need a speaker?</h2>
       <div class="cta__row" data-reveal>
         <p class="lead measure muted">Conferences, panels, workshops and teaching. I am happiest when it is practical and there is something to argue about.</p>
-        <a class="btn btn--volt" href={u("/contact")}>Get in touch <span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="btn btn--volt" href={u("/contact")}>Pitch me a talk <span class="arrow" aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>

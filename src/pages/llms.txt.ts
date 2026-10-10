@@ -32,13 +32,17 @@ Last updated: ${updated}
 
 ${site.name} is an AI consultant, creative technologist and innovation leader based in Liverpool, UK, with over twenty years in digital technology, R&D and innovation. He works with businesses, creative studios, universities and public bodies across the Liverpool City Region, Manchester, the North West of England and the rest of the UK. Clients and partners have included ${site.clients.slice(0, 12).join(", ")}.
 
+## Short bio
+
+${site.shortBio}
+
 ## AI services
 
 - AI strategy and adoption: finding where AI earns its place in an organisation, and planning how to use it.
-- AI agents and agentic workflows: agents that do real work inside business and production processes.
 - Rapid prototyping and software development: Python, APIs, ComfyUI, games engines and the web.
-- Creative AI: AI-augmented production workflows for film, TV, music, games, animation and live events.
 - AI training and workshops: practical, hands-on training for teams, businesses, universities and skills providers.
+- Creative AI: AI-augmented production workflows for film, TV, music, games, animation and live events.
+- AI agents and agentic workflows: agents that take on the legwork inside business and production processes.
 - AI R&D and funding: shaping AI research projects, partnerships and funding bids (Innovate UK, AHRC, EPSRC and others).
 
 Method: understand the work, find where AI earns its place, prove it with a working prototype, then hand it over with training. The same method ran through the MediaCity Immersive Technologies Innovation Hub (35+ funded R&D collaborations on a £3.2m accelerator) and Dreamlab (100+ businesses and freelancers supported since 2024), including AI tools for fashion (Sairo, for Roblox), scriptwriting (Bellyfeel), digital characters (Dock10) and skills training (Scenegraph Studios).
@@ -58,7 +62,7 @@ Areas served: ${site.areasServed.join(", ")}. Remote work UK-wide and internatio
 
 - Dream Machine has been cited by The Economist and Fast Company.
 - BIMA 100, 2020: named among the 100 most influential people in the UK digital and tech industry.
-- 500 UK Trailblazers, 2024: UKII Intelligence Report, for AI workflow innovation.
+- 500 UK Trailblazers, 2024: named one of the 500 UK Trailblazers in the UKII Intelligence Report 2024, sponsored by Verizon and Epic Games, for AI workflow innovation.
 - Press coverage and interviews: ${url("/press")}
 
 ## Teaching, lecturing and curriculum design
@@ -81,7 +85,7 @@ ${visitingRoles.map((r) => `- ${r.what}, ${r.where}`).join("\n")}
 - [AI consultancy, prototyping and training](${url("/ai")}): services, who it is for, and FAQ
 - [About](${url("/about")}): background and career
 - [Work](${url("/work")}): selected projects and roles
-- [R&D](${url("/research")}): creative AI, agentic workflows, software prototyping and digital twins
+- [R&D and innovation programmes](${url("/research")}): MusicFutures, the MediaCity Innovation Hub, Dreamlab, funders and bid reviewing
 - [Teaching](${url("/teaching")}): creative AI and creative technology teaching, visiting lectureships, curriculum design and FAQ
 - [Speaking](${url("/speaking")}): talks and keynotes on AI, virtual production and innovation
 - [Press](${url("/press")}): press coverage and interviews
