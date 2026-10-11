@@ -29,6 +29,8 @@ const {
 // because that is what people type when they are looking for this kind of work rather
 // than for Pete by name. To go back to just the name, replace the second branch with `site.name`.
 const fullTitle = title ? `${title} — ${site.name}` : `${site.name} — AI Consultant & Creative Technologist, Liverpool`;
+// Visitor stats are one image request per page view to GoatCounter, so its origin joins img-src.
+const statsOrigin = site.goatcounter ? `https://${site.goatcounter}.goatcounter.com` : "";
 ---
 <!doctype html>
 <html lang="en-GB">
@@ -38,8 +40,10 @@ const fullTitle = title ? `${title} — ${site.name}` : `${site.name} — AI Con
          Everything is same-origin: scripts, styles, fonts, images, video and the router's fetches.
          'unsafe-inline' stays for scripts because Astro inlines small bundled scripts whose hashes change
          every build, and for styles because of scoped <style> blocks and style="" attributes.
-         The only data: URL is the film grain SVG in global.css. Add an origin here before embedding anything external. */}
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; media-src 'self'; font-src 'self'; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests" />
+         The only data: URL is the film grain SVG in global.css. The one outside origin is the stats
+         counter, when site.goatcounter is set. Add an origin here before embedding anything external. */}
+    <meta http-equiv="Content-Security-Policy" content={`default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data:${statsOrigin ? ` ${statsOrigin}` : ""}; media-src 'self'; font-src 'self'; connect-src 'self'; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests`} />
+    {statsOrigin && <meta name="stats" content={`${statsOrigin}/count`} />}
     <script is:inline>document.documentElement.classList.add("js");try{if(localStorage.getItem("motion")==="off")document.documentElement.classList.add("no-motion")}catch(e){}</script>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <Seo
@@ -255,7 +259,26 @@ const fullTitle = title ? `${title} — ${site.name}` : `${site.name} — AI Con
         }, { signal });
       }
 
+      // One GoatCounter hit per page view, first load and router navigations alike. The outside
+      // referrer only means something on the first page; after that the visitor is moving within the site.
+      let firstView = true;
+      function countView() {
+        const endpoint = document.querySelector<HTMLMetaElement>('meta[name="stats"]')?.content;
+        const local = /^(localhost|127\.|\[::1\])/.test(location.hostname);
+        if (!endpoint || local || navigator.webdriver) return;
+        const q = new URLSearchParams({
+          p: location.pathname,
+          t: document.title,
+          r: firstView ? document.referrer : "",
+          s: `${screen.width},${screen.height},${devicePixelRatio}`,
+          rnd: Math.random().toString(36).slice(2),
+        });
+        firstView = false;
+        new Image().src = `${endpoint}?${q}`;
+      }
+
       function init() {
+        countView();
         ctl?.abort();
         ctl = new AbortController();
         const { signal } = ctl;

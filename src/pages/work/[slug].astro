@@ -182,6 +182,23 @@ const projectSchema = [
     </div>
   </section>
 
+  {/* The ending every project shares, worded for the kind of reader each one draws. */}
+  <section class="section section--line cta">
+    <div class="container">
+      <h2 class="display h-lg" data-reveal>Working on something like this?</h2>
+      <div class="cta__row" data-reveal>
+        <p class="lead measure muted">
+          {academic
+            ? "Guest lectures, course design or a live brief for students: I'm always glad to hear what you're planning."
+            : programme
+              ? "A programme, a lab or a funding bid: happy to share what worked here, and what I'd do differently next time."
+              : "However early the idea, I'm happy to talk it through. Tell me what you have in mind and where it's stuck."}
+        </p>
+        <a class="btn btn--volt" href={u("/contact")}>Get in touch <span class="arrow" aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+
   <nav class="pager" aria-label="More work">
     <a href={u(`/work/${prev.slug}`)}><span class="pager__label">Previous</span><span class="pager__title">{prev.title}</span></a>
     <a href={u(`/work/${next.slug}`)}><span class="pager__label">Next</span><span class="pager__title">{next.title}</span></a>

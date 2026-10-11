@@ -12,6 +12,9 @@ export const site = {
     "Innovation Leader",
     "Digital & Technology Cluster Lead, Liverpool City Region",
   ],
+  // Visitor stats, via GoatCounter: no cookies, so no consent banner. Put the site code from
+  // goatcounter.com here (for https://abc.goatcounter.com, the code is "abc"). Empty turns it off.
+  goatcounter: "",
   location: "Liverpool, UK",
   // Where the work actually happens. Used for location signals in structured data.
   areasServed: ["Liverpool", "Liverpool City Region", "Manchester", "North West England", "United Kingdom"],
