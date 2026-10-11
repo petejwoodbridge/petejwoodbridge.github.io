@@ -6,8 +6,10 @@ import sitemap from "@astrojs/sitemap";
  * The public URL of the site. Canonical tags, the sitemap and social share cards
  * are all built from this, so it must match the real domain once it is live.
  * Set SITE_URL in your host's environment (Netlify/Vercel/Cloudflare) or edit the fallback below.
+ * Always https: GitHub Pages reports the origin as http:// until HTTPS is enforced, and a
+ * build in that window would otherwise send http canonicals and sitemap URLs to Google.
  */
-const SITE_URL = process.env.SITE_URL || "https://petejwoodbridge.github.io";
+const SITE_URL = (process.env.SITE_URL || "https://petewoodbridge.com").replace(/^http:\/\/(?!localhost)/, "https://");
 
 /**
  * The sub-path the site is served from. "/" for a custom domain or a `<user>.github.io` repo;

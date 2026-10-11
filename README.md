@@ -31,7 +31,7 @@ appears on the `deploy` job when it finishes, and also under Settings → Pages.
 published URL from your Pages settings and feeds it into the build, so canonical tags, the sitemap and
 social cards always match where the site actually lives.
 
-The site will be at **https://petejwoodbridge.github.io**.
+The site is at **https://petewoodbridge.com** (custom domain set under Settings → Pages; DNS on Cloudflare, records DNS-only). The old petejwoodbridge.github.io address redirects there.
 
 Every internal link and asset is written through the `u()` helper in `src/lib/url.ts`. At the domain root
 it does nothing, but it means the site still works unchanged if it ever moves to a sub-path.
