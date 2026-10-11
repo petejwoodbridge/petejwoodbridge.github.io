@@ -4,6 +4,7 @@ import Base from "../layouts/Base.astro";
 import VideoBg from "../components/VideoBg.astro";
 import Marquee from "../components/Marquee.astro";
 import WorkCard from "../components/WorkCard.astro";
+import LedField from "../components/LedField.astro";
 import { site } from "../data/site";
 import { mainProjects as projects } from "../data/work";
 
@@ -41,6 +42,7 @@ const homeSchema = {
 >
   <section class="hero">
     <VideoBg src={u("/video/hero.mp4")} srcSm={u("/video/hero-720.mp4")} poster={u("/video/hero.jpg")} />
+    <LedField />
     <div class="container hero__inner">
       <h1 class="eyebrow">Pete Woodbridge — AI consultant &amp; creative technologist, Liverpool</h1>
       <p class="display h-xl" style="margin:0">I build things.</p>

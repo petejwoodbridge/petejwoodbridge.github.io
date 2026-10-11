@@ -36,7 +36,8 @@ const year = new Date().getFullYear();
 </footer>
 
 <style>
-  .footer { border-top: 1px solid var(--line); padding-top: clamp(56px, 8vw, 120px); overflow: hidden; }
+  /* positioned so it paints over the homepage LED field, which sits at z-index 0 */
+  .footer { position: relative; border-top: 1px solid var(--line); padding-top: clamp(56px, 8vw, 120px); overflow: hidden; }
   .footer__top { display: grid; grid-template-columns: 1.4fr 0.6fr; gap: 48px; align-items: start; }
   .footer__links { display: flex; flex-direction: column; gap: 0; font-weight: 600; padding-top: 2.4rem; }
   /* 44px rows give each link a comfortable tap target without changing how the list reads */

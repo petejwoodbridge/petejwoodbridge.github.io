@@ -1,0 +1,223 @@
+---
+/** Homepage backdrop: a fine matrix of square "LED" pixels sitting behind the dark sections.
+ *  At rest it is a barely-there texture. Round the pointer the pixels part and brighten, a quick
+ *  move leaves a short volt afterglow, and a click sends one soft ripple across the wall.
+ *  Place it in the hero straight after the VideoBg. Fixed at z-index 0, it then paints over the
+ *  hero footage (an LED wall in front of the video) but under the hero text, and every positioned
+ *  section after it paints over it in turn: the marquee, the lime section and the cards cover it,
+ *  so below the hero it only shows where the page is plain background. Touch screens, reduced motion and
+ *  the nav's motion toggle get the still grid and nothing else. The loop sleeps whenever every
+ *  pixel has settled, so a still pointer costs nothing. */
+---
+<canvas class="ledfield" data-ledfield aria-hidden="true"></canvas>
+
+<style>
+  .ledfield { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; display: block; }
+</style>
+
+<script>
+  const GAP = 20;          // px between pixels
+  const SIZE = 1.6;        // pixel size at rest (px); grows to SIZE + GROW when fully lit
+  const GROW = 1.5;
+  const LENS_R = 240;      // radius of the lit area round the pointer
+  const LENS_PUSH = 7;     // how far pixels part round the pointer at its centre
+  const LENS_LIFT = 0.32;  // how bright the lit area gets, before any afterglow
+  const TRAIL_R = 110;     // reach of the afterglow either side of the pointer's path
+  const DECAY = 0.94;      // afterglow kept per frame (about half a second to fade)
+  const SPRING = 0.12, DAMP = 0.74;
+  const RIPPLE_SPEED = 0.75, RIPPLE_LIFE = 1100, RIPPLE_W = 34; // px per ms, ms, px
+  const LEVELS = 48;       // brightness steps; every pixel on one step is drawn in a single fill
+
+  const smooth = (a: number, b: number, x: number) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
+  const rgb = (v: string, fallback: number[]) => {
+    const m = v.trim().match(/^#([0-9a-f]{6})$/i);
+    if (!m) return fallback;
+    const n = parseInt(m[1], 16);
+    return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+  };
+
+  function mount(canvas: HTMLCanvasElement) {
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return () => {};
+    const ac = new AbortController();
+    const { signal } = ac;
+    const root = document.documentElement;
+    const css = getComputedStyle(root);
+    const ink = rgb(css.getPropertyValue("--ink"), [243, 239, 230]);
+    const volt = rgb(css.getPropertyValue("--volt"), [217, 255, 63]);
+    const fine = matchMedia("(hover: hover) and (pointer: fine)");
+    const reduced = matchMedia("(prefers-reduced-motion: reduce)");
+    const live = () => fine.matches && !reduced.matches && !root.classList.contains("no-motion");
+
+    // Dim ink at rest, brighter ink in the lit area, tipping into volt as the afterglow builds.
+    const fills: string[] = [];
+    const sizes = new Float32Array(LEVELS);
+    let dpr = 1;
+    const palette = () => {
+      for (let i = 0; i < LEVELS; i++) {
+        const t = i / (LEVELS - 1);
+        const m = smooth(0.22, 0.78, t);
+        const [r, g, b] = ink.map((v, k) => Math.round(v + (volt[k] - v) * m));
+        fills[i] = `rgba(${r},${g},${b},${(0.06 + 0.74 * t).toFixed(3)})`;
+        sizes[i] = Math.max(1, Math.round((SIZE + GROW * t) * dpr));
+      }
+    };
+
+    let w = 0, h = 0, cols = 0, rows = 0, n = 0, ox = 0, oy = 0;
+    let offX = new Float32Array(0), offY = offX, velX = offX, velY = offX, glow = offX;
+    let level = new Uint8Array(0), order = new Int32Array(0);
+    const counts = new Int32Array(LEVELS), starts = new Int32Array(LEVELS);
+
+    // Pointer: tx/ty is where it is, px/py eases after it so the light glides rather than snaps.
+    let tx = 0, ty = 0, px = 0, py = 0, travelled = 0, want = 0, presence = 0;
+    const ripples: { x: number; y: number; t: number }[] = [];
+    let raf = 0, last = 0;
+
+    function resize() {
+      dpr = Math.min(window.devicePixelRatio || 1, 2);
+      w = canvas.clientWidth; h = canvas.clientHeight;
+      canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
+      cols = Math.floor(w / GAP) + 1; rows = Math.floor(h / GAP) + 1; n = cols * rows;
+      ox = Math.round((w - (cols - 1) * GAP) / 2); oy = Math.round((h - (rows - 1) * GAP) / 2);
+      offX = new Float32Array(n); offY = new Float32Array(n); velX = new Float32Array(n); velY = new Float32Array(n);
+      glow = new Float32Array(n); level = new Uint8Array(n); order = new Int32Array(n);
+      palette();
+      draw();
+      if (live()) wake();
+    }
+
+    function draw() {
+      ctx!.clearRect(0, 0, canvas.width, canvas.height);
+      counts.fill(0);
+      for (let i = 0; i < n; i++) counts[level[i]]++;
+      for (let l = 0, s = 0; l < LEVELS; l++) { starts[l] = s; s += counts[l]; }
+      for (let i = 0; i < n; i++) order[starts[level[i]]++] = i;
+      for (let l = 0, s = 0; l < LEVELS; l++) {
+        const c = counts[l];
+        if (!c) continue;
+        const size = sizes[l], half = size / 2;
+        ctx!.fillStyle = fills[l];
+        ctx!.beginPath();
+        for (let k = s; k < s + c; k++) {
+          const i = order[k], col = i % cols, row = (i / cols) | 0;
+          ctx!.rect(Math.round((ox + col * GAP + offX[i]) * dpr - half), Math.round((oy + row * GAP + offY[i]) * dpr - half), size, size);
+        }
+        ctx!.fill();
+        s += c;
+      }
+    }
+
+    function step(now: number) {
+      raf = 0;
+      const f = Math.min(4, (now - last) / 16.667 || 1);
+      last = now;
+      const ppx = px, ppy = py;
+      const ease = 1 - Math.pow(0.7, f);
+      px += (tx - px) * ease; py += (ty - py) * ease;
+      presence += (want - presence) * (1 - Math.pow(0.9, f));
+      // Only a quick move leaves an afterglow; drifting slowly just carries the light around.
+      const inject = smooth(1.5, 28, travelled / f) * presence * 0.55 * f;
+      travelled = 0;
+      const decay = Math.pow(DECAY, f), damp = Math.pow(DAMP, f);
+      for (let r = ripples.length - 1; r >= 0; r--) if (now - ripples[r].t > RIPPLE_LIFE) ripples.splice(r, 1);
+
+      const sx = px - ppx, sy = py - ppy, sl = sx * sx + sy * sy;
+      const R2 = LENS_R * LENS_R, T2 = TRAIL_R * TRAIL_R;
+      let busy = false;
+      for (let row = 0, i = 0; row < rows; row++) {
+        const y0 = oy + row * GAP;
+        for (let col = 0; col < cols; col++, i++) {
+          const x0 = ox + col * GAP;
+          let spot = 0, aimX = 0, aimY = 0, kick = 0, kx = 0, ky = 0;
+
+          const dx = x0 - px, dy = y0 - py, d2 = dx * dx + dy * dy;
+          if (presence > 0.001 && d2 < R2) {
+            const d = Math.sqrt(d2) || 1, k = 1 - d / LENS_R;
+            spot = k * k * presence;
+            aimX = (dx / d) * spot * LENS_PUSH; aimY = (dy / d) * spot * LENS_PUSH;
+          }
+
+          let e = glow[i] * decay;
+          if (inject > 0) {
+            // distance to the path the pointer took this frame, so a fast flick leaves no gaps
+            let u = sl > 0 ? ((x0 - ppx) * sx + (y0 - ppy) * sy) / sl : 0;
+            u = u < 0 ? 0 : u > 1 ? 1 : u;
+            const qx = x0 - ppx - sx * u, qy = y0 - ppy - sy * u, q2 = qx * qx + qy * qy;
+            if (q2 < T2) { const k = 1 - q2 / T2; e += k * k * inject; }
+          }
+
+          for (let r = 0; r < ripples.length; r++) {
+            const rp = ripples[r], age = now - rp.t;
+            const rx = x0 - rp.x, ry = y0 - rp.y, d = Math.sqrt(rx * rx + ry * ry) || 1;
+            const band = (d - age * RIPPLE_SPEED) / RIPPLE_W;
+            if (band > 3 || band < -3) continue;
+            const k = Math.exp(-band * band) * (1 - age / RIPPLE_LIFE);
+            if (k * 0.7 > e) e = k * 0.7;
+            kick += k; kx += (rx / d) * k; ky += (ry / d) * k;
+          }
+
+          e = e > 1 ? 1 : e < 0.003 ? 0 : e;
+          glow[i] = e;
+
+          let vx = (velX[i] + (aimX - offX[i]) * SPRING * f + kx * 0.9 * f) * damp;
+          let vy = (velY[i] + (aimY - offY[i]) * SPRING * f + ky * 0.9 * f) * damp;
+          if (vx < 0.004 && vx > -0.004 && vy < 0.004 && vy > -0.004 && !kick) {
+            const ex = aimX - offX[i], ey = aimY - offY[i];
+            if (ex < 0.05 && ex > -0.05 && ey < 0.05 && ey > -0.05) { vx = vy = 0; offX[i] = aimX; offY[i] = aimY; }
+          }
+          velX[i] = vx; velY[i] = vy;
+          offX[i] += vx * f; offY[i] += vy * f;
+          if (e || vx || vy) busy = true;
+
+          const t = spot * LENS_LIFT + e;
+          level[i] = Math.round((t > 1 ? 1 : t) * (LEVELS - 1));
+        }
+      }
+      draw();
+      const moving = Math.abs(tx - px) + Math.abs(ty - py) > 0.1 || Math.abs(want - presence) > 0.002;
+      if (busy || moving || ripples.length) raf = requestAnimationFrame(step);
+    }
+
+    const wake = () => { if (!raf) { last = performance.now(); raf = requestAnimationFrame(step); } };
+
+    function still() {
+      cancelAnimationFrame(raf); raf = 0;
+      offX.fill(0); offY.fill(0); velX.fill(0); velY.fill(0); glow.fill(0); level.fill(0);
+      want = presence = 0; ripples.length = 0;
+      draw();
+    }
+
+    window.addEventListener("pointermove", (e) => {
+      if (e.pointerType === "touch" || !live()) return;
+      if (presence < 0.01 && want === 0) { tx = px = e.clientX; ty = py = e.clientY; }
+      travelled += Math.hypot(e.clientX - tx, e.clientY - ty);
+      tx = e.clientX; ty = e.clientY; want = 1;
+      wake();
+    }, { passive: true, signal });
+    window.addEventListener("pointerdown", (e) => {
+      if (e.pointerType === "touch" || !live()) return;
+      ripples.push({ x: e.clientX, y: e.clientY, t: performance.now() });
+      if (ripples.length > 4) ripples.shift();
+      wake();
+    }, { passive: true, signal });
+    const leave = () => { want = 0; if (live()) wake(); };
+    document.addEventListener("mouseout", (e) => { if (!e.relatedTarget) leave(); }, { signal });
+    window.addEventListener("blur", leave, { signal });
+    document.addEventListener("motion:change", () => { if (!live()) still(); }, { signal });
+    reduced.addEventListener("change", () => { if (!live()) still(); }, { signal });
+
+    const ro = new ResizeObserver(resize);
+    ro.observe(canvas);
+
+    return () => { ac.abort(); ro.disconnect(); cancelAnimationFrame(raf); };
+  }
+
+  let teardown: (() => void) | undefined;
+  const start = () => {
+    teardown?.();
+    const canvas = document.querySelector<HTMLCanvasElement>("[data-ledfield]");
+    teardown = canvas ? mount(canvas) : undefined;
+  };
+  document.addEventListener("astro:page-load", start);
+  document.addEventListener("astro:before-swap", () => { teardown?.(); teardown = undefined; });
+</script>
