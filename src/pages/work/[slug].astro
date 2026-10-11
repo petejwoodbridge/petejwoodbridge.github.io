@@ -117,6 +117,11 @@ const projectSchema = [
   type="article"
   schema={projectSchema}
 >
+  {/* Stays on screen while reading. Base.astro points it back at the page the card was opened
+       from (Home or Work) and sends it through history, so the hero shrinks back into its card at
+       the same scroll position. Escape does the same. Landing here directly, it is a plain link to Work. */}
+  <a class="back" href={u("/work/")} data-back><span class="arrow" aria-hidden="true">←</span> <span data-back-label>All work</span></a>
+
   <section class="hero hero--page">
     {/* Named so a work card's image morphs into this hero on navigation (WorkCard carries the same name). */}
     <div class="hero__media" transition:name={`project-${p.slug}`}>

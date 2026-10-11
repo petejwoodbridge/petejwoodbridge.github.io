@@ -67,6 +67,7 @@ const fullTitle = title ? `${title} — ${site.name}` : `${site.name} — AI Con
     </main>
     <Footer />
 
+    <script>import "../lib/instant-nav";</script>
     <script>
       const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
       const noHover = window.matchMedia("(hover: none)").matches;
@@ -220,12 +221,46 @@ const fullTitle = title ? `${title} — ${site.name}` : `${site.name} — AI Con
         });
       }
 
+      // The project page back button. `cameFrom` is the page just left by a click inside the site;
+      // `listing` is the last non-project page a project was opened from, so a run of
+      // Previous/Next clicks still leads back to Home or Work rather than the project before.
+      const isProject = (path: string) => /\/work\/[^/]+\/$/.test(path);
+      let cameFrom: string | undefined;
+      let listing: string | undefined;
+      document.addEventListener("astro:before-preparation", (e: any) => {
+        // Back/forward arrive with no click to return through.
+        cameFrom = e.navigationType === "traverse" ? undefined : e.from.pathname;
+        if (cameFrom && !isProject(cameFrom) && isProject(e.to.pathname)) listing = cameFrom;
+      });
+      function initBack(signal: AbortSignal) {
+        const back = document.querySelector<HTMLAnchorElement>("[data-back]");
+        if (!back) return;
+        const direct = !!cameFrom && !isProject(cameFrom);
+        const target = direct ? cameFrom : listing;
+        if (target) {
+          const home = target === import.meta.env.BASE_URL || target === "/";
+          const navLink = document.querySelector(`[data-nav] .nav__links a[href="${target}"]`);
+          const name = home ? "Home" : navLink?.childNodes[0]?.textContent?.trim();
+          back.href = target;
+          back.querySelector("[data-back-label]")!.textContent = name ? `Back to ${name}` : "Back";
+        }
+        // Through history, so the page returns at the same scroll with the card morph reversed.
+        back.addEventListener("click", (e) => { if (direct) { e.preventDefault(); history.back(); } }, { signal });
+        // Escape closes the project like a popup. Registered before the menu's own Escape, so with
+        // the menu open this sees it still open and leaves the key to the menu.
+        document.addEventListener("keydown", (e) => {
+          if (e.key !== "Escape" || e.defaultPrevented || document.body.classList.contains("menu-open")) return;
+          if ((e.target as HTMLElement).closest?.("input, textarea, select, [contenteditable]")) return;
+          back.click();
+        }, { signal });
+      }
+
       function init() {
         ctl?.abort();
         ctl = new AbortController();
         const { signal } = ctl;
         document.body.classList.remove("menu-open");
-        initImages(signal); initVideos(signal); initCards(signal); initReveal(signal); initMenu(signal); initNavShade(signal);
+        initImages(signal); initVideos(signal); initCards(signal); initReveal(signal); initBack(signal); initMenu(signal); initNavShade(signal);
       }
       document.addEventListener("astro:page-load", init);
       // Going back from a project, its hero morphs into the card. Cards already on screen are

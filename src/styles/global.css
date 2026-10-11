@@ -333,6 +333,23 @@ html.no-motion .marquee__track, html.no-motion .hero__scroll::after { animation-
 .cta .h-xl { font-size: clamp(3rem, 10.5vw, 10rem); }
 .cta__row { display: flex; justify-content: space-between; align-items: flex-end; gap: 32px; flex-wrap: wrap; margin-top: 2rem; }
 
+/* ---------- back to the list (project pages) ---------- */
+/* Below the nav and the open menu (z 90), which covers it. */
+.back {
+  position: fixed; left: var(--gutter); bottom: clamp(16px, 2.4vw, 32px); z-index: 80;
+  display: inline-flex; align-items: center; gap: 0.55em; min-height: 44px;
+  padding: 0.75em 1.25em 0.75em 1em; border-radius: 999px;
+  background: rgba(10, 10, 11, 0.8); backdrop-filter: blur(12px); border: 1px solid var(--line);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+  font-weight: 600; font-size: 0.9rem; line-height: 1;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+.back .arrow { color: var(--volt); transition: transform 0.25s var(--ease); }
+@media (hover: hover) {
+  .back:hover { background: var(--volt); border-color: var(--volt); color: var(--volt-ink); }
+  .back:hover .arrow { color: inherit; transform: translateX(-3px); }
+}
+
 /* ---------- reveal ---------- */
 /* only hidden once the inline script has set html.js, so content still shows if JS fails */
 .js [data-reveal] { opacity: 0; transform: translateY(28px); transition: opacity 0.9s var(--ease), transform 1s var(--ease); }

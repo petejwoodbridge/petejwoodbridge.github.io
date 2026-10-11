@@ -59,10 +59,10 @@ export default defineConfig({
       },
     }),
   ],
-  // "hover" rather than "viewport": the work pages carry a lot of links, and prefetching
-  // every one of them on sight competed with the video and images for bandwidth.
-  // Hover (and touchstart) still makes a click feel instant without the bulk download.
-  prefetch: { prefetchAll: true, defaultStrategy: "hover" },
+  // Astro's prefetch is off: src/lib/instant-nav.ts does the job instead. It keeps each page in
+  // memory with its hero image already decoded, so a click swaps in a finished page rather than
+  // fetching the HTML again and then waiting on the poster.
+  prefetch: false,
   build: { inlineStylesheets: "auto" },
   compressHTML: true,
 });
