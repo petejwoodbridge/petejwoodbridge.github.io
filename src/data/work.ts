@@ -118,7 +118,7 @@ export const projects: Project[] = [
     title: "MediaCity Innovation Hub",
     seoTitle: "MediaCity Immersive Tech Innovation Hub",
     org: "MediaCity Immersive Technologies Innovation Hub",
-    orgUrl: "https://www.mediacityuk.co.uk/immersive-technologies-innovation-hub/",
+    orgUrl: "https://www.mediacityuk.co.uk/innovation/",
     role: "R&D Innovation Director",
     period: "2023 – 2025",
     tagline: "Backing other people's innovation: 35+ funded R&D collaborations on a £3.2m innovation accelerator.",
@@ -172,7 +172,7 @@ export const projects: Project[] = [
         { label: "Microsoft with Immersive Liverpool", url: "https://www.meetup.com/immersive-liverpool/events/298664941/" },
       ] },
       { title: "Find out more", items: [
-        { label: "MediaCity Innovation", url: "https://www.mediacityuk.co.uk/immersive-technologies-innovation-hub/" },
+        { label: "MediaCity Innovation", url: "https://www.mediacityuk.co.uk/innovation/" },
         { label: "The hub on LinkedIn", url: "https://www.linkedin.com/company/mitih/" },
         { label: "Dreamlab at MediaCity", url: "https://web.archive.org/web/20250124135525/https://www.mediacityuk.co.uk/dreamlab/" },
         { label: "The Dreamlab team", url: "https://www.linkedin.com/feed/update/urn:li:activity:7245075867633094658" },
