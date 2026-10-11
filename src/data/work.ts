@@ -528,7 +528,7 @@ export const projects: Project[] = [
     tier: "more",
     title: "Bearings",
     org: "Funding & opportunities intelligence",
-    orgUrl: "https://bearings.peterwoodbridge.workers.dev/",
+    orgUrl: "https://getbearings.co.uk/",
     role: "Creator & engineer",
     period: "2026 – present",
     tagline: "An independent engine that reads roughly 560 funders, investors and tender portals every day, and works out who each opportunity is actually for.",
@@ -541,8 +541,8 @@ export const projects: Project[] = [
     ],
     groups: [
       { title: "Use it", items: [
-        { label: "Bearings: find funding and opportunities", url: "https://bearings.peterwoodbridge.workers.dev/" },
-        { label: "About Bearings, and how it works", url: "https://bearings.peterwoodbridge.workers.dev/about" },
+        { label: "Bearings: find funding and opportunities", url: "https://getbearings.co.uk/" },
+        { label: "About Bearings, and how it works", url: "https://getbearings.co.uk/about" },
       ] },
     ],
     tags: ["Data", "AI agents", "Funding", "Creative economy"],
