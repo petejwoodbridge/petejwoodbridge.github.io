@@ -458,6 +458,7 @@ export const projects: Project[] = [
     slug: "dream-machine",
     tier: "more",
     title: "Dream Machine",
+    seoTitle: "Dream Machine: AI Newsletter, Book & Podcast",
     org: "Book, newsletter & podcast",
     orgUrl: "https://www.amazon.co.uk/dp/B0H44ZSGP2/",
     role: "Author",

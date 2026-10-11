@@ -27,8 +27,10 @@ const {
 } = Astro.props;
 // Inner pages prefix their own name. The homepage title carries the role and city too,
 // because that is what people type when they are looking for this kind of work rather
-// than for Pete by name. To go back to just the name, replace the second branch with `site.name`.
-const fullTitle = title ? `${title} — ${site.name}` : `${site.name} — AI Consultant & Creative Technologist, Liverpool`;
+// than for Pete by name. "AI Consultant" is left to /ai/, whose title leads with it, so this one
+// stays short enough not to be cut off in results. To go back to just the name, replace the
+// second branch with `site.name`.
+const fullTitle = title ? `${title} — ${site.name}` : `${site.name} — AI & Creative Technologist, Liverpool`;
 // Visitor stats are one image request per page view to GoatCounter, so its origin joins img-src.
 const statsOrigin = site.goatcounter ? `https://${site.goatcounter}.goatcounter.com` : "";
 ---

@@ -18,19 +18,23 @@ export function getStaticPaths() {
 const { e, prev, next } = Astro.props;
 
 // Base appends " — Pete Woodbridge" (18 characters); keep the whole title within 62.
+// An entry can set its own seoTitle, e.g. to stop it competing with a work page of the same name.
 const TITLE_MAX = 44;
-const title = e.title.length <= TITLE_MAX ? e.title : `${e.title.slice(0, TITLE_MAX - 1).replace(/\s+\S*$/, "")}…`;
+const rawTitle = e.seoTitle ?? e.title;
+const title = rawTitle.length <= TITLE_MAX ? rawTitle : `${rawTitle.slice(0, TITLE_MAX - 1).replace(/\s+\S*$/, "")}…`;
 
 // The data mixes "Prototypes,2023" and "Prototypes, 2023"; show them one way.
 const meta = e.meta?.replace(/\s*,\s*/g, ", ").trim() ?? "";
 const eyebrow = e.year && !meta.includes(e.year) ? [meta, e.year].filter(Boolean).join(" · ") : meta;
 
-// Meta description: the blurb plus a short tail when it fits, otherwise the blurb cut at a word.
+// Meta description: the entry's own description if it has one (for blurbs too thin to stand
+// alone), else the blurb plus a short tail when it fits, otherwise the blurb cut at a word.
 const MAX = 158;
 const blurb = e.blurb ? (/[.!?]$/.test(e.blurb) ? e.blurb : `${e.blurb}.`) : "";
 const tail = `${blurb ? " " : ""}An experiment by Pete Woodbridge${e.year ? `, ${e.year}` : ""}.`;
 const description =
-  blurb.length + tail.length <= MAX ? blurb + tail : `${blurb.slice(0, MAX - 1).replace(/\s+\S*$/, "")}…`;
+  e.description ??
+  (blurb.length + tail.length <= MAX ? blurb + tail : `${blurb.slice(0, MAX - 1).replace(/\s+\S*$/, "")}…`);
 
 // The poster where there is one, otherwise the still. Seo and the schema pass these through u() themselves.
 const image = e.poster ?? e.image ?? e.thumb ?? "/img/og/experiments.jpg";
