@@ -93,6 +93,21 @@ const projectSchema = [
     ...(p.orgUrl
       ? { sourceOrganization: { "@type": "Organization", name: p.org, url: p.orgUrl } }
       : {}),
+    ...(p.product
+      ? {
+          mainEntity: {
+            "@type": "WebApplication",
+            name: p.product.name,
+            url: p.product.url,
+            applicationCategory: p.product.category,
+            operatingSystem: "Any",
+            isAccessibleForFree: true,
+            offers: { "@type": "Offer", price: "0", priceCurrency: "GBP" },
+            creator: { "@id": "#pete" },
+            ...(p.product.areaServed ? { areaServed: p.product.areaServed.map((name) => ({ "@type": "Place", name })) } : {}),
+          },
+        }
+      : {}),
     ...(p.press?.length
       ? { subjectOf: p.press.map((l) => ({ "@type": "NewsArticle", headline: l.label, url: l.url })) }
       : {}),

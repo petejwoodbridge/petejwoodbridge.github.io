@@ -14,7 +14,8 @@ export const GET: APIRoute = ({ site: siteUrl }) => {
   // u() adds the base path and the trailing slash pages are served under.
   const url = (p: string) => `${origin}${u(p)}`;
   const updated = new Date().toISOString().slice(0, 10);
-  const project = (p: { slug: string; title: string; tagline: string }) => `- [${p.title}](${url(`/work/${p.slug}`)}): ${p.tagline}`;
+  const project = (p: { slug: string; title: string; tagline: string; product?: { url: string } }) =>
+    `- [${p.title}](${url(`/work/${p.slug}`)}): ${p.tagline}${p.product ? ` Live at ${p.product.url}` : ""}`;
 
   const body = `# ${site.name}
 
@@ -26,7 +27,7 @@ Last updated: ${updated}
 
 - Name: ${site.name} (also written ${site.alternateNames.join(", ")})
 - Based in: Liverpool, UK
-- Current roles: Digital & Technology Cluster Lead for the Liverpool City Region; Director of Dreamlab; author of Dream Machine
+- Current roles: Digital & Technology Cluster Lead for the Liverpool City Region; Founder & CTO of Dreamlab; author of Dream Machine
 - Credentials: ${credentials.join("; ")}
 - Recognition: ${site.awards.join("; ")}
 
@@ -59,7 +60,7 @@ Areas served: ${site.areasServed.join(", ")}. Remote work UK-wide and internatio
 ## Current roles
 
 - ${site.role}
-- Director of Dreamlab, an R&D lab and collective of 48+ experts (${site.dreamlab})
+- Founder & CTO of Dreamlab, an R&D lab and collective of 48+ experts (${site.dreamlab})
 - Author of Dream Machine, a newsletter, podcast and book about AI and the creative economy, cited by The Economist and Fast Company
   - Newsletter: ${site.dreamMachine.newsletter}
   - Podcast: ${site.dreamMachine.podcast}

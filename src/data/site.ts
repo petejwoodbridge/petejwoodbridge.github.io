@@ -23,7 +23,7 @@ export const site = {
   // Third-person bio for event programmes and press. Shown on /speaking and /press, and in llms.txt.
   // Only facts already on the site; keep it around 75 words.
   shortBio:
-    "Pete Woodbridge is a Liverpool-based AI consultant and creative technologist, and Digital & Technology Cluster Lead for the Liverpool City Region. He writes Dream Machine, a book, newsletter and podcast on AI and the next creative economy, cited by The Economist and Fast Company, and directs the R&D lab Dreamlab. He has worked with the BBC, Aardman, Google and Epic Games, and was named in the BIMA 100 and the 500 UK Trailblazers for AI workflow innovation.",
+    "Pete Woodbridge is a Liverpool-based AI consultant and creative technologist, and Digital & Technology Cluster Lead for the Liverpool City Region. He writes Dream Machine, a book, newsletter and podcast on AI and the next creative economy, cited by The Economist and Fast Company, and is founder and CTO of the R&D lab Dreamlab. He has worked with the BBC, Aardman, Google and Epic Games, and was named in the BIMA 100 and the 500 UK Trailblazers for AI workflow innovation.",
   // The <meta name="description"> for the homepage. The description above is too long for a
   // search snippet (Google cuts at about 155-160 characters), so pages get this one instead.
   metaDescription:
@@ -36,7 +36,12 @@ export const site = {
     "Creative AI",
     "Generative AI",
     "AI agents & agentic workflows",
+    "AI automation",
+    "ComfyUI",
     "Software prototyping",
+    "Software engineering",
+    "Data engineering",
+    "Data pipelines",
     "AI-augmented production workflows",
     "Digital twins",
     "Geospatial & realtime data",
@@ -73,7 +78,7 @@ export const site = {
   ],
   // Organisations Pete works or has worked with. Structured data `affiliation`.
   affiliations: [
-    { name: "Dreamlab", url: "https://dreamlab.org.uk/", role: "Director" },
+    { name: "Dreamlab", url: "https://dreamlab.org.uk/", role: "Founder & CTO" },
     { name: "MusicFutures", url: "https://musicfutures.co.uk/", role: "R&D & Innovation Lead (past)" },
   ],
   // Structured data `award`.

@@ -25,6 +25,8 @@ export interface Project {
   clients?: string[];
   /** Keyword-led <title> for the project page, used instead of `title` when set. Keep it to 44 characters or fewer. */
   seoTitle?: string;
+  /** A live product with its own site. Structured data names it as a web application Pete made, so search engines and AI assistants connect the two sites. */
+  product?: { name: string; url: string; category: string; areaServed?: string[] };
 }
 
 export const projects: Project[] = [
@@ -71,11 +73,11 @@ export const projects: Project[] = [
     seoTitle: "Dreamlab: Creative AI & Realtime R&D Lab",
     org: "Dreamlab",
     orgUrl: "https://dreamlab.org.uk/",
-    role: "R&D Innovation Director",
+    role: "Founder & CTO",
     period: "2024 – present",
     tagline: "A lab of 48+ experts that has helped over 100 businesses and freelancers since 2024. It started in a garage.",
     intro:
-      "Since launching in June 2024, Dreamlab has helped over 100 businesses and freelancers. It is a research and development lab and collective based across MediaCity, Manchester, Liverpool and Cumbria, and I direct it. It exists to give independent studios, freelancers and innovators the room, kit and collaborators that are hard to find on your own.",
+      "Since launching in June 2024, Dreamlab has helped over 100 businesses and freelancers. It is a research and development lab and collective based across MediaCity, Manchester, Liverpool and Cumbria; I founded it and am its CTO. It exists to give independent studios, freelancers and innovators the room, kit and collaborators that are hard to find on your own.",
     body: [
       "The lab grew out of the MediaCity innovation programme and now supports innovation projects, IP development and initiatives across games, film and TV, music, animation, health, education and the creator economy. Our team of <a href=\"https://dreamlab.org.uk/team/\" target=\"_blank\" rel=\"noopener\">48+ experts</a> covers games-engine development in Unreal, Unity and the web; software architecture and deployment; AI product development across animation, 3D and sound; realtime and AI content workflows for film, TV, VFX and animation; immersive experiences and live-events technology; virtual production; 3D art; sensor-based and playable media; and training.",
       "For the 100+ businesses and freelancers it has assisted, that has meant shaping commercially viable innovations, winning new work and solving day-to-day technical and market challenges. The lab has also hosted the Department for Science, Innovation and Technology more than once.",
@@ -496,6 +498,7 @@ export const projects: Project[] = [
     slug: "soundings",
     tier: "more",
     title: "Soundings",
+    seoTitle: "Soundings: UK Creative Economy Map",
     org: "Mapping the UK creative economy",
     orgUrl: "https://www.linkedin.com/posts/petewoodbridge_creativeindustries-creativeplace-creativeeconomy-activity-7481241546974195712-UHDa",
     role: "Data science & systems",
@@ -528,25 +531,34 @@ export const projects: Project[] = [
     slug: "bearings",
     tier: "more",
     title: "Bearings",
+    seoTitle: "Bearings: Funding, Grants & Tenders Finder",
     org: "Funding & opportunities intelligence",
     orgUrl: "https://getbearings.co.uk/",
     role: "Creator & engineer",
     period: "2026 – present",
-    tagline: "An independent engine that reads roughly 560 funders, investors and tender portals every day, and works out who each opportunity is actually for.",
+    tagline: "A free finder for grants, investment, tenders and business support across the North West, the UK and beyond, reading over 1,100 sources every day.",
     intro:
-      "Finding money and support in the Liverpool City Region has always meant knowing which of hundreds of funders, programmes and portals to check, then checking them by hand. Bearings does that work instead.",
+      "Finding money and support for a business has always meant knowing which of hundreds of funders, programmes and portals to check, then checking them by hand. Bearings does that work instead.",
     body: [
-      "Bearings is an independent funding and opportunities intelligence engine for Liverpool City Region businesses and organisations. It monitors around 560 registered sources and holds well over a thousand live opportunities across grants, investment, loans, tenders, challenges, accelerators, advice, training, facilities, awards and networks. Coverage runs across Halton, Knowsley, Liverpool, Sefton, St Helens and Wirral, plus the national and international schemes those places can reach.",
+      "Bearings is an independent funding and opportunities intelligence engine. It checks over 1,100 funders, investors, programmes, universities and tender portals and holds around 2,500 live opportunities across grants, investment, loans, tenders, challenges, accelerators, advice, training, facilities, awards and networks. It started in the Liverpool City Region and widened in October 2026 to the whole North West: Greater Manchester, Liverpool City Region, Cheshire and Warrington, Lancashire and Cumbria. Alongside the regional offers it carries the UK-wide and international schemes those businesses can apply for, and each opportunity is tagged by area so you can see what is local and what is open to everyone.",
       "The engine is deliberately boring where it should be and clever only where it has to be. Sources are checked on a daily-to-monthly cadence with failures reported in the open. Page hashing detects change, so nothing is reprocessed without reason. Parsing is deterministic, with AI called in only for pages that have changed and cannot be read any other way. AI does the eligibility reading behind the <em>who it is for</em> line under every opportunity, and sector routing runs on a mix of model judgement and rules you can inspect. What counts as open is defined strictly: a deadline still in the future, or a rolling application.",
-      "It is free, needs no sign-up and sets no cookies, usage is counted anonymously and never linked to a person, and it is not affiliated with or endorsed by any funder or programme it lists. There is a searchable finder, weekly digests or instant alerts, a public system-health dashboard and an open JSON feed. It is in public beta, and coverage is still widening.",
+      "It is free, needs no sign-up and sets no cookies, usage is counted anonymously and never linked to a person, and it is not affiliated with or endorsed by any funder or programme it lists. There is a searchable finder, weekly digests or instant alerts, a public system-health dashboard, RSS feeds and a free open API. It is in public beta, and coverage is still widening.",
     ],
     groups: [
       { title: "Use it", items: [
-        { label: "Bearings: find funding and opportunities", url: "https://getbearings.co.uk/" },
+        { label: "Bearings: find grants, funding and tenders", url: "https://getbearings.co.uk/" },
+        { label: "Search every live opportunity", url: "https://getbearings.co.uk/explore" },
         { label: "About Bearings, and how it works", url: "https://getbearings.co.uk/about" },
+        { label: "The free Bearings API and RSS feeds", url: "https://getbearings.co.uk/api" },
       ] },
     ],
     tags: ["Data", "AI agents", "Funding", "Creative economy"],
+    product: {
+      name: "Bearings",
+      url: "https://getbearings.co.uk/",
+      category: "BusinessApplication",
+      areaServed: ["North West England", "Greater Manchester", "Liverpool City Region", "Cheshire", "Lancashire", "Cumbria", "United Kingdom"],
+    },
     video: "/video/bearings.mp4",
     poster: "/video/bearings.jpg",
     card: "/img/card-bearings.webp",
