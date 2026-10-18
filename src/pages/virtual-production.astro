@@ -124,7 +124,7 @@ const schema = [
       { "@type": "Thing", name: "LED volume" },
       { "@type": "Thing", name: "Motion capture" },
     ],
-    author: { "@id": "#pete" },
+    author: { "@id": "#person" },
     mainEntity: { "@id": "/virtual-production#service" },
     mentions: cards.map(({ p }) => ({ "@type": "CreativeWork", name: p.title, url: `/work/${p.slug}` })),
   },
@@ -135,7 +135,7 @@ const schema = [
     serviceType: ["Virtual production", "In-camera VFX (ICVFX)", "LED volume production", "Motion capture", "Volumetric capture", "Virtual production training"],
     description:
       "Producing, R&D, training and advice for virtual production: LED volumes, in-camera VFX, realtime environments, motion and volumetric capture, and affordable set-ups for smaller teams.",
-    provider: { "@id": "#pete" },
+    provider: { "@id": "#person" },
     url: "/virtual-production",
     image: "/img/og/virtual-production.jpg",
     areaServed: site.areasServed.map((a) => ({ "@type": "Place", name: a })),
@@ -144,7 +144,7 @@ const schema = [
       name: "Virtual production services",
       itemListElement: help.map((s) => ({
         "@type": "Offer",
-        itemOffered: { "@type": "Service", name: s.t, description: s.d, provider: { "@id": "#pete" } },
+        itemOffered: { "@type": "Service", name: s.t, description: s.d, provider: { "@id": "#person" } },
       })),
     },
   },

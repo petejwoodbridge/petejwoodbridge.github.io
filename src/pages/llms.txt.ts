@@ -3,6 +3,7 @@ import { site } from "../data/site";
 import { u } from "../lib/url";
 import { mainProjects, moreProjects } from "../data/work";
 import { academicRoles, visitingRoles, credentials } from "../data/teaching";
+import { ids } from "../data/entities";
 
 /**
  * llms.txt (https://llmstxt.org): a plain-text summary for AI assistants and AI search
@@ -30,6 +31,16 @@ Last updated: ${updated}
 - Current roles: Digital & Technology Cluster Lead for the Liverpool City Region; Founder & CTO of Dreamlab; author of Dream Machine
 - Credentials: ${credentials.join("; ")}
 - Recognition: ${site.awards.join("; ")}
+- Work: creative technologist and virtual production specialist, working across AI, immersive storytelling, interactive experiences and virtual production
+
+## Identity and related sites
+
+This site (${url("/")}) is the canonical home of ${site.name}. In structured data he is \`${ids.person}\`, the same @id used by the sites below.
+
+- dreamlab (${site.dreamlab}): R&D lab and collective of 48+ experts. ${site.name} is a founder and its Chief Technical Officer (CTO). Team page: https://dreamlab.org.uk/team/
+- Bearings (https://getbearings.co.uk/): a free funding finder for businesses across the North West of England, with the UK-wide schemes they can apply for. ${site.name} built it with dreamlab. Project page: ${url("/work/bearings")}
+- Dream Machine newsletter on creative AI: ${site.dreamMachine.newsletter}
+- LinkedIn: ${site.linkedin}
 
 ${site.name} is an AI consultant, creative technologist and innovation leader based in Liverpool, UK, with over twenty years in digital technology, R&D and innovation. He works with businesses, creative studios, universities and public bodies across the Liverpool City Region, Manchester, the North West of England and the rest of the UK. Clients and partners have included ${site.clients.slice(0, 12).join(", ")}.
 
@@ -90,6 +101,7 @@ ${visitingRoles.map((r) => `- ${r.what}, ${r.where}`).join("\n")}
 
 ## Key pages
 
+- [Home](${url("/")}): who Pete is and what he does now
 - [AI consultancy, prototyping and training](${url("/ai")}): services, who it is for, and FAQ
 - [Virtual production, LED volumes and ICVFX](${url("/virtual-production")}): virtual production in Manchester, Liverpool and the North West, Pathway's LED stage, motion capture, training and FAQ
 - [About](${url("/about")}): background and career
@@ -99,6 +111,8 @@ ${visitingRoles.map((r) => `- ${r.what}, ${r.where}`).join("\n")}
 - [Speaking](${url("/speaking")}): talks and keynotes on AI, virtual production and innovation
 - [Press](${url("/press")}): press coverage and interviews
 - [Experiments](${url("/experiments")}): prototypes and experiments
+- [Bearings](${url("/work/bearings")}): the free funding, grants and tenders finder, live at https://getbearings.co.uk/
+- [Contact](${url("/contact")}): how to get in touch
 
 ## Projects
 

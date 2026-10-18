@@ -51,8 +51,8 @@ const schema = [
     ...(e.blurb ? { description: e.blurb } : {}),
     image,
     ...(e.year ? { dateCreated: e.year.match(/\d{4}/)?.[0] ?? e.year } : {}),
-    creator: { "@id": "#pete" },
-    author: { "@id": "#pete" },
+    creator: { "@id": "#person" },
+    author: { "@id": "#person" },
     inLanguage: "en-GB",
   },
   {

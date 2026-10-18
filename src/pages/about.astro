@@ -3,6 +3,7 @@ import { u } from "../lib/url";
 import Base from "../layouts/Base.astro";
 import VideoBg from "../components/VideoBg.astro";
 import { site } from "../data/site";
+import { ids, profileEntities } from "../data/entities";
 
 const timeline = [
   { when: "2026 –", role: "Digital & Technology Cluster Lead", org: "Liverpool City Region", url: "" },
@@ -25,29 +26,22 @@ const teaching = [
   "Multicamera production", "Sound & music design", "Sensor-based media arts", "Workflow innovation (Python, ComfyUI, APIs)",
 ];
 
-const aboutSchema = {
-  "@type": "AboutPage",
-  name: `About ${site.name}`,
-  mainEntity: {
-    "@id": "#pete",
-    "@type": "Person",
-    name: site.name,
-    jobTitle: site.role,
-    hasOccupation: timeline.slice(0, 8).map((t) => ({
-      "@type": "Role",
-      roleName: t.role,
-      startDate: t.when.replace(/\s.*/, ""),
-      ...(t.url ? { url: t.url } : {}),
-    })),
-    award: [
-      "BIMA 100, Creatives and Designers (2020)",
-      "500 UK Trailblazers, UKII Intelligence Report (2024)",
-      "Fellow of the Royal Society of Arts (FRSA)",
-      "Fellow of the Higher Education Academy (FHEA)",
-    ],
-    knowsAbout: teaching,
+// The Person itself is the site-wide node in Seo.astro; this page points at it by @id rather than
+// describing a second, slightly different Person. dreamlab and Bearings use the @ids shared with
+// dreamlab.org.uk and getbearings.co.uk.
+const aboutSchema = [
+  {
+    "@type": ["AboutPage", "ProfilePage"],
+    "@id": "/about#page",
+    url: "/about",
+    name: `About ${site.name}`,
+    isPartOf: { "@id": ids.website },
+    about: { "@id": ids.person },
+    mainEntity: { "@id": ids.person },
+    inLanguage: "en-GB",
   },
-};
+  ...profileEntities,
+];
 ---
 <Base
   title="About: AI Consultant & Creative Technologist"
@@ -78,7 +72,7 @@ const aboutSchema = {
       </div>
       <div class="prose" data-reveal>
         <p><strong>Now</strong> I am the Digital &amp; Technology Cluster Lead for the Liverpool City Region, working with the region's businesses, universities, investors and talent to grow its digital and technology sector. I'm also founder and CTO of <a href={site.dreamlab} target="_blank" rel="noopener">Dreamlab</a>, an R&amp;D lab and collective of 48+ experts, and write <a href={site.dreamMachine.book} target="_blank" rel="noopener">Dream Machine</a>, a living book, <a href={site.dreamMachine.newsletter} target="_blank" rel="noopener">newsletter</a> and <a href={site.dreamMachine.podcast} target="_blank" rel="noopener">podcast</a> about AI and the next creative economy, cited by The Economist and Fast Company.</p>
-        <p><strong>Hands-on</strong> I am a creative engineer and technologist. Most of that work now is AI, agentic workflows, realtime 3D systems and data engineering: systems and tools that people use inside production. It sits on top of two decades of software development, realtime production, immersive experiences, interactive media and the workflows underneath them. That has meant projects for major brands, artists, studios and partners across film and TV, music, games and live experiences. It has also meant leading teams of developers, engineers, UX designers and 3D artists on new software, games engines, hardware, data and AI products.</p>
+        <p><strong>Hands-on</strong> I am a creative engineer and technologist. Most of that work now is AI, agentic workflows, realtime 3D systems and data engineering: systems and tools that people use inside production. It sits on top of two decades of software development, realtime production, immersive experiences, interactive media and the workflows underneath them. That has meant projects for major brands, artists, studios and partners across film and TV, music, games and live experiences. It has also meant leading teams of developers, engineers, UX designers and 3D artists on new software, games engines, hardware, data and AI products. The latest, built with Dreamlab, is <a href="https://getbearings.co.uk/" target="_blank" rel="noopener">Bearings, a free funding finder for North West businesses</a>.</p>
         <p><strong>Before that</strong> I was R&amp;D and Innovation Lead on <a href={u("/work/musicfutures")}>MusicFutures</a>, a £7.2m programme I helped the region win, and R&amp;D Innovation Director at the <a href={u("/work/mediacity")}>MediaCity Immersive Technologies Innovation Hub</a>, where we backed 35+ collaborative projects on a £3.2m accelerator. In studios, I have been a creative technologist at <a href={u("/work/crucial-fx")}>Crucial FX</a>, a creative producer on the LED stage at <a href={u("/work/pathway")}>Pathway</a>, a senior R&amp;D technologist at <a href={u("/work/draw-and-code")}>Draw &amp; Code</a>, and Product Director at <a href={u("/work/room")}>TMRW Foundation</a>, building a new 3D web engine and patented immersive products.</p>
         <p><strong>In universities</strong> I developed and led the world's first MA Immersive Arts at LJMU, co-directed its Experimental Technologies Lab, led curriculum development during the bid and formation of Manchester's £35m School of Digital Arts, and worked on open education and digital publishing at Coventry's Centre for Disruptive Media. I am a Fellow of the Royal Society of Arts and a Fellow of the Higher Education Academy.</p>
         <p><strong>In the community</strong> I founded the <a href="https://www.meetup.com/Immersive-Liverpool/" target="_blank" rel="noopener">Immersive Liverpool</a> network in 2018 and the <a href="https://web.archive.org/web/20191225135432/http://www.immersivestorylab.com/" target="_blank" rel="noopener">Immersive Storylab</a> collective in 2014. I have sat on the <a href="https://web.archive.org/web/20201130020642/https://www.liverpoollep.org/growth-sectors/digital-creative/" target="_blank" rel="noopener">Liverpool LEP Digital Board</a>, the College of Experts at <a href="https://xrstories.co.uk/" target="_blank" rel="noopener">XR Stories</a>, review panels for innovation funding across the UK, and as an external bid reviewer and advisor for the <a href="https://www.ukri.org/councils/epsrc/" target="_blank" rel="noopener">EPSRC</a>, <a href="https://www.costarnetwork.co.uk/" target="_blank" rel="noopener">CoSTAR</a> and <a href="https://www.digicatapult.org.uk/" target="_blank" rel="noopener">Digital Catapult</a>.</p>

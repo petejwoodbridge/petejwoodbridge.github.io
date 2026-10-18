@@ -26,7 +26,7 @@ export interface Project {
   /** Keyword-led <title> for the project page, used instead of `title` when set. Keep it to 44 characters or fewer. */
   seoTitle?: string;
   /** A live product with its own site. Structured data names it as a web application Pete made, so search engines and AI assistants connect the two sites. */
-  product?: { name: string; url: string; category: string; areaServed?: string[] };
+  product?: { id?: string; name: string; url: string; category: string; areaServed?: string[] };
 }
 
 export const projects: Project[] = [
@@ -554,6 +554,8 @@ export const projects: Project[] = [
     ],
     tags: ["Data", "AI agents", "Funding", "Creative economy"],
     product: {
+      // Shared with getbearings.co.uk, which publishes the same @id. See data/entities.ts.
+      id: "https://getbearings.co.uk/#app",
       name: "Bearings",
       url: "https://getbearings.co.uk/",
       category: "BusinessApplication",

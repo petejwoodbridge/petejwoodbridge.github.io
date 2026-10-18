@@ -73,16 +73,24 @@ export const site = {
   portrait: "/img/pete.jpg",
   // Where else Pete himself exists online. Used for search-engine structured data (sameAs),
   // which means "this is the same person", so organisation sites do not belong here.
+  // The dreamlab team page is a profile of Pete on the dreamlab site, so it belongs here too.
   profiles: [
     "https://www.linkedin.com/in/petewoodbridge/",
+    "https://dreamlab.org.uk/team/",
   ],
-  // Organisations Pete works or has worked with. Structured data `affiliation`.
+  // Organisations Pete works or has worked with. Structured data `affiliation`. Dreamlab is added
+  // separately in Seo.astro, by the shared @id in data/entities.ts.
   affiliations: [
-    { name: "Dreamlab", url: "https://dreamlab.org.uk/", role: "Founder & CTO" },
     { name: "MusicFutures", url: "https://musicfutures.co.uk/", role: "R&D & Innovation Lead (past)" },
   ],
   // Structured data `award`.
-  awards: ["BIMA 100 (2020)", "UKII Intelligence Report: 500 UK Trailblazers (2024)"],
+  awards: ["BIMA 100, Creatives & Designers (2020)", "UKII Intelligence Report: 500 UK Trailblazers (2024)"],
+  // Structured data only (`knowsAbout`), on top of `expertise`, which is also shown on the homepage.
+  knowsAboutExtra: [
+    "Artificial intelligence",
+    "Immersive storytelling",
+    "Interactive experiences",
+  ],
   linkedin: "https://www.linkedin.com/in/petewoodbridge/",
   dreamlab: "https://dreamlab.org.uk/",
   dreamMachine: {
