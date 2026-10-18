@@ -18,6 +18,8 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      indexnow: ${{ steps.indexnow.outputs.payload }}
     # configure-pages reads the Pages settings (origin and base path) through the API.
     permissions:
       contents: read
@@ -54,6 +56,17 @@ jobs:
           BASE_PATH: ${{ steps.pages.outputs.base_path }}
         run: npm run build
 
+      # Must run before the deploy: it diffs the new sitemap against the one still live.
+      - name: List new or changed pages for IndexNow
+        id: indexnow
+        continue-on-error: true
+        run: |
+          {
+            echo "payload<<EOF"
+            node scripts/indexnow.mjs "${{ steps.pages.outputs.base_url }}"
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -72,3 +85,15 @@ jobs:
       - name: Deploy
         id: deployment
         uses: actions/deploy-pages@v4
+
+      # Tells Bing, Yandex and the other IndexNow engines about the pages that changed.
+      # A failure here never fails the deploy: the site is already live.
+      - name: Submit changed pages to IndexNow
+        if: needs.build.outputs.indexnow != ''
+        continue-on-error: true
+        env:
+          PAYLOAD: ${{ needs.build.outputs.indexnow }}
+        run: |
+          curl -sS --fail-with-body -X POST https://api.indexnow.org/indexnow \
+            -H "Content-Type: application/json; charset=utf-8" \
+            --data-binary "$PAYLOAD" -w "IndexNow: HTTP %{http_code}\n"
