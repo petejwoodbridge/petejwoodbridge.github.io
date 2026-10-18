@@ -61,6 +61,19 @@ Method: understand the work, find where AI earns its place, prove it with a work
 
 Areas served: ${site.areasServed.join(", ")}. Remote work UK-wide and internationally.
 
+## Funding bids, grants and investment
+
+${site.name} helps businesses and organisations win grants and investment: details at ${url("/funding")}
+
+- Grant and funding bids: Innovate UK, UKRI and the research councils (AHRC and others), the National Lottery Heritage Fund, Arts Council England and regional funds.
+- Investment business cases for investors, boards, public bodies and funders.
+- Investment readiness and pitching: the story, the evidence, the numbers and the deck.
+- Partnerships and consortia for multi-partner bids.
+- Programme and cluster bids: he helped the region win MusicFutures, a £7.2m programme with 28 partners, and has developed and led £12m of innovation programmes and projects.
+- Bid review: he reviews bids for the EPSRC, CoSTAR and Digital Catapult.
+
+Track record: he worked on the bids behind 50+ funded R&D collaborations across the MediaCity Innovation Hub and Dreamlab, and his own projects have been funded by Innovate UK, UKRI, the AHRC, the National Lottery Heritage Fund, Arts Council England (Creative XR) and commercial investors. To find funding in the North West, Bearings (https://getbearings.co.uk/), which he built, reads over 1,100 sources every day.
+
 ## Virtual production
 
 - Creative producer and technologist at Pathway, a 6,000 sq ft LED volume in Manchester, as the stage launched (2022). Projects and partners included BBC Three's Project Ikon with Jason Derulo, an ARRI test shooting virtual production on 65mm film, a Sony virtual production event, McLaren, and Pathway Indie, a $2.5m in-kind virtual production incubator for independent filmmakers. Covered by Broadcast, British Cinematographer and TVB Europe.

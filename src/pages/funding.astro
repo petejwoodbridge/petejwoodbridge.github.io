@@ -1,0 +1,281 @@
+---
+import { u } from "../lib/url";
+import Base from "../layouts/Base.astro";
+import VideoBg from "../components/VideoBg.astro";
+import EmailLink from "../components/EmailLink.astro";
+import { site } from "../data/site";
+import { ids } from "../data/entities";
+
+// This page is for people searching for help winning money rather than for Pete by name:
+// "Innovate UK bid writer", "grant application help Liverpool", "investment business case"
+// and so on. Keep the services and FAQ in plain words; search engines and AI assistants
+// both quote them directly, and the FAQ feeds the FAQPage structured data below.
+// Only claims Pete has made or the site already backs up go here: no invented amounts.
+const funders = [
+  "Innovate UK",
+  "UKRI",
+  "AHRC",
+  "National Lottery Heritage Fund",
+  "Arts Council England",
+  "commercial investors",
+];
+
+const services = [
+  {
+    t: "Grant & funding bids",
+    d: "Shaping the project and writing the application with you: Innovate UK, UKRI and the research councils, the National Lottery Heritage Fund, Arts Council England and regional funds. The idea, the work plan, the budget, the partners and the impact case, told the way assessors score it.",
+  },
+  {
+    t: "Investment business cases",
+    d: "The business case behind a decision: for investors, boards, public bodies and funders. What the opportunity is, why now, what it costs, what it returns and how the risks are handled, in a form people can say yes to.",
+  },
+  {
+    t: "Investment readiness & pitching",
+    d: "Getting a company ready to raise or to win the deal: the story, the evidence, the pitch deck and the questions investors and buyers will ask, rehearsed before the room rather than in it.",
+  },
+  {
+    t: "Partnerships & consortia",
+    d: "Building the collaboration a bid needs: universities, industry and public partners who each bring something real. MusicFutures brought together 28 regional and national partners.",
+  },
+  {
+    t: "Programme & cluster bids",
+    d: "Large, multi-partner programmes for regions, universities and clusters, from the first case for funding to a portfolio that delivers. I helped the region win MusicFutures, a £7.2m programme, and ran a £3.2m innovation accelerator.",
+  },
+  {
+    t: "Bid review & finding the right fund",
+    d: "An independent read of your application before it goes in, from someone who reviews bids for national funders. Not sure where to apply? Bearings, the free funding finder I built, reads over 1,100 sources every day.",
+  },
+];
+
+const steps = [
+  { t: "Find the right money", d: "Match the idea to the funder or investor that actually wants it, and check the rules before anyone writes a word." },
+  { t: "Shape the project", d: "Sharpen the idea, the partners, the plan and the numbers until the case makes itself." },
+  { t: "Write it to be scored", d: "Answer what the assessors and investors are really asking, with evidence, in plain language." },
+  { t: "Review and deliver", d: "Test it hard before it goes in, then help run the project or the deal once it lands." },
+];
+
+const who = [
+  "Start-ups and SMEs going for grants or investment",
+  "Creative, media, music and games studios",
+  "Universities and research teams building industry partnerships",
+  "Heritage, cultural and community organisations",
+  "Regions, clusters and public bodies bidding for programmes",
+];
+
+const faqs = [
+  {
+    q: "Who can help me write an Innovate UK bid in Liverpool or Manchester?",
+    a: "Pete Woodbridge is a Liverpool-based innovation leader who has worked on the bids behind 50+ funded R&D collaborations and his own projects funded by Innovate UK, UKRI, the AHRC and the National Lottery Heritage Fund. He reviews bids for the EPSRC, CoSTAR and Digital Catapult, and helps businesses across Liverpool, Manchester, the North West and the rest of the UK shape and write funding applications.",
+  },
+  {
+    q: "What kinds of funding have you worked on?",
+    a: "Grants from Innovate UK, UKRI and the research councils such as the AHRC, the National Lottery Heritage Fund and Arts Council England; regional and cluster programmes, including MusicFutures, a £7.2m programme Pete helped the region win; accelerator funding for 35+ R&D collaborations through the MediaCity Innovation Hub; and business cases and pitches for commercial investment and deals.",
+  },
+  {
+    q: "Can you help us get investment, not just grants?",
+    a: "Yes. Pete writes investment business cases and helps companies get ready to raise or win deals: the story, the evidence, the numbers and the pitch, and preparing for the questions investors and buyers ask.",
+  },
+  {
+    q: "Can you help with a National Lottery Heritage Fund or Arts Council application?",
+    a: "Yes. Pete has worked on heritage and cultural bids as well as technology and R&D funding, and often on projects where heritage, culture and technology meet.",
+  },
+  {
+    q: "We have an idea but do not know which funder to go to. Can you help?",
+    a: "Yes, that is often the first step. Bearings (https://getbearings.co.uk/), the free funding finder Pete built with dreamlab, lists grants, investment, tenders and support for North West businesses, and Pete can help work out which of them fits and how to make the case.",
+  },
+  {
+    q: "Can you review a bid we have already written?",
+    a: "Yes. An independent review before submission from someone who assesses bids for national funders, with clear notes on what assessors will score down and how to fix it.",
+  },
+  {
+    q: "Do you work on large multi-partner bids?",
+    a: "Yes. Pete has developed and led £12m of innovation programmes and projects, helped the region win the £7.2m MusicFutures programme with 28 partners, and was curriculum development lead during the bid for Manchester's £35m School of Digital Arts.",
+  },
+  {
+    q: "Do you only work in the North West?",
+    a: "No. Most of the work is across the Liverpool City Region, Manchester and the North West, and bids and business cases run remotely across the UK.",
+  },
+  {
+    q: "How do I get in touch?",
+    a: "LinkedIn is the quickest way, or email through the contact page. Send a line or two about the project and the funding or investment you are going for, and the deadline.",
+  },
+];
+
+const schema = [
+  {
+    "@type": "ProfessionalService",
+    "@id": "/funding#service",
+    name: "Pete Woodbridge — funding bids, grants & investment business cases",
+    description:
+      "Help winning grants and investment: Innovate UK, UKRI, AHRC, National Lottery Heritage Fund and Arts Council bids, investment business cases, investment readiness, partnerships and programme bids, for businesses and organisations in Liverpool, Manchester, the North West and the UK.",
+    url: "/funding",
+    image: "/img/og/musicfutures.jpg",
+    founder: { "@id": ids.person },
+    employee: { "@id": ids.person },
+    address: { "@type": "PostalAddress", addressLocality: "Liverpool", addressRegion: "Merseyside", addressCountry: "GB" },
+    areaServed: site.areasServed.map((a) => ({ "@type": "Place", name: a })),
+    knowsAbout: ["Grant applications", "Innovate UK", "UKRI", "AHRC", "National Lottery Heritage Fund", "Arts Council England", "Investment business cases", "Investment readiness", "Pitching", "R&D funding", "Consortium building"],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Funding and investment services",
+      itemListElement: services.map((s) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: s.t, description: s.d, provider: { "@id": ids.person } },
+      })),
+    },
+  },
+  {
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  },
+  {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "/" },
+      { "@type": "ListItem", position: 2, name: "Funding bids & investment", item: "/funding" },
+    ],
+  },
+];
+---
+<Base
+  title="Funding Bids, Grants & Investment Business Cases, Liverpool"
+  description="Help winning grants and investment: Innovate UK, UKRI, Heritage Fund and Arts Council bids, business cases and investment readiness, from Liverpool across the UK."
+  image="/img/og/musicfutures.jpg"
+  imageAlt="Pete Woodbridge, funding bids and investment business cases, Liverpool"
+  schema={schema}
+>
+  <section class="hero hero--short">
+    <VideoBg src={u("/video/musicfutures.mp4")} poster={u("/video/musicfutures.jpg")} soft />
+    <div class="container hero__inner">
+      <h1 class="eyebrow">Funding bids, grants &amp; investment business cases</h1>
+      <p class="display h-xl" style="margin:0">Win the money behind the idea.</p>
+      <p class="hero__sub">Grants, investment and deals. I help shape the project, build the case and write the bid, from someone who has worked on the bids behind 50+ funded R&amp;D collaborations and reviews them for national funders.</p>
+      <div class="btn-row hero__actions">
+        <a class="btn btn--volt" href={site.linkedin} target="_blank" rel="noopener">Message me on LinkedIn about a bid <span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="btn" href="#services">What I can help with</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid-2" style="align-items:start">
+      <div data-reveal>
+        <p class="lead">Good ideas lose funding all the time, because the case was not made the way the people deciding needed to see it.</p>
+      </div>
+      <div class="prose" data-reveal>
+        <p>I'm Pete Woodbridge, an innovation leader and creative technologist based in Liverpool. Almost every project I have run was paid for by a bid I worked on: my own projects with {funders.slice(0, -1).join(", ")} and {funders[funders.length - 1]}, and the bids behind the 50+ companies and collaborations in my programmes at the <a href={u("/work/mediacity")}>MediaCity Innovation Hub</a> and <a href={u("/work/dreamlab")}>Dreamlab</a>.</p>
+        <p>At a bigger scale, I helped the region win <a href={u("/work/musicfutures")}>MusicFutures</a>, a £7.2m programme with 28 partners, and have developed and led £12m of innovation programmes and projects. I also sit on the other side of the table, reviewing bids for the EPSRC, CoSTAR and Digital Catapult, so I know what assessors score down.</p>
+        <p>And if you do not yet know where to apply, <a href="https://getbearings.co.uk/" target="_blank" rel="noopener">Bearings, the free funding finder I built</a>, reads over 1,100 funding sources every day.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line">
+    <div class="container grid grid-2" style="align-items:start">
+      <div data-reveal>
+        <p class="eyebrow">Who it is for</p>
+        <h2 class="display h-md">Organisations with an idea worth funding.</h2>
+      </div>
+      <div data-reveal>
+        <ul class="who">
+          {who.map((w) => <li>{w}</li>)}
+        </ul>
+        <p class="muted" style="margin-top:1.4rem">Based in Liverpool, working across the Liverpool City Region, Manchester, the North West and the rest of the UK.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section inverted" id="services">
+    <div class="container">
+      <p class="eyebrow" data-reveal>Services</p>
+      <h2 class="display h-lg" data-reveal style="max-width: 16ch; margin-bottom: clamp(32px,4vw,64px)">Where I can help you win.</h2>
+      <div class="services stagger" data-reveal>
+        {services.map((s, i) => (
+          <div class="pillar" style={`--i:${i}`}>
+            <div class="pillar__num">0{i + 1}</div>
+            <h3>{s.t}</h3>
+            <p>{s.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="method">
+    <div class="container">
+      <div class="grid grid-2" style="align-items:end; margin-bottom: clamp(32px,4vw,56px)">
+        <div data-reveal>
+          <p class="eyebrow">The method</p>
+          <h2 class="display h-lg" style="max-width:16ch">From idea to funded.</h2>
+        </div>
+        <p class="lead muted" data-reveal>The same way the bids behind <a href={u("/work/musicfutures")}>MusicFutures</a>, the <a href={u("/work/mediacity")}>MediaCity Innovation Hub</a> portfolio and <a href={u("/work/dreamlab")}>Dreamlab</a>'s companies were put together.</p>
+      </div>
+      <ol class="steps stagger" data-reveal>
+        {steps.map((m, i) => (
+          <li style={`--i:${i}`}>
+            <span class="steps__num">0{i + 1}</span>
+            <h3>{m.t}</h3>
+            <p class="muted">{m.d}</p>
+          </li>
+        ))}
+      </ol>
+      <div class="stats method__stats" data-reveal>
+        <div class="stat"><div class="stat__num">50+</div><div class="stat__label">funded R&amp;D collaborations whose bids I worked on</div></div>
+        <div class="stat"><div class="stat__num">£12m</div><div class="stat__label">of innovation programmes and projects developed and led</div></div>
+        <div class="stat"><div class="stat__num">£7.2m</div><div class="stat__label">MusicFutures programme I helped the region win</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line">
+    <div class="container grid grid-2" style="align-items:start">
+      <div data-reveal>
+        <p class="eyebrow">FAQ</p>
+        <h2 class="display h-md">Questions people ask about funding.</h2>
+      </div>
+      <div class="faq" data-reveal>
+        {faqs.map((f) => (
+          <details>
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line cta">
+    <div class="container">
+      <h2 class="display h-xl" data-reveal>What are you going for?</h2>
+      <div class="cta__row" data-reveal>
+        <p class="lead measure muted">Tell me about the idea, the funding or investment you have in mind and the deadline. If it is a good fit, we will find out quickly, and if it is not, I will tell you.</p>
+        <div class="btn-row">
+          <a class="btn btn--volt" href={site.linkedin} target="_blank" rel="noopener">Message me on LinkedIn <span class="arrow" aria-hidden="true">↗</span></a>
+          <EmailLink class="btn" label="Email me" />
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .services { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 28px; border-top: 2px solid var(--volt-ink); }
+  .services .pillar { margin-right: 0; border-right: 0; border-bottom: 1px solid rgba(10,10,11,0.25); padding-right: 0; }
+  @media (max-width: 900px) { .services { grid-template-columns: 1fr; } }
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(18px, 2.5vw, 36px); border-top: 1px solid var(--line); }
+  .steps li { padding-top: 24px; }
+  .steps__num { display: block; font-family: var(--font-display); font-weight: 700; color: var(--volt); font-size: 0.85rem; letter-spacing: 0.05em; margin-bottom: 0.9rem; }
+  .steps h3 { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.3rem, 1.8vw, 1.7rem); letter-spacing: -0.03em; line-height: 1; text-transform: uppercase; margin-bottom: 0.7rem; }
+  .steps p { margin: 0; font-size: 0.98rem; }
+  @media (max-width: 900px) { .steps { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .steps { grid-template-columns: 1fr; } }
+  .method__stats { margin-top: clamp(40px, 5vw, 72px); grid-template-columns: repeat(3, 1fr); }
+  .method__stats .stat:last-child { border-right: 0; }
+  @media (max-width: 900px) { .method__stats { grid-template-columns: 1fr; } .method__stats .stat { border-right: 0; border-bottom: 1px solid var(--line); } .method__stats .stat:last-child { border-bottom: 0; } }
+  .who { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  .who li { padding: 14px 0; border-bottom: 1px solid var(--line); font-weight: 600; }
+</style>
