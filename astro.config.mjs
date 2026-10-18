@@ -1,6 +1,7 @@
 // @ts-check
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
+import { execSync } from "node:child_process";
 
 /**
  * The public URL of the site. Canonical tags, the sitemap and social share cards
@@ -16,6 +17,40 @@ const SITE_URL = (process.env.SITE_URL || "https://petewoodbridge.com").replace(
  * "/<repo>" for a GitHub Pages project repo. The deploy workflow sets this automatically.
  */
 const BASE_PATH = process.env.BASE_PATH || "/";
+
+/**
+ * Sitemap lastmod: the date of the last commit to a page's own source and the data it renders
+ * from. Shared layout and SEO components are left out on purpose, so a footer tweak does not
+ * tell crawlers that every page changed. Needs full git history (fetch-depth: 0 in the deploy
+ * workflow); without git, pages simply go out with no lastmod.
+ */
+const PAGE_DATA = {
+  "/": ["src/pages/index.astro", "src/data/work.ts"],
+  "/work/": ["src/pages/work/index.astro", "src/data/work.ts"],
+  "/experiments/": ["src/pages/experiments.astro", "src/data/experiments.json"],
+  "/events/": ["src/pages/events.astro", "src/data/events.json"],
+  "/speaking/": ["src/pages/speaking.astro", "src/data/speaking.json"],
+  "/press/": ["src/pages/press.astro", "src/data/press.json"],
+  "/teaching/": ["src/pages/teaching.astro", "src/data/teaching.ts"],
+};
+function sourcesFor(path) {
+  if (PAGE_DATA[path]) return PAGE_DATA[path];
+  if (/^\/work\/[^/]+\/$/.test(path)) return ["src/pages/work/[slug].astro", "src/data/work.ts"];
+  if (/^\/experiments\/[^/]+\/$/.test(path)) return ["src/pages/experiments/[slug].astro", "src/data/experiments.json"];
+  return [`src/pages${path.replace(/\/$/, "")}.astro`];
+}
+const gitDates = new Map();
+function lastCommitDate(files) {
+  const key = files.join("|");
+  if (!gitDates.has(key)) {
+    let date;
+    try {
+      date = execSync(`git log -1 --format=%cs -- ${files.map((f) => `"${f}"`).join(" ")}`, { encoding: "utf8" }).trim();
+    } catch {}
+    gitDates.set(key, date || undefined);
+  }
+  return gitDates.get(key);
+}
 
 // https://astro.build/config
 export default defineConfig({
@@ -47,10 +82,13 @@ export default defineConfig({
     sitemap({
       filter: (page) => !page.includes("/404"),
       changefreq: "monthly",
-      // No lastmod: stamping every URL with the build date tells crawlers everything changed.
+      // lastmod is the page's last commit (see lastCommitDate), never the build date: stamping
+      // every URL with the build date tells crawlers everything changed.
       serialize(item) {
         // Sitemap URLs keep their trailing slash, matching the canonical tags exactly.
         const path = new URL(item.url).pathname;
+        const lastmod = lastCommitDate(sourcesFor("/" + path.slice(BASE_PATH.replace(/\/?$/, "/").length)));
+        if (lastmod) item.lastmod = lastmod;
         if (path === "/") item.priority = 1.0;
         else if (path === "/work/" || path === "/about/" || path === "/ai/") item.priority = 0.9;
         else if (path.startsWith("/work/") || path === "/teaching/" || path === "/virtual-production/") item.priority = 0.8;

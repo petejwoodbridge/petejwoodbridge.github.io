@@ -25,6 +25,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          # Full history: the sitemap's lastmod dates come from each page's last commit.
+          fetch-depth: 0
 
       - name: Configure Pages
         id: pages
