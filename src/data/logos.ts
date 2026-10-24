@@ -13,7 +13,6 @@ export const logos: Logo[] = [
   { name: "Red Bull", file: "/img/logos/redbull.png", w: 77, h: 44 },
   { name: "NHS", file: "/img/logos/nhs.png", w: 108, h: 44 },
   { name: "IBM", file: "/img/logos/ibm.png", w: 117, h: 44 },
-  { name: "Epic Games", file: "/img/logos/epicgames.png", w: 38, h: 44 },
   { name: "Sony", file: "/img/logos/sony.png", w: 190, h: 34 },
   { name: "United Nations", file: "/img/logos/unitednations.png", w: 52, h: 44 },
   { name: "Meta", file: "/img/logos/meta.png", w: 66, h: 44 },

@@ -19,15 +19,15 @@ export const site = {
   // Where the work actually happens. Used for location signals in structured data.
   areasServed: ["Liverpool", "Liverpool City Region", "Manchester", "North West England", "United Kingdom"],
   description:
-    "Pete Woodbridge is an AI consultant, creative technologist and innovation leader in Liverpool, working in creative AI, AI agents, agentic workflows and software prototyping, and helping businesses across the North West adopt AI. He builds tools and prototypes, and builds the programmes, labs and clusters that let other innovators do the same. Digital & Technology Cluster Lead for the Liverpool City Region.",
+    "Pete Woodbridge is a creative technologist and AI consultant in Liverpool: software development with AI and agentic workflows, data engineering, creative AI and software prototyping, plus Unreal Engine, virtual production and immersive technology. He builds tools and prototypes, helps businesses across the North West adopt AI, and builds the programmes and labs that let other innovators do the same.",
   // Third-person bio for event programmes and press. Shown on /speaking and /press, and in llms.txt.
   // Only facts already on the site; keep it around 75 words.
   shortBio:
-    "Pete Woodbridge is a Liverpool-based AI consultant and creative technologist, and Digital & Technology Cluster Lead for the Liverpool City Region. He writes Dream Machine, a book, newsletter and podcast on AI and the next creative economy, cited by The Economist and Fast Company, and is founder and CTO of the R&D lab Dreamlab. He has worked with the BBC, Aardman, Google and Epic Games, and was named in the BIMA 100 and the 500 UK Trailblazers for AI workflow innovation.",
+    "Pete Woodbridge is a Liverpool-based AI consultant and creative technologist, and Digital & Technology Cluster Lead for the Liverpool City Region. He writes Dream Machine, a book, newsletter and podcast on AI and the next creative economy, cited by The Economist and Fast Company, and is founder and CTO of the R&D lab Dreamlab. He has worked with the BBC, Aardman, Google and the NHS, and was named in the BIMA 100 and the 500 UK Trailblazers for AI workflow innovation.",
   // The <meta name="description"> for the homepage. The description above is too long for a
   // search snippet (Google cuts at about 155-160 characters), so pages get this one instead.
   metaDescription:
-    "Pete Woodbridge, AI consultant and creative technologist in Liverpool: AI strategy, agents, prototyping and AI training across Manchester and the North West.",
+    "Pete Woodbridge, creative technologist in Liverpool: software development with AI agents, data engineering, creative AI, Unreal Engine and virtual production.",
   // The things people actually search for when they need this kind of work.
   expertise: [
     "AI consultancy & strategy",
@@ -125,7 +125,7 @@ export const site = {
   // data/logos.ts); Costa, Monster, JISC and Granada TV have no obtainable
   // logo yet, so they live here and in the About copy only.
   clients: [
-    "BBC", "ITV", "Aardman", "Google", "Intel", "Apple", "BT", "Red Bull", "NHS", "IBM", "Epic Games",
+    "BBC", "ITV", "Aardman", "Google", "Intel", "Apple", "BT", "Red Bull", "NHS", "IBM",
     "Sony", "United Nations", "Meta", "Dolby", "ARRI", "McLaren", "Kia", "Monster", "Costa",
     "The FA", "Sport England", "Virgin", "JISC", "Granada TV",
   ],

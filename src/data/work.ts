@@ -659,7 +659,6 @@ export const projects: Project[] = [
     card: "/img/card-trailblazers.webp",
     cardVideo: "/video/trailblazers-card.mp4",
     cardRole: "Award",
-    clients: ["Verizon", "Epic Games"],
     size: "md",
   },
   {
