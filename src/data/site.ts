@@ -19,7 +19,7 @@ export const site = {
   // Where the work actually happens. Used for location signals in structured data.
   areasServed: ["Liverpool", "Liverpool City Region", "Manchester", "North West England", "United Kingdom"],
   description:
-    "Pete Woodbridge is a creative technologist and AI consultant in Liverpool: software development with AI and agentic workflows, data engineering, creative AI and software prototyping, plus Unreal Engine, virtual production and immersive technology. He builds tools and prototypes, helps businesses across the North West adopt AI, and builds the programmes and labs that let other innovators do the same.",
+    "Pete Woodbridge is a creative technologist and AI consultant in Liverpool: software development with AI and agentic workflows, data engineering and digital twins, creative AI and software prototyping, plus Unreal Engine, virtual production and immersive technology. He builds tools and prototypes, helps businesses across the North West adopt AI, and builds the programmes and labs that let other innovators do the same.",
   // Third-person bio for event programmes and press. Shown on /speaking and /press, and in llms.txt.
   // Only facts already on the site; keep it around 75 words.
   shortBio:
@@ -44,6 +44,7 @@ export const site = {
     "Data pipelines",
     "AI-augmented production workflows",
     "Digital twins",
+    "3D city models & smart cities",
     "Geospatial & realtime data",
     "Data visualisation",
     "Creative technology",

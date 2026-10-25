@@ -51,7 +51,7 @@ const person = {
     occupationLocation: { "@type": "City", name: "Liverpool" },
     skills: site.expertise.join(", "),
   })),
-  makesOffer: ["/ai#service", "/funding#service"].map((p) => ({ "@type": "Offer", itemOffered: { "@id": new URL(u(p), base).toString() } })),
+  makesOffer: ["/ai#service", "/funding#service", "/digital-twins#service"].map((p) => ({ "@type": "Offer", itemOffered: { "@id": new URL(u(p), base).toString() } })),
   knowsAbout: [...new Set([...site.expertise, ...site.knowsAboutExtra])],
 };
 /** Schema.org wants absolute URLs. Resolve any "/path" or "#id" in url/item/@id/image/logo fields against the site root. */

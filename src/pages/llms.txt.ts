@@ -74,6 +74,17 @@ ${site.name} helps businesses and organisations win grants and investment: detai
 
 Track record: he worked on the bids behind 50+ funded R&D collaborations across the MediaCity Innovation Hub and Dreamlab, and his own projects have been funded by Innovate UK, UKRI, the AHRC, the National Lottery Heritage Fund, Arts Council England (Creative XR) and commercial investors. To find funding in the North West, Bearings (https://getbearings.co.uk/), which he built, reads over 1,100 sources every day.
 
+## Digital twins, 3D city models and live data
+
+${site.name} builds digital twin prototypes: realtime 3D models of places joined to the live data that describes them. Details at ${url("/digital-twins")}
+
+- Digital twin prototypes of places, buildings, venues and sites, built in Unreal Engine and Twinmotion.
+- Live data pipelines: gathering sensor, open and business data, cleaning and joining it and keeping it current, with AI agents where they earn their place.
+- 3D city models and geospatial data: Google Maps data inside Unreal Engine (2023), and Liverpool's geospatial and BIM data in Twinmotion (2020).
+- Data visualisation, and immersive twins in VR, AR, mixed reality and physical spaces.
+- Smart city research: part of an Innovate UK-funded research team with the University of Liverpool's Centre for Architecture and the Visual Arts on realtime, hyper-local data in the smart city (2017).
+- Live data at scale: Soundings maps around 745,000 UK creative companies across 65 regions, updated monthly; Bearings reads over 1,100 funding sources every day.
+
 ## Virtual production
 
 - Creative producer and technologist at Pathway, a 6,000 sq ft LED volume in Manchester, as the stage launched (2022). Projects and partners included BBC Three's Project Ikon with Jason Derulo, an ARRI test shooting virtual production on 65mm film, a Sony virtual production event, McLaren, and Pathway Indie, a $2.5m in-kind virtual production incubator for independent filmmakers. Covered by Broadcast, British Cinematographer and TVB Europe.
@@ -116,6 +127,7 @@ ${visitingRoles.map((r) => `- ${r.what}, ${r.where}`).join("\n")}
 
 - [Home](${url("/")}): who Pete is and what he does now
 - [AI consultancy, prototyping and training](${url("/ai")}): services, who it is for, and FAQ
+- [Digital twins, 3D city models and live data](${url("/digital-twins")}): digital twin prototypes, live data pipelines, geospatial data in Unreal Engine, who it is for and FAQ
 - [Virtual production, LED volumes and ICVFX](${url("/virtual-production")}): virtual production in Manchester, Liverpool and the North West, Pathway's LED stage, motion capture, training and FAQ
 - [About](${url("/about")}): background and career
 - [Work](${url("/work")}): selected projects and roles

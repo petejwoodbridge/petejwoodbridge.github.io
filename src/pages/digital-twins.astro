@@ -1,0 +1,288 @@
+---
+import { u } from "../lib/url";
+import Base from "../layouts/Base.astro";
+import VideoBg from "../components/VideoBg.astro";
+import EmailLink from "../components/EmailLink.astro";
+import { site } from "../data/site";
+import { ids } from "../data/entities";
+
+// For people searching "digital twin", "digital twin developer", "smart city digital twin",
+// "3D city model" and "digital twins Liverpool / Manchester / North West" rather than for Pete
+// by name. Every fact here is already on the site (data/work.ts, data/experiments.json); keep it
+// that way. The FAQ feeds the FAQPage structured data below, so edit the two together.
+
+const services = [
+  {
+    t: "Digital twin prototypes",
+    d: "A working model of a place, building, venue or site, joined to the data that describes it, built quickly in a games engine so people can see whether the idea is worth the bigger investment.",
+  },
+  {
+    t: "Live data pipelines",
+    d: "The plumbing behind a twin: gathering sensor, open and business data from many sources, cleaning it, joining it up and keeping it current, with AI agents used only where they earn their place.",
+  },
+  {
+    t: "3D city models & geospatial data",
+    d: "Geospatial, mapping and BIM data brought into Unreal Engine and Twinmotion, from a single street to a whole city, for planning, regeneration, location scouting and the built environment.",
+  },
+  {
+    t: "Data visualisation & storytelling",
+    d: "Making a dataset legible to the people who need to act on it: councils, boards, partners and the public. Maps, dashboards and realtime 3D that answer a question rather than just show numbers.",
+  },
+  {
+    t: "Immersive & interactive twins",
+    d: "Twins people can step inside and explore together, in VR, AR and mixed reality, on large screens and in physical spaces, using sensors and tracking.",
+  },
+  {
+    t: "Digital twin R&D & funding",
+    d: "Shaping digital twin research projects, partnerships and funding bids. Past smart city work was funded by Innovate UK, and I review bids for national funders.",
+  },
+];
+
+const steps = [
+  { t: "Pick the question", d: "Start with the decision the twin has to help someone make, not with the technology." },
+  { t: "Find the data", d: "Map what already exists, what is missing and how to keep it current." },
+  { t: "Build the prototype", d: "A working twin of one place or one problem, in weeks rather than years." },
+  { t: "Put it in people's hands", d: "Test it with the people who will use it, then scale what earns its place." },
+];
+
+const who = [
+  "Councils and combined authorities working on smart cities, regeneration and placemaking",
+  "Architects, property, construction and built environment teams",
+  "Venues, cultural and heritage organisations",
+  "Universities and research teams building industry partnerships",
+  "Film, TV and games productions using real-world locations",
+  "Economic development and policy teams who need a live picture of a sector",
+];
+
+// Experiments live as dialogs on /experiments, opened by their #slug.
+const experiments = [
+  { label: "Geospatial Data: Google Maps inside Unreal Engine (2023)", href: u("/experiments#geospatial") },
+  { label: "Rewilding: Liverpool's geospatial and BIM data in Unreal Engine and Twinmotion (2020)", href: u("/experiments#rewilding") },
+  { label: "Tech & Future High Streets: creative technology for Huyton town centre, with Knowsley Council and LJMU (2019)", href: u("/experiments#futurehighstreet") },
+  { label: "Intelligent Real Time Data in the Smart City: Innovate UK research with Spark Compass and CAVA (2017)", href: u("/experiments#intelligent-real-time-screen-media") },
+];
+
+const faqs = [
+  {
+    q: "What is a digital twin?",
+    a: "A digital twin is a working digital model of something real, such as a building, a site, a street or a whole city, kept up to date with data from the real thing. Because the model and the data live together, you can see what is happening, ask questions of it and test ideas before you spend money on them in the real world.",
+  },
+  {
+    q: "Who can help build a digital twin in Liverpool or Manchester?",
+    a: "Pete Woodbridge is a Liverpool-based creative technologist who builds digital twin prototypes, live data pipelines and 3D city models with Unreal Engine, Twinmotion and geospatial data. He works across the Liverpool City Region, Manchester, the North West and the rest of the UK, and his smart city research was funded by Innovate UK.",
+  },
+  {
+    q: "Do we need a full digital twin to get started?",
+    a: "Usually not. The most useful first step is a prototype that answers one question for one place, with the data you already have. It shows whether the idea is worth the bigger investment and what data you really need, before anyone commits to a city-wide platform.",
+  },
+  {
+    q: "What tools and data do you use?",
+    a: "Unreal Engine and Twinmotion for realtime 3D, geospatial, mapping and BIM data for the model, Python data pipelines and AI agents to gather and update the data, and web maps, dashboards, VR, AR and large screens to put it in front of people. The choice depends on who will use the twin and where.",
+  },
+  {
+    q: "Is a digital twin only for buildings and cities?",
+    a: "No. The same idea works for a venue, an event, a production or an economy. Soundings, which Pete built, keeps a live map of around 745,000 UK creative companies across 65 regions, updated every month, so policy questions can be answered from current data rather than an old report.",
+  },
+  {
+    q: "Can you help fund a digital twin project?",
+    a: "Yes. Pete has developed and led £12m of innovation programmes and projects, worked on the bids behind 50+ funded R&D collaborations and reviews bids for the EPSRC, CoSTAR and Digital Catapult, so he can help shape a digital twin project and the funding bid behind it.",
+  },
+  {
+    q: "How do I get in touch?",
+    a: "LinkedIn is the quickest way, or email through the contact page. Send a line or two about the place or problem, the data you have and what you would like the twin to help you decide.",
+  },
+];
+
+const schema = [
+  {
+    "@type": "ProfessionalService",
+    "@id": "/digital-twins#service",
+    name: "Pete Woodbridge — digital twins, 3D city models & live data",
+    description:
+      "Digital twin prototypes, live data pipelines, 3D city models and geospatial data in Unreal Engine and Twinmotion, data visualisation and immersive twins, for councils, the built environment, venues, universities and businesses in Liverpool, Manchester, the North West and the UK.",
+    url: "/digital-twins",
+    image: "/img/og/digital-twins.jpg",
+    founder: { "@id": ids.person },
+    employee: { "@id": ids.person },
+    address: { "@type": "PostalAddress", addressLocality: "Liverpool", addressRegion: "Merseyside", addressCountry: "GB" },
+    areaServed: site.areasServed.map((a) => ({ "@type": "Place", name: a })),
+    knowsAbout: ["Digital twins", "Smart cities", "3D city models", "Geospatial data", "BIM", "Realtime data", "Data pipelines", "Data visualisation", "Unreal Engine", "Twinmotion", "Mixed reality"],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Digital twin services",
+      itemListElement: services.map((s) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: s.t, description: s.d, provider: { "@id": ids.person } },
+      })),
+    },
+  },
+  {
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  },
+  {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "/" },
+      { "@type": "ListItem", position: 2, name: "Digital twins", item: "/digital-twins" },
+    ],
+  },
+];
+---
+<Base
+  title="Digital Twins, 3D City Models & Live Data, Liverpool"
+  description="Digital twins built hands-on: 3D city models, geospatial and live data pipelines, Unreal Engine and data visualisation, from Liverpool across the UK."
+  image="/img/og/digital-twins.jpg"
+  imageAlt="A realtime 3D model of MediaCity built from Google Maps data in Unreal Engine"
+  schema={schema}
+>
+  <section class="hero hero--short">
+    <VideoBg src={u("/video/x/geospatial.mp4")} poster={u("/video/x/geospatial.jpg")} soft />
+    <div class="container hero__inner">
+      <h1 class="eyebrow">Digital twins, 3D city models &amp; live data</h1>
+      <p class="display h-xl" style="margin:0">See the place. Ask it questions.</p>
+      <p class="hero__sub">Digital twins that join a realtime 3D model of a place to the live data that describes it, built as working prototypes first so you can find out what is worth building.</p>
+      <div class="btn-row hero__actions">
+        <a class="btn btn--volt" href={site.linkedin} target="_blank" rel="noopener">Message me on LinkedIn about a twin <span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="btn" href="#services">What I can help with</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid-2" style="align-items:start">
+      <div data-reveal>
+        <p class="lead">Most places already have the data. What they lack is a way to see it together, in context, while it is still current.</p>
+      </div>
+      <div class="prose" data-reveal>
+        <p>I'm Pete Woodbridge, a creative technologist based in Liverpool. Much of my work sits where realtime 3D meets data engineering: games engines like Unreal Engine on one side, and pipelines that gather, clean and join data from many sources on the other. A digital twin is where the two meet.</p>
+        <p>I have brought <a href={u("/experiments#geospatial")}>Google Maps data into Unreal Engine</a> for realtime work in the built environment, and <a href={u("/experiments#rewilding")}>Liverpool's geospatial and BIM data</a> into Twinmotion. Back in 2017 I was part of an <a href={u("/experiments#intelligent-real-time-screen-media")}>Innovate UK-funded research team</a> with the University of Liverpool's Centre for Architecture and the Visual Arts, looking at realtime, hyper-local data in the smart city.</p>
+        <p>The data side runs at scale today. <a href={u("/work/soundings")}>Soundings</a> keeps a live map of around 745,000 UK creative companies across 65 regions, and <a href="https://getbearings.co.uk/" target="_blank" rel="noopener">Bearings</a>, built with Dreamlab, reads over 1,100 funding sources every day. Both are twins of a kind: live pictures of something that used to be a report out of date before publication.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line">
+    <div class="container grid grid-2" style="align-items:start">
+      <div data-reveal>
+        <p class="eyebrow">Who it is for</p>
+        <h2 class="display h-md">Anyone who needs to understand a place.</h2>
+      </div>
+      <div data-reveal>
+        <ul class="who">
+          {who.map((w) => <li>{w}</li>)}
+        </ul>
+        <p class="muted" style="margin-top:1.4rem">Based in Liverpool, working across the Liverpool City Region, Manchester, the North West and the rest of the UK.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section inverted" id="services">
+    <div class="container">
+      <p class="eyebrow" data-reveal>Services</p>
+      <h2 class="display h-lg" data-reveal style="max-width: 16ch; margin-bottom: clamp(32px,4vw,64px)">Where I can help.</h2>
+      <div class="services stagger" data-reveal>
+        {services.map((s, i) => (
+          <div class="pillar" style={`--i:${i}`}>
+            <div class="pillar__num">0{i + 1}</div>
+            <h3>{s.t}</h3>
+            <p>{s.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="method">
+    <div class="container">
+      <div class="grid grid-2" style="align-items:end; margin-bottom: clamp(32px,4vw,56px)">
+        <div data-reveal>
+          <p class="eyebrow">The method</p>
+          <h2 class="display h-lg" style="max-width:16ch">Small, working, then bigger.</h2>
+        </div>
+        <p class="lead muted" data-reveal>A twin earns its place by helping someone decide something. The quickest way to find out if it will is to build a small one.</p>
+      </div>
+      <ol class="steps stagger" data-reveal>
+        {steps.map((m, i) => (
+          <li style={`--i:${i}`}>
+            <span class="steps__num">0{i + 1}</span>
+            <h3>{m.t}</h3>
+            <p class="muted">{m.d}</p>
+          </li>
+        ))}
+      </ol>
+      <div class="stats method__stats" data-reveal>
+        <div class="stat"><div class="stat__num">745k</div><div class="stat__label">UK creative companies on Soundings' live map</div></div>
+        <div class="stat"><div class="stat__num">1,100+</div><div class="stat__label">funding sources Bearings reads every day</div></div>
+        <div class="stat"><div class="stat__num">65</div><div class="stat__label">like-for-like regional views, Cornwall to Shetland</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line">
+    <div class="container grid grid-2" style="align-items:start">
+      <div data-reveal>
+        <p class="eyebrow">Experiments &amp; research</p>
+        <h2 class="display h-md">Places, data &amp; realtime 3D.</h2>
+        <p class="muted prose" style="margin-top:0.8rem">More in <a href={u("/experiments")}>experiments</a> and <a href={u("/research")}>R&amp;D</a>.</p>
+      </div>
+      <div data-reveal>
+        <ul class="linklist">
+          {experiments.map((l) => <li><a href={l.href}>{l.label}</a></li>)}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line">
+    <div class="container grid grid-2" style="align-items:start">
+      <div data-reveal>
+        <p class="eyebrow">FAQ</p>
+        <h2 class="display h-md">Questions about digital twins.</h2>
+      </div>
+      <div class="faq" data-reveal>
+        {faqs.map((f) => (
+          <details>
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line cta">
+    <div class="container">
+      <h2 class="display h-xl" data-reveal>What do you want to see?</h2>
+      <div class="cta__row" data-reveal>
+        <p class="lead measure muted">Tell me about the place or the problem, the data you have and what you would like the twin to help you decide. If it is a good fit, we will find out quickly, and if it is not, I will tell you.</p>
+        <div class="btn-row">
+          <a class="btn btn--volt" href={site.linkedin} target="_blank" rel="noopener">Message me on LinkedIn <span class="arrow" aria-hidden="true">↗</span></a>
+          <EmailLink class="btn" label="Email me" />
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .services { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 28px; border-top: 2px solid var(--volt-ink); }
+  .services .pillar { margin-right: 0; border-right: 0; border-bottom: 1px solid rgba(10,10,11,0.25); padding-right: 0; }
+  @media (max-width: 900px) { .services { grid-template-columns: 1fr; } }
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(18px, 2.5vw, 36px); border-top: 1px solid var(--line); }
+  .steps li { padding-top: 24px; }
+  .steps__num { display: block; font-family: var(--font-display); font-weight: 700; color: var(--volt); font-size: 0.85rem; letter-spacing: 0.05em; margin-bottom: 0.9rem; }
+  .steps h3 { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.3rem, 1.8vw, 1.7rem); letter-spacing: -0.03em; line-height: 1; text-transform: uppercase; margin-bottom: 0.7rem; }
+  .steps p { margin: 0; font-size: 0.98rem; }
+  @media (max-width: 900px) { .steps { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .steps { grid-template-columns: 1fr; } }
+  .method__stats { margin-top: clamp(40px, 5vw, 72px); grid-template-columns: repeat(3, 1fr); }
+  .method__stats .stat:last-child { border-right: 0; }
+  @media (max-width: 900px) { .method__stats { grid-template-columns: 1fr; } .method__stats .stat { border-right: 0; border-bottom: 1px solid var(--line); } .method__stats .stat:last-child { border-bottom: 0; } }
+  .who { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  .who li { padding: 14px 0; border-bottom: 1px solid var(--line); font-weight: 600; }
+</style>
