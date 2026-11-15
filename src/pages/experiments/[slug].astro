@@ -1,6 +1,7 @@
 ---
 import { u } from "../../lib/url";
 import Base from "../../layouts/Base.astro";
+import CursorField from "../../components/CursorField.astro";
 import experiments from "../../data/experiments.json";
 import ExperimentTile from "../../components/ExperimentTile.astro";
 
@@ -86,6 +87,7 @@ const schema = [
 ];
 ---
 <Base title={title} description={description} image={image} imageAlt={e.title} type="article" schema={schema}>
+  <CursorField variant="needles" />
   <section class="xpage">
     <div class="container">
       <p class="eyebrow"><a href={u("/experiments")}>Experiments</a>{eyebrow && ` · ${eyebrow}`}</p>
@@ -135,7 +137,7 @@ const schema = [
 </Base>
 
 <style>
-  .xpage { padding: 150px 0 0; }
+  .xpage { position: relative; padding: 150px 0 0; }
   .xpage .eyebrow a { text-decoration: underline; text-underline-offset: 0.2em; }
   .xpage__lead { margin-top: 1.4rem; }
   .xpage__grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(24px, 4vw, 56px); align-items: start; }

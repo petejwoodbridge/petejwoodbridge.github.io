@@ -1,6 +1,7 @@
 ---
 import { u } from "../lib/url";
 import Base from "../layouts/Base.astro";
+import CursorField from "../components/CursorField.astro";
 import VideoBg from "../components/VideoBg.astro";
 import EmailLink from "../components/EmailLink.astro";
 import { site } from "../data/site";
@@ -158,6 +159,7 @@ const schema = [
 >
   <section class="hero hero--short">
     <VideoBg src={u("/video/soundings.mp4")} poster={u("/video/soundings.jpg")} soft />
+    <CursorField variant="links" />
     <div class="container hero__inner">
       <h1 class="eyebrow">AI consultant in Liverpool &amp; Manchester</h1>
       <p class="display h-xl" style="margin:0">AI that makes people better at their thing.</p>

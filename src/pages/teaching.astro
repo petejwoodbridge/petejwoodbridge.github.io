@@ -1,6 +1,7 @@
 ---
 import { u } from "../lib/url";
 import Base from "../layouts/Base.astro";
+import CursorField from "../components/CursorField.astro";
 import VideoBg from "../components/VideoBg.astro";
 import { academicRoles, visitingRoles, credentials } from "../data/teaching";
 
@@ -131,6 +132,7 @@ const schema = [
 >
   <section class="hero hero--short">
     <VideoBg src={u("/video/teaching.mp4")} poster={u("/video/teaching.jpg")} soft />
+    <CursorField variant="needles" />
     <div class="container hero__inner">
       <h1 class="eyebrow">Creative AI lecturer &amp; curriculum designer</h1>
       <p class="display h-xl" style="margin:0">Teaching the next lot</p>

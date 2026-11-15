@@ -2,6 +2,7 @@
 import { existsSync } from "node:fs";
 import { u } from "../lib/url";
 import Base from "../layouts/Base.astro";
+import CursorField from "../components/CursorField.astro";
 import experiments from "../data/experiments.json";
 import { experimentDialogsVersion } from "../data/experiments-dialog";
 import { experimentThemes } from "../data/experiment-themes";
@@ -36,6 +37,7 @@ const experimentsSchema = {
   image="/img/og/experiments.jpg"
   schema={experimentsSchema}
 >
+  <CursorField variant="needles" />
   <section class="xhead">
     <div class="container">
       <p class="eyebrow">Experiments</p>
@@ -105,7 +107,7 @@ const experimentsSchema = {
 </Base>
 
 <style>
-  .xhead { padding: 150px 0 clamp(32px, 4vw, 56px); }
+  .xhead { position: relative; padding: 150px 0 clamp(32px, 4vw, 56px); }
   .xhead__row { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-top: 1.6rem; }
   .xhead__hint { font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; }
 

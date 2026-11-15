@@ -1,6 +1,7 @@
 ---
 import { u } from "../lib/url";
 import Base from "../layouts/Base.astro";
+import CursorField from "../components/CursorField.astro";
 import VideoBg from "../components/VideoBg.astro";
 import EmailLink from "../components/EmailLink.astro";
 import { site } from "../data/site";
@@ -146,6 +147,7 @@ const schema = [
 >
   <section class="hero hero--short">
     <VideoBg src={u("/video/x/geospatial.mp4")} poster={u("/video/x/geospatial.jpg")} soft />
+    <CursorField variant="grid" coords />
     <div class="container hero__inner">
       <h1 class="eyebrow">Digital twins, 3D city models &amp; live data</h1>
       <p class="display h-xl" style="margin:0">See the place. Ask it questions.</p>

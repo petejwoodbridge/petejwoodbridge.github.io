@@ -1,6 +1,7 @@
 ---
 import { u } from "../lib/url";
 import Base from "../layouts/Base.astro";
+import CursorField from "../components/CursorField.astro";
 import VideoBg from "../components/VideoBg.astro";
 import speaking from "../data/speaking.json";
 import { site } from "../data/site";
@@ -73,6 +74,7 @@ const schema = [
 >
   <section class="hero hero--short">
     <VideoBg src={u("/video/speaking.mp4")} poster={u("/video/speaking.jpg")} soft />
+    <CursorField variant="wave" />
     <div class="container hero__inner">
       <p class="eyebrow">Speaking</p>
       <h1 class="display h-xl">Talks, panels &amp; workshops</h1>

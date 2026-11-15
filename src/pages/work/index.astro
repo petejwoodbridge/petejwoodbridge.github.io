@@ -1,6 +1,7 @@
 ---
 import { u } from "../../lib/url";
 import Base from "../../layouts/Base.astro";
+import CursorField from "../../components/CursorField.astro";
 import VideoBg from "../../components/VideoBg.astro";
 import WorkCard from "../../components/WorkCard.astro";
 import { site } from "../../data/site";
@@ -32,6 +33,7 @@ const workSchema = {
 >
   <section class="hero hero--short">
     <VideoBg src={u("/video/pathway.mp4")} poster={u("/video/pathway.jpg")} soft />
+    <CursorField variant="grid" />
     <div class="container hero__inner">
       <p class="eyebrow">Work</p>
       <h1 class="display h-xl">Labs, stages, programmes &amp; playable things.</h1>

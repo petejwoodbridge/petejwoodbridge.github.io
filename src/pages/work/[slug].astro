@@ -2,6 +2,7 @@
 import { existsSync } from "node:fs";
 import { u } from "../../lib/url";
 import Base from "../../layouts/Base.astro";
+import CursorField from "../../components/CursorField.astro";
 import VideoBg from "../../components/VideoBg.astro";
 import { projects, neighbours } from "../../data/work";
 import { site } from "../../data/site";
@@ -143,6 +144,7 @@ const projectSchema = [
     <div class="hero__media" transition:name={`project-${p.slug}`}>
       <VideoBg src={u(p.video)} poster={u(p.poster)} />
     </div>
+    <CursorField variant="grid" />
     <div class="container hero__inner">
       <p class="eyebrow">{p.org} · {p.period}</p>
       <h1 class="display h-xl">{p.title}</h1>
