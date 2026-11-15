@@ -8,9 +8,12 @@ const isActive = (href: string) => {
   const here = path.replace(/\/$/, "");
   return href === "/" ? here === target : here.startsWith(target);
 };
-// A parent is active when it or any of its children is the current page.
-const branchActive = (n: { href: string; children?: { href: string }[] }) =>
-  isActive(n.href) || (n.children ?? []).some((c) => isActive(c.href));
+type Item = { label: string; href?: string; children?: Item[] };
+const linkActive = (i: Item): boolean => (i.href ? isActive(i.href) : false) || (i.children ?? []).some(linkActive);
+// A top-level link that matches the page claims it, so About does not light up on the AI page too.
+const topClaimed = site.nav.some((t) => !t.children && isActive(t.href));
+// A parent is active when it or anything under it is the current page.
+const branchActive = (n: Item) => (n.href ? isActive(n.href) : false) || (!topClaimed && (n.children ?? []).some(linkActive));
 ---
 <header class="nav" data-nav>
   <a class="nav__logo" href={u("/")} aria-label="Pete Woodbridge, home">
@@ -23,9 +26,18 @@ const branchActive = (n: { href: string; children?: { href: string }[] }) =>
           <a href={u(n.href)} class:list={["nav__parent", { "is-active": branchActive(n) }]} aria-expanded="false">
             {n.label}<span class="nav__caret" aria-hidden="true">▾</span>
           </a>
-          <span class="nav__menu" role="group" aria-label={`${n.label} pages`}>
-            {n.children.map((c) => (
-              <a href={u(c.href)} class:list={{ "is-active": isActive(c.href) }}>{c.label}</a>
+          <span class:list={["nav__menu", { "nav__menu--end": n.children.some((c) => c.children) }]} role="group" aria-label={`${n.label} pages`}>
+            {n.children.map((c) => c.children ? (
+              <span class="nav__sub" data-flyout>
+                <button type="button" class:list={["nav__subparent", { "is-active": c.children.some(linkActive) }]} aria-expanded="false">
+                  {c.label}<span class="nav__chev" aria-hidden="true">›</span>
+                </button>
+                <span class="nav__fly" role="group" aria-label={`${c.label} pages`}>
+                  {c.children.map((g) => <a href={u(g.href)} class:list={{ "is-active": isActive(g.href) }}>{g.label}</a>)}
+                </span>
+              </span>
+            ) : (
+              <a href={u(c.href!)} class:list={{ "is-active": isActive(c.href!) }}>{c.label}</a>
             ))}
           </span>
         </span>
@@ -52,10 +64,18 @@ const branchActive = (n: { href: string; children?: { href: string }[] }) =>
       {site.nav.map((n) => (
         <li>
           <a href={u(n.href)} class="display">{n.label}</a>
+          {n.children?.filter((c) => c.children).map((c) => (
+            <>
+              <p class="menu__subhead">{c.label}</p>
+              <ul class="menu__sub">
+                {c.children!.map((g) => <li><a href={u(g.href)}>{g.label}</a></li>)}
+              </ul>
+            </>
+          ))}
           {n.children && (
             <ul class="menu__sub">
-              {n.children.filter((c) => c.href !== n.href).map((c) => (
-                <li><a href={u(c.href)}>{c.label}</a></li>
+              {n.children.filter((c) => c.href && c.href !== n.href).map((c) => (
+                <li><a href={u(c.href!)}>{c.label}</a></li>
               ))}
             </ul>
           )}
@@ -129,6 +149,43 @@ const branchActive = (n: { href: string; children?: { href: string }[] }) =>
   }
   .nav__menu a:hover, .nav__menu a:focus-visible { background: rgba(243, 239, 230, 0.1); color: var(--volt); }
   .nav__menu a.is-active { color: var(--volt); }
+
+  /* ---- flyout inside the dropdown (Expertise) ---- */
+  .nav__sub { position: relative; display: flex; flex-direction: column; }
+  .nav__subparent {
+    display: flex; align-items: center; justify-content: space-between; gap: 18px; width: 100%; text-align: left;
+    padding: 9px 14px; border-radius: 6px; font: inherit; font-size: 0.9rem; font-weight: 500; color: inherit; cursor: default;
+    transition: background 0.18s, color 0.18s;
+  }
+  .nav__chev { font-size: 1.1em; line-height: 1; opacity: 0.7; transition: transform 0.2s var(--ease); }
+  .nav__subparent.is-active { color: var(--volt); }
+  .nav__fly {
+    position: absolute; top: -9px; left: calc(100% + 8px); min-width: 250px;
+    display: flex; flex-direction: column;
+    background: rgba(14, 14, 16, 0.96); backdrop-filter: blur(14px);
+    border: 1px solid var(--line); border-radius: 10px; padding: 8px;
+    opacity: 0; visibility: hidden; pointer-events: none; transform: translateX(-6px);
+    transition: opacity 0.2s var(--ease), transform 0.2s var(--ease), visibility 0.2s;
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45);
+  }
+  /* bridges the gap between the item and the flyout, so the pointer can cross it */
+  .nav__fly::before { content: ""; position: absolute; top: 0; bottom: 0; left: -12px; width: 12px; }
+  /* not enough room on the right: open to the left instead */
+  .nav__sub.is-flipped .nav__fly { left: auto; right: calc(100% + 8px); transform: translateX(6px); }
+  .nav__sub.is-flipped .nav__fly::before { left: auto; right: -12px; }
+  .nav__sub:focus-within .nav__fly, .nav__sub.is-open .nav__fly { opacity: 1; visibility: visible; pointer-events: auto; transform: none; }
+  .nav__sub:focus-within .nav__subparent, .nav__sub.is-open .nav__subparent { background: rgba(243, 239, 230, 0.1); color: var(--volt); }
+  @media (hover: hover) {
+    .nav__sub:hover .nav__fly { opacity: 1; visibility: visible; pointer-events: auto; transform: none; }
+    .nav__sub:hover .nav__subparent { background: rgba(243, 239, 230, 0.1); color: var(--volt); }
+    .nav__sub:hover .nav__chev { transform: translateX(2px); }
+  }
+  .nav__group.is-dismissed .nav__fly { opacity: 0; visibility: hidden; pointer-events: none; }
+  /* A dropdown with a flyout hangs left from its parent's right edge, so the flyout has room to open right. */
+  .nav__menu--end { left: auto; right: -14px; transform: translate(0, 6px); }
+  .nav__group:focus-within .nav__menu--end, .nav__group.is-open .nav__menu--end { transform: translate(0, 0); }
+  @media (hover: hover) { .nav__group:hover .nav__menu--end { transform: translate(0, 0); } }
+  .nav__group.is-dismissed .nav__menu--end { transform: translate(0, 6px); }
   /* Escape hides a panel opened by hover or focus until the pointer or focus leaves the group. */
   .nav__group.is-dismissed .nav__menu { opacity: 0; visibility: hidden; pointer-events: none; transform: translate(-50%, 6px); }
   .nav__group.is-dismissed .nav__caret { transform: none; }
@@ -174,6 +231,7 @@ const branchActive = (n: { href: string; children?: { href: string }[] }) =>
     .menu__list a.display:hover { color: var(--volt); }
     .menu__sub a:hover { border-color: var(--volt); color: var(--volt); }
   }
+  .menu__subhead { margin: 0.4em 0 -0.2em; font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--volt); }
   .menu__foot { display: flex; flex-direction: column; gap: 16px; }
 </style>
 
@@ -218,6 +276,23 @@ const branchActive = (n: { href: string; children?: { href: string }[] }) =>
         if (!focus) group.classList.remove("is-open");
         sync();
       }, { signal });
+    });
+    // Flyouts: open to the right, or to the left when the window has no room; a tap or Enter toggles them.
+    document.querySelectorAll<HTMLElement>("[data-flyout]").forEach((sub) => {
+      const btn = sub.querySelector<HTMLButtonElement>(".nav__subparent");
+      const fly = sub.querySelector<HTMLElement>(".nav__fly");
+      if (!btn || !fly) return;
+      const place = () => {
+        sub.classList.remove("is-flipped");
+        const r = sub.getBoundingClientRect();
+        if (r.right + 8 + fly.offsetWidth > window.innerWidth - 12) sub.classList.add("is-flipped");
+      };
+      const show = (open: boolean) => { if (open) place(); sub.classList.toggle("is-open", open); btn.setAttribute("aria-expanded", String(open)); };
+      sub.addEventListener("mouseenter", () => { place(); btn.setAttribute("aria-expanded", "true"); }, { signal });
+      sub.addEventListener("mouseleave", () => show(false), { signal });
+      sub.addEventListener("focusin", () => { place(); btn.setAttribute("aria-expanded", "true"); }, { signal });
+      sub.addEventListener("focusout", (e) => { if (!sub.contains(e.relatedTarget as Node | null)) show(false); }, { signal });
+      btn.addEventListener("click", (e) => { e.stopPropagation(); show(!sub.classList.contains("is-open")); }, { signal });
     });
     document.addEventListener("click", (e) => {
       if (!(e.target as HTMLElement).closest("[data-dropdown]")) closers.forEach((c) => c(false));

@@ -112,16 +112,30 @@ export const site = {
       // hovering a menu do not always think to click the heading.
       children: [
         { label: "About", href: "/about" },
-        { label: "Events", href: "/events" },
+        // A flyout of its own, so the service pages are one hover from anywhere.
+        {
+          label: "Expertise",
+          children: [
+            { label: "AI Development", href: "/ai" },
+            { label: "3D, Realtime & Virtual Production", href: "/virtual-production" },
+            { label: "Digital Twins & Live Data", href: "/digital-twins" },
+            { label: "Funding & Investment", href: "/funding" },
+          ],
+        },
         { label: "R&D", href: "/research" },
         { label: "Experiments", href: "/experiments" },
+        { label: "Events", href: "/events" },
         { label: "Speaking", href: "/speaking" },
         { label: "Press", href: "/press" },
         { label: "Teaching", href: "/teaching" },
       ],
     },
     { label: "Contact", href: "/contact" },
-  ] as { label: string; href: string; children?: { label: string; href: string }[] }[],
+  ] as {
+    label: string;
+    href: string;
+    children?: { label: string; href?: string; children?: { label: string; href: string }[] }[];
+  }[],
   // The full list. The ticker shows only those with a usable mark (see
   // data/logos.ts); Costa, Monster, JISC and Granada TV have no obtainable
   // logo yet, so they live here and in the About copy only.
