@@ -600,6 +600,26 @@
   "thumb": "/img/x/dreamlab-podcaster.webp"
  },
  {
+  "slug": "octobot",
+  "title": "OctoBot",
+  "seoTitle": "OctoBot: A Local AI Agent That Never Stops Inventing",
+  "blurb": "A restless pink octopus AI that lives in a folder on your computer and never, ever stops inventing things.",
+  "meta": "Just for Fun, 2025",
+  "year": "2025",
+  "html": "<p>OctoBot is a restless pink octopus AI that lives in a folder on your computer and never, ever stops inventing things: products, gadgets, apps, services, wild experiments and solutions to problems you didn't know you had. Leave it running overnight and wake up to hundreds of idea pitches, each one named, described and saved as its own file.</p><p>Under the pixel art it is a fully autonomous agent running a local model through <a href=\"https://ollama.com\" target=\"_blank\" rel=\"noopener\">Ollama</a>, so nothing leaves your machine. It picks an idea domain, invents something, saves it to its vault, then fuses past ideas into strange hybrids and follows chains of thought further and wilder. You can chat to it (it drops everything for you), feed it inspiration by dropping files into a folder, or leave it notes, which it answers in its inventor's journal.</p><p>A Tamagotchi for ideas, with eight arms and absolutely zero shame. Not serious, but a fun way to play with how autonomous agents loop, remember and build on their own work.</p>",
+  "links": [
+   {
+    "label": "OctoBot on GitHub",
+    "url": "https://github.com/petejwoodbridge/Octobot"
+   }
+  ],
+  "external": "https://github.com/petejwoodbridge/Octobot",
+  "video": "/video/x/octobot.mp4",
+  "poster": "/video/x/octobot.jpg",
+  "image": null,
+  "thumb": "/img/x/octobot.webp"
+ },
+ {
   "slug": "dreammachine",
   "title": "Dream Machine",
   "blurb": "Producing and Designing an Experiment with Performance, ICVFX and Virtual Production",
