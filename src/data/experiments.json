@@ -1814,6 +1814,26 @@
   "thumb": "/img/x/secrecy-machine.webp"
  },
  {
+  "slug": "storyvaultos",
+  "title": "StoryVaultOS",
+  "seoTitle": "StoryVaultOS: Multi-Agent AI for Screenwriters",
+  "blurb": "A local-first, multi-agent AI writers' room for screenwriters and story developers, where nothing lands without your approval.",
+  "meta": "AI Tools, 2026",
+  "year": "2026",
+  "html": "<p>StoryVaultOS is a creative development environment for screenwriters, novelists and showrunners who want AI collaboration on their own terms. It runs on your own machine, keeps everything as plain Markdown files, and gives you a team of 11 specialised AI agents, each with its own voice and job: Writer, Critic, Editor, Archivist, Producer, Character, Structure, Logline, Treatment, Lore and Showrunner.</p><p>The key design principle is a human in the loop. No agent writes directly to your story. Every suggestion, revision and new scene is a proposal you review as a diff and then approve or reject. Send a task to the whole team and the agents debate, critique each other and come back with a recommendation, over as many rounds as you choose. A knowledge base tracks characters, locations, creatures and world rules, and every change is checked against your canon, so contradictions get flagged before they creep in.</p><p>Built for the long project, the feature, the pilot, the series bible or the novel, where continuity matters and you need a system that remembers everything you have decided. Not a one-click story generator, but a toolkit for serious story development.</p>",
+  "links": [
+   {
+    "label": "StoryVaultOS on GitHub",
+    "url": "https://github.com/petejwoodbridge/StoryVaultOS"
+   }
+  ],
+  "external": "https://github.com/petejwoodbridge/StoryVaultOS",
+  "video": null,
+  "poster": null,
+  "image": "/img/x/storyvaultos.jpg",
+  "thumb": "/img/x/storyvaultos.webp"
+ },
+ {
   "slug": "chinatv",
   "title": "Chinese Rockstar",
   "blurb": "Musicfutures interesting fact thing",
