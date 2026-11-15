@@ -1204,6 +1204,26 @@
   "thumb": "/img/x/teletouch.webp"
  },
  {
+  "slug": "worldlabs-comfy",
+  "title": "World Labs Nodes for ComfyUI",
+  "seoTitle": "World Labs ComfyUI Nodes: Images to 3D Worlds",
+  "blurb": "Custom ComfyUI nodes that turn a single image into an explorable 3D world, using the World Labs Marble API.",
+  "meta": "AI Tools, 2026",
+  "year": "2026",
+  "html": "<p>A custom node package that brings the <a href=\"https://www.worldlabs.ai/\" target=\"_blank\" rel=\"noopener\">World Labs</a> Marble API into ComfyUI, so a single image can become a fully explorable 3D world without leaving the graph.</p><p>Feed it a picture and it comes back as Gaussian splats, a 3D mesh and panoramic views, downloaded straight into ComfyUI's output folder. Browser viewers open automatically, with download links and the Marble viewer built in, and a thumbnail output lets the result carry on through the rest of a workflow. Under the hood it handles the API properly, with progress tracking, timeouts and flexible key management.</p><p>A small tool for going from a 2D idea to a 3D space you can walk around, in the same graph as the rest of the image work.</p>",
+  "links": [
+   {
+    "label": "Worldlabs-Comfy on GitHub",
+    "url": "https://github.com/petejwoodbridge/Worldlabs-Comfy"
+   }
+  ],
+  "external": "https://github.com/petejwoodbridge/Worldlabs-Comfy",
+  "video": null,
+  "poster": null,
+  "image": "/img/x/worldlabs-comfy.jpg",
+  "thumb": "/img/x/worldlabs-comfy.webp"
+ },
+ {
   "slug": "shadowcatcher",
   "title": "Shadow Catcher",
   "blurb": "An installation that catches shadows and then plays them back later on, leaving traces in the city.",
@@ -1287,6 +1307,26 @@
   "thumb": "/img/x/silenttalker.webp"
  },
  {
+  "slug": "shadowtext",
+  "title": "ShadowText",
+  "seoTitle": "ShadowText: Words That Fill Your Shadow",
+  "blurb": "A webcam piece where light carves the body from darkness and words pour into the shadow around you.",
+  "meta": "Interactive Art, 2026",
+  "year": "2026",
+  "html": "<p><em>Where light carves the body from darkness, and words fill the space between.</em></p><p>ShadowText turns your webcam into a living canvas. Text lives in the negative: it flows into every corner the light leaves behind, wrapping your silhouette, tracing the edges of absence and flooding the shadow with language. Words drift, pulse and spring as you move.</p><p>It runs entirely in the browser, with MediaPipe face and body segmentation to find the shape of you and the Pretext layout engine to pour the text around it. The words can be your own, live RSS headlines, song lyrics, or written on the fly by a local model running in LM Studio. No server, no upload: the camera never leaves the room.</p>",
+  "links": [
+   {
+    "label": "ShadowText on GitHub",
+    "url": "https://github.com/petejwoodbridge/ShadowText"
+   }
+  ],
+  "external": "https://github.com/petejwoodbridge/ShadowText",
+  "video": null,
+  "poster": null,
+  "image": "/img/x/shadowtext.jpg",
+  "thumb": "/img/x/shadowtext.webp"
+ },
+ {
   "slug": "concall",
   "title": "CON Call",
   "blurb": "Pretend to be in video meetings with this recording Zoom hack",
@@ -1360,6 +1400,26 @@
   "poster": "/video/x/touchmagic.jpg",
   "image": null,
   "thumb": "/img/x/touchmagic.webp"
+ },
+ {
+  "slug": "wakezilla",
+  "title": "WakeZilla",
+  "seoTitle": "WakeZilla: The Giant Monster of Wake-on-LAN",
+  "blurb": "The giant monster of Wake-on-LAN: a tiny neon web app that wakes the sleeping PCs on your network with one click.",
+  "meta": "Just for Fun, 2026",
+  "year": "2026",
+  "html": "<p>WakeZilla is the giant monster of Wake-on-LAN: a tiny web app that runs on any machine on your local network and wakes up your sleeping PCs with a single click. Like Godzilla stomping through Tokyo, minus the chaos and destruction.</p><p>It is a small Flask app that sends Wake-on-LAN magic packets, with an in-app editor for your machines, and your MAC addresses and IPs stay on your own computer. No subscriptions, no cloud, no nonsense. Just magic packets and neon pixels.</p>",
+  "links": [
+   {
+    "label": "WakeZilla on GitHub",
+    "url": "https://github.com/petejwoodbridge/wakezilla"
+   }
+  ],
+  "external": "https://github.com/petejwoodbridge/wakezilla",
+  "video": null,
+  "poster": null,
+  "image": "/img/x/wakezilla.jpg",
+  "thumb": "/img/x/wakezilla.webp"
  },
  {
   "slug": "blinkingremote",
