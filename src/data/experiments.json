@@ -42,25 +42,6 @@
   "thumb": "/img/x/annwn-transmission-000.webp"
  },
  {
-  "slug": "podcast-machine",
-  "title": "Podcast Machine & Digital Double",
-  "blurb": "From a topic to a talking digital human: an automated podcast pipeline into NVIDIA Omniverse and Unreal Engine.",
-  "meta": "Prototypes, 2024",
-  "year": "2024",
-  "html": "<p>Type in a topic, press a button, and a digital human starts presenting a podcast about it.</p><p>The Dreamlab Podcast Machine was a prototype from early 2024 that chained the whole thing together. A large language model writes the podcast script, ElevenLabs gives it a voice, and the audio goes into <a href=\"https://developer.nvidia.com/omniverse/audio2face\" target=\"_blank\" rel=\"noopener\">NVIDIA Omniverse Audio2Face</a>, which generates the lip sync and facial animation in real time. That drives a digital character in Unreal Engine, so the topic comes out the other end as a performance rather than a text file.</p><p>A quick, scrappy build, filmed on my phone off the monitors, so forgive the wobble. It was a useful way to find the joins between the tools, and an early look at how automated content and digital doubles might fit together.</p>",
-  "links": [
-   {
-    "label": "NVIDIA Omniverse Audio2Face",
-    "url": "https://developer.nvidia.com/omniverse/audio2face"
-   }
-  ],
-  "external": null,
-  "video": "/video/x/podcast-machine.mp4",
-  "poster": "/video/x/podcast-machine.jpg",
-  "image": null,
-  "thumb": "/img/x/podcast-machine.webp"
- },
- {
   "slug": "hand-tracking-music",
   "title": "Air Instrument",
   "seoTitle": "Air Instrument: Hand Tracking Music",
@@ -176,21 +157,6 @@
   "thumb": "/img/x/aianimation.webp"
  },
  {
-  "slug": "take-on-me-portal",
-  "title": "Take On Me Portal",
-  "seoTitle": "Take On Me Portal: Mixed Reality on Quest",
-  "blurb": "Walking through a portal into a pencil-sketch world on Oculus Quest, after the famous Take On Me music video.",
-  "meta": "Mixed Reality, 2023",
-  "year": "2023",
-  "html": "<p>The 1985 video for a-ha's <em>Take On Me</em> is still one of the great bits of mixed media: a pencil-sketch world, a character who reaches out of a comic, and a real person pulled through the page. I wanted to recreate the technical approach behind it and find out what that idea feels like when you can walk into it yourself.</p><p>On an Oculus Quest with passthrough on, a portal opens in a real doorway at home. On the other side is a hand-drawn world, all ink lines and cross-hatching, generated as a 360° environment with <a href=\"https://skybox.blockadelabs.com/\" target=\"_blank\" rel=\"noopener\">Blockade Labs' Skybox AI</a>, with a character living in it. Step through and you are inside the sketch. Turn round and the real world is still there through the doorway, in full colour, carrying on without you.</p><p>An early 2023 experiment with augmented reality portals. The trick is the same one at the heart of the original video: two worlds, one drawn and one real, with a doorway between them.</p>",
-  "links": [],
-  "external": null,
-  "video": "/video/x/take-on-me-portal.mp4",
-  "poster": "/video/x/take-on-me-portal.jpg",
-  "image": null,
-  "thumb": "/img/x/take-on-me-portal.webp"
- },
- {
   "slug": "vpfutures",
   "title": "VP Futures",
   "blurb": "Intensive 6 week training scheme with Industrial Light and Magic, Epic Games and National Film and Television School",
@@ -227,6 +193,40 @@
   "poster": "/video/x/peekers.jpg",
   "image": null,
   "thumb": "/img/x/peekers.webp"
+ },
+ {
+  "slug": "podcast-machine",
+  "title": "Podcast Machine & Digital Double",
+  "blurb": "From a topic to a talking digital human: an automated podcast pipeline into NVIDIA Omniverse and Unreal Engine.",
+  "meta": "Prototypes, 2024",
+  "year": "2024",
+  "html": "<p>Type in a topic, press a button, and a digital human starts presenting a podcast about it.</p><p>The Dreamlab Podcast Machine was a prototype from early 2024 that chained the whole thing together. A large language model writes the podcast script, ElevenLabs gives it a voice, and the audio goes into <a href=\"https://developer.nvidia.com/omniverse/audio2face\" target=\"_blank\" rel=\"noopener\">NVIDIA Omniverse Audio2Face</a>, which generates the lip sync and facial animation in real time. That drives a digital character in Unreal Engine, so the topic comes out the other end as a performance rather than a text file.</p><p>A quick, scrappy build, filmed on my phone off the monitors, so forgive the wobble. It was a useful way to find the joins between the tools, and an early look at how automated content and digital doubles might fit together.</p>",
+  "links": [
+   {
+    "label": "NVIDIA Omniverse Audio2Face",
+    "url": "https://developer.nvidia.com/omniverse/audio2face"
+   }
+  ],
+  "external": null,
+  "video": "/video/x/podcast-machine.mp4",
+  "poster": "/video/x/podcast-machine.jpg",
+  "image": null,
+  "thumb": "/img/x/podcast-machine.webp"
+ },
+ {
+  "slug": "take-on-me-portal",
+  "title": "Take On Me Portal",
+  "seoTitle": "Take On Me Portal: Mixed Reality on Quest",
+  "blurb": "Walking through a portal into a pencil-sketch world on Oculus Quest, after the famous Take On Me music video.",
+  "meta": "Mixed Reality, 2023",
+  "year": "2023",
+  "html": "<p>The 1985 video for a-ha's <em>Take On Me</em> is still one of the great bits of mixed media: a pencil-sketch world, a character who reaches out of a comic, and a real person pulled through the page. I wanted to recreate the technical approach behind it and find out what that idea feels like when you can walk into it yourself.</p><p>On an Oculus Quest with passthrough on, a portal opens in a real doorway at home. On the other side is a hand-drawn world, all ink lines and cross-hatching, generated as a 360° environment with <a href=\"https://skybox.blockadelabs.com/\" target=\"_blank\" rel=\"noopener\">Blockade Labs' Skybox AI</a>, with a character living in it. Step through and you are inside the sketch. Turn round and the real world is still there through the doorway, in full colour, carrying on without you.</p><p>An early 2023 experiment with augmented reality portals. The trick is the same one at the heart of the original video: two worlds, one drawn and one real, with a doorway between them.</p>",
+  "links": [],
+  "external": null,
+  "video": "/video/x/take-on-me-portal.mp4",
+  "poster": "/video/x/take-on-me-portal.jpg",
+  "image": null,
+  "thumb": "/img/x/take-on-me-portal.webp"
  },
  {
   "slug": "if-these-walls-could-talk",
