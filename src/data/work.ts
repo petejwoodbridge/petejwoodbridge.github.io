@@ -399,7 +399,7 @@ export const projects: Project[] = [
     body: [
       "The brief was to develop ground-breaking curriculum models for creative digital storytellers of the future, across courses in games, film, animation, creative technology, media production and other digital arts.",
       "At the same time I was a Senior Lecturer at Manchester School of Art, leading creative technology across a number of degrees, including as programme leader for the BA Creative Multimedia and on the BA Filmmaking. From 2015 to 2018 my R&D at SODA focused on immersive storytelling, the thread that ran through the Immersive Storylab collective I had founded in 2014 and, later, the MA Immersive Arts at LJMU.",
-      "That meant technical and creative teaching and research projects across creative multimedia and future filmmaking, including immersive projects with the BBC, on <a href=\"/experiments/shipcanal/\">the Manchester Ship Canal</a> with BBC R&D, and with Manchester's European City of Science, on <a href=\"/experiments/beacons-for-science/\">Beacons for Science</a>, as well as with several UK and international tech SMEs.",
+      "That meant technical and creative teaching and research projects across creative multimedia and future filmmaking, including immersive projects with Manchester's European City of Science and BBC R&D on <a href=\"/experiments/beacons-for-science/\">Beacons for Science</a>, an AR and VR app whose experiences included <a href=\"/experiments/shipcanal/\">a 360 film of the Manchester Ship Canal</a> made with BBC R&D, as well as with several UK and international tech SMEs.",
     ],
     groups: [
       { title: "Find out more", items: [
