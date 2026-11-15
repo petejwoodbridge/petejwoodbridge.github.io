@@ -378,6 +378,21 @@
   "thumb": "/img/x/fantasia-express.webp"
  },
  {
+  "slug": "dream-machine-unreal",
+  "title": "Dream Machine: Speak a World",
+  "seoTitle": "Dream Machine: Voice to 360° Worlds in Unreal",
+  "blurb": "Say what world you want and walk into it: voice-driven AI skyboxes generated and loaded into Unreal Engine in almost real time.",
+  "meta": "Prototypes, 2023",
+  "year": "2023",
+  "html": "<p>What if you could change the world you are playing in just by describing it? Say \"a lush stylised forest\", \"an aquarium at the bottom of the ocean with lots of coral and goldfish\" or \"a city street in the middle of London\", and a moment later you are standing in it.</p><p>This 2023 prototype chained a few technologies together to do that. Speech is turned into a text prompt, with text to speech talking back to the player. The prompt goes to AI image generation, built with ComfyUI and <a href=\"https://skybox.blockadelabs.com/\" target=\"_blank\" rel=\"noopener\">Blockade Labs' Skybox</a>, to make a full 360° equirectangular panorama. Unreal Engine picks the finished image up while the game is running and wraps it around the player as a new sky, in almost real time.</p><p>A scrappy phone recording of the editor, but a glimpse of worlds that build themselves around what you say.</p>",
+  "links": [],
+  "external": null,
+  "video": "/video/x/dream-machine-unreal.mp4",
+  "poster": "/video/x/dream-machine-unreal.jpg",
+  "image": null,
+  "thumb": "/img/x/dream-machine-unreal.webp"
+ },
+ {
   "slug": "volumetric-mixed-reality-heritage",
   "title": "Mixed Reality Heritage",
   "blurb": "Producing & developing a mixed reality project bringing the past to life at a UNESCO World Heritage building",
