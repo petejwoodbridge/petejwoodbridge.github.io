@@ -42,8 +42,9 @@ const experimentsSchema = {
     <div class="container">
       <p class="eyebrow">Experiments</p>
       <h1 class="display h-xl">{total} things I tried.</h1>
+      <p class="lead measure xhead__strap">Experiments. Prototypes, hacks, residencies, installations, talks, courses and odd ideas.</p>
       <div class="xhead__row">
-        <p class="lead muted measure">Prototypes, hacks, residencies, installations, talks, courses and odd ideas. This is me exploring and experimenting, and many of these early-stage prototypes went on to become part of real projects. {withVideo} of the experiments are on video, and they play as you scroll. Tap any tile for the story and the links. Want a prototype of your own? See <a href={u("/ai")} style="text-decoration:underline">AI prototyping and consultancy</a>.</p>
+        <p class="lead muted measure">This is me exploring and experimenting, and many of these early-stage prototypes went on to become part of real projects. {withVideo} of the experiments are on video, and they play as you scroll. Tap any tile for the story and the links. Want a prototype of your own? See <a href={u("/ai")} style="text-decoration:underline">AI prototyping and consultancy</a>.</p>
         <p class="xhead__hint muted">Scroll to play · click for details</p>
       </div>
       {/* The filter needs the script, so it stays hidden until the script shows it. */}
@@ -108,6 +109,7 @@ const experimentsSchema = {
 
 <style>
   .xhead { position: relative; padding: 150px 0 clamp(32px, 4vw, 56px); }
+  .xhead__strap { margin-top: 1.4rem; }
   .xhead__row { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-top: 1.6rem; }
   .xhead__hint { font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; }
 
