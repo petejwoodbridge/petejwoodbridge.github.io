@@ -35,26 +35,25 @@
   ]
  },
  {
-  "slug": "blender-mcp-character",
-  "title": "Pinky in Blender",
-  "seoTitle": "Pinky in Blender: AI-Agent Animation",
-  "blurb": "GPT-6 Astra and Blender MCP model, rig and animate my daughter's fluffy pink octopus.",
-  "meta": "AI & 3D Animation, 2026",
-  "year": "2026",
-  "html": "<p>Another GPT-6 Astra and Blender experiment. This time the brief was to model, rig and animate my daughter's character, <a href=\"/experiments/#pinky-pop\">Pinky Pop</a>, the pink fluffy octopus.</p><p>The agent works inside Blender through <a href=\"https://github.com/ahujasid/blender-mcp\" target=\"_blank\" rel=\"noopener\">Blender MCP</a>. A few hours and some tweaks later, it had built the octopus, rigged all eight arms, animated the mouth, eyes and gaze, relit the scene, and rendered a couple of sequences.</p><p>It is very rough around the edges and far from perfect, and there is still plenty that needs the human touch. But in the hands of a skilled modeller and animator, I think this kind of workflow, with AI as a collaborator, could get really interesting. As a nice side effect, it also ended up teaching my daughter a thing or two about Blender and 3D along the way.</p><p>The video is the Blender behind the scenes and the direct output, with no extra AI or video-to-video passes on the renders at the end.</p>",
+  "slug": "vpfutures",
+  "title": "VP Futures",
+  "blurb": "An intensive six-week training scheme with Industrial Light & Magic, Epic Games and the National Film and Television School",
+  "meta": "VP Training & Mentoring, 2022",
+  "year": "2022",
+  "html": "<p>Earlier this year I spent 6 weeks on an intensive training course with Epic Games, Industrial Light and Magic, the National Film and Television School and Future Screens Belfast to learn the art of Virtual Production.</p><p>Got to work on a number of stages, learning everything about the process from some of the top names and pioneers in the industry.</p><p>The course and masterclasses covered:</p><ul><li>Technical set-ups for nDisplay, tracking systems, colour management (OCIO), ICVFX, multi-user servers and source control</li><li>Content creation, including environment building, technical art, VFX, optimisation, pre-visualisation, location scouting and even some sessions on motion capture</li><li>Stage operations, tech art and optimisation</li></ul><p>Got to meet some epic names and world-class pioneers in the space from ILM and more. And spent time working on volumes at the Epic Innovation Centre in London and Studio Ulster in Belfast.</p><p>Mind blown. Have since been up to some things in a few other stages bringing my Unreal Engine knowledge into film and TV production. Exciting times.</p><p>For a great behind-the-scenes look at this pioneering programme, <a href=\"https://web.archive.org/web/20240616021748/https://www.storyfutures.com/resources/storyfutures-academy-presents-vp-futures-behind-the-scenes-of-a-virtual-production-accelerator-programme\" target=\"_blank\" rel=\"noopener\">check out StoryFutures</a>.</p>",
   "links": [
    {
-    "label": "Blender MCP",
-    "url": "https://github.com/ahujasid/blender-mcp"
+    "label": "Behind the scenes of VP Futures (StoryFutures)",
+    "url": "https://web.archive.org/web/20240616021748/https://www.storyfutures.com/resources/storyfutures-academy-presents-vp-futures-behind-the-scenes-of-a-virtual-production-accelerator-programme"
    }
   ],
   "external": null,
-  "video": "/video/x/blender-mcp-character.mp4",
-  "poster": "/video/x/blender-mcp-character.jpg",
+  "video": "/video/x/vpfutures.mp4",
+  "poster": "/video/x/vpfutures.jpg",
   "image": null,
-  "thumb": "/img/x/blender-mcp-character.webp",
+  "thumb": "/img/x/vpfutures.webp",
   "themes": [
-   "ai"
+   "vp"
   ]
  },
  {
@@ -126,25 +125,26 @@
   ]
  },
  {
-  "slug": "vpfutures",
-  "title": "VP Futures",
-  "blurb": "An intensive six-week training scheme with Industrial Light & Magic, Epic Games and the National Film and Television School",
-  "meta": "VP Training & Mentoring, 2022",
-  "year": "2022",
-  "html": "<p>Earlier this year I spent 6 weeks on an intensive training course with Epic Games, Industrial Light and Magic, the National Film and Television School and Future Screens Belfast to learn the art of Virtual Production.</p><p>Got to work on a number of stages, learning everything about the process from some of the top names and pioneers in the industry.</p><p>The course and masterclasses covered:</p><ul><li>Technical set-ups for nDisplay, tracking systems, colour management (OCIO), ICVFX, multi-user servers and source control</li><li>Content creation, including environment building, technical art, VFX, optimisation, pre-visualisation, location scouting and even some sessions on motion capture</li><li>Stage operations, tech art and optimisation</li></ul><p>Got to meet some epic names and world-class pioneers in the space from ILM and more. And spent time working on volumes at the Epic Innovation Centre in London and Studio Ulster in Belfast.</p><p>Mind blown. Have since been up to some things in a few other stages bringing my Unreal Engine knowledge into film and TV production. Exciting times.</p><p>For a great behind-the-scenes look at this pioneering programme, <a href=\"https://web.archive.org/web/20240616021748/https://www.storyfutures.com/resources/storyfutures-academy-presents-vp-futures-behind-the-scenes-of-a-virtual-production-accelerator-programme\" target=\"_blank\" rel=\"noopener\">check out StoryFutures</a>.</p>",
+  "slug": "blender-mcp-character",
+  "title": "Pinky in Blender",
+  "seoTitle": "Pinky in Blender: AI-Agent Animation",
+  "blurb": "GPT-6 Astra and Blender MCP model, rig and animate my daughter's fluffy pink octopus.",
+  "meta": "AI & 3D Animation, 2026",
+  "year": "2026",
+  "html": "<p>Another GPT-6 Astra and Blender experiment. This time the brief was to model, rig and animate my daughter's character, <a href=\"/experiments/#pinky-pop\">Pinky Pop</a>, the pink fluffy octopus.</p><p>The agent works inside Blender through <a href=\"https://github.com/ahujasid/blender-mcp\" target=\"_blank\" rel=\"noopener\">Blender MCP</a>. A few hours and some tweaks later, it had built the octopus, rigged all eight arms, animated the mouth, eyes and gaze, relit the scene, and rendered a couple of sequences.</p><p>It is very rough around the edges and far from perfect, and there is still plenty that needs the human touch. But in the hands of a skilled modeller and animator, I think this kind of workflow, with AI as a collaborator, could get really interesting. As a nice side effect, it also ended up teaching my daughter a thing or two about Blender and 3D along the way.</p><p>The video is the Blender behind the scenes and the direct output, with no extra AI or video-to-video passes on the renders at the end.</p>",
   "links": [
    {
-    "label": "Behind the scenes of VP Futures (StoryFutures)",
-    "url": "https://web.archive.org/web/20240616021748/https://www.storyfutures.com/resources/storyfutures-academy-presents-vp-futures-behind-the-scenes-of-a-virtual-production-accelerator-programme"
+    "label": "Blender MCP",
+    "url": "https://github.com/ahujasid/blender-mcp"
    }
   ],
   "external": null,
-  "video": "/video/x/vpfutures.mp4",
-  "poster": "/video/x/vpfutures.jpg",
+  "video": "/video/x/blender-mcp-character.mp4",
+  "poster": "/video/x/blender-mcp-character.jpg",
   "image": null,
-  "thumb": "/img/x/vpfutures.webp",
+  "thumb": "/img/x/blender-mcp-character.webp",
   "themes": [
-   "vp"
+   "ai"
   ]
  },
  {
