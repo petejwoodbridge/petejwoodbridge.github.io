@@ -1,22 +1,38 @@
 ---
-/** Page backdrops that answer the pointer: sister effects to the homepage's LedField, one per subject.
+/** Page backdrops that answer the pointer: sister effects to the homepage's LedField, one per page.
  *
- *  `links`   – a constellation. Points link up round the pointer, like a network waking. (AI, research)
- *  `grid`    – a survey grid. The lines bulge like a lens and crosshairs mark the nearest corners;
- *              with `coords` the pointer also reads out a latitude and longitude. (Digital twins, work)
- *  `needles` – a field of compass needles that swing to face the pointer. (Experiments, about, teaching)
- *  `wave`    – ruled lines that carry a waveform where the pointer is. (Speaking, events, press, contact)
+ *  `links`    – a constellation: points link up round the pointer, like a network waking. (AI)
+ *  `grid`     – a survey grid that bulges like a lens, crosshairs on the nearest corners. (Work)
+ *  `needles`  – a field of compass needles that swing to face the pointer. (Experiments)
+ *  `wave`     – ruled lines that carry a waveform where the pointer is. (Speaking)
+ *  `lattice`  – a 3D lattice of points in deep space. The camera turns with the pointer so the layers move
+ *               in parallax; points near the pointer light and link up; a click dollies in and back. (Virtual production)
+ *  `volume`   – a curved LED volume in 3D with the pointer as a film camera and its frustum lit. (spare)
+ *  `cubes`    – 3D wireframe cubes that turn to face the pointer. (spare)
+ *  `terrain`  – a 3D wireframe landscape that rises into a hill under the pointer; with `coords`,
+ *               a latitude and longitude follows it. (Digital twins)
+ *  `rings`    – concentric rings round the pointer, crossing a faint fixed set: interference. (Research)
+ *  `orbits`   – concentric orbits whose points slide round to line up with the pointer. (404)
+ *  `bars`     – a row of fine bars that rise round the pointer, like a growth chart. (Funding)
+ *  `topo`     – contour lines that bend round the pointer like a map round a hill. (spare)
+ *  `strands`  – fine vertical lines that the pointer drags like a comb: they bunch on one side and
+ *               fan out on the other, never cross, and ease back to even spacing. (About)
+ *  `glyphs`   – a field of dots that turn into code symbols near the pointer. (Teaching)
+ *  `beams`    – stage spotlights that follow the pointer and light the dust they pass through. (Events)
+ *  `halftone` – print halftone dots that swell under the pointer. (Press)
+ *  `threads`  – fine threads from the pointer to points round the page's edge. (Contact)
  *
- *  All four share the LedField rules. At rest each is a barely-there texture in ink; near the pointer
- *  it brightens and tips into volt, a quick move leaves a short afterglow, a click sends one ripple.
+ *  All share the LedField rules. At rest each is a barely-there texture in ink; near the pointer it
+ *  brightens and tips into volt, a quick move leaves a short afterglow, a click sends one ripple.
  *  Touch screens, reduced motion and the nav's motion toggle get the still texture only, and the loop
  *  sleeps once everything has settled.
  *
  *  Place it like LedField: before the content it should sit behind (in a hero, straight after the
  *  VideoBg). It is fixed at z-index 0, so positioned sections after it in the page paint over it. */
+type Variant = "links" | "grid" | "needles" | "wave" | "lattice" | "volume" | "cubes" | "terrain" | "rings" | "orbits" | "bars" | "topo" | "strands" | "glyphs" | "beams" | "halftone" | "threads";
 interface Props {
-  variant: "links" | "grid" | "needles" | "wave";
-  /** `grid` only: show a latitude and longitude beside the pointer. */
+  variant: Variant;
+  /** `terrain` and `grid`: show a latitude and longitude beside the pointer. */
   coords?: boolean;
 }
 const { variant, coords = false } = Astro.props;
@@ -28,15 +44,29 @@ const { variant, coords = false } = Astro.props;
 </style>
 
 <script>
-  type Variant = "links" | "grid" | "needles" | "wave";
+  type Variant = "links" | "grid" | "needles" | "wave" | "lattice" | "volume" | "cubes" | "terrain" | "rings" | "orbits" | "bars" | "topo" | "strands" | "glyphs" | "beams" | "halftone" | "threads";
   // gx/gy: spacing. jitter: how far points stray from the grid. radius/lift: size and brightness of the
-  // lit area. push: how far points part round the pointer (negative draws them in). base/peak: opacity
-  // at rest and fully lit.
-  const CFG: Record<Variant, { gx: number; gy: number; jitter: number; radius: number; lift: number; push: number; base: number; peak: number }> = {
-    links:   { gx: 92, gy: 92, jitter: 0.36, radius: 270, lift: 0.55, push: -6, base: 0.13, peak: 0.9 },
-    grid:    { gx: 56, gy: 56, jitter: 0,    radius: 260, lift: 0.45, push: 10, base: 0.05, peak: 0.6 },
-    needles: { gx: 34, gy: 34, jitter: 0,    radius: 300, lift: 0.5,  push: 0,  base: 0.12, peak: 0.85 },
-    wave:    { gx: 18, gy: 30, jitter: 0,    radius: 250, lift: 0.55, push: 0,  base: 0.065, peak: 0.75 },
+  // lit area (radius 0: no lit area round the pointer). push: how far points part round the pointer
+  // (negative draws them in). base/peak: opacity at rest and fully lit.
+  type Cfg = { gx: number; gy: number; jitter: number; radius: number; lift: number; push: number; base: number; peak: number };
+  const CFG: Record<Variant, Cfg> = {
+    links:    { gx: 92, gy: 92, jitter: 0.36, radius: 270, lift: 0.55, push: -6, base: 0.13, peak: 0.9 },
+    grid:     { gx: 56, gy: 56, jitter: 0,    radius: 260, lift: 0.45, push: 10, base: 0.05, peak: 0.6 },
+    needles:  { gx: 34, gy: 34, jitter: 0,    radius: 300, lift: 0.5,  push: 0,  base: 0.12, peak: 0.85 },
+    wave:     { gx: 18, gy: 30, jitter: 0,    radius: 250, lift: 0.55, push: 0,  base: 0.065, peak: 0.75 },
+    lattice:  { gx: 0,  gy: 0,  jitter: 0,    radius: 0,   lift: 0,    push: 0,  base: 0.1,  peak: 0.9 },
+    volume:   { gx: 0,  gy: 0,  jitter: 0,    radius: 0,   lift: 0,    push: 0,  base: 0.12, peak: 0.9 },
+    cubes:    { gx: 84, gy: 84, jitter: 0,    radius: 360, lift: 0.6,  push: 0,  base: 0.09, peak: 0.85 },
+    terrain:  { gx: 46, gy: 0,  jitter: 0,    radius: 230, lift: 0.7,  push: 0,  base: 0.06, peak: 0.75 },
+    rings:    { gx: 0,  gy: 0,  jitter: 0,    radius: 0,   lift: 0,    push: 0,  base: 0.045, peak: 0.5 },
+    orbits:   { gx: 0,  gy: 0,  jitter: 0,    radius: 0,   lift: 0,    push: 0,  base: 0.07, peak: 0.7 },
+    bars:     { gx: 14, gy: 0,  jitter: 0,    radius: 200, lift: 0.95, push: 0,  base: 0.09, peak: 0.8 },
+    topo:     { gx: 14, gy: 26, jitter: 0,    radius: 280, lift: 0.5,  push: 18, base: 0.06, peak: 0.65 },
+    strands:  { gx: 22, gy: 14, jitter: 0,    radius: 240, lift: 0.5,  push: 0,  base: 0.055, peak: 0.6 },
+    glyphs:   { gx: 22, gy: 28, jitter: 0,    radius: 200, lift: 0.75, push: 0,  base: 0.11, peak: 0.9 },
+    beams:    { gx: 40, gy: 40, jitter: 0.45, radius: 0,   lift: 0.9,  push: 0,  base: 0.07, peak: 0.9 },
+    halftone: { gx: 16, gy: 14, jitter: 0,    radius: 220, lift: 0.5,  push: 0,  base: 0.055, peak: 0.32 },
+    threads:  { gx: 96, gy: 96, jitter: 0,    radius: 0,   lift: 0,    push: 0,  base: 0.14, peak: 0.5 },
   };
   const TRAIL_R = 110;     // reach of the afterglow either side of the pointer's path
   const DECAY = 0.94;      // afterglow kept per frame (about half a second to fade)
@@ -44,6 +74,10 @@ const { variant, coords = false } = Astro.props;
   const RIPPLE_SPEED = 0.75, RIPPLE_LIFE = 1100, RIPPLE_W = 34; // px per ms, ms, px
   const LEVELS = 24;       // brightness steps; everything on one step is drawn in a single stroke
   const WAVE_AMP = 11, WAVE_K = 0.045;
+  const GLYPHS = "01<>/{}[]=+*#%&$?~^:;";
+  // the eight corners and twelve edges of a cube, for `cubes`
+  const CV = [[-1, -1, -1], [1, -1, -1], [1, 1, -1], [-1, 1, -1], [-1, -1, 1], [1, -1, 1], [1, 1, 1], [-1, 1, 1]];
+  const CE = [[0, 1], [1, 2], [2, 3], [3, 0], [4, 5], [5, 6], [6, 7], [7, 4], [0, 4], [1, 5], [2, 6], [3, 7]];
 
   const smooth = (a: number, b: number, x: number) => { const t = Math.min(1, Math.max(0, (x - a) / (b - a))); return t * t * (3 - 2 * t); };
   const rgb = (v: string, fallback: number[]) => {
@@ -54,6 +88,7 @@ const { variant, coords = false } = Astro.props;
   };
   // The same scatter every time for a given column and row, so a resize does not reshuffle the points.
   const scatter = (a: number, b: number) => { const s = Math.sin(a * 127.1 + b * 311.7) * 43758.5453; return s - Math.floor(s) - 0.5; };
+  const wrap = (a: number) => a - Math.PI * 2 * Math.round(a / (Math.PI * 2));
 
   function mount(canvas: HTMLCanvasElement) {
     const ctx = canvas.getContext("2d");
@@ -72,37 +107,190 @@ const { variant, coords = false } = Astro.props;
     const live = () => fine.matches && !reduced.matches && !root.classList.contains("no-motion");
 
     // Ink at rest, tipping into volt as things light up. `line` is for strokes that only exist when lit.
-    const tone: string[] = [], line: string[] = [];
+    const tone: string[] = [], line: string[] = [], mix: string[] = [];
     for (let i = 0; i < LEVELS; i++) {
       const t = i / (LEVELS - 1);
       const m = smooth(0.2, 0.75, t);
       const c = ink.map((v, k) => Math.round(v + (volt[k] - v) * m)).join(",");
+      mix[i] = c;
       tone[i] = `rgba(${c},${(cfg.base + (cfg.peak - cfg.base) * t).toFixed(3)})`;
       line[i] = `rgba(${c},${(0.8 * t).toFixed(3)})`;
     }
+    const rgba = (c: number[], a: number) => `rgba(${c.join(",")},${a.toFixed(3)})`;
 
     let dpr = 1, w = 0, h = 0, cols = 0, rows = 0, n = 0;
-    let x0 = new Float32Array(0), y0 = x0, offX = x0, offY = x0, velX = x0, velY = x0, glow = x0, lit = x0, ang = x0;
+    let x0 = new Float32Array(0), y0 = x0, offX = x0, offY = x0, velX = x0, velY = x0, glow = x0, lit = x0, ang = x0, ps = x0;
     let level = new Uint8Array(0), pairs = new Int32Array(0);
+    // `orbits`: ring radii and the phase of the points on each ring
+    let orbR: number[] = [], orbP: number[] = [];
+    // `orbits`: each ring's spin after a click; alternate rings turn opposite ways, inner ones fastest
+    let orbV: number[] = [];
+    // `rings`: each travelling ring eases towards the ring inside it, the innermost towards the pointer.
+    // A ring's centre is never more than RING_HOLD of a gap from its neighbour's, so on a move the rings
+    // only bunch up on the trailing side; they can never touch or cross, and they even out when it stops.
+    const RING_N = 25, RING_GAP = 15, RING_IN = 12, RING_OUT = RING_IN + RING_GAP * (RING_N - 1), RING_HOLD = 0.7;
+    const ringX = new Float32Array(RING_N), ringY = new Float32Array(RING_N);
+    let ringsPlaced = false;
+    // the gap between rings, which closes up while a click pulls them in
+    const ringGap = () => RING_GAP * (1 - 0.72 * pinch);
+    // `strands`: the pointer's sideways speed, smoothed, which drags the lines along
+    let dragVX = 0;
+    // `strands` and `rings`: a click pulls the lines in towards the pointer; pinchHold is the click, pinch follows it smoothly
+    let pinch = 0, pinchHold = 0;
+    // `needles`: a click sends a wave outwards that sets each needle spinning as it passes
+    const spins: { x: number; y: number; t: number }[] = [];
+    let spinV = new Float32Array(0);
+    const SPIN_SPEED = 0.55, SPIN_LIFE = 1500, SPIN_W = 46;   // px per ms, ms, px
+    // `wave`: a click plucks the lines like strings; the vibration spreads up and down and dies away
+    const plucks: { x: number; y: number; t: number }[] = [];
+    const PLUCK_LIFE = 2400, PLUCK_TRAVEL = 0.45;              // ms, px per ms up and down the page
+    // `halftone`: a click runs a press roller out to both sides, inking the dots as it passes
+    const rollers: { x: number; t: number }[] = [];
+    const ROLL_SPEED = 1.15, ROLL_W = 26;                      // px per ms, half-width of the roller in px
+    // `links`: a click fires the network. Pulses run out along the links hop by hop from the nearest point.
+    const fires: { t: number; hop: Int16Array }[] = [];
+    let adjStart = new Int32Array(0), adjList = new Int32Array(0);
+    const HOP_MS = 115, MAX_HOP = 7, FIRE_FADE = 480;
+    const fireLife = () => (MAX_HOP + 1) * HOP_MS + FIRE_FADE * 3;
+    function fireFrom(x: number, y: number) {
+      if (!n) return;
+      let best = 0, bd = Infinity;
+      for (let i = 0; i < n; i++) { const d = (x0[i] + offX[i] - x) ** 2 + (y0[i] + offY[i] - y) ** 2; if (d < bd) { bd = d; best = i; } }
+      const hop = new Int16Array(n).fill(-1), queue = [best];
+      hop[best] = 0;
+      for (let q = 0; q < queue.length; q++) {
+        const a = queue[q];
+        if (hop[a] >= MAX_HOP) continue;
+        for (let k = adjStart[a]; k < adjStart[a + 1]; k++) { const b = adjList[k]; if (hop[b] < 0) { hop[b] = hop[a] + 1; queue.push(b); } }
+      }
+      fires.push({ t: performance.now(), hop });
+      if (fires.length > 3) fires.shift();
+    }
+    // `terrain`: a click runs a survey scan, a lit line sweeping from the nearest row back to the horizon
+    const scans: number[] = [];
+    const SCAN_ROW_MS = 38;                                    // ms for the scan to move one row back
+    // `grid`: a click plots registration lines, the row and column through the click lighting outwards
+    const plots: { x: number; y: number; t: number }[] = [];
+    const PLOT_SPEED = 1.0, PLOT_TAIL = 300;                   // px per ms, length of the lit stretch
+    // `bars`: a click makes the bars rise, from the click outwards to both sides, then fall back
+    const surges: { x: number; t: number }[] = [];
+    const SURGE_SPEED = 0.9, SURGE_MS = 760;                   // px per ms sideways, ms each bar takes to rise and fall
+    // `lattice`: the camera's turn (eased after the pointer) and the dolly a click sets off
+    let latYaw = 0, latPitch = 0, dolly = 0, dollyHold = 0;
+    const LX = 13, LY = 8, LZ = 7;
+    // `threads`: a click sends a pulse out along every thread to the anchors round the edge
+    const sends: { x: number; y: number; t: number }[] = [];
+    const SEND_SPEED = 0.7, SEND_TAIL = 170, SEND_FLASH = 1300;   // px per ms, length of each pulse, ms an anchor glows
+    // where each lattice point was last drawn, so a click can find the nearest one, and the waves of light
+    // a click sends through the whole lattice, cell by cell outwards from that point
+    const latSX = new Float32Array(LX * LY * LZ), latSY = new Float32Array(LX * LY * LZ), latVis = new Uint8Array(LX * LY * LZ);
+    const latWaves: { t: number; o: number }[] = [];
+    const LAT_STEP_MS = 70, LAT_FADE = 520;
+    const latWaveAt = (i: number, now: number) => {
+      let v = 0;
+      const c = i % LX, j = Math.floor(i / LX) % LY, k = Math.floor(i / (LX * LY));
+      for (const wv of latWaves) {
+        const oc = wv.o % LX, oj = Math.floor(wv.o / LX) % LY, ok = Math.floor(wv.o / (LX * LY));
+        const since = now - wv.t - Math.hypot(c - oc, j - oj, k - ok) * LAT_STEP_MS;
+        if (since <= 0) continue;
+        v = Math.max(v, 0.6 * Math.min(1, since / 90) * Math.exp(-since / LAT_FADE));
+      }
+      return v;
+    };
+    // `volume`: the film camera on the stage (eased after the pointer) and the flash a click sets off
+    let camX = 0, camZ = 0, camYaw = 0, camOn = false, take = 0;
+    // `cubes`: a click sends a wave out that flips each cube a quarter-turn, like LED panels turning over
+    const flips: { x: number; y: number; t: number }[] = [];
+    const FLIP_SPEED = 0.6, FLIP_MS = 460;                     // px per ms for the wave, ms for each cube's turn
+    // how far through its quarter-turn a cube is, 0..1 per wave that has reached it, and how bright the turn is
+    const flipAt = (x: number, y: number, now: number) => {
+      let turnSum = 0, glowMax = 0;
+      for (const fl of flips) {
+        const local = (now - fl.t - Math.hypot(x - fl.x, y - fl.y) / FLIP_SPEED) / FLIP_MS;
+        if (local <= 0) continue;
+        const u = Math.min(1, local), eased = u * u * (3 - 2 * u);
+        turnSum += eased;
+        glowMax = Math.max(glowMax, Math.sin(Math.PI * u));
+      }
+      return [turnSum, glowMax];
+    };
+    // `glyphs`: a click lights the characters in a slowly widening circle, a soft band that fades as it grows
+    const typers: { x: number; y: number; t: number }[] = [];
+    const TYPE_SPEED = 0.38, TYPE_TAIL = 150, TYPE_MAX = 720;  // px per ms, depth of the lit band, how far it spreads
+    const pluckAt = (x: number, y: number, now: number) => {
+      let out = 0;
+      for (const pk of plucks) {
+        const dy = Math.abs(y - pk.y), a = now - pk.t - dy / PLUCK_TRAVEL;
+        if (a <= 0) continue;
+        const env = Math.exp(-(((x - pk.x) / 260) ** 2)) * Math.exp(-((dy / 300) ** 2)) * Math.exp(-a / 520);
+        if (env < 0.003) continue;
+        out += 16 * env * Math.sin(a * 0.028) * Math.cos((x - pk.x) * 0.012);
+      }
+      return out;
+    };
 
     // Pointer: tx/ty is where it is, px/py eases after it so the light glides rather than snaps.
     let tx = 0, ty = 0, px = 0, py = 0, travelled = 0, want = 0, presence = 0;
     const ripples: { x: number; y: number; t: number }[] = [];
     let raf = 0, last = 0;
 
+    const alloc = (count: number) => {
+      n = count;
+      x0 = new Float32Array(n); y0 = new Float32Array(n); ps = new Float32Array(n).fill(1);
+      offX = new Float32Array(n); offY = new Float32Array(n); velX = new Float32Array(n); velY = new Float32Array(n);
+      glow = new Float32Array(n); lit = new Float32Array(n); ang = new Float32Array(n); level = new Uint8Array(n); spinV = new Float32Array(n);
+    };
+
     function resize() {
       dpr = Math.min(window.devicePixelRatio || 1, 2);
       w = canvas.clientWidth; h = canvas.clientHeight;
       canvas.width = Math.round(w * dpr); canvas.height = Math.round(h * dpr);
-      cols = Math.floor(w / cfg.gx) + 2; rows = Math.floor(h / cfg.gy) + 2; n = cols * rows;
-      const ox = (w - (cols - 1) * cfg.gx) / 2, oy = (h - (rows - 1) * cfg.gy) / 2;
-      x0 = new Float32Array(n); y0 = new Float32Array(n);
-      for (let r = 0, i = 0; r < rows; r++) for (let c = 0; c < cols; c++, i++) {
-        x0[i] = ox + c * cfg.gx + scatter(c, r) * cfg.gx * cfg.jitter * 2;
-        y0[i] = oy + r * cfg.gy + scatter(r + 17, c + 5) * cfg.gy * cfg.jitter * 2;
+      if (variant === "terrain") {
+        // A ground plane seen from above at an angle: rows recede to a horizon, near rows spread wide.
+        rows = 26; const hor = h * 0.3, near = h * 1.08, zN = 1, zF = 7;
+        const span = w * 0.75;
+        cols = Math.ceil((span * 2) / cfg.gx) + 1;
+        alloc(cols * rows);
+        for (let r = 0, i = 0; r < rows; r++) {
+          const z = zF * Math.pow(zN / zF, r / (rows - 1));      // far to near, evenly spaced in perspective
+          const s = zN / z;
+          for (let c = 0; c < cols; c++, i++) {
+            const X = -span + c * cfg.gx;
+            x0[i] = w / 2 + X * s; y0[i] = hor + (near - hor) * s; ps[i] = s;
+          }
+        }
+      } else if (variant === "bars") {
+        cols = Math.floor(w / cfg.gx) + 1; rows = 1;
+        alloc(cols);
+        const ox = (w - (cols - 1) * cfg.gx) / 2;
+        for (let c = 0; c < cols; c++) { x0[c] = ox + c * cfg.gx; y0[c] = h; }
+      } else if (variant === "threads") {
+        // anchors round the edge of the window, one every gx px
+        const pts: number[] = [], g = cfg.gx;
+        for (let x = g / 2; x < w; x += g) pts.push(x, 0, x, h);
+        for (let y = g / 2; y < h; y += g) pts.push(0, y, w, y);
+        alloc(pts.length / 2);
+        for (let i = 0; i < n; i++) { x0[i] = pts[i * 2]; y0[i] = pts[i * 2 + 1]; }
+      } else if (variant === "rings" || variant === "orbits" || variant === "volume" || variant === "lattice") {
+        alloc(0);
+        if (variant === "orbits") {
+          const prev = orbP;
+          orbR = []; orbP = [];
+          for (let r = 70; r < Math.hypot(w, h) * 0.6; r += 54) { orbR.push(r); orbP.push(prev[orbR.length - 1] ?? scatter(r, 3) * 6); }
+          orbV = orbR.map((_, k) => orbV[k] ?? 0);
+        }
+      } else {
+        cols = Math.floor(w / cfg.gx) + 2; rows = Math.floor(h / cfg.gy) + 2;
+        alloc(cols * rows);
+        const ox = (w - (cols - 1) * cfg.gx) / 2, oy = (h - (rows - 1) * cfg.gy) / 2;
+        for (let r = 0, i = 0; r < rows; r++) for (let c = 0; c < cols; c++, i++) {
+          let x = ox + c * cfg.gx + scatter(c, r) * cfg.gx * cfg.jitter * 2;
+          let y = oy + r * cfg.gy + scatter(r + 17, c + 5) * cfg.gy * cfg.jitter * 2;
+          if (variant === "halftone" && r % 2) x += cfg.gx / 2;
+          if (variant === "topo") y += 7 * Math.sin(x * 0.0055 + r * 0.7) + 4 * Math.sin(x * 0.013 - r * 1.3);
+          x0[i] = x; y0[i] = y;
+        }
       }
-      offX = new Float32Array(n); offY = new Float32Array(n); velX = new Float32Array(n); velY = new Float32Array(n);
-      glow = new Float32Array(n); lit = new Float32Array(n); ang = new Float32Array(n); level = new Uint8Array(n);
       if (variant === "links") {
         // Each point can link to its near neighbours; the pairs are worked out once per resize.
         const reach = cfg.gx * 1.42, list: number[] = [];
@@ -115,9 +303,62 @@ const { variant, coords = false } = Astro.props;
           }
         }
         pairs = Int32Array.from(list);
+        const deg = new Int32Array(n + 1);
+        for (let k = 0; k < pairs.length; k++) deg[pairs[k] + 1]++;
+        for (let i = 0; i < n; i++) deg[i + 1] += deg[i];
+        adjStart = deg.slice(); adjList = new Int32Array(pairs.length);
+        const fill = deg.slice(0, n);
+        for (let k = 0; k < pairs.length; k += 2) { const a = pairs[k], b = pairs[k + 1]; adjList[fill[a]++] = b; adjList[fill[b]++] = a; }
+        fires.length = 0;
       }
       draw();
       if (live()) wake();
+    }
+
+    // Spotlights for `beams`: sources above the window, each aimed at the pointer.
+    const beamSources = () => [[w * 0.16, -60], [w * 0.5, -90], [w * 0.84, -60]];
+    const BEAM_HALF = 0.075;
+    // a click runs a lighting cue: the beams swing out across the stage, then sweep in to meet at the click
+    let cue: { x: number; y: number; t: number } | null = null;
+    const CUE_MS = 1700;
+    const cueAt = (now: number) => (cue ? Math.min(1, (now - cue.t) / CUE_MS) : 1);
+    function aim(si: number, now: number) {
+      if (!cue) return [px, py];
+      const u = cueAt(now);
+      // 0..1: how far the beam has handed over from the click point back to the pointer
+      const back = smooth(0.62, 1, u);
+      const tx = cue.x + (px - cue.x) * back, ty = cue.y + (py - cue.y) * back;
+      // swing outwards and back: wide early, together by the middle of the cue
+      const swing = Math.sin(Math.PI * Math.min(1, u / 0.55)) * (1 - smooth(0.4, 0.55, u));
+      return [tx + (si - 1) * w * 0.32 * swing, ty - h * 0.12 * swing * (si === 1 ? 1 : 0.4)];
+    }
+    // the pool of light flares as the beams meet
+    const cueFlare = (now: number) => (cue ? Math.max(0, Math.sin(Math.PI * Math.min(1, Math.max(0, (cueAt(now) - 0.42) / 0.5)))) : 0);
+    function inBeam(x: number, y: number) {
+      let best = 0;
+      const nowB = performance.now();
+      const sources = beamSources();
+      for (let si = 0; si < sources.length; si++) {
+        const [sx, sy] = sources[si], [tx2, ty2] = aim(si, nowB);
+        const ax = tx2 - sx, ay = ty2 - sy, al = Math.hypot(ax, ay) || 1;
+        const bx = x - sx, by = y - sy, bl = Math.hypot(bx, by) || 1;
+        if (bl > al + 140) continue;
+        const a = Math.acos(Math.max(-1, Math.min(1, (ax * bx + ay * by) / (al * bl))));
+        if (a < BEAM_HALF) { const k = 1 - a / BEAM_HALF; best = Math.max(best, k * k * (0.45 + 0.55 * bl / al)); }
+      }
+      return best;
+    }
+
+    function coordsLabel() {
+      if (!coords || presence < 0.05) return;
+      // The window stands in for the Liverpool City Region: top-left is north-west.
+      const lat = 53.52 - (py / h) * 0.24, lng = 3.12 - (px / w) * 0.42;
+      const label = `${lat.toFixed(4)}° N   ${lng.toFixed(4)}° W`;
+      ctx!.font = "500 10px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+      (ctx as any).letterSpacing = "0.08em";
+      const tw = ctx!.measureText(label).width;
+      ctx!.fillStyle = rgba(ink, 0.62 * presence);
+      ctx!.fillText(label, px + 20 + tw > w ? px - 20 - tw : px + 20, py + 34 > h ? py - 22 : py + 34);
     }
 
     function draw() {
@@ -127,6 +368,8 @@ const { variant, coords = false } = Astro.props;
       const P: (Path2D | undefined)[] = new Array(LEVELS);   // one path per brightness step
       const Q: (Path2D | undefined)[] = new Array(LEVELS);   // a second set, for lit-only strokes
       const at = (set: (Path2D | undefined)[], l: number) => (set[l] ??= new Path2D());
+      const strokeAll = (set: (Path2D | undefined)[], styles: string[], from = 0) => { for (let l = from; l < LEVELS; l++) if (set[l]) { ctx!.strokeStyle = styles[l]; ctx!.stroke(set[l]!); } };
+      const fillAll = (set: (Path2D | undefined)[], styles: string[], from = 0) => { for (let l = from; l < LEVELS; l++) if (set[l]) { ctx!.fillStyle = styles[l]; ctx!.fill(set[l]!); } };
 
       if (variant === "links") {
         for (let k = 0; k < pairs.length; k += 2) {
@@ -139,29 +382,40 @@ const { variant, coords = false } = Astro.props;
           const l = level[i], s = 2 + 2 * (l / (LEVELS - 1));
           at(P, l).rect(x0[i] + offX[i] - s / 2, y0[i] + offY[i] - s / 2, s, s);
         }
-        for (let l = 1; l < LEVELS; l++) if (Q[l]) { ctx!.strokeStyle = line[l]; ctx!.stroke(Q[l]!); }
-        for (let l = 0; l < LEVELS; l++) if (P[l]) { ctx!.fillStyle = tone[l]; ctx!.fill(P[l]!); }
+        strokeAll(Q, line, 1); fillAll(P, tone);
+        if (fires.length) {
+          const now = performance.now();
+          for (const fr of fires) {
+            const age = now - fr.t, hop = fr.hop;
+            for (let k = 0; k < pairs.length; k += 2) {
+              const a = pairs[k], b = pairs[k + 1], ha = hop[a], hb = hop[b];
+              if (ha < 0 || hb < 0) continue;
+              const lo = Math.min(ha, hb), since = age - lo * HOP_MS;
+              if (since < 0) continue;
+              const fade = 1 - lo / (MAX_HOP + 1);
+              const ax = x0[a] + offX[a], ay = y0[a] + offY[a], bx = x0[b] + offX[b], by = y0[b] + offY[b];
+              // the link draws itself from the nearer dot to the farther one, then glows and fades
+              const fx = ha <= hb ? ax : bx, fy = ha <= hb ? ay : by, gx2 = ha <= hb ? bx : ax, gy2 = ha <= hb ? by : ay;
+              const u = ha === hb ? 1 : Math.min(1, since / HOP_MS);
+              const g = since < HOP_MS ? 1 : Math.exp(-(since - HOP_MS) / FIRE_FADE);
+              const alpha = 0.5 * g * fade;
+              if (alpha < 0.01) continue;
+              ctx!.strokeStyle = rgba(volt, alpha); ctx!.lineWidth = 1;
+              ctx!.beginPath(); ctx!.moveTo(fx, fy); ctx!.lineTo(fx + (gx2 - fx) * u, fy + (gy2 - fy) * u); ctx!.stroke();
+            }
+          }
+        }
       } else if (variant === "grid") {
         for (let r = 0, i = 0; r < rows; r++) for (let c = 0; c < cols; c++, i++) {
           const x = x0[i] + offX[i], y = y0[i] + offY[i];
           if (c + 1 < cols) { const j = i + 1, p = at(P, (level[i] + level[j]) >> 1); p.moveTo(x, y); p.lineTo(x0[j] + offX[j], y0[j] + offY[j]); }
           if (r + 1 < rows) { const j = i + cols, p = at(P, (level[i] + level[j]) >> 1); p.moveTo(x, y); p.lineTo(x0[j] + offX[j], y0[j] + offY[j]); }
-          // crosshairs on the corners nearest the pointer
           if (level[i] > LEVELS * 0.38) { const q = at(Q, level[i]); q.moveTo(x - 4, y); q.lineTo(x + 4, y); q.moveTo(x, y - 4); q.lineTo(x, y + 4); }
         }
-        for (let l = 0; l < LEVELS; l++) if (P[l]) { ctx!.strokeStyle = tone[l]; ctx!.stroke(P[l]!); }
+        strokeAll(P, tone);
         ctx!.lineWidth = 1.5;
-        for (let l = 1; l < LEVELS; l++) if (Q[l]) { ctx!.strokeStyle = `rgba(${volt.join(",")},${(0.9 * l / (LEVELS - 1)).toFixed(3)})`; ctx!.stroke(Q[l]!); }
-        if (coords && presence > 0.05) {
-          // The window stands in for the Liverpool City Region: top-left is north-west.
-          const lat = 53.52 - (py / h) * 0.24, lng = 3.12 - (px / w) * 0.42;
-          const label = `${lat.toFixed(4)}° N   ${lng.toFixed(4)}° W`;
-          ctx!.font = "500 10px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
-          (ctx as any).letterSpacing = "0.08em";
-          const tw = ctx!.measureText(label).width;
-          ctx!.fillStyle = `rgba(${ink.join(",")},${(0.62 * presence).toFixed(3)})`;
-          ctx!.fillText(label, px + 20 + tw > w ? px - 20 - tw : px + 20, py + 34 > h ? py - 22 : py + 34);
-        }
+        for (let l = 1; l < LEVELS; l++) if (Q[l]) { ctx!.strokeStyle = rgba(volt, 0.9 * l / (LEVELS - 1)); ctx!.stroke(Q[l]!); }
+        coordsLabel();
       } else if (variant === "needles") {
         ctx!.lineWidth = 1.25;
         for (let i = 0; i < n; i++) {
@@ -169,20 +423,321 @@ const { variant, coords = false } = Astro.props;
           const p = at(P, l);
           p.moveTo(x0[i] - c, y0[i] - s); p.lineTo(x0[i] + c, y0[i] + s);
         }
-        for (let l = 0; l < LEVELS; l++) if (P[l]) { ctx!.strokeStyle = tone[l]; ctx!.stroke(P[l]!); }
-      } else {
-        // wave: each ruled line lifts into a short waveform centred on the pointer
-        const yAt = (i: number, r: number) => y0[i] + WAVE_AMP * lit[i] * Math.cos((x0[i] - px) * WAVE_K + r * 0.9);
+        strokeAll(P, tone);
+      } else if (variant === "wave") {
+        const now = performance.now(), plucked = plucks.length > 0;
+        const yAt = (i: number, r: number) => y0[i] + WAVE_AMP * lit[i] * Math.cos((x0[i] - px) * WAVE_K + r * 0.9) + (plucked ? pluckAt(x0[i], y0[i], now) : 0);
         for (let r = 0, i = 0; r < rows; r++) {
           let prevY = yAt(i, r);
           for (let c = 0; c < cols; c++, i++) {
             if (c + 1 >= cols) continue;
-            const nextY = yAt(i + 1, r), p = at(P, Math.max(level[i], level[i + 1]));
+            const nextY = yAt(i + 1, r);
+            // a plucked stretch of line glows while it rings
+            const ring = plucked ? Math.min(1, (Math.abs(prevY - y0[i]) + Math.abs(nextY - y0[i + 1])) / 14) : 0;
+            const p = at(P, Math.max(level[i], level[i + 1], Math.round(ring * (LEVELS - 1))));
             p.moveTo(x0[i], prevY); p.lineTo(x0[i + 1], nextY);
             prevY = nextY;
           }
         }
-        for (let l = 0; l < LEVELS; l++) if (P[l]) { ctx!.strokeStyle = tone[l]; ctx!.stroke(P[l]!); }
+        strokeAll(P, tone);
+      } else if (variant === "topo") {
+        for (let r = 0, i = 0; r < rows; r++) {
+          for (let c = 0; c < cols; c++, i++) {
+            if (c + 1 >= cols) continue;
+            const j = i + 1, p = at(P, Math.max(level[i], level[j]));
+            p.moveTo(x0[i] + offX[i], y0[i] + offY[i]); p.lineTo(x0[j] + offX[j], y0[j] + offY[j]);
+          }
+        }
+        strokeAll(P, tone);
+      } else if (variant === "strands") {
+        for (let c = 0; c < cols; c++) {
+          for (let r = 0; r + 1 < rows; r++) {
+            const i = r * cols + c, j = i + cols, p = at(P, Math.max(level[i], level[j]));
+            p.moveTo(x0[i] + offX[i], y0[i]); p.lineTo(x0[j] + offX[j], y0[j]);
+          }
+        }
+        strokeAll(P, tone);
+      } else if (variant === "lattice") {
+        // A lattice of points from near to far. The camera sits in front, turned a little by the pointer,
+        // so nearer layers sweep further than distant ones. Fog dims the far points.
+        const S = Math.min(w, h * 1.7), f = S * 0.62, CAM = 2.3 - dolly * 1.25;
+        const cy = Math.cos(latYaw), sy = Math.sin(latYaw), cp = Math.cos(latPitch), sp = Math.sin(latPitch);
+        const N = LX * LY * LZ;
+        const sx = latSX, syy = latSY, dep = new Float32Array(N), vis = latVis;
+        vis.fill(0);
+        const nowL = performance.now(), waving = latWaves.length > 0;
+        for (let k = 0, i = 0; k < LZ; k++) for (let j = 0; j < LY; j++) for (let c = 0; c < LX; c++, i++) {
+          const X = -1.9 + (3.8 * c) / (LX - 1), Y = -1.05 + (2.1 * j) / (LY - 1), Z = (3.2 * k) / (LZ - 1) - 1.6;
+          // turn about the lattice's centre, then step back to the camera
+          const x1 = X * cy + Z * sy, z1 = -X * sy + Z * cy;
+          const y2 = Y * cp - z1 * sp, z2 = Y * sp + z1 * cp;
+          const zz = z2 + CAM;
+          if (zz < 0.25) continue;
+          sx[i] = w / 2 + (x1 * f) / zz; syy[i] = h / 2 + (y2 * f) / zz; dep[i] = zz; vis[i] = 1;
+        }
+        const lightAt = (i: number) => {
+          if (!vis[i]) return 0;
+          const d = presence > 0.01 ? Math.hypot(sx[i] - px, syy[i] - py) : 1e9;
+          const hover = d < 190 ? presence * (1 - d / 190) ** 2 : 0;
+          return waving ? Math.max(hover, latWaveAt(i, nowL)) : hover;
+        };
+        // lit points link to their lattice neighbours with fine lines
+        if (presence > 0.01 || waving) {
+          for (let k = 0, i = 0; k < LZ; k++) for (let j = 0; j < LY; j++) for (let c = 0; c < LX; c++, i++) {
+            const a = lightAt(i);
+            if (a < 0.05) continue;
+            for (const nb of [c + 1 < LX ? i + 1 : -1, j + 1 < LY ? i + LX : -1, k + 1 < LZ ? i + LX * LY : -1]) {
+              if (nb < 0 || !vis[nb]) continue;
+              const l = Math.round(Math.min(a, lightAt(nb) + 0.3 * a) * (LEVELS - 1));
+              if (l < 1) continue;
+              const q = at(Q, l); q.moveTo(sx[i], syy[i]); q.lineTo(sx[nb], syy[nb]);
+            }
+          }
+          strokeAll(Q, line, 1);
+        }
+        for (let i = 0; i < N; i++) {
+          if (!vis[i]) continue;
+          const fog = Math.max(0, Math.min(1, 1.25 - (dep[i] - 0.7) / 4));
+          const t = Math.min(1, lightAt(i) + dolly * 0.25 * fog);
+          const l = Math.round(Math.max(t, fog * 0.18) * (LEVELS - 1));
+          const sz = Math.max(1, (2.6 / dep[i]) * (1 + t));
+          at(P, l).rect(sx[i] - sz / 2, syy[i] - sz / 2, sz, sz);
+        }
+        fillAll(P, tone);
+      } else if (variant === "volume") {
+        // The stage, seen from behind the crew: a curved LED wall (a cylinder of radius 1 round the stage
+        // centre, 140 degrees of it), the floor in front, and the film camera standing where the pointer is.
+        const S = Math.min(w, h * 1.65), D = 2.0, EYE = 0.95, f = S * 0.98, HOR = h * 0.4, WALL_H = 0.78, SPAN = 1.22;
+        const proj = (X: number, Y: number, Z: number) => { const zz = Z + D; return [w / 2 + (X * f) / zz, HOR - ((Y - EYE) * f) / zz]; };
+        const COLS = 76, ROWS = 17, CAM_Y = 0.32, H_HALF = 0.26, V_HALF = 0.17;
+        const live = presence > 0.01 && camOn;
+        // which part of the wall the camera sees: a soft-edged test, 0 outside, 1 well inside
+        const seen = (X: number, Y: number, Z: number) => {
+          if (!live) return 0;
+          const dx = X - camX, dz = Z - camZ, d = Math.hypot(dx, dz);
+          const across = Math.abs(wrap(Math.atan2(dx, dz) - camYaw)), up = Math.abs(Y - CAM_Y) / (d * Math.tan(V_HALF));
+          return smooth(H_HALF, H_HALF - 0.05, across) * smooth(1, 0.82, up);
+        };
+        // floor: a few arcs and spokes, very faint
+        ctx!.strokeStyle = rgba(ink, 0.045); ctx!.beginPath();
+        for (const r of [0.33, 0.66]) {
+          for (let j = 0; j <= 40; j++) { const t = -SPAN + (2 * SPAN * j) / 40, [x, y] = proj(Math.sin(t) * r, 0, Math.cos(t) * r); if (j) ctx!.lineTo(x, y); else ctx!.moveTo(x, y); }
+        }
+        for (let j = 0; j <= 14; j++) { const t = -SPAN + (2 * SPAN * j) / 14, [x1, y1] = proj(0, 0, 0), [x2, y2] = proj(Math.sin(t), 0, Math.cos(t)); ctx!.moveTo(x1, y1); ctx!.lineTo(x2, y2); }
+        ctx!.stroke();
+        // the wall's top and bottom edges
+        ctx!.strokeStyle = rgba(ink, 0.1); ctx!.beginPath();
+        for (const Y of [0, WALL_H]) {
+          for (let j = 0; j <= 60; j++) { const t = -SPAN + (2 * SPAN * j) / 60, [x, y] = proj(Math.sin(t), Y, Math.cos(t)); if (j) ctx!.lineTo(x, y); else ctx!.moveTo(x, y); }
+        }
+        ctx!.stroke();
+        // the LED pixels: dim ink everywhere, lime and full brightness inside the frustum
+        for (let r = 0; r < ROWS; r++) {
+          const Y = 0.03 + ((WALL_H - 0.06) * r) / (ROWS - 1);
+          for (let c = 0; c < COLS; c++) {
+            const t = -SPAN + (2 * SPAN * c) / (COLS - 1), X = Math.sin(t), Z = Math.cos(t);
+            const k = Math.min(1, seen(X, Y, Z) * presence * (1 + 0.6 * take) + take * 0.12);
+            const l = Math.round(k * (LEVELS - 1)), [x, y] = proj(X, Y, Z), sz = ((1.4 + 1.6 * k) * (D + 1)) / (Z + D);
+            at(P, l).rect(x - sz / 2, y - sz / 2, sz, sz);
+          }
+        }
+        fillAll(P, tone);
+        if (live) {
+          // where the frustum's edges meet the wall: a ray from the camera to the cylinder
+          const hit = (a: number) => {
+            const dx = Math.sin(a), dz = Math.cos(a), b = camX * dx + camZ * dz, c2 = camX * camX + camZ * camZ - 1;
+            const tt = -b + Math.sqrt(Math.max(0, b * b - c2));
+            return [camX + dx * tt, camZ + dz * tt, tt];
+          };
+          const a0 = camYaw - H_HALF, a1 = camYaw + H_HALF;
+          const L = hit(a0), Rt = hit(a1);
+          const [cx, cy] = proj(camX, CAM_Y, camZ);
+          const al = presence * (0.5 + 0.5 * take);
+          // the frustum lines from the lens to the four corners of the patch
+          ctx!.strokeStyle = rgba(volt, 0.22 * al); ctx!.beginPath();
+          for (const [X, Z, d] of [L, Rt]) {
+            for (const sgn of [-1, 1]) { const [x, y] = proj(X, CAM_Y + sgn * d * Math.tan(V_HALF), Z); ctx!.moveTo(cx, cy); ctx!.lineTo(x, y); }
+          }
+          ctx!.stroke();
+          // the patch's outline on the curved wall
+          ctx!.strokeStyle = rgba(volt, 0.6 * al); ctx!.beginPath();
+          for (const sgn of [-1, 1]) {
+            for (let j = 0; j <= 24; j++) {
+              const [X, Z, d] = hit(a0 + ((a1 - a0) * j) / 24);
+              const [x, y] = proj(X, Math.max(0, Math.min(WALL_H, CAM_Y + sgn * d * Math.tan(V_HALF))), Z);
+              if (j) ctx!.lineTo(x, y); else ctx!.moveTo(x, y);
+            }
+          }
+          ctx!.stroke();
+          // the camera itself: a small body, a lens and a stand down to the floor
+          const [fx, fy] = proj(camX, 0, camZ);
+          ctx!.strokeStyle = rgba(volt, 0.85 * presence); ctx!.lineWidth = 1.25; ctx!.beginPath();
+          ctx!.rect(cx - 7, cy - 4.5, 11, 9);
+          ctx!.moveTo(cx + 4, cy); ctx!.lineTo(cx + 8, cy - 3); ctx!.lineTo(cx + 8, cy + 3); ctx!.closePath();
+          ctx!.moveTo(cx - 1.5, cy + 4.5); ctx!.lineTo(fx, fy);
+          ctx!.stroke();
+        }
+      } else if (variant === "cubes") {
+        const nowC = performance.now();
+        for (let i = 0; i < n; i++) {
+          const [turned, flash] = flips.length ? flipAt(x0[i], y0[i], nowC) : [0, 0];
+          const t = Math.max(lit[i], flash * 0.85), l = Math.max(level[i], Math.round(flash * 0.85 * (LEVELS - 1)));
+          // at rest every cube sits at the same three-quarter view; lit ones turn towards the pointer,
+          // and a passing flip wave adds a quarter-turn, which leaves a cube looking just as it started
+          const yaw = 0.62 + Math.max(-1, Math.min(1, (px - x0[i]) / 300)) * lit[i] * 2.4 + turned * Math.PI / 2;
+          const pitch = 0.5 - Math.max(-1, Math.min(1, (py - y0[i]) / 300)) * t * 1.8;
+          const s = 9 + 8 * t, cyw = Math.cos(yaw), syw = Math.sin(yaw), cp = Math.cos(pitch), sp = Math.sin(pitch);
+          const vx: number[] = [], vy: number[] = [];
+          for (const [a, b, c] of CV) {
+            const x1 = a * cyw + c * syw, z1 = -a * syw + c * cyw;
+            const y2 = b * cp - z1 * sp;
+            vx.push(x0[i] + x1 * s); vy.push(y0[i] + y2 * s);
+          }
+          const p = at(P, l);
+          for (const [a, b] of CE) { p.moveTo(vx[a], vy[a]); p.lineTo(vx[b], vy[b]); }
+        }
+        strokeAll(P, tone);
+      } else if (variant === "terrain") {
+        const hy = (i: number) => y0[i] + offY[i] - lit[i] * 120 * ps[i];   // rises under the pointer
+        for (let r = 0, i = 0; r < rows; r++) for (let c = 0; c < cols; c++, i++) {
+          const x = x0[i], y = hy(i);
+          if (c + 1 < cols) { const j = i + 1, p = at(P, Math.max(level[i], level[j])); p.moveTo(x, y); p.lineTo(x0[j], hy(j)); }
+          if (r + 1 < rows) { const j = i + cols, p = at(P, Math.max(level[i], level[j])); p.moveTo(x, y); p.lineTo(x0[j], hy(j)); }
+        }
+        // the far rows fade into the horizon
+        ctx!.save();
+        const fade = ctx!.createLinearGradient(0, h * 0.28, 0, h * 0.55);
+        strokeAll(P, tone);
+        fade.addColorStop(0, "rgba(10,10,11,1)"); fade.addColorStop(1, "rgba(10,10,11,0)");
+        ctx!.globalCompositeOperation = "destination-out";
+        ctx!.fillStyle = fade; ctx!.fillRect(0, 0, w, h * 0.55);
+        ctx!.restore();
+        coordsLabel();
+      } else if (variant === "bars") {
+        // the tallest bar reaches up to just below the pointer, wherever it is on the page
+        const floor = h - 18, reach = Math.max(80, floor - py - 22);
+        for (let i = 0; i < n; i++) {
+          const rest = 20 + 22 * scatter(i, 9), top = floor - rest - lit[i] * (reach - rest);
+          at(P, level[i]).rect(x0[i] - 1, top, 2, h - top);
+        }
+        fillAll(P, tone);
+      } else if (variant === "glyphs") {
+        ctx!.font = "500 13px ui-monospace, SFMono-Regular, Menlo, Consolas, monospace";
+        ctx!.textAlign = "center"; ctx!.textBaseline = "middle";
+        for (let i = 0; i < n; i++) {
+          const l = level[i];
+          if (l < 3) { at(P, l).rect(x0[i] - 1, y0[i] - 1, 2, 2); continue; }
+          ctx!.fillStyle = tone[l];
+          ctx!.fillText(GLYPHS[(Math.floor((scatter(i, 3) + 0.5) * 977) + Math.floor(glow[i] * 9)) % GLYPHS.length], x0[i], y0[i]);
+        }
+        fillAll(P, tone);
+      } else if (variant === "halftone") {
+        for (let i = 0; i < n; i++) {
+          const l = level[i], r = 0.7 + 1.9 * lit[i];
+          const p = at(P, l); p.moveTo(x0[i] + r, y0[i]); p.arc(x0[i], y0[i], r, 0, Math.PI * 2);
+        }
+        fillAll(P, tone);
+      } else if (variant === "beams") {
+        const nowB = performance.now(), flare = cueFlare(nowB);
+        if (presence > 0.01 || cue) {
+          const sources = beamSources(), on = Math.max(presence, cue ? 1 : 0);
+          for (let si = 0; si < sources.length; si++) {
+            const [sx, sy] = sources[si], [tx2, ty2] = aim(si, nowB);
+            const ax = tx2 - sx, ay = ty2 - sy, al = Math.hypot(ax, ay) || 1, L = al + 140;
+            const a = Math.atan2(ay, ax);
+            const g = ctx!.createLinearGradient(sx, sy, sx + Math.cos(a) * L, sy + Math.sin(a) * L);
+            g.addColorStop(0, rgba(volt, 0)); g.addColorStop(0.75, rgba(volt, (0.05 + 0.03 * flare) * on)); g.addColorStop(1, rgba(volt, 0));
+            ctx!.fillStyle = g;
+            ctx!.beginPath(); ctx!.moveTo(sx, sy);
+            ctx!.lineTo(sx + Math.cos(a - BEAM_HALF) * L, sy + Math.sin(a - BEAM_HALF) * L);
+            ctx!.lineTo(sx + Math.cos(a + BEAM_HALF) * L, sy + Math.sin(a + BEAM_HALF) * L);
+            ctx!.closePath(); ctx!.fill();
+          }
+          const [qx, qy] = aim(1, nowB), pr = 150 + 70 * flare;
+          const pool = ctx!.createRadialGradient(qx, qy, 0, qx, qy, pr);
+          pool.addColorStop(0, rgba(volt, (0.07 + 0.08 * flare) * on)); pool.addColorStop(1, rgba(volt, 0));
+          ctx!.fillStyle = pool; ctx!.fillRect(qx - pr, qy - pr, pr * 2, pr * 2);
+        }
+        for (let i = 0; i < n; i++) { const l = level[i], s = 1.5 + 1.2 * lit[i]; at(P, l).rect(x0[i] - s / 2, y0[i] - s / 2, s, s); }
+        fillAll(P, tone);
+      } else if (variant === "threads") {
+        const reach = Math.hypot(w, h) * 0.95;
+        if (presence > 0.01) {
+          for (let i = 0; i < n; i++) {
+            const d = Math.hypot(x0[i] - px, y0[i] - py), k = Math.max(0, 1 - d / reach);
+            const l = Math.round(Math.pow(k, 1.3) * presence * (LEVELS - 1));
+            if (l < 1) continue;
+            const p = at(Q, l); p.moveTo(px, py); p.lineTo(x0[i], y0[i]);
+          }
+          ctx!.lineWidth = 0.75;
+          for (let l = 1; l < LEVELS; l++) if (Q[l]) { ctx!.strokeStyle = rgba(volt.map((v, k) => Math.round(ink[k] + (v - ink[k]) * (l / (LEVELS - 1)))), 0.4 * l / (LEVELS - 1)); ctx!.stroke(Q[l]!); }
+        }
+        // messages going out: a soft lime pulse running along each thread and off the edge of the page
+        if (sends.length) {
+          const nowT = performance.now();
+          ctx!.lineWidth = 1;
+          for (const sd of sends) {
+            const travelled = (nowT - sd.t) * SEND_SPEED;
+            for (let i = 0; i < n; i++) {
+              const ax = x0[i], ay = y0[i], d = Math.hypot(ax - sd.x, ay - sd.y) || 1;
+              if (travelled < d) {
+                const u1 = travelled / d, u0 = Math.max(0, (travelled - SEND_TAIL) / d);
+                const g = ctx!.createLinearGradient(sd.x + (ax - sd.x) * u0, sd.y + (ay - sd.y) * u0, sd.x + (ax - sd.x) * u1, sd.y + (ay - sd.y) * u1);
+                // fades in as it leaves the pointer, so nothing pops; soft all along its tail
+                const a = 0.42 * smooth(0, 140, travelled);
+                g.addColorStop(0, rgba(volt, 0)); g.addColorStop(0.7, rgba(volt, a * 0.6)); g.addColorStop(1, rgba(volt, a));
+                ctx!.strokeStyle = g;
+                ctx!.beginPath(); ctx!.moveTo(sd.x + (ax - sd.x) * u0, sd.y + (ay - sd.y) * u0); ctx!.lineTo(sd.x + (ax - sd.x) * u1, sd.y + (ay - sd.y) * u1); ctx!.stroke();
+              }
+            }
+          }
+          ctx!.lineWidth = 1;
+        }
+      } else if (variant === "rings") {
+        // a faint fixed set of rings, and a set that travels with the pointer: where they cross, interference
+        const fx = w * 0.74, fy = h * 0.36, far = Math.hypot(w, h);
+        ctx!.strokeStyle = rgba(ink, cfg.base);
+        ctx!.beginPath();
+        for (let r = 16; r < far; r += 16) { ctx!.moveTo(fx + r, fy); ctx!.arc(fx, fy, r, 0, Math.PI * 2); }
+        ctx!.stroke();
+        if (presence > 0.01 && ringsPlaced) {
+          const gap = ringGap();
+          for (let k = 0; k < RING_N; k++) {
+            const u = 1 - (RING_IN + k * RING_GAP) / (RING_OUT + 20), r = RING_IN * (1 - 0.35 * pinch) + k * gap;
+            const a = Math.min(0.85, presence * cfg.peak * Math.pow(u, 1.4) * (1 + 0.9 * pinch));
+            ctx!.strokeStyle = rgba(mix[Math.round(Math.min(1, u + 0.45 * pinch) * (LEVELS - 1))].split(",").map(Number), a);
+            ctx!.beginPath(); ctx!.arc(ringX[k], ringY[k], r, 0, Math.PI * 2); ctx!.stroke();
+          }
+        }
+      } else if (variant === "orbits") {
+        const cx = w * 0.5, cy = h * 0.56;
+        const pr = Math.hypot(px - cx, py - cy);
+        for (let k = 0; k < orbR.length; k++) {
+          const R = orbR[k], wgt = Math.min(1, presence * Math.exp(-(((pr - R) / 62) ** 2)) + Math.min(0.85, Math.abs(orbV[k] ?? 0) * 9));
+          ctx!.strokeStyle = rgba(wgt > 0.05 ? volt : ink, cfg.base + wgt * 0.35);
+          ctx!.beginPath(); ctx!.arc(cx, cy, R, 0, Math.PI * 2); ctx!.stroke();
+          const dots = 3 + (k % 3);
+          ctx!.fillStyle = rgba(wgt > 0.05 ? volt : ink, 0.2 + wgt * 0.7);
+          ctx!.beginPath();
+          for (let j = 0; j < dots; j++) {
+            const a = orbP[k] + (j * Math.PI * 2) / dots, s = 1.8 + wgt * 1.8;
+            const x = cx + Math.cos(a) * R, y = cy + Math.sin(a) * R;
+            ctx!.moveTo(x + s, y); ctx!.arc(x, y, s, 0, Math.PI * 2);
+          }
+          ctx!.fill();
+        }
+      }
+
+      // a click sends one ring outwards, on every variant
+      if (ripples.length) {
+        const now = performance.now();
+        for (const rp of ripples) {
+          const age = now - rp.t, r = age * RIPPLE_SPEED, a = 0.35 * (1 - age / RIPPLE_LIFE);
+          if (a <= 0) continue;
+          ctx!.strokeStyle = rgba(volt, a);
+          ctx!.lineWidth = 1;
+          ctx!.beginPath(); ctx!.arc(rp.x, rp.y, r, 0, Math.PI * 2); ctx!.stroke();
+        }
       }
     }
 
@@ -199,23 +754,41 @@ const { variant, coords = false } = Astro.props;
       travelled = 0;
       const decay = Math.pow(DECAY, f), damp = Math.pow(DAMP, f), turn = 1 - Math.pow(0.8, f);
       for (let r = ripples.length - 1; r >= 0; r--) if (now - ripples[r].t > RIPPLE_LIFE) ripples.splice(r, 1);
+      for (let r = spins.length - 1; r >= 0; r--) if (now - spins[r].t > SPIN_LIFE) spins.splice(r, 1);
+      for (let r = plucks.length - 1; r >= 0; r--) if (now - plucks[r].t > PLUCK_LIFE) plucks.splice(r, 1);
+      for (let r = typers.length - 1; r >= 0; r--) if ((now - typers[r].t) * TYPE_SPEED > TYPE_MAX) typers.splice(r, 1);
+      for (let r = fires.length - 1; r >= 0; r--) if (now - fires[r].t > fireLife()) fires.splice(r, 1);
+      for (let r = surges.length - 1; r >= 0; r--) if (now - surges[r].t > w / SURGE_SPEED + SURGE_MS) surges.splice(r, 1);
+      for (let r = sends.length - 1; r >= 0; r--) if ((now - sends[r].t) * SEND_SPEED > Math.hypot(w, h) + SEND_SPEED * SEND_FLASH) sends.splice(r, 1);
+      if (cue && now - cue.t > CUE_MS) cue = null;
+      for (let r = plots.length - 1; r >= 0; r--) if ((now - plots[r].t) * PLOT_SPEED > Math.max(w, h) + PLOT_TAIL) plots.splice(r, 1);
+      for (let r = scans.length - 1; r >= 0; r--) if (now - scans[r] > (rows + 6) * SCAN_ROW_MS) scans.splice(r, 1);
+      for (let r = flips.length - 1; r >= 0; r--) if (now - flips[r].t > Math.hypot(w, h) / FLIP_SPEED + FLIP_MS) flips.splice(r, 1);
+      // a roller is done once it has run past both edges
+      for (let r = rollers.length - 1; r >= 0; r--) if ((now - rollers[r].t) * ROLL_SPEED > Math.max(rollers[r].x, w - rollers[r].x) + ROLL_W * 3) rollers.splice(r, 1);
 
       const sx = px - ppx, sy = py - ppy, sl = sx * sx + sy * sy;
       const R = cfg.radius, R2 = R * R, T2 = TRAIL_R * TRAIL_R;
+      // the bars, and the press halftone, answer only to where the pointer is across the page
+      const xOnly = variant === "bars" || variant === "halftone";
+      const lens = variant !== "threads";      // the threads' anchors sit at the edge and never light
       let busy = false;
-      for (let i = 0; i < n; i++) {
-        const ex0 = x0[i], ey0 = y0[i];
+      for (let i = 0; i < n && lens; i++) {
+        const ex0 = x0[i], ey0 = xOnly ? py : y0[i];
         let spot = 0, aimX = 0, aimY = 0, kick = 0, kx = 0, ky = 0;
 
         const dx = ex0 - px, dy = ey0 - py, d2 = dx * dx + dy * dy;
-        if (presence > 0.001 && d2 < R2) {
+        if (R && presence > 0.001 && d2 < R2) {
           const d = Math.sqrt(d2) || 1, k = 1 - d / R;
           spot = k * k * presence;
           aimX = (dx / d) * spot * cfg.push; aimY = (dy / d) * spot * cfg.push;
         }
+        if (variant === "beams" && (presence > 0.001 || cue)) spot = inBeam(ex0, ey0) * Math.max(presence, cue ? 1 : 0);
+        // the press halftone lights a thin upright band through the pointer, like a roller at rest
+        if (variant === "halftone") spot = presence > 0.001 ? presence * Math.exp(-((dx / 30) ** 2)) : 0;
 
         let e = glow[i] * decay;
-        if (inject > 0) {
+        if (inject > 0 && variant !== "beams") {
           // distance to the path the pointer took this frame, so a fast flick leaves no gaps
           let u = sl > 0 ? ((ex0 - ppx) * sx + (ey0 - ppy) * sy) / sl : 0;
           u = u < 0 ? 0 : u > 1 ? 1 : u;
@@ -231,6 +804,64 @@ const { variant, coords = false } = Astro.props;
           const k = Math.exp(-band * band) * (1 - age / RIPPLE_LIFE);
           if (k * 0.7 > e) e = k * 0.7;
           kick += k; kx += (rx / d) * k; ky += (ry / d) * k;
+        }
+
+        if (scans.length && variant === "terrain") {
+          const row = (i / cols) | 0;
+          for (const st of scans) {
+            const at2 = rows - 1 - (now - st) / SCAN_ROW_MS, gap = row - at2;
+            if (gap < -1.5 || gap > 4) continue;
+            // a bright leading edge with a short glow trailing back towards the viewer
+            const k = gap < 0 ? Math.exp(-gap * gap * 2) : Math.exp(-gap * 0.7);
+            const v = 0.9 * k * (0.55 + 0.45 * (row / (rows - 1)));
+            if (v > e) e = v;
+          }
+        }
+        if (plots.length && variant === "grid") {
+          for (const pl of plots) {
+            const onRow = Math.abs(ey0 - pl.y) < cfg.gy / 2, onCol = Math.abs(ex0 - pl.x) < cfg.gx / 2;
+            if (!onRow && !onCol) continue;
+            const along = onRow && onCol ? 0 : onRow ? Math.abs(ex0 - pl.x) : Math.abs(ey0 - pl.y);
+            const back = (now - pl.t) * PLOT_SPEED - along;
+            if (back < 0 || back > PLOT_TAIL) continue;
+            const k = 0.85 * (1 - back / PLOT_TAIL);
+            if (k > e) e = k;
+          }
+        }
+        if (surges.length) {
+          for (const sg of surges) {
+            const d = Math.abs(ex0 - sg.x), local = (now - sg.t - d / SURGE_SPEED) / SURGE_MS;
+            if (local <= 0 || local >= 1) continue;
+            // up quickly, down gently; tallest at the click, a little lower further out
+            const shape = local < 0.3 ? Math.sin((local / 0.3) * Math.PI / 2) : Math.cos(((local - 0.3) / 0.7) * Math.PI / 2) ** 2;
+            const k = 0.95 * shape * (1 - 0.55 * Math.min(1, d / w));
+            if (k > e) e = k;
+          }
+        }
+        if (fires.length) {
+          for (const fr of fires) {
+            const hp = fr.hop[i];
+            if (hp < 0) continue;
+            const since = now - fr.t - hp * HOP_MS;
+            if (since < 0) continue;
+            const k = 0.9 * Math.exp(-since / FIRE_FADE) * (1 - hp / (MAX_HOP + 1));
+            if (k > e) e = k;
+          }
+        }
+        if (typers.length) {
+          for (const ty of typers) {
+            const r = (now - ty.t) * TYPE_SPEED, d = Math.hypot(ex0 - ty.x, ey0 - ty.y), back = r - d;
+            if (back < 0 || back > TYPE_TAIL) continue;
+            // brightest at the growing edge, fading behind it, and dimmer the further it has spread
+            const k = 0.78 * (1 - back / TYPE_TAIL) * (1 - r / TYPE_MAX);
+            if (k > e) e = k;
+          }
+        }
+        if (rollers.length) {
+          for (const rl of rollers) {
+            const reach = (now - rl.t) * ROLL_SPEED, band = (Math.abs(ex0 - rl.x) - reach) / ROLL_W;
+            if (band > -2.5 && band < 2.5) { const k = Math.exp(-band * band) * 0.95; if (k > e) e = k; }
+          }
         }
 
         e = e > 1 ? 1 : e < 0.003 ? 0 : e;
@@ -255,15 +886,115 @@ const { variant, coords = false } = Astro.props;
         if (e) busy = true;
 
         if (variant === "needles") {
+          // The spin wave: as the ring passes a needle it gets a twist, clockwise on one side of the
+          // click and anticlockwise on the other, so the field swirls outwards, then friction slows it.
+          for (let s2 = 0; s2 < spins.length; s2++) {
+            const sp = spins[s2], age = now - sp.t;
+            const rx = ex0 - sp.x, ry = ey0 - sp.y, d = Math.sqrt(rx * rx + ry * ry);
+            const band = (d - age * SPIN_SPEED) / SPIN_W;
+            if (band > 2.5 || band < -2.5) continue;
+            const k = Math.exp(-band * band) * (1 - age / SPIN_LIFE);
+            spinV[i] += k * 0.075 * f * (rx >= 0 ? 1 : -1);
+            const g = k * 0.75;
+            if (g > lit[i]) { lit[i] = g; level[i] = Math.round(g * (LEVELS - 1)); }
+          }
+          spinV[i] *= Math.pow(0.94, f);
+          if (spinV[i] > -0.0008 && spinV[i] < 0.0008) spinV[i] = 0;
+          ang[i] += spinV[i] * f;
           // A needle has no head or tail, so it turns the short way round; unlit needles lie flat.
-          let diff = (t > 0.02 ? Math.atan2(py - ey0, px - ex0) : 0) - ang[i];
+          // While it is still spinning, the pull back is softened so the spin can run down naturally.
+          let diff = (lit[i] > 0.02 ? Math.atan2(py - ey0, px - ex0) : 0) - ang[i];
           diff -= Math.PI * Math.round(diff / Math.PI);
-          if (diff > 0.004 || diff < -0.004) { ang[i] += diff * turn; busy = true; }
+          const free = 1 - Math.min(1, Math.abs(spinV[i]) * 6);
+          if (diff > 0.004 || diff < -0.004) { ang[i] += diff * turn * free; busy = true; }
+          if (spinV[i]) busy = true;
+        }
+      }
+      if (variant === "rings" && presence > 0.001) {
+        if (!ringsPlaced) { ringX.fill(px); ringY.fill(py); ringsPlaced = true; }
+        // Plain easing, no springs, so nothing overshoots or shivers. Outer rings ease a little slower.
+        pinchHold *= Math.pow(0.94, f);
+        pinch += (pinchHold - pinch) * (1 - Math.pow(0.7, f));
+        if (pinch > 0.003 || pinchHold > 0.003) busy = true;
+        const hold = ringGap() * RING_HOLD;
+        for (let k = 0; k < RING_N; k++) {
+          const ax = k ? ringX[k - 1] : px, ay = k ? ringY[k - 1] : py;
+          const ease = 1 - Math.pow(0.86 + 0.06 * (k / RING_N), f);
+          ringX[k] += (ax - ringX[k]) * ease; ringY[k] += (ay - ringY[k]) * ease;
+          // keep each ring inside the next one out: the gap between centres stays under the gap between radii
+          const dx = ringX[k] - ax, dy = ringY[k] - ay, d = Math.hypot(dx, dy);
+          if (k && d > hold) { ringX[k] = ax + (dx / d) * hold; ringY[k] = ay + (dy / d) * hold; }
+          if (Math.abs(ax - ringX[k]) + Math.abs(ay - ringY[k]) > 0.05) busy = true;
+        }
+      }
+      if (variant === "strands") {
+        // Each line is dragged by the pointer's sideways movement nearby and leans gently in towards it.
+        // Plain easing again, and a left-to-right pass that keeps every line at least MIN_GAP from the
+        // one before, so lines bunch and fan out but can never touch or cross.
+        dragVX += (((px - ppx) / f) - dragVX) * (1 - Math.pow(0.85, f));
+        const drag = Math.max(-36, Math.min(36, dragVX * 7)), ease = 1 - Math.pow(0.84, f), MIN_GAP = cfg.gx * 0.34;
+        const SX = 150, SY = 130, PX = 240, PY = 200;
+        pinchHold *= Math.pow(0.9, f);
+        pinch += (pinchHold - pinch) * (1 - Math.pow(0.78, f));
+        if (pinch > 0.003 || pinchHold > 0.003) busy = true;
+        for (let r = 0; r < rows; r++) {
+          for (let c = 0; c < cols; c++) {
+            const i = r * cols + c, dx = x0[i] - px, dy = y0[i] - py;
+            const g = presence * Math.exp(-(dx * dx) / (2 * SX * SX) - (dy * dy) / (2 * SY * SY));
+            const gp = pinch * Math.exp(-(dx * dx) / (2 * PX * PX) - (dy * dy) / (2 * PY * PY));
+            const target = g * (drag - dx * 0.11) - gp * dx * 0.5;
+            if (gp > 0.004) { const t = Math.min(1, lit[i] + gp * 0.55); lit[i] = t; level[i] = Math.round(t * (LEVELS - 1)); }
+            const before = offX[i];
+            offX[i] += (target - offX[i]) * ease;
+            if (c) { const prev = x0[i - 1] + offX[i - 1] + MIN_GAP; if (x0[i] + offX[i] < prev) offX[i] = prev - x0[i]; }
+            if (Math.abs(offX[i] - before) > 0.02 || Math.abs(target - offX[i]) > 0.05) busy = true;
+          }
+        }
+        if (Math.abs(dragVX) > 0.02) busy = true;
+      }
+      if (variant === "lattice") {
+        const tYaw = presence * (px / w - 0.5) * 0.55, tPitch = presence * (py / h - 0.5) * 0.4;
+        const ease = 1 - Math.pow(0.9, f);
+        latYaw += (tYaw - latYaw) * ease; latPitch += (tPitch - latPitch) * ease;
+        // a click pushes the camera in, holds a moment, then eases it back out
+        dollyHold *= Math.pow(0.965, f);
+        dolly += (dollyHold - dolly) * (1 - Math.pow(0.93, f));
+        if (dollyHold < 0.002) dollyHold = 0;
+        if (Math.abs(tYaw - latYaw) + Math.abs(tPitch - latPitch) > 0.0005 || dolly > 0.002 || dollyHold) busy = true;
+        const reach = Math.hypot(LX, LY, LZ) * LAT_STEP_MS + LAT_FADE * 5;
+        for (let r = latWaves.length - 1; r >= 0; r--) if (now - latWaves[r].t > reach) latWaves.splice(r, 1);
+        if (latWaves.length) busy = true;
+      }
+      if (variant === "volume") {
+        // left-right moves the camera across the stage and pans it; up-down moves it towards the wall
+        const tX = (px / w - 0.5) * 0.9, tZ = 0.55 - (py / h) * 0.65, tYaw = (px / w - 0.5) * 0.95;
+        if (!camOn) { camX = tX; camZ = tZ; camYaw = tYaw; camOn = true; }
+        const ease = 1 - Math.pow(0.88, f);
+        camX += (tX - camX) * ease; camZ += (tZ - camZ) * ease; camYaw += (tYaw - camYaw) * ease;
+        if (Math.abs(tX - camX) + Math.abs(tZ - camZ) + Math.abs(tYaw - camYaw) > 0.0008) busy = true;
+        if (take > 0.002) { take *= Math.pow(0.9, f); busy = true; } else take = 0;
+      }
+      if (variant === "orbits") {
+        for (let k = 0; k < orbR.length; k++) {
+          if (!orbV[k]) continue;
+          orbP[k] += orbV[k] * f;
+          orbV[k] *= Math.pow(0.968, f);
+          if (Math.abs(orbV[k]) < 0.0004) orbV[k] = 0; else busy = true;
+        }
+        // the points on the ring nearest the pointer slide round to line up with it
+        const cx = w * 0.5, cy = h * 0.56, pr = Math.hypot(px - cx, py - cy), pa = Math.atan2(py - cy, px - cx);
+        for (let k = 0; k < orbR.length; k++) {
+          const wgt = presence * Math.exp(-(((pr - orbR[k]) / 62) ** 2));
+          if (wgt < 0.01) continue;
+          const dots = 3 + (k % 3), slot = (Math.PI * 2) / dots;
+          let diff = wrap(pa - orbP[k]);
+          diff -= slot * Math.round(diff / slot);
+          if (Math.abs(diff) > 0.002) { orbP[k] += diff * wgt * 0.08 * f; busy = true; }
         }
       }
       draw();
       const moving = Math.abs(tx - px) + Math.abs(ty - py) > 0.1 || Math.abs(want - presence) > 0.002;
-      if (busy || moving || ripples.length) raf = requestAnimationFrame(step);
+      if (busy || moving || ripples.length || spins.length || plucks.length || rollers.length || typers.length || fires.length || flips.length || surges.length || scans.length || sends.length || cue || plots.length) raf = requestAnimationFrame(step);
     }
 
     const wake = () => { if (!raf) { last = performance.now(); raf = requestAnimationFrame(step); } };
@@ -271,7 +1002,7 @@ const { variant, coords = false } = Astro.props;
     function still() {
       cancelAnimationFrame(raf); raf = 0;
       offX.fill(0); offY.fill(0); velX.fill(0); velY.fill(0); glow.fill(0); lit.fill(0); ang.fill(0); level.fill(0);
-      want = presence = 0; ripples.length = 0;
+      want = presence = 0; ripples.length = 0; spins.length = 0; plucks.length = 0; rollers.length = 0; typers.length = 0; fires.length = 0; flips.length = 0; surges.length = 0; scans.length = 0; sends.length = 0; plots.length = 0; cue = null; take = 0; camOn = false; latYaw = latPitch = dolly = dollyHold = 0; latWaves.length = 0; orbV = orbV.map(() => 0); spinV.fill(0); ringsPlaced = false; dragVX = 0; pinch = pinchHold = 0;
       draw();
     }
 
@@ -284,6 +1015,28 @@ const { variant, coords = false } = Astro.props;
     }, { passive: true, signal });
     window.addEventListener("pointerdown", (e) => {
       if (e.pointerType === "touch" || !live()) return;
+      // On the strands and the rings a click draws the lines in towards the pointer instead of a ripple;
+      // on the needles it sends a spin outwards.
+      if (variant === "strands" || variant === "rings") { pinchHold = 1; wake(); return; }
+      if (variant === "needles") { spins.push({ x: e.clientX, y: e.clientY, t: performance.now() }); if (spins.length > 3) spins.shift(); wake(); return; }
+      if (variant === "wave") { plucks.push({ x: e.clientX, y: e.clientY, t: performance.now() }); if (plucks.length > 3) plucks.shift(); wake(); return; }
+      if (variant === "halftone") { rollers.push({ x: e.clientX, t: performance.now() }); if (rollers.length > 3) rollers.shift(); wake(); return; }
+      if (variant === "links") { fireFrom(e.clientX, e.clientY); wake(); return; }
+      if (variant === "grid") { plots.push({ x: e.clientX, y: e.clientY, t: performance.now() }); if (plots.length > 3) plots.shift(); wake(); return; }
+      if (variant === "beams") { cue = { x: e.clientX, y: e.clientY, t: performance.now() }; wake(); return; }
+      if (variant === "threads") { sends.push({ x: e.clientX, y: e.clientY, t: performance.now() }); if (sends.length > 3) sends.shift(); wake(); return; }
+      if (variant === "volume") { take = 1; wake(); return; }
+      if (variant === "lattice") {
+        let o = -1, bd = Infinity;
+        for (let i = 0; i < latVis.length; i++) { if (!latVis[i]) continue; const d = (latSX[i] - e.clientX) ** 2 + (latSY[i] - e.clientY) ** 2; if (d < bd) { bd = d; o = i; } }
+        if (o >= 0) { latWaves.push({ t: performance.now(), o }); if (latWaves.length > 3) latWaves.shift(); }
+        dollyHold = 1; wake(); return;
+      }
+      if (variant === "orbits") { orbV = orbR.map((_, k) => (orbV[k] ?? 0) + (k % 2 ? -1 : 1) * 0.11 / (1 + k * 0.28)); wake(); return; }
+      if (variant === "terrain") { scans.push(performance.now()); if (scans.length > 3) scans.shift(); wake(); return; }
+      if (variant === "bars") { surges.push({ x: e.clientX, t: performance.now() }); if (surges.length > 3) surges.shift(); wake(); return; }
+      if (variant === "cubes") { flips.push({ x: e.clientX, y: e.clientY, t: performance.now() }); if (flips.length > 3) flips.shift(); wake(); return; }
+      if (variant === "glyphs") { typers.push({ x: e.clientX, y: e.clientY, t: performance.now() }); if (typers.length > 3) typers.shift(); wake(); return; }
       ripples.push({ x: e.clientX, y: e.clientY, t: performance.now() });
       if (ripples.length > 4) ripples.shift();
       wake();

@@ -1,6 +1,7 @@
 ---
 import { u } from "../lib/url";
 import Base from "../layouts/Base.astro";
+import CursorField from "../components/CursorField.astro";
 import VideoBg from "../components/VideoBg.astro";
 ---
 <Base
@@ -11,6 +12,7 @@ import VideoBg from "../components/VideoBg.astro";
 >
   <section class="hero hero--page">
     <VideoBg src={u("/video/dreamlab.mp4")} poster={u("/video/dreamlab.jpg")} soft />
+    <CursorField variant="orbits" />
     <div class="container hero__inner">
       <p class="eyebrow">Error 404</p>
       <h1 class="display h-xl">Nothing here</h1>
