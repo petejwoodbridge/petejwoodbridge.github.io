@@ -103,8 +103,6 @@ export const site = {
     book: "https://www.amazon.co.uk/dp/B0H44ZSGP2/",
   },
   nav: [
-    { label: "Work", href: "/work" },
-    { label: "AI", href: "/ai" },
     {
       label: "About",
       href: "/about",
@@ -130,6 +128,7 @@ export const site = {
         { label: "Teaching", href: "/teaching" },
       ],
     },
+    { label: "Work", href: "/work" },
     { label: "Contact", href: "/contact" },
   ] as {
     label: string;
