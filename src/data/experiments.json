@@ -138,25 +138,6 @@
   "thumb": "/img/x/aiagents.webp"
  },
  {
-  "slug": "aianimation",
-  "title": "AI Animation",
-  "blurb": "Work on techniques, workflows and tooling for AI Animation",
-  "meta": "Experiments,2023",
-  "year": "2023",
-  "html": "<p>As you might know, I've got a super interest in stories of the landscape, lots of my own work is about bring together technology and place.\n\n\n\nAnd in particular am getting really fascinated with Welsh folklore at the moment with the kids.\n\n\n\nBeen researching Annwyn, the Welsh Otherworld, and stories from the Mabinogion.... which was one of the first prose texts compiled in the 13th century.... and probably the source of a lot of magic we see in popular culture/Hollywood today. It's so fascinating.\n\n\n\nSo here's a little experiment with interpreting creatures from Annwn, entirely made using text to video and control tools in AI.\n\n\n\nIt was included as part of the <a href=\"https://www.linkedin.com/feed/update/urn:li:activity:7141433657994477568/\" target=\"_blank\" rel=\"noopener\">UKII Intelligence Report 2024</a> (a report commissioned by verizon) showcasing 500 trailblazers across industries in the UK.</p>",
-  "links": [
-   {
-    "label": "UKII Intelligence Report 2024",
-    "url": "https://www.linkedin.com/feed/update/urn:li:activity:7141433657994477568/"
-   }
-  ],
-  "external": null,
-  "video": "/video/x/aianimation.mp4",
-  "poster": "/video/x/aianimation.jpg",
-  "image": null,
-  "thumb": "/img/x/aianimation.webp"
- },
- {
   "slug": "vpfutures",
   "title": "VP Futures",
   "blurb": "Intensive 6 week training scheme with Industrial Light and Magic, Epic Games and National Film and Television School",
@@ -195,6 +176,20 @@
   "thumb": "/img/x/peekers.webp"
  },
  {
+  "slug": "if-these-walls-could-talk",
+  "title": "If these walls could talk...",
+  "blurb": "World's first UNESCO Mixed Reality/Hololens/Quest & Integrated Immersive Projection Experience.",
+  "meta": "Mixed Reality Heritage, 2019",
+  "year": "2019",
+  "html": "<p>“If these walls could talk…” is a collaboration with the Centre for Architecture and the Visual Arts (CAVA) at University of Liverpool, Culture Liverpool, Microsoft, Dimension Studios, Immersive Storylab and Draw and Code.</p><p>I am creating an interactive mixed reality Hololens prototype that will take place in the old 19th Century jail cells in the iconic Unesco Heritage building St. Georges Hall. Allowing people to interact with the past.</p><p>Using cutting edge holographic capture technology to create interactive performances with characters from the past, this experience will enable visitors to go back in time, to really feel what it was like in a 19th Century prison and justice system.</p><p>Exciting.</p>",
+  "links": [],
+  "external": null,
+  "video": "/video/x/if-these-walls-could-talk.mp4",
+  "poster": "/video/x/if-these-walls-could-talk.jpg",
+  "image": null,
+  "thumb": "/img/x/if-these-walls-could-talk.webp"
+ },
+ {
   "slug": "podcast-machine",
   "title": "Podcast Machine & Digital Double",
   "blurb": "From a topic to a talking digital human: an automated podcast pipeline into NVIDIA Omniverse and Unreal Engine.",
@@ -229,18 +224,23 @@
   "thumb": "/img/x/take-on-me-portal.webp"
  },
  {
-  "slug": "if-these-walls-could-talk",
-  "title": "If these walls could talk...",
-  "blurb": "World's first UNESCO Mixed Reality/Hololens/Quest & Integrated Immersive Projection Experience.",
-  "meta": "Mixed Reality Heritage, 2019",
-  "year": "2019",
-  "html": "<p>“If these walls could talk…” is a collaboration with the Centre for Architecture and the Visual Arts (CAVA) at University of Liverpool, Culture Liverpool, Microsoft, Dimension Studios, Immersive Storylab and Draw and Code.</p><p>I am creating an interactive mixed reality Hololens prototype that will take place in the old 19th Century jail cells in the iconic Unesco Heritage building St. Georges Hall. Allowing people to interact with the past.</p><p>Using cutting edge holographic capture technology to create interactive performances with characters from the past, this experience will enable visitors to go back in time, to really feel what it was like in a 19th Century prison and justice system.</p><p>Exciting.</p>",
-  "links": [],
+  "slug": "aianimation",
+  "title": "AI Animation",
+  "blurb": "Work on techniques, workflows and tooling for AI Animation",
+  "meta": "Experiments,2023",
+  "year": "2023",
+  "html": "<p>As you might know, I've got a super interest in stories of the landscape, lots of my own work is about bring together technology and place.\n\n\n\nAnd in particular am getting really fascinated with Welsh folklore at the moment with the kids.\n\n\n\nBeen researching Annwyn, the Welsh Otherworld, and stories from the Mabinogion.... which was one of the first prose texts compiled in the 13th century.... and probably the source of a lot of magic we see in popular culture/Hollywood today. It's so fascinating.\n\n\n\nSo here's a little experiment with interpreting creatures from Annwn, entirely made using text to video and control tools in AI.\n\n\n\nIt was included as part of the <a href=\"https://www.linkedin.com/feed/update/urn:li:activity:7141433657994477568/\" target=\"_blank\" rel=\"noopener\">UKII Intelligence Report 2024</a> (a report commissioned by verizon) showcasing 500 trailblazers across industries in the UK.</p>",
+  "links": [
+   {
+    "label": "UKII Intelligence Report 2024",
+    "url": "https://www.linkedin.com/feed/update/urn:li:activity:7141433657994477568/"
+   }
+  ],
   "external": null,
-  "video": "/video/x/if-these-walls-could-talk.mp4",
-  "poster": "/video/x/if-these-walls-could-talk.jpg",
+  "video": "/video/x/aianimation.mp4",
+  "poster": "/video/x/aianimation.jpg",
   "image": null,
-  "thumb": "/img/x/if-these-walls-could-talk.webp"
+  "thumb": "/img/x/aianimation.webp"
  },
  {
   "slug": "moea",
