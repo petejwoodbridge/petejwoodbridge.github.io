@@ -42,26 +42,6 @@
   "thumb": "/img/x/annwn-transmission-000.webp"
  },
  {
-  "slug": "hand-tracking-music",
-  "title": "Air Instrument",
-  "seoTitle": "Air Instrument: Hand Tracking Music",
-  "blurb": "Playing drums and synth in thin air, with a webcam and MediaPipe hand tracking.",
-  "meta": "Music R&D, 2025",
-  "year": "2025",
-  "html": "<p>No keys, no pads, no controller. Just a webcam, two hands and <a href=\"https://ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker\" target=\"_blank\" rel=\"noopener\">MediaPipe hand tracking</a>, turning gestures into music in real time.</p><p>Each hand has a job. The left one is the drummer: raise and drop fingers to bring the kick, snare, hi-hat and clap in and out of the beat. The right one is the synth: move it to shift the pitch and pinch to ride the volume. A waveform stretches between your hands and wobbles with whatever you're playing, and a step sequencer ticks along underneath.</p><p>A quick experiment from June 2025, while I was playing around with sound and new ways of making it. Think of it as a theremin that comes with its own drummer. It is surprisingly hard to stop once you start.</p>",
-  "links": [
-   {
-    "label": "MediaPipe Hand Landmarker",
-    "url": "https://ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker"
-   }
-  ],
-  "external": null,
-  "video": "/video/x/hand-tracking-music.mp4",
-  "poster": "/video/x/hand-tracking-music.jpg",
-  "image": null,
-  "thumb": "/img/x/hand-tracking-music.webp"
- },
- {
   "slug": "blender-mcp-character",
   "title": "Pinky in Blender",
   "seoTitle": "Pinky in Blender: AI Agent Character Animation",
@@ -174,6 +154,26 @@
   "poster": "/video/x/peekers.jpg",
   "image": null,
   "thumb": "/img/x/peekers.webp"
+ },
+ {
+  "slug": "hand-tracking-music",
+  "title": "Air Instrument",
+  "seoTitle": "Air Instrument: Hand Tracking Music",
+  "blurb": "Playing drums and synth in thin air, with a webcam and MediaPipe hand tracking.",
+  "meta": "Music R&D, 2025",
+  "year": "2025",
+  "html": "<p>No keys, no pads, no controller. Just a webcam, two hands and <a href=\"https://ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker\" target=\"_blank\" rel=\"noopener\">MediaPipe hand tracking</a>, turning gestures into music in real time.</p><p>Each hand has a job. The left one is the drummer: raise and drop fingers to bring the kick, snare, hi-hat and clap in and out of the beat. The right one is the synth: move it to shift the pitch and pinch to ride the volume. A waveform stretches between your hands and wobbles with whatever you're playing, and a step sequencer ticks along underneath.</p><p>A quick experiment from June 2025, while I was playing around with sound and new ways of making it. Think of it as a theremin that comes with its own drummer. It is surprisingly hard to stop once you start.</p>",
+  "links": [
+   {
+    "label": "MediaPipe Hand Landmarker",
+    "url": "https://ai.google.dev/edge/mediapipe/solutions/vision/hand_landmarker"
+   }
+  ],
+  "external": null,
+  "video": "/video/x/hand-tracking-music.mp4",
+  "poster": "/video/x/hand-tracking-music.jpg",
+  "image": null,
+  "thumb": "/img/x/hand-tracking-music.webp"
  },
  {
   "slug": "if-these-walls-could-talk",
