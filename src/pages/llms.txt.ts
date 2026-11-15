@@ -128,6 +128,7 @@ ${visitingRoles.map((r) => `- ${r.what}, ${r.where}`).join("\n")}
 - [Home](${url("/")}): who Pete is and what he does now
 - [AI consultancy, prototyping and training](${url("/ai")}): services, who it is for, and FAQ
 - [Digital twins, 3D city models and live data](${url("/digital-twins")}): digital twin prototypes, live data pipelines, geospatial data in Unreal Engine, who it is for and FAQ
+- [Software and data engineering](${url("/software-engineering")}): data platforms and pipelines, AI agents, APIs, web apps and realtime 3D pipelines; studio and client work with Crucial FX, Pathway, Draw & Code and TMRW; immersive work with Monster, Kia, IBM, BBC Three, Red Bull, Universal Music Group, Entain and Aardman; and FAQ
 - [Virtual production, LED volumes and ICVFX](${url("/virtual-production")}): virtual production in Manchester, Liverpool and the North West, Pathway's LED stage, motion capture, training and FAQ
 - [About](${url("/about")}): background and career
 - [Work](${url("/work")}): selected projects and roles

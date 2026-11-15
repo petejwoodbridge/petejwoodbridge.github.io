@@ -117,6 +117,7 @@ export const site = {
             { label: "AI Development", href: "/ai" },
             { label: "3D, Realtime & Virtual Production", href: "/virtual-production" },
             { label: "Digital Twins & Live Data", href: "/digital-twins" },
+            { label: "Software & Data Engineering", href: "/software-engineering" },
             { label: "Funding & Investment", href: "/funding" },
           ],
         },

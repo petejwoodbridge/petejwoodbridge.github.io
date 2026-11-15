@@ -1,0 +1,450 @@
+---
+import { u } from "../lib/url";
+import Base from "../layouts/Base.astro";
+import CursorField from "../components/CursorField.astro";
+import VideoBg from "../components/VideoBg.astro";
+import EmailLink from "../components/EmailLink.astro";
+import { site } from "../data/site";
+import { ids } from "../data/entities";
+
+// This page is for people searching for someone to build software rather than for Pete by name:
+// "data engineer Liverpool", "Python developer Manchester", "software development North West" and
+// so on. Keep the services and FAQ in plain words; search engines and AI assistants both quote
+// them directly, and the FAQ feeds the FAQPage structured data below.
+// Only claims Pete has made or the site already backs up go here: the work pages and the experiments.
+// Client projects lead; Pete's own experiments stay off this page. No invented clients, numbers or tools.
+
+const services = [
+  {
+    t: "Data platforms & pipelines",
+    d: "Systems that gather data from many sources, clean it, join it up and keep it current. Soundings sweeps the Companies House register every month into a live map of around 745,000 UK creative companies; Bearings reads over 1,100 funding sources every day.",
+  },
+  {
+    t: "AI agents & automation",
+    d: "Agents that do real work inside a product or a process, with AI used only where it earns its place: multi-agent systems, agentic workflows, and automation that reads, sorts and writes so people do not have to.",
+  },
+  {
+    t: "APIs & integrations",
+    d: "Wiring tools, models and data together: APIs to build on, integrations with the services you already use, and the plumbing between them. Bearings has a free open API, RSS feeds and a public system-health dashboard.",
+  },
+  {
+    t: "Web apps & tools",
+    d: "Browser-based tools and products people use every day, from finders and dashboards to creative tools, built to be clear, quick and easy to keep running.",
+  },
+  {
+    t: "Realtime 3D & engine pipelines",
+    d: "Software and pipelines around games engines and live production: Unreal Engine, Unity and the web, motion capture, tracking and LED, and the WebGL and WebAssembly engine work behind 3D in the browser.",
+  },
+  {
+    t: "Prototypes & technical R&D",
+    d: "Building the first working version fast enough to find out whether the idea holds up, then the technical research and development to take it further, on your own team or alongside it.",
+  },
+];
+
+// Where the software has been, role by role, with the client projects. Every line is on the matching work page.
+const history = [
+  {
+    t: "MusicFutures", y: "2025 – 2026", href: "/work/musicfutures",
+    d: "Technical research and development on a £7.2m programme with 28 partners.",
+    p: "Immersive experience project development with Universal Music Group for location-based experiences, and the data-mapping research into the UK creative industries that became Soundings, covered by the University of Liverpool, Insider Media and The Business Desk.",
+  },
+  {
+    t: "Dreamlab", y: "2024 – present", href: "/work/dreamlab",
+    d: "Founder and CTO of an R&D lab whose team covers games-engine development, software architecture and deployment, and AI product development.",
+    p: "Help for 100+ businesses and freelancers since 2024, and Bearings, the funding finder built with the lab.",
+  },
+  {
+    t: "MediaCity Innovation Hub", y: "2023 – 2025", href: "/work/mediacity",
+    d: "Technical development in the lab, and technical training and solutions for the businesses in a £3.2m accelerator's portfolio of 35+ collaborative projects.",
+    p: "Hacks and labs from virtual production film hacks to ComfyUI AI jams, with Manchester Animation Festival, Beyond Conference, Creative UK and FutureEverything.",
+  },
+  {
+    t: "Crucial FX", y: "2023", href: "/work/crucial-fx",
+    d: "Programming interactive technology for live events across software and hardware: Notch, Disguise, Ventuz, Unreal Engine, nDisplay and OptiTrack tracking.",
+    p: "Brand and experiential work with Monster, IBM, Kia, Costa and Sterling, and Qube Smash, an original mixed-reality football game in a tracked, projection-mapped room.",
+  },
+  {
+    t: "Pathway Studios", y: "2022", href: "/work/pathway",
+    d: "Production and R&D on a 6,000 sq ft LED volume: realtime content, in-camera VFX, machine learning and motion capture.",
+    p: "BBC Three's Project Ikon with Jason Derulo, ITV, a Sony virtual production event, McLaren, an ARRI test shooting virtual production on 65mm film, and 5G innovation projects.",
+  },
+  {
+    t: "Draw & Code", y: "2021 – 2022", href: "/work/draw-and-code",
+    d: "Mixed reality and virtual production R&D in Unreal Engine and Unity, with the systems and pipelines built around them.",
+    p: "The future of immersive live music with KOKO, Unity and Dolby Atmos at SXSW; hardware and pipeline support for a multimillion-pound mixed reality experience with Entain; motion capture pipelines for games with Avalon and for Taskmaster VR; R&D on Fanport, an immersive fan-experience product.",
+  },
+  {
+    t: "Room · TMRW Foundation", y: "2020 – 2021", href: "/work/room",
+    d: "Product Director on a web-based realtime games engine built with WebGL and WebAssembly, leading engineering teams across the globe: engine, front end, back end and infrastructure.",
+    p: "Room launched at SXSW in 2021 and went live globally in 2022: immersive 3D events straight in the browser.",
+  },
+  {
+    t: "Immersive Shaun the Sheep · Aardman", y: "2020", href: "/work/aardman",
+    d: "Co-investigator on a £1.08m AHRC research partnership.",
+    p: "A headset-free, AI-driven, spatially immersive Shaun the Sheep experience for Shanghai, with the University of Liverpool and Aardman.",
+  },
+  {
+    t: "XLab & MA Immersive Arts · LJMU", y: "2018 – 2020", href: "/work/xlab-ljmu",
+    d: "Co-Director of the Experimental Technologies Lab (XLab), and set up the MA Immersive Arts, teaching AR, VR, 3D and experience design.",
+    p: "Projects with museums and galleries, including National Museums Liverpool and St George's Hall.",
+  },
+  {
+    t: "SODA Manchester", y: "2015 – 2018", href: "/work/soda",
+    d: "Technical and creative teaching and research projects across creative multimedia and future filmmaking.",
+    p: "Immersive projects with the BBC and Manchester's European City of Science, and with several UK and international tech SMEs, alongside supporting the proposition for the £35m School of Digital Arts, bringing together storytelling, technology, games and design degrees.",
+  },
+  {
+    t: "Immersive Storylab", y: "Founded 2014", href: "https://web.archive.org/web/20191225135432/http://www.immersivestorylab.com/",
+    d: "Founder of an immersive storytelling collective, building much of its VR, AR and experiential technology.",
+    p: "Augmented reality on LNER trains for Fantasia Express with Innovate UK and Corporation Pop; the mixed reality heritage experience at St George's Hall with Microsoft, Dimension Studios and Culture Liverpool; and Maritime AR for ferries and cruise ships.",
+  },
+  {
+    t: "Centre for Disruptive Media", y: "2010 – 2015", href: "/work/disruptive-media",
+    d: "Software applications and innovations for open learning and digital publishing, including work featured in Wired.",
+    p: "One of the UK's first university iTunes sites, an early YouTube Edu partnership, and a photography class delivered entirely inside an app.",
+  },
+];
+
+// Dreamlab projects Pete has supported with technical and creative expertise, as he listed them.
+// The section that showed them is off the page for now; the list is kept for when it comes back.
+// The lines match how dreamlab.org.uk/work describes each one.
+const dreamlab = [
+  { t: "Base Films", d: "Pitch visualisation and realtime / AI workflow development for a virtual production pilot programme with Red Bull." },
+  { t: "Bright and Shiny", d: "AI avatars and an immersive 3D world for viking experience Havelocks Kingdom." },
+  { t: "BoardRoomIQ", d: "Prototype development for a new AI intelligence app and realtime avatar integration." },
+  { t: "Neuron", d: "Virtual production, networking and AI services." },
+  { t: "Quasi Science", d: "Testing of new virtual production lighting solutions." },
+];
+
+// Immersive, experiential, AR and VR work with clients and partners. The big names from the studio work
+// lead; research and heritage projects follow. Every line is on a work page or an experiment page.
+const xr = [
+  { t: "Brand experiences for Monster, Kia, IBM & Costa", href: "/work/crucial-fx", who: "Crucial FX · Monster · Kia · IBM · Costa · Sterling", d: "Interactive technology for live brand experiences: Notch, Disguise, Unreal Engine, OptiTrack tracking, large-scale LED and projection mapping." },
+  { t: "Project Ikon", href: "/work/pathway", who: "BBC Three · Jason Derulo · Pathway Studios", d: "Realtime content and in-camera VFX on a 6,000 sq ft LED volume." },
+  { t: "KOKO immersive live music at SXSW", href: "/work/draw-and-code", who: "KOKO · Unity · Dolby Atmos · Draw & Code", d: "Exploring the future of immersive live music." },
+  { t: "Red Bull virtual production pilot", href: "/work/dreamlab", who: "Red Bull · Base Films · Dreamlab", d: "Pitch visualisation and realtime and AI workflow development for a virtual production pilot programme." },
+  { t: "Universal Music Group location-based experiences", href: "/work/musicfutures", who: "Universal Music Group · MusicFutures", d: "Immersive experience project development for location-based experiences." },
+  { t: "Entain mixed reality experience", href: "/work/draw-and-code", who: "Entain · Draw & Code", d: "Hardware and pipeline support for a multimillion-pound mixed reality experience." },
+  { t: "Sony, McLaren, ITV & ARRI on the LED volume", href: "/work/pathway", who: "Sony · McLaren · ITV · ARRI · Pathway Studios", d: "A Sony virtual production event, McLaren and ITV projects, and an ARRI test shooting virtual production on 65mm film." },
+  { t: "Taskmaster VR & games mocap", href: "/work/draw-and-code", who: "Taskmaster VR · Avalon · Draw & Code", d: "Motion capture pipelines for commercial VR and games projects." },
+  { t: "Qube Smash", href: "/work/qube-smash", who: "Crucial FX", d: "An original mixed-reality football game: players tracked in real time in a projection-mapped room that reacts to every kick." },
+  { t: "Immersive Shaun the Sheep", href: "/work/aardman", who: "Aardman · AHRC · Shanghai Theatre Academy", d: "A headset-free, AI-driven mixed reality Shaun the Sheep experience, as co-investigator on a £1.08m research partnership." },
+  { t: "If These Walls Could Talk", href: "/experiments/volumetric-mixed-reality-heritage", who: "Microsoft · Dimension Studios · Culture Liverpool · University of Liverpool", d: "The world's first volumetrically filmed UNESCO heritage experience: HoloLens mixed reality, projection mapping and live performance across 5,000 sq ft of St George's Hall." },
+  { t: "Fantasia Express", href: "/experiments/fantasia-express", who: "Innovate UK · LNER · Corporation Pop", d: "Augmented reality storytelling inside and outside a moving train between London and Edinburgh, from a 12-month Innovate UK R&D project." },
+  { t: "Beacons for Science", href: "/experiments/beacons-for-science", who: "European City of Science · BBC R&D · Jodrell Bank · Manchester Art Gallery", d: "An AR and VR app for Manchester, triggered by beacons as you walk the city: around 15 experiences, from Jodrell Bank in VR and Brian Cox on the astrotram to the Ballad of the Ship Canal, a 360 film with BBC R&D." },
+  { t: "Secret Coast", href: "/experiments/secret-coast", who: "Digital Catapult · Arts Council England", d: "Location-based AR on the beach for the CreativeXR programme: spatialised AR scenes, volumetric film, mini games and spatial audio." },
+  { t: "Do Objects Dream?", href: "/experiments/dobjectsdream", who: "National Museums Liverpool", d: "An immersive audio-visual display that became a permanent exhibit in the World Museum's World Cultures gallery." },
+  { t: "Accident and Emergency", href: "/experiments/accident-and-emergency", who: "Liverpool Medical School · Royal Liverpool Hospital", d: "A VR health training project." },
+  { t: "Maritime AR", href: "/experiments/maritimear", who: "Meyouandus · LJMU · maritime industry", d: "AR storytelling and system design for ferries and cruise ships, presented at the International Marine Design Conference." },
+];
+
+// Platforms of Pete's own that are in real use. His GitHub experiments stay on the experiments page:
+// on this page the client work leads.
+const built = [
+  { t: "Soundings", href: "/work/soundings", d: "A live map of every registered UK creative company: agents, provenance on every fact, 65 regional views, and an evidence briefing for the Liverpool City Region Combined Authority." },
+  { t: "Bearings", href: "/work/bearings", d: "A funding finder for North West businesses, built with Dreamlab, reading over 1,100 sources a day, with AI eligibility reading, alerts and an open API." },
+];
+
+const steps = [
+  { t: "Understand the work", d: "What the people using it actually do, where it gets stuck, and what would make a difference." },
+  { t: "Prototype fast", d: "A working first version early, so the idea is tested on real data and real people before the budget is." },
+  { t: "Build it properly", d: "Then the version that lasts: clear structure, sources you can trace, and something people can keep running." },
+  { t: "Hand over or keep going", d: "Documented and handed to your team, or carried on together as it grows." },
+];
+
+const who = [
+  "Start-ups and SMEs that need something built",
+  "Creative, media, music and games studios",
+  "Teams that need a data platform, a pipeline or an API",
+  "Universities and research projects with a technical build",
+  "Public bodies and programmes that need a live picture, not a report",
+];
+
+const faqs = [
+  {
+    q: "Who is a software or data engineer in Liverpool I can talk to?",
+    a: "Pete Woodbridge is a Liverpool-based software engineer and creative technologist with twenty years of building software across games engines, studios, research and his own products. He builds data platforms, pipelines, APIs, AI agents, web apps and realtime 3D tools, and works with businesses across Liverpool, Manchester, the North West and the UK.",
+  },
+  {
+    q: "What do you build with?",
+    a: "Mostly Python, APIs and the web for data platforms, agents and tools, ComfyUI for AI image and video workflows, and Unreal Engine and Unity for realtime 3D, with WebGL and WebAssembly behind 3D in the browser.",
+  },
+  {
+    q: "Can you build a data pipeline or a data platform for us?",
+    a: "Yes. Soundings, which Pete built, sweeps the Companies House register every month into a live map of around 745,000 UK creative companies across 65 regions, with the source and date behind every fact. Bearings reads over 1,100 funding sources every day. The same approach works for your own data.",
+  },
+  {
+    q: "Can you build AI agents or automate part of our work?",
+    a: "Yes. Pete builds agents and agentic workflows that do real work inside a product or a process: prototype AI apps with realtime avatar integration for BoardRoomIQ, AI avatars for Bright and Shiny's viking experience Havelocks Kingdom, and the AI that reads eligibility for every opportunity in Bearings. AI is used only where it earns its place.",
+  },
+  {
+    q: "Do you work on realtime 3D and games-engine projects?",
+    a: "Yes. Pete has built software and pipelines around Unreal Engine and Unity at Draw & Code, Pathway Studios and Crucial FX, and was Product Director on a web-based realtime games engine at TMRW Foundation.",
+  },
+  {
+    q: "What projects have you built software and pipelines for?",
+    a: "Immersive, location-based experience development with Universal Music Group at MusicFutures; Room, a web-based realtime games engine at TMRW Foundation that launched at SXSW; mixed reality and motion capture pipelines at Draw & Code, for KOKO, Unity and Dolby Atmos, Entain, Avalon and Taskmaster VR; interactive live-event technology at Crucial FX for Monster, IBM, Kia and Costa, and the mixed-reality football game Qube Smash; LED volume production at Pathway Studios for BBC Three, ITV and McLaren; Dreamlab projects with Base Films and Red Bull, Bright and Shiny and BoardRoomIQ; and mixed reality and AR for Microsoft, Culture Liverpool, Innovate UK, BBC R&D and National Museums Liverpool.",
+  },
+  {
+    q: "Can you work alongside our own developers?",
+    a: "Yes. Pete has led and directed engineering teams, internal and outsourced, across games engine, front end, back end and infrastructure, and is used to building alongside a team or handing over to one.",
+  },
+  {
+    q: "Do you only work in the North West?",
+    a: "No. Most of the work is across the Liverpool City Region, Manchester and the North West, and software builds run remotely across the UK.",
+  },
+  {
+    q: "How do I get in touch?",
+    a: "LinkedIn is the quickest way, or email through the contact page. Send a line or two about what you want built and the problem it solves.",
+  },
+];
+
+const schema = [
+  {
+    "@type": "ProfessionalService",
+    "@id": "/software-engineering#service",
+    name: "Pete Woodbridge — software & data engineering",
+    description:
+      "Software and data engineering in Liverpool and Manchester: data platforms and pipelines, AI agents and automation, APIs and integrations, web apps and tools, realtime 3D and games-engine pipelines, and prototypes, for businesses and organisations across the North West and the UK.",
+    url: "/software-engineering",
+    image: "/img/og/bearings.jpg",
+    founder: { "@id": ids.person },
+    employee: { "@id": ids.person },
+    address: { "@type": "PostalAddress", addressLocality: "Liverpool", addressRegion: "Merseyside", addressCountry: "GB" },
+    areaServed: site.areasServed.map((a) => ({ "@type": "Place", name: a })),
+    knowsAbout: ["Software engineering", "Data engineering", "Data pipelines", "Python", "APIs", "AI agents", "Agentic workflows", "Web applications", "Unreal Engine", "Unity", "WebGL", "WebAssembly", "ComfyUI", "Prototyping"],
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Software and data engineering services",
+      itemListElement: services.map((s) => ({
+        "@type": "Offer",
+        itemOffered: { "@type": "Service", name: s.t, description: s.d, provider: { "@id": ids.person } },
+      })),
+    },
+  },
+  {
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  },
+  {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: "/" },
+      { "@type": "ListItem", position: 2, name: "Software & data engineering", item: "/software-engineering" },
+    ],
+  },
+];
+---
+<Base
+  title="Software & Data Engineering, Liverpool"
+  description="Software and data engineering in Liverpool and Manchester: data platforms and pipelines, AI agents, APIs, web apps and realtime 3D tools, built and shipped."
+  image="/img/og/bearings.jpg"
+  imageAlt="Pete Woodbridge, software and data engineering, Liverpool"
+  schema={schema}
+>
+  <section class="hero hero--short">
+    <VideoBg src={u("/video/bearings.mp4")} poster={u("/video/bearings.jpg")} soft />
+    <CursorField variant="topo" />
+    <div class="container hero__inner">
+      <h1 class="eyebrow">Software &amp; data engineering in Liverpool &amp; Manchester</h1>
+      <p class="display h-xl" style="margin:0">Software, Data &amp; Pipelines</p>
+      <p class="hero__sub">Data platforms, pipelines, APIs, AI agents, web apps and realtime 3D tools, built and shipped for studios, brands, broadcasters, museums and public bodies over twenty years.</p>
+      <div class="btn-row hero__actions">
+        <a class="btn btn--volt" href={site.linkedin} target="_blank" rel="noopener">Message me on LinkedIn about a build <span class="arrow" aria-hidden="true">↗</span></a>
+        <a class="btn" href="#services">What I build</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container grid grid-2" style="align-items:start">
+      <div data-reveal>
+        <p class="lead">Software has been at the heart of every role I've had, from games engines and studio pipelines to data platforms and AI.</p>
+      </div>
+      <div class="prose" data-reveal>
+        <p>I'm Pete Woodbridge, a software engineer and creative technologist based in Liverpool. At <a href={u("/work/room")}>TMRW Foundation</a> I was Product Director on a web-based realtime games engine, leading engineering teams across the globe. In the studios, at <a href={u("/work/draw-and-code")}>Draw &amp; Code</a>, <a href={u("/work/pathway")}>Pathway</a> and <a href={u("/work/crucial-fx")}>Crucial FX</a>, it was 3D software and the pipelines around Unreal Engine, Unity and live production.</p>
+        <p>Before that, I founded Immersive Storylab and built much of its VR, AR and experiential technology, on projects with Microsoft, Innovate UK and LNER. In universities I led technical and creative research: at <a href={u("/work/soda")}>SODA</a> in Manchester, immersive projects with the BBC and the European City of Science, and at LJMU, co-directing <a href={u("/work/xlab-ljmu")}>XLab</a> on projects with National Museums Liverpool and St George's Hall.</p>
+        <p>Running programmes, it was hands-on technical development: in the <a href={u("/work/mediacity")}>MediaCity Innovation Hub</a>'s lab, with technical training and solutions for the businesses we supported, and on <a href={u("/work/musicfutures")}>MusicFutures</a>, immersive, location-based experience development with Universal Music Group, and the data-mapping research that became <a href={u("/work/soundings")}>Soundings</a>. For Liverpool, I brought technical expertise to re-imagining the Littlewoods film studios as a 21st-century creative and technology campus.</p>
+        <p>Through <a href={u("/work/dreamlab")}>Dreamlab</a> I support studios and SMEs with the technical side of their projects, from AI avatars to virtual production pipelines, and I run two data platforms: Soundings, and <a href={u("/work/bearings")}>Bearings</a>, which reads over 1,100 funding sources every day.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line">
+    <div class="container grid grid-2" style="align-items:start">
+      <div data-reveal>
+        <p class="eyebrow">Who it is for</p>
+        <h2 class="display h-md">Teams with something worth building.</h2>
+      </div>
+      <div data-reveal>
+        <ul class="who">
+          {who.map((w) => <li>{w}</li>)}
+        </ul>
+        <p class="muted" style="margin-top:1.4rem">Based in Liverpool, working across the Liverpool City Region, Manchester, the North West and the rest of the UK.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section inverted" id="services">
+    <div class="container">
+      <p class="eyebrow" data-reveal>Services</p>
+      <h2 class="display h-lg" data-reveal style="max-width: 16ch; margin-bottom: clamp(32px,4vw,64px)">What I build.</h2>
+      <div class="services stagger" data-reveal>
+        {services.map((s, i) => (
+          <div class="pillar" style={`--i:${i}`}>
+            <div class="pillar__num">0{i + 1}</div>
+            <h3>{s.t}</h3>
+            <p>{s.d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line" id="history">
+    <div class="container grid grid-2" style="align-items:start">
+      <div data-reveal>
+        <p class="eyebrow">Studio &amp; client work</p>
+        <h2 class="display h-md">Every role, a build underneath.</h2>
+        <p class="muted" style="margin-top:1rem">Engineering, systems and pipelines across studios, platforms and programmes, and the projects they went into.</p>
+      </div>
+      <ul class="history" data-reveal>
+        {history.map((r) => (
+          <li><span class="history__y">{r.y}</span><a href={r.href.startsWith("http") ? r.href : u(r.href)} {...(r.href.startsWith("http") ? { target: "_blank", rel: "noopener" } : {})}>{r.t}</a><p class="muted">{r.d}</p><p class="history__p"><span class="history__k">Projects</span> {r.p}</p></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--line" id="xr">
+    <div class="container">
+      <div class="grid grid-2" style="align-items:end; margin-bottom: clamp(32px,4vw,56px)">
+        <div data-reveal>
+          <p class="eyebrow">Immersive, experiential, AR &amp; VR</p>
+          <h2 class="display h-lg" style="max-width:16ch">With partners worth naming.</h2>
+        </div>
+        <p class="lead muted" data-reveal>Immersive and realtime builds with brands, broadcasters, music companies, museums and funders, from projection-mapped brand experiences and LED volumes to HoloLens holograms and augmented reality on a moving train.</p>
+      </div>
+      <ul class="built" data-reveal>
+        {xr.map((b) => (
+          <li><a href={u(b.href)}><span class="built__w">{b.who}</span><span class="built__t">{b.t}</span><span class="built__d">{b.d}</span><span class="arrow" aria-hidden="true">↗</span></a></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section" id="built">
+    <div class="container">
+      <div class="grid grid-2" style="align-items:end; margin-bottom: clamp(32px,4vw,56px)">
+        <div data-reveal>
+          <p class="eyebrow">Platforms in use</p>
+          <h2 class="display h-lg" style="max-width:16ch">Data platforms I run.</h2>
+        </div>
+        <p class="lead muted" data-reveal>Two live platforms built and maintained alongside the client work.</p>
+      </div>
+      <ul class="built" data-reveal>
+        {built.map((b) => (
+          <li><a href={u(b.href)}><span class="built__t">{b.t}</span><span class="built__d">{b.d}</span><span class="arrow" aria-hidden="true">↗</span></a></li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--line" id="method">
+    <div class="container">
+      <div class="grid grid-2" style="align-items:end; margin-bottom: clamp(32px,4vw,56px)">
+        <div data-reveal>
+          <p class="eyebrow">How I work</p>
+          <h2 class="display h-lg" style="max-width:16ch">From prototype to running.</h2>
+        </div>
+        <p class="lead muted" data-reveal>Working software early, then the version that lasts.</p>
+      </div>
+      <ol class="steps stagger" data-reveal>
+        {steps.map((m, i) => (
+          <li style={`--i:${i}`}>
+            <span class="steps__num">0{i + 1}</span>
+            <h3>{m.t}</h3>
+            <p class="muted">{m.d}</p>
+          </li>
+        ))}
+      </ol>
+      <div class="stats method__stats" data-reveal>
+        <div class="stat"><div class="stat__num">745k</div><div class="stat__label">UK creative companies on Soundings' live map</div></div>
+        <div class="stat"><div class="stat__num">1,100+</div><div class="stat__label">funding sources Bearings reads every day</div></div>
+        <div class="stat"><div class="stat__num">20+</div><div class="stat__label">years building software, tools and pipelines</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line">
+    <div class="container grid grid-2" style="align-items:start">
+      <div data-reveal>
+        <p class="eyebrow">FAQ</p>
+        <h2 class="display h-md">Questions people ask about a build.</h2>
+      </div>
+      <div class="faq" data-reveal>
+        {faqs.map((f) => (
+          <details>
+            <summary>{f.q}</summary>
+            <p>{f.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--line cta">
+    <div class="container">
+      <h2 class="display h-xl" data-reveal>What do you need built?</h2>
+      <div class="cta__row" data-reveal>
+        <p class="lead measure muted">Tell me what you want built and the problem it solves. If it is a good fit, we will find out quickly, and if it is not, I will tell you.</p>
+        <div class="btn-row">
+          <a class="btn btn--volt" href={site.linkedin} target="_blank" rel="noopener">Message me on LinkedIn <span class="arrow" aria-hidden="true">↗</span></a>
+          <EmailLink class="btn" label="Email me" />
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>
+
+<style>
+  .services { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: 28px; border-top: 2px solid var(--volt-ink); }
+  .services .pillar { margin-right: 0; border-right: 0; border-bottom: 1px solid rgba(10,10,11,0.25); padding-right: 0; }
+  @media (max-width: 900px) { .services { grid-template-columns: 1fr; } }
+  .built { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); column-gap: clamp(24px, 3vw, 48px); border-top: 1px solid var(--line); }
+  .built a { position: relative; display: block; padding: 20px 32px 20px 0; border-bottom: 1px solid var(--line); transition: color 0.2s; }
+  .built__t { display: block; font-family: var(--font-display); font-weight: 800; font-size: clamp(1.2rem, 1.7vw, 1.55rem); letter-spacing: -0.03em; line-height: 1.05; text-transform: uppercase; }
+  .built__w { display: block; margin-bottom: 0.35rem; font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--volt); }
+  .built__d { display: block; margin-top: 0.4rem; color: var(--muted); font-size: 0.98rem; }
+  .built .arrow { position: absolute; top: 22px; right: 0; color: var(--volt); }
+  @media (hover: hover) { .built a:hover .built__t { color: var(--volt); } }
+  @media (max-width: 800px) { .built { grid-template-columns: 1fr; } }
+  .dl { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(2, 1fr); column-gap: clamp(24px, 3vw, 48px); border-top: 1px solid var(--line); }
+  .dl li { padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .dl__t { display: block; font-weight: 700; }
+  .dl__d { display: block; margin-top: 0.3rem; color: var(--muted); font-size: 0.96rem; }
+  @media (max-width: 800px) { .dl { grid-template-columns: 1fr; } }
+  .history { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  .history li { padding: 16px 0; border-bottom: 1px solid var(--line); }
+  .history a { font-weight: 700; text-decoration: underline; text-decoration-color: var(--volt); text-underline-offset: 0.18em; }
+  .history p { margin: 0.35rem 0 0; font-size: 0.98rem; }
+  .history__p { color: var(--ink); }
+  .history__y { display: block; margin-bottom: 0.25rem; font-family: var(--font-display); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.05em; color: var(--volt); }
+  .history__k { font-size: 0.7rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--volt); margin-right: 0.4em; }
+  .steps { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(18px, 2.5vw, 36px); border-top: 1px solid var(--line); }
+  .steps li { padding-top: 24px; }
+  .steps__num { display: block; font-family: var(--font-display); font-weight: 700; color: var(--volt); font-size: 0.85rem; letter-spacing: 0.05em; margin-bottom: 0.9rem; }
+  .steps h3 { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.3rem, 1.8vw, 1.7rem); letter-spacing: -0.03em; line-height: 1; text-transform: uppercase; margin-bottom: 0.7rem; }
+  .steps p { margin: 0; font-size: 0.98rem; }
+  @media (max-width: 900px) { .steps { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 560px) { .steps { grid-template-columns: 1fr; } }
+  .method__stats { margin-top: clamp(40px, 5vw, 72px); grid-template-columns: repeat(3, 1fr); }
+  .method__stats .stat:last-child { border-right: 0; }
+  @media (max-width: 900px) { .method__stats { grid-template-columns: 1fr; } .method__stats .stat { border-right: 0; border-bottom: 1px solid var(--line); } .method__stats .stat:last-child { border-bottom: 0; } }
+  .who { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+  .who li { padding: 14px 0; border-bottom: 1px solid var(--line); font-weight: 600; }
+</style>
