@@ -44,7 +44,7 @@ const services = [
   },
   {
     t: "Bid review & finding the right fund",
-    d: "An independent read of your application before it goes in, from someone who reviews bids for national funders. Not sure where to apply? Bearings, the free funding finder I built, reads over 1,100 sources every day.",
+    d: "An independent read of your application before it goes in, from someone who reviews bids for national funders. Not sure where to apply? Bearings, the free funding finder I built with Dreamlab, reads over 1,100 sources every day.",
   },
 ];
 
@@ -66,7 +66,7 @@ const who = [
 const faqs = [
   {
     q: "Who can help me write an Innovate UK bid in Liverpool or Manchester?",
-    a: "Pete Woodbridge is a Liverpool-based innovation leader who has worked on the bids behind 50+ funded R&D collaborations and his own projects funded by Innovate UK, UKRI, the AHRC and the National Lottery Heritage Fund. He reviews bids for the EPSRC, CoSTAR and Digital Catapult, and helps businesses across Liverpool, Manchester, the North West and the rest of the UK shape and write funding applications.",
+    a: "Pete Woodbridge is a Liverpool-based innovation leader who has worked on the bids behind 50+ funded R&D collaborations, as well as his own projects funded by Innovate UK, UKRI, the AHRC and the National Lottery Heritage Fund. He reviews bids for the EPSRC, CoSTAR and Digital Catapult, and helps businesses across Liverpool, Manchester, the North West and the rest of the UK shape and write funding applications.",
   },
   {
     q: "What kinds of funding have you worked on?",
@@ -82,7 +82,7 @@ const faqs = [
   },
   {
     q: "We have an idea but do not know which funder to go to. Can you help?",
-    a: "Yes, that is often the first step. Bearings (https://getbearings.co.uk/), the free funding finder Pete built with dreamlab, lists grants, investment, tenders and support for North West businesses, and Pete can help work out which of them fits and how to make the case.",
+    a: "Yes, that is often the first step. Bearings (https://getbearings.co.uk/), the free funding finder Pete built with Dreamlab, lists grants, investment, tenders and support for North West businesses, and Pete can help work out which of them fits and how to make the case.",
   },
   {
     q: "Can you review a bid we have already written?",
@@ -90,7 +90,7 @@ const faqs = [
   },
   {
     q: "Do you work on large multi-partner bids?",
-    a: "Yes. Pete has developed and led £12m of innovation programmes and projects, helped the region win the £7.2m MusicFutures programme with 28 partners, helped the city re-imagine the Littlewoods film studios in Liverpool as a 21st-century creative and technology campus, working on the demand case and technical expertise for a project recently awarded a £20 million commitment from the Treasury's Growth Mission Fund, and supported the development of the proposition for Manchester's £35m School of Digital Arts, as curriculum development lead during its bid.",
+    a: "Yes. Pete has developed and led £12m of innovation programmes and projects, helped the region win the £7.2m MusicFutures programme with 28 partners, helped the city re-imagine the Littlewoods film studios in Liverpool as a 21st-century creative and technology campus, contributing the demand case and technical expertise to a project recently awarded a £20 million commitment from the Treasury's Growth Mission Fund, and supported the development of the proposition for Manchester's £35m School of Digital Arts, as curriculum development lead during its bid.",
   },
   {
     q: "Do you only work in the North West?",
@@ -154,8 +154,8 @@ const schema = [
     <CursorField variant="bars" />
     <div class="container hero__inner">
       <h1 class="eyebrow">Funding bids, grants &amp; investment business cases</h1>
-      <p class="display h-xl" style="margin:0">Bidwriting, Partnerships &amp; Investment</p>
-      <p class="hero__sub">Grants, investment and deals. I help shape the project, build the case and write the bid, from someone who has worked on the bids behind 50+ funded R&amp;D collaborations and reviews them for national funders.</p>
+      <p class="display h-xl" style="margin:0">Bidwriting, partnerships &amp; investment.</p>
+      <p class="hero__sub">Grants, investment and deals. I help shape the project, build the case and write the bid. I have worked on the bids behind 50+ funded R&amp;D collaborations, and I review bids for national funders.</p>
       <div class="btn-row hero__actions">
         <a class="btn btn--volt" href={site.linkedin} target="_blank" rel="noopener">Message me on LinkedIn about a bid <span class="arrow" aria-hidden="true">↗</span></a>
         <a class="btn" href="#services">What I can help with</a>
@@ -169,9 +169,9 @@ const schema = [
         <p class="lead">Good ideas lose funding all the time, because the case was not made the way the people deciding needed to see it.</p>
       </div>
       <div class="prose" data-reveal>
-        <p>I'm Pete Woodbridge, an innovation leader and creative technologist based in Liverpool. Almost every project I have run was paid for by a bid I worked on: my own projects with {funders.slice(0, -1).join(", ")} and {funders[funders.length - 1]}, and the bids behind the 50+ companies and collaborations in my programmes at the <a href={u("/work/mediacity")}>MediaCity Innovation Hub</a> and <a href={u("/work/dreamlab")}>Dreamlab</a>.</p>
-        <p>At a bigger scale, I helped the region win <a href={u("/work/musicfutures")}>MusicFutures</a>, a £7.2m programme with 28 partners, and have developed and led £12m of innovation programmes and projects. I also helped the city re-imagine the Littlewoods film studios in Liverpool as a 21st-century creative and technology campus, working on the demand case and providing technical expertise. The project has recently been <a href="https://www.bbc.co.uk/news/articles/cqz0ve188r94o" target="_blank" rel="noopener">awarded a £20 million commitment</a>, directly from the Treasury's Growth Mission Fund. Before that, I supported the development of the proposition for Manchester's £35m <a href={u("/work/soda")}>School of Digital Arts</a>, a facility bringing together storytelling, technology, games and design degrees. I also sit on the other side of the table, reviewing bids for the EPSRC, CoSTAR and Digital Catapult, so I know what assessors score down.</p>
-        <p>And if you do not yet know where to apply, <a href="https://getbearings.co.uk/" target="_blank" rel="noopener">Bearings, the free funding finder I built</a>, reads over 1,100 funding sources every day.</p>
+        <p>I'm Pete Woodbridge, an innovation leader and creative technologist based in Liverpool. Almost every project I have run was paid for by a bid I worked on: my own projects with {funders.slice(0, -1).join(", ")} and {funders[funders.length - 1]}, and the bids behind the 50+ funded R&amp;D collaborations in my programmes at the <a href={u("/work/mediacity")}>MediaCity Innovation Hub</a> and <a href={u("/work/dreamlab")}>Dreamlab</a>.</p>
+        <p>At a bigger scale, I helped the region win <a href={u("/work/musicfutures")}>MusicFutures</a>, a £7.2m programme with 28 partners, and have developed and led £12m of innovation programmes and projects. I also helped the city re-imagine the Littlewoods film studios in Liverpool as a 21st-century creative and technology campus, working on the demand case and providing technical expertise. The project has recently been <a href="https://www.bbc.co.uk/news/articles/cqz0ve188r94o" target="_blank" rel="noopener">awarded a £20 million commitment</a> from the Treasury's Growth Mission Fund. Before that, I supported the development of the proposition for Manchester's £35m <a href={u("/work/soda")}>School of Digital Arts</a>, a facility bringing together storytelling, technology, games and design degrees. And I sit on the other side of the table, reviewing bids for the EPSRC, CoSTAR and Digital Catapult, so I know what assessors score down.</p>
+        <p>And if you do not yet know where to apply, <a href="https://getbearings.co.uk/" target="_blank" rel="noopener">Bearings, the free funding finder I built with Dreamlab</a>, reads over 1,100 funding sources every day.</p>
       </div>
     </div>
   </section>

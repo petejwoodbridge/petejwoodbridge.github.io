@@ -20,7 +20,7 @@
   "year": "2026"
  },
  {
-  "text": "Press links about my Data Mapping research into the UK Creative Industries - University of Liverpool, Insider Media, Business Desk + MusicFutures (was also interviewed about it on BBC Merseyside)",
+  "text": "Coverage of my data-mapping research into the UK creative industries from the University of Liverpool, Insider Media, The Business Desk and MusicFutures. I was also interviewed about it on BBC Merseyside.",
   "links": [
    {
     "label": "University of Liverpool",
@@ -31,7 +31,7 @@
     "url": "https://www.insidermedia.com/news/north-west/one-in-five-creative-businesses-in-the-lcr-operate-in-music-report"
    },
    {
-    "label": "Business Desk",
+    "label": "The Business Desk",
     "url": "https://www.thebusinessdesk.com/northwest/news/2176917-liverpool-city-region-setting-pace-in-fast-expanding-music-and-ai-sectors"
    },
    {
@@ -42,7 +42,7 @@
   "year": "2026"
  },
  {
-  "text": "Prolific North Article mentioning my AI talk at Beyond Conference",
+  "text": "Prolific North article on Beyond 2025, mentioning my AI talk",
   "links": [
    {
     "label": "AI talk at Beyond Conference",
@@ -52,10 +52,10 @@
   "year": "2025"
  },
  {
-  "text": "Was part of a panel on Immersive Experiences at Prolific North Digital Cities Festival, Read the Write up here",
+  "text": "I was on a panel on innovation in the media industries at Prolific North's Digital City Festival; read the write-up.",
   "links": [
    {
-    "label": "Prolific North Digital Cities Festival",
+    "label": "Prolific North Digital City Festival",
     "url": "https://www.prolificnorth.co.uk/news/we-are-underserved-northern-broadcast-and-media-leaders-unite-for-digital-city-festivals-made-in-the-north-summit/"
    }
   ],
@@ -72,10 +72,10 @@
   "year": "2024"
  },
  {
-  "text": "Several Projects That I worked on whilst at Pathway Featured in British Cinematographer: Focus on Virtual Production Volume 2 Magazine Launch of an Indie Virtual Production Incubator in Manchester, featured in Broadcast Magazine and British Cinematographer Write up in Campaign Magazine and Little Black Book about a charity advert I helped produce for National Energy Action",
+  "text": "Several projects I worked on at Pathway featured in British Cinematographer's Focus on Virtual Production, Volume 2. Broadcast and British Cinematographer covered the launch of Pathway's indie virtual production incubator in Manchester, and Campaign and Little Black Book wrote up a charity advert I helped produce for National Energy Action.",
   "links": [
    {
-    "label": "British Cinematographer: Focus on Virtual Production Volume 2 Magazine",
+    "label": "British Cinematographer: Focus on Virtual Production, Volume 2",
     "url": "https://britishcinematographer.co.uk/focus-on-guide-virtual-production-2/"
    },
    {
@@ -83,7 +83,7 @@
     "url": "https://web.archive.org/web/20230103121140/https://www.pathwayxr.studio/indie-incubator"
    },
    {
-    "label": "Broadcast Magazine",
+    "label": "Broadcast",
     "url": "https://www.broadcastnow.co.uk/tech/pathway-launches-2m-virtual-production-innovation-incubator/5177667.article"
    },
    {
@@ -91,7 +91,7 @@
     "url": "https://britishcinematographer.co.uk/pathway-opens-2-5m-in-kind-incubator-to-kickstart-creative-rebellion-in-virtual-production/"
    },
    {
-    "label": "Campaign Magazine",
+    "label": "Campaign",
     "url": "https://www.campaignlive.co.uk/article/national-energy-action-warm-country-twice-collective/1808835"
    },
    {
@@ -102,7 +102,7 @@
   "year": "2022"
  },
  {
-  "text": "Pathway Studios, Manchester Based LED Volume Launches in Manchester. Featured in TVB Europe, British Cinematographer and Broadcast Now",
+  "text": "Pathway Studios, a Manchester LED volume, launches. Featured in TVB Europe, British Cinematographer and Broadcast.",
   "links": [
    {
     "label": "TVB Europe",
@@ -113,14 +113,28 @@
     "url": "https://britishcinematographer.co.uk/pathway-launches-manchester-based-virtual-production-innovation-lab/"
    },
    {
-    "label": "Broadcast Now",
+    "label": "Broadcast",
     "url": "https://www.broadcastnow.co.uk/tech/pathway-opens-manchester-virtual-production-facility/5177193.article"
    }
   ],
   "year": "2022"
  },
  {
-  "text": "ROOM SXSW launch in this article about video meetings in virtual rooms and this article on Futura Tech",
+  "text": "Room's global launch at GITEX Global, featured in Tech.eu and VentureBeat.",
+  "links": [
+   {
+    "label": "Tech.eu",
+    "url": "https://tech.eu/2022/10/10/bringing-teams-together-again-3d-video-communications-platform-room-goes-live-launches-their-founders-plan"
+   },
+   {
+    "label": "VentureBeat",
+    "url": "https://venturebeat.com/games/cevat-yerli-created-room-for-3d-animated-video-conferencing/"
+   }
+  ],
+  "year": "2022"
+ },
+ {
+  "text": "Room's SXSW launch, covered in an article on video meetings in virtual rooms and by Futura Tech.",
   "links": [
    {
     "label": "video meetings in virtual rooms",
@@ -134,21 +148,7 @@
   "year": "2021"
  },
  {
-  "text": "ROOM Citex Global Launch, Featured in Tech EU, Venturebeat",
-  "links": [
-   {
-    "label": "Tech EU",
-    "url": "https://tech.eu/2022/10/10/bringing-teams-together-again-3d-video-communications-platform-room-goes-live-launches-their-founders-plan"
-   },
-   {
-    "label": "Venturebeat",
-    "url": "https://venturebeat.com/games/cevat-yerli-created-room-for-3d-animated-video-conferencing/"
-   }
-  ],
-  "year": "2022"
- },
- {
-  "text": "Mentioned in this paper on the future of work, called 'Hyper Collaboration in the Age of Digital Globalisation' by Dr Evaristo Doria",
+  "text": "Mentioned in Dr Evaristo Doria's article on the future of work, 'Hyper Collaboration in the Age of Digital Globalisation'.",
   "links": [
    {
     "label": "'Hyper Collaboration in the Age of Digital Globalisation'",
@@ -158,22 +158,22 @@
   "year": "2020"
  },
  {
-  "text": "Press release about my BIMA100 (British Interactive Media Association) award where I was named among the top 100 creatives in the Interactive Media industry.",
+  "text": "LJMU press release on my BIMA 100 listing (British Interactive Media Association), which named me among the UK's 100 top creatives in interactive media.",
   "links": [
    {
-    "label": "BIMA100 (British Interactive Media Association) award",
+    "label": "LJMU: BIMA 100 listing",
     "url": "https://www.ljmu.ac.uk/about-us/news/articles/2020/5/6/immersive-arts-pioneer-named-among-uks-100-top-creatives"
    }
   ],
   "year": "2020"
  },
  {
-  "text": "Radio mention on BBC Merseyside about the Virtual World Museum project",
+  "text": "Radio mention on BBC Merseyside about the Virtual World Museum project.",
   "links": [],
   "year": "2020"
  },
  {
-  "text": "Radio Interview about Immersive Technologies and Corona Virus on Dublin City FM - The Persuaders show",
+  "text": "Radio interview about immersive technologies and coronavirus on Dublin City FM's The Persuaders.",
   "links": [
    {
     "label": "Dublin City FM - The Persuaders show",
@@ -183,7 +183,7 @@
   "year": "2020"
  },
  {
-  "text": "Article about our Virtual World Museum collaborative project in the Liverpool Echo, on Invest Liverpool, China.orgetc",
+  "text": "Article about our Virtual World Museum collaborative project in the Liverpool Echo and on Invest Liverpool.",
   "links": [
    {
     "label": "Liverpool Echo",
@@ -192,16 +192,12 @@
    {
     "label": "Invest Liverpool",
     "url": "https://web.archive.org/web/20210301124425/https://www.investliverpool.com/news/explore-the-world-from-liverpool/"
-   },
-   {
-    "label": "China.org",
-    "url": "https://www.liverpoolecho.co.uk/whats-on/whats-on-news/tours-liverpool-attractions-more-you-17975598"
    }
   ],
   "year": "2020"
  },
  {
-  "text": "Press release about the Immersive Shaun the Sheep Aardman Creative Industry research project that I am the co-investigator for. Also featured on Blooloop Attractions Business Newsletter, Invest Liverpool",
+  "text": "University of Liverpool press release on the Immersive Shaun the Sheep research project with Aardman, on which I was a co-investigator. Also covered by Blooloop and Invest Liverpool.",
   "links": [
    {
     "label": "Immersive Shaun the Sheep Aardman Creative Industry research project",
@@ -219,7 +215,7 @@
   "year": "2020"
  },
  {
-  "text": "Article on the AHRC UK-China Creative Industry Academic partnerships project I was involved with.",
+  "text": "Article on the AHRC UK–China creative industries academic partnerships project I was involved in.",
   "links": [
    {
     "label": "AHRC UK-China Creative Industry Academic partnerships project",
@@ -229,7 +225,7 @@
   "year": "2019"
  },
  {
-  "text": "Article on Digital Placemaking: 2019 at a Glance mentions my work on Calvium blog",
+  "text": "Dr Jo Morrison's 'Digital Placemaking: 2019 at a Glance' mentions my work.",
   "links": [
    {
     "label": "Digital Placemaking: 2019 at a Glance",
@@ -239,17 +235,17 @@
   "year": "2019"
  },
  {
-  "text": "Press Release about the Launch of a MA Virtual Reality, Augmented Reality and Immersive Arts in VRFocus",
+  "text": "VRFocus on the launch of LJMU's MA Immersive Arts, covering VR and AR.",
   "links": [
    {
-    "label": "MA Virtual Reality, Augmented Reality and Immersive Arts",
+    "label": "VRFocus: LJMU launches immersive arts degree",
     "url": "https://web.archive.org/web/20210927165310/https://www.vrfocus.com/2019/06/liverpools-john-moores-university-launches-immersive-arts-degree-looking-at-vr-ar/"
    }
   ],
   "year": "2019"
  },
  {
-  "text": "Immersive Storytelling Experiences Research Symposium #immersivestorytelling coverage: Placejam, Twitter #immersivestorytelling and various other places, including the LJMU Website",
+  "text": "Coverage of the Immersive Storytelling Experiences Research Symposium on Placejam, the LJMU website and Twitter (#immersivestorytelling).",
   "links": [
    {
     "label": "Placejam",
@@ -267,7 +263,7 @@
   "year": "2018"
  },
  {
-  "text": "Press Release about the Digital Placemaking/Mixed Reality work with UNESCO at Uni of Liverpool also featured on the University of Liverpool homepage",
+  "text": "University of Liverpool press release on our digital placemaking and mixed reality work with UNESCO, also featured on the university's homepage.",
   "links": [
    {
     "label": "Digital Placemaking/Mixed Reality work with UNESCO at Uni of Liverpool",
@@ -277,7 +273,7 @@
   "year": "2018"
  },
  {
-  "text": "Write up of my Mixed Reality and Augmented Reality work on Testbed",
+  "text": "Write-up of my mixed reality and augmented reality work on The Testbed.",
   "links": [
    {
     "label": "Mixed Reality and Augmented Reality",
@@ -287,12 +283,12 @@
   "year": "2018"
  },
  {
-  "text": "Secret Coast Case Study on our partners website",
+  "text": "Secret Coast case study on our partner's website.",
   "links": [],
   "year": "2018"
  },
  {
-  "text": "A press release about the Immersive Liverpool delegation's work in Dublin",
+  "text": "A press release about the Immersive Liverpool delegation's work in Dublin.",
   "links": [
    {
     "label": "Immersive Liverpool delegation's work in Dublin",
@@ -302,7 +298,7 @@
   "year": "2018"
  },
  {
-  "text": "A press release mentioning the talk I gave at the Northern Media Summit in Manchester and Leeds",
+  "text": "An Isle of Media write-up mentioning my talk at the Northern Media Summit.",
   "links": [
    {
     "label": "Northern Media Summit",
@@ -312,12 +308,12 @@
   "year": "2018"
  },
  {
-  "text": "Immersive Liverpool group has had some coverage at Invest Liverpool: Immersive Technology",
+  "text": "Invest Liverpool covered the Immersive Liverpool network in its piece on immersive technology.",
   "links": [],
   "year": "2018"
  },
  {
-  "text": "The Fantasia Express project that we are working on with several companies including lead company Me, You and Us, Corporation Pop and Virgin Trains East Coast: Mentioned in a Speech by the Rail Minister and articles by the Railway Gazette, Business Cloud and VR Focus",
+  "text": "The Fantasia Express project, which I worked on with lead company Me, You and Us, Corporation Pop and Virgin Trains East Coast, was mentioned in a speech by the Rail Minister and in the Railway Gazette, BusinessCloud and VRFocus.",
   "links": [
    {
     "label": "Me, You and Us",
@@ -347,7 +343,7 @@
   "year": "2018"
  },
  {
-  "text": "The Coast AR project gets a few mentions as part of the Digital Catapult and Arts Council Press release on the CreativeXR programme that I am part of: VR Focus, The Internet of Business, Advanced Television, Arts Professional, TVBEurope, Digital Catapult Creative XR Programme",
+  "text": "The Secret Coast AR project was mentioned in Digital Catapult and Arts Council England's announcement of the CreativeXR programme, which I was part of, and in coverage by VRFocus, Internet of Business, Advanced Television, Arts Professional and TVB Europe.",
   "links": [
    {
     "label": "CreativeXR",
@@ -366,27 +362,27 @@
     "url": "https://www.artsprofessional.co.uk/news/magic-and-immersion-arts-organisations-experiment-vr"
    },
    {
-    "label": "TVBEurope",
+    "label": "TVB Europe",
     "url": "https://www.tvbeurope.com/business/arts-council-offers-support-to-20-immersive-content-creators"
    }
   ],
   "year": "2018"
  },
  {
-  "text": "\"Determining visitor engagement through augmented reality at science festivals: An experience economy perspective\" in the \"Computers for Human Behaviour Journal\" is about research conducted for an AR app that I developed for Manchester Science City.",
+  "text": "'Determining visitor engagement through augmented reality at science festivals: An experience economy perspective', in Computers in Human Behavior, is about research on an AR app I developed for Manchester's European City of Science.",
   "links": [
    {
-    "label": "Determining visitor engagement through augmented reality at science festivals: An experience economy perspective\" in the \"Computers for Human Behaviour Journal\"",
+    "label": "Computers in Human Behavior: visitor engagement through AR at science festivals",
     "url": "https://www.sciencedirect.com/science/article/pii/S074756321730729X"
    }
   ],
   "year": "2018"
  },
  {
-  "text": "Immersive Storylab gets a mention in this article about Immersive Theatre - Immersive Storylab",
+  "text": "Immersive Storylab is mentioned in a CIO UK article on the Royal Opera House and immersive theatre.",
   "links": [
    {
-    "label": "Immersive Theatre - Immersive Storylab",
+    "label": "CIO UK: Royal Opera House CTO on immersive AR and VR",
     "url": "https://web.archive.org/web/20170925015723/https://www.cio.co.uk/it-leadership/royal-opera-house-cto-on-bringing-immersive-ar-vr-technologies-stage-3663908/"
    }
   ],
@@ -396,24 +392,24 @@
   "text": "BusinessCloud 'The Future of VR' event in Manchester, June 2017",
   "links": [
    {
-    "label": "The Future of VR'",
+    "label": "The Future of VR (video)",
     "url": "https://www.youtube.com/watch?v=0dj2Ai0QCqQ&t=14s"
    }
   ],
   "year": "2017"
  },
  {
-  "text": "Mentioned in the Meccsa Three D Newsletter meccsa-threed-issue027, p30, December 2016",
+  "text": "Mentioned in MeCCSA's Three D newsletter, issue 27, p. 30, December 2016.",
   "links": [
    {
-    "label": "meccsa-threed-issue027",
+    "label": "MeCCSA Three D, issue 27 (PDF)",
     "url": "https://web.archive.org/web/20231206133346/http://www.petewoodbridge.info/wp-content/uploads/2010/09/Meccsa-ThreeD-Issue027.pdf"
    }
   ],
   "year": "2016"
  },
  {
-  "text": "Article mentioning my Future Screens talk and research at Journal of Media Practice 16/12/16",
+  "text": "MeCCSA article mentioning my Future Screens talk and research at the Journal of Media Practice symposium, December 2016.",
   "links": [
    {
     "label": "Future Screens talk and research at Journal of Media Practice",
@@ -423,7 +419,7 @@
   "year": "2016"
  },
  {
-  "text": "Article on the Future of Filmmaking on Manchester School of Art 2/8/16",
+  "text": "Article on the future of filmmaking on the Manchester School of Art website, August 2016.",
   "links": [
    {
     "label": "Manchester School of Art",
@@ -433,7 +429,7 @@
   "year": "2016"
  },
  {
-  "text": "Some VR films on display at Manchester Arndale as part of a public engagement event on VR and AR. 1/8/16",
+  "text": "Some of my VR films were shown at Manchester Arndale as part of a public engagement event on VR and AR, August 2016.",
   "links": [
    {
     "label": "VR films on display at Manchester Arndale",
@@ -443,10 +439,10 @@
   "year": "2016"
  },
  {
-  "text": "Beacons for Science Articles on University of Salford website, Manchester Evening News plus other articles on the Manchester Metropolitan Staff Website, Manchester Met News Site and Manchester School of Art Website 22/06/16",
+  "text": "Beacons for Science coverage on the University of Salford website and in the Manchester Evening News, plus articles on the Manchester Met staff site, the Manchester Met news site and the Manchester School of Art website, 2016.",
   "links": [
    {
-    "label": "Beacons for Science Articles on University of Salford website",
+    "label": "University of Salford",
     "url": "https://web.archive.org/web/20161112162750/http://www.salford.ac.uk/news/articles/2016/coxemon-is-go-at-science-in-the-city-festival"
    },
    {
@@ -469,17 +465,22 @@
   "year": "2016"
  },
  {
-  "text": "2015 JISC Report mentioning the Photography app, iTunes podcasting, open media classes work that I created http://repository.jisc.ac.uk/6069/1/JR0041_OPEN_EDUCATION_REPORT_V3.pdf",
+  "text": "A 2015 JISC report on open education mentions the photography app, iTunes podcasting and the open media classes I created.",
   "links": [
    {
-    "label": "http://repository.jisc.ac.uk/6069/1/JR0041_OPEN_EDUCATION_REPORT_V3.pdf",
+    "label": "JISC open education report (PDF)",
     "url": "http://repository.jisc.ac.uk/6069/1/JR0041_OPEN_EDUCATION_REPORT_V3.pdf"
    }
   ],
   "year": "2015"
  },
  {
-  "text": "Article about the Shakespeare Unplugged Project developed with the Technology Strategy Board, Shakespeare Birthplace Trust - BBC News 13/06/12",
+  "text": "My tutor and mentor profile on the Raindance Postgraduate Degree in Film.",
+  "links": [],
+  "year": "2013"
+ },
+ {
+  "text": "BBC News on Shakespeare Unplugged, a project developed with the Technology Strategy Board and the Shakespeare Birthplace Trust, June 2012.",
   "links": [
    {
     "label": "BBC News",
@@ -489,12 +490,7 @@
   "year": "2012"
  },
  {
-  "text": "My Tutor/Mentor Profile on the Raindance Postgraduate Degree in Film",
-  "links": [],
-  "year": "2013"
- },
- {
-  "text": "Article in 'Regional Film and Video News' on the World's First Phone App for a Media Degree 10/10/11- also similar article in Coventry Telegraph",
+  "text": "Regional Film & Video (4RFV) on the world's first phone app for a media degree, October 2011; the Coventry Telegraph ran a similar piece.",
   "links": [
    {
     "label": "World's First Phone App for a Media Degree",
@@ -504,7 +500,7 @@
   "year": "2011"
  },
  {
-  "text": "My Photography App Featured in the British Journal of Photography, Professional Photographer Magazine and PDN Pulse - February and March 2011. It also featured in the Times Higher",
+  "text": "My photography app featured in the British Journal of Photography, Professional Photographer and PDN Pulse in February and March 2011, and in the Times Higher.",
   "links": [
    {
     "label": "British Journal of Photography",

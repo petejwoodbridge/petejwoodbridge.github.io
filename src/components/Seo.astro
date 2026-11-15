@@ -31,7 +31,7 @@ const person = {
   // The homepage is the profile page about this Person.
   mainEntityOfPage: { "@id": new URL("/#profilepage", base).toString() },
   ...(site.portrait ? { image: new URL(u(site.portrait), base).toString() } : {}),
-  jobTitle: [...site.jobTitles, "Founder & Chief Technical Officer, dreamlab"],
+  jobTitle: [...site.jobTitles, "Founder & Chief Technology Officer, dreamlab"],
   description: site.description,
   worksFor: dreamlabOrg,
   // Profiles of Pete himself only. Organisations he works with go in `affiliation`,
@@ -51,7 +51,7 @@ const person = {
     occupationLocation: { "@type": "City", name: "Liverpool" },
     skills: site.expertise.join(", "),
   })),
-  makesOffer: ["/ai#service", "/funding#service", "/digital-twins#service"].map((p) => ({ "@type": "Offer", itemOffered: { "@id": new URL(u(p), base).toString() } })),
+  makesOffer: ["/ai#service", "/software-engineering#service", "/digital-twins#service", "/virtual-production#service", "/funding#service"].map((p) => ({ "@type": "Offer", itemOffered: { "@id": new URL(u(p), base).toString() } })),
   knowsAbout: [...new Set([...site.expertise, ...site.knowsAboutExtra])],
 };
 /** Schema.org wants absolute URLs. Resolve any "/path" or "#id" in url/item/@id/image/logo fields against the site root. */

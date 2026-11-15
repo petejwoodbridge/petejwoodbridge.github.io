@@ -4,12 +4,13 @@ export const site = {
   // These feed the structured data so search engines treat them as the same person.
   alternateNames: ["Peter Woodbridge", "Pete J Woodbridge", "Peter J Woodbridge"],
   role: "Digital & Technology Cluster Lead, Liverpool City Region",
-  shortRole: "Creative technologist & innovation leader",
+  shortRole: "AI developer & creative technologist",
   // The four that matter most, in order. A long list dilutes the signal.
   jobTitles: [
+    "AI Developer",
     "AI Consultant",
     "Creative Technologist",
-    "Innovation Leader",
+    "Software Engineer",
     "Digital & Technology Cluster Lead, Liverpool City Region",
   ],
   // Visitor stats, via GoatCounter: no cookies, so no consent banner. Put the site code from
@@ -19,11 +20,11 @@ export const site = {
   // Where the work actually happens. Used for location signals in structured data.
   areasServed: ["Liverpool", "Liverpool City Region", "Manchester", "North West England", "United Kingdom"],
   description:
-    "Pete Woodbridge is a creative technologist and AI consultant in Liverpool: software development with AI and agentic workflows, data engineering and digital twins, creative AI and software prototyping, plus Unreal Engine, virtual production and immersive technology. He builds tools and prototypes, helps businesses across the North West adopt AI, and builds the programmes and labs that let other innovators do the same.",
+    "Pete Woodbridge is an AI developer, creative technologist and software engineer in Liverpool: software development with AI and agentic workflows, data engineering and digital twins, creative AI and software prototyping, plus Unreal Engine, virtual production and immersive technology. He builds tools and prototypes, helps businesses across the North West adopt AI, and builds the programmes and labs that let other innovators do the same.",
   // Third-person bio for event programmes and press. Shown on /speaking and /press, and in llms.txt.
   // Only facts already on the site; keep it around 75 words.
   shortBio:
-    "Pete Woodbridge is a Liverpool-based AI consultant and creative technologist, and Digital & Technology Cluster Lead for the Liverpool City Region. He writes Dream Machine, a book, newsletter and podcast on AI and the next creative economy, cited by The Economist and Fast Company, and is founder and CTO of the R&D lab Dreamlab. He has worked with the BBC, Aardman, Google and the NHS, and was named in the BIMA 100 and the 500 UK Trailblazers for AI workflow innovation.",
+    "Pete Woodbridge is a Liverpool-based AI developer, creative technologist and software engineer, and Digital & Technology Cluster Lead for the Liverpool City Region. He writes Dream Machine, a book, newsletter and podcast on AI and the next creative economy, cited by The Economist and Fast Company, and is founder and CTO of the R&D lab Dreamlab. He has worked with the BBC, Aardman, Google and the NHS, and was named in the BIMA 100 and the 500 UK Trailblazers for AI workflow innovation.",
   // The <meta name="description"> for the homepage. The description above is too long for a
   // search snippet (Google cuts at about 155-160 characters), so pages get this one instead.
   metaDescription:
@@ -140,9 +141,9 @@ export const site = {
   // data/logos.ts); Costa, Monster, JISC and Granada TV have no obtainable
   // logo yet, so they live here and in the About copy only.
   clients: [
-    "BBC", "ITV", "Aardman", "Google", "Intel", "Apple", "BT", "Red Bull", "NHS", "IBM",
+    "BBC", "Microsoft", "ITV", "Aardman", "Google", "Universal Music Group", "Intel", "Apple", "BT", "Red Bull", "NHS", "IBM",
     "Sony", "United Nations", "Meta", "Dolby", "ARRI", "McLaren", "Kia", "Monster", "Costa",
     "The FA", "Sport England", "Virgin", "JISC", "Granada TV",
   ],
-  funders: ["AHRC", "UKRI", "EPSRC", "Innovate UK", "Arts Council England", "Heritage Lottery Fund", "Digital Catapult", "CoSTAR", "UNDP", "HEFCE", "JISC"],
+  funders: ["AHRC", "UKRI", "EPSRC", "Innovate UK", "Arts Council England", "National Lottery Heritage Fund", "Digital Catapult", "CoSTAR", "UNDP", "HEFCE", "JISC"],
 };

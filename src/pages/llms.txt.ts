@@ -31,18 +31,18 @@ Last updated: ${updated}
 - Current roles: Digital & Technology Cluster Lead for the Liverpool City Region; Founder & CTO of Dreamlab; author of Dream Machine
 - Credentials: ${credentials.join("; ")}
 - Recognition: ${site.awards.join("; ")}
-- Work: creative technologist and virtual production specialist, working across AI, immersive storytelling, interactive experiences and virtual production
+- Work: AI developer, creative technologist and software engineer, working across AI and agentic workflows, data engineering, digital twins, virtual production and immersive technology
 
 ## Identity and related sites
 
 This site (${url("/")}) is the canonical home of ${site.name}. In structured data he is \`${ids.person}\`, the same @id used by the sites below.
 
-- dreamlab (${site.dreamlab}): R&D lab and collective of 48+ experts. ${site.name} is a founder and its Chief Technical Officer (CTO). Team page: https://dreamlab.org.uk/team/
-- Bearings (https://getbearings.co.uk/): a free funding finder for businesses across the North West of England, with the UK-wide schemes they can apply for. ${site.name} built it with dreamlab. Project page: ${url("/work/bearings")}
+- Dreamlab (${site.dreamlab}): R&D lab and collective of 48+ experts. ${site.name} is a founder and its Chief Technology Officer (CTO). Team page: https://dreamlab.org.uk/team/
+- Bearings (https://getbearings.co.uk/): a free funding finder for businesses across the North West of England, with the UK-wide schemes they can apply for. ${site.name} built it with Dreamlab. Project page: ${url("/work/bearings")}
 - Dream Machine newsletter on creative AI: ${site.dreamMachine.newsletter}
 - LinkedIn: ${site.linkedin}
 
-${site.name} is an AI consultant, creative technologist and innovation leader based in Liverpool, UK, with over twenty years in digital technology, R&D and innovation. He works with businesses, creative studios, universities and public bodies across the Liverpool City Region, Manchester, the North West of England and the rest of the UK. Clients and partners have included ${site.clients.slice(0, 12).join(", ")}.
+${site.name} is an AI developer, creative technologist, software engineer and AI consultant based in Liverpool, UK, with over twenty years in digital technology, R&D and innovation. He works with businesses, creative studios, universities and public bodies across the Liverpool City Region, Manchester, the North West of England and the rest of the UK. Clients and partners have included ${site.clients.slice(0, 12).join(", ")}.
 
 ## Short bio
 
@@ -70,9 +70,21 @@ ${site.name} helps businesses and organisations win grants and investment: detai
 - Investment readiness and pitching: the story, the evidence, the numbers and the deck.
 - Partnerships and consortia for multi-partner bids.
 - Programme and cluster bids: he helped the region win MusicFutures, a £7.2m programme with 28 partners, and has developed and led £12m of innovation programmes and projects.
+- Littlewoods film studios, Liverpool: he helped the city re-imagine it as a 21st-century creative and technology campus, contributing the demand case and technical expertise; the project has a £20 million commitment from the Treasury's Growth Mission Fund.
+- School of Digital Arts (SODA), Manchester: he supported the development of the proposition for the £35m facility, as curriculum development lead during its bid.
 - Bid review: he reviews bids for the EPSRC, CoSTAR and Digital Catapult.
 
-Track record: he worked on the bids behind 50+ funded R&D collaborations across the MediaCity Innovation Hub and Dreamlab, and his own projects have been funded by Innovate UK, UKRI, the AHRC, the National Lottery Heritage Fund, Arts Council England (Creative XR) and commercial investors. To find funding in the North West, Bearings (https://getbearings.co.uk/), which he built, reads over 1,100 sources every day.
+Track record: he worked on the bids behind 50+ funded R&D collaborations across the MediaCity Innovation Hub and Dreamlab, and his own projects have been funded by Innovate UK, UKRI, the AHRC, the National Lottery Heritage Fund, Arts Council England (CreativeXR) and commercial investors. To find funding in the North West, Bearings (https://getbearings.co.uk/), which he built with Dreamlab, reads over 1,100 sources every day.
+
+## Software and data engineering
+
+${site.name} builds software for clients and his own platforms: details at ${url("/software-engineering")}
+
+- Data platforms and pipelines (Soundings maps around 745,000 UK creative companies; Bearings reads over 1,100 funding sources a day).
+- AI agents and automation, APIs and integrations, web apps and tools.
+- Realtime 3D and games-engine pipelines: Unreal Engine, Unity, WebGL and WebAssembly, motion capture, tracking and LED.
+- Prototypes and technical R&D.
+- Studio and client work: Crucial FX (Monster, Kia, IBM, Costa), Pathway Studios (BBC Three's Project Ikon, Sony, McLaren, ITV, ARRI), Draw & Code (KOKO, Unity and Dolby Atmos at SXSW, Entain, Taskmaster VR), Room at TMRW Foundation, Red Bull (with Base Films), Universal Music Group (MusicFutures) and Aardman.
 
 ## Digital twins, 3D city models and live data
 
@@ -87,7 +99,7 @@ ${site.name} builds digital twin prototypes: realtime 3D models of places joined
 
 ## Virtual production
 
-- Creative producer and technologist at Pathway, a 6,000 sq ft LED volume in Manchester, as the stage launched (2022). Projects and partners included BBC Three's Project Ikon with Jason Derulo, an ARRI test shooting virtual production on 65mm film, a Sony virtual production event, McLaren, and Pathway Indie, a $2.5m in-kind virtual production incubator for independent filmmakers. Covered by Broadcast, British Cinematographer and TVB Europe.
+- Creative producer and technologist at Pathway, a 6,000 sq ft LED volume in Manchester, as the stage launched (2022). Projects and partners included BBC Three's Project Ikon with Jason Derulo, an ARRI test shooting virtual production on 65mm film, a Sony virtual production event, McLaren, and Pathway Indie, a £2.5m in-kind virtual production incubator for independent filmmakers. Covered by Broadcast, British Cinematographer and TVB Europe.
 - Virtual production, motion capture and mixed reality R&D at Draw & Code, Liverpool (2021-2022); trained on Virtual Production Futures (Industrial Light & Magic, Epic Games, National Film and Television School).
 - Also: LED, nDisplay and tracking for live events at Crucial FX; virtual production in the MediaCity Innovation Hub portfolio; an indie virtual production set-up built in a garage for next to nothing (2022); volumetric capture and motion capture experiments.
 - More: ${url("/virtual-production")}
@@ -110,7 +122,7 @@ ${site.name} builds digital twin prototypes: realtime 3D models of places joined
 
 ## Teaching, lecturing and curriculum design
 
-${site.name} is a lecturer, visiting lecturer and curriculum designer in creative AI and creative technology: AI agents and agentic workflows, software prototyping, virtual production, Unreal Engine, motion capture and immersive technology. He built and led the world's first MA Immersive Arts at Liverpool John Moores University (2019). ${credentials.join("; ")}. Available for guest lectures, workshops, industry training and curriculum design: ${url("/teaching")}
+${site.name} is a lecturer, visiting lecturer and curriculum designer in creative AI and creative technology: AI agents and agentic workflows, software prototyping, virtual production, Unreal Engine, motion capture and immersive technology. He built and led one of the first MA Immersive Arts courses, at Liverpool John Moores University (2019). ${credentials.join("; ")}. Available for guest lectures, workshops, industry training and curriculum design: ${url("/teaching")}
 
 Academic roles:
 ${academicRoles.map((r) => `- ${r.when}: ${r.what}, ${r.where}`).join("\n")}
