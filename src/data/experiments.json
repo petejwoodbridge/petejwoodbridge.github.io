@@ -620,6 +620,26 @@
   "thumb": "/img/x/edible.webp"
  },
  {
+  "slug": "echoloop",
+  "title": "EchoLoop",
+  "seoTitle": "EchoLoop: A Real-Time AI Meeting Copilot",
+  "blurb": "A real-time AI meeting copilot that listens, transcribes and whispers short, tactical advice every few seconds.",
+  "meta": "AI Tools, 2026",
+  "year": "2026",
+  "html": "<p>EchoLoop is a real-time AI meeting copilot. It sits quietly on top of your Zoom, Teams or Google Meet window, transcribes what everyone is saying as they say it, and every half a minute or so passes the live transcript to an LLM acting as a personal coach, which comes back with short, tactical nudges: <em>\"They sound hesitant on the budget, press now.\" \"Ask for clarification on the timeline.\" \"Pivot to the closing pitch.\"</em></p><p>Under the hood it captures your microphone and the system audio separately, so it knows who said what, transcribes locally with faster-whisper or in the cloud with Deepgram, and coaches with Claude or GPT. Audio capture, transcription, the LLM and the always-on-top overlay all run in parallel so nothing blocks, with silence detection to skip dead air, a nudge button for advice right now, and a transcript and insight log saved at the end of the session.</p><p>Handy for a high-stakes negotiation, or for the fourth back-to-back call of the day, when your brain checked out two meetings ago.</p>",
+  "links": [
+   {
+    "label": "EchoLoop on GitHub",
+    "url": "https://github.com/petejwoodbridge/EchoLoop"
+   }
+  ],
+  "external": "https://github.com/petejwoodbridge/EchoLoop",
+  "video": null,
+  "poster": null,
+  "image": "/img/x/echoloop.jpg",
+  "thumb": "/img/x/echoloop.webp"
+ },
+ {
   "slug": "dreamlab-podcaster",
   "title": "Dreamlab Podcaster",
   "seoTitle": "Dreamlab Podcaster: Text to Two-Host Podcast",
@@ -1758,6 +1778,26 @@
   "poster": null,
   "image": null,
   "thumb": "/img/x/after-video.webp"
+ },
+ {
+  "slug": "university-it-simulator",
+  "title": "University IT Service Desk Simulator",
+  "seoTitle": "University IT Simulator: An AI Text Adventure",
+  "blurb": "An AI-powered text survival game in which you try to complete one simple administrative task at a university. You will fail.",
+  "meta": "Just for Fun, 2026",
+  "year": "2026",
+  "html": "<p>A text-based survival simulator, powered by AI, in which you attempt one simple administrative task at a university: claiming back £4.20 for a train ticket, getting access to the S: drive, or replacing a mouse that keeps giving you electric shocks. You will fail. You will be redirected. You will be transferred to Procurement, who are at lunch.</p><p>You play a student, a new employee or a seasoned employee, and an LLM plays the exhausted service desk and every department it passes you on to: Finance, who mention the migration constantly; Estates, who are confused about why IT sent you; HR, with a 47-page PDF and a meeting in six weeks. Three live counters track the damage, time wasted, people involved and policies survived, and the numbers only go up.</p><p>You can win, by finding a genuine loophole, escalating with such sustained bureaucratic fury that someone caves, or finding the one human who will whisper how to do it properly. A love letter to everyone who has ever lost a week of their life to a form.</p>",
+  "links": [
+   {
+    "label": "University IT Service Desk Simulator on GitHub",
+    "url": "https://github.com/petejwoodbridge/UniversityITSimulator"
+   }
+  ],
+  "external": "https://github.com/petejwoodbridge/UniversityITSimulator",
+  "video": null,
+  "poster": null,
+  "image": "/img/x/university-it-simulator.jpg",
+  "thumb": "/img/x/university-it-simulator.webp"
  },
  {
   "slug": "secrecy-machine",
