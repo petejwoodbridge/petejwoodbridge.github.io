@@ -12,8 +12,8 @@ import { ids, profileEntities } from "../data/entities";
 const stats = [
   { num: "20+", label: "years building creative technology: commercial, R&D, future thinking" },
   { num: "£12m", label: "of innovation programmes + projects developed and led" },
-  { num: "50+", label: "funded R&D and innovation collaborations across all programmes" },
-  { num: "100+", label: "businesses and freelancers supported by Dreamlab since 2024" },
+  { num: "50+", label: "funded R&D and innovation collaborations" },
+  { num: "100+", label: "businesses and freelancers supported" },
 ];
 const pillars = [
   { t: "Innovation leadership", d: "Turning a region's talent and ideas into projects, products and companies. Programmes, clusters, labs and investment are the means; creating the conditions is the point." },
@@ -109,7 +109,7 @@ const homeSchema = [homeProfile, ...profileEntities];
   <section class="section inverted">
     <div class="container">
       <p class="eyebrow" data-reveal>What I do</p>
-      <h2 class="display h-lg" data-reveal style="max-width: 14ch; margin-bottom: clamp(32px,4vw,64px)">Four things, done properly.</h2>
+      <h2 class="display h-lg" data-reveal style="max-width: 14ch; margin-bottom: clamp(32px,4vw,64px)">Four things.</h2>
       <div class="pillars stagger" data-reveal>
         {pillars.map((p, i) => (
           <div class="pillar" style={`--i:${i}`}>
