@@ -44,7 +44,7 @@
  {
   "slug": "blender-mcp-character",
   "title": "Pinky in Blender",
-  "seoTitle": "Pinky in Blender: AI Agent Character Animation",
+  "seoTitle": "Pinky in Blender: AI-Agent Animation",
   "blurb": "GPT-6 Astra and Blender MCP model, rig and animate my daughter's fluffy pink octopus.",
   "meta": "AI & 3D Animation, 2026",
   "year": "2026",
@@ -375,7 +375,7 @@
  {
   "slug": "infinite-storybook",
   "title": "Infinite Storybook",
-  "seoTitle": "Infinite Storybook: AI Interactive Picture Books",
+  "seoTitle": "Infinite Storybook: AI Picture Books",
   "blurb": "An AI picture book that writes and illustrates itself around a child's imagination, with three choices at the end of every page.",
   "meta": "Interactive Storytelling, 2025",
   "year": "2025",
@@ -414,7 +414,7 @@
  {
   "slug": "dream-machine-unreal",
   "title": "Dream Machine: Speak a World",
-  "seoTitle": "Dream Machine: Voice to 360° Worlds in Unreal",
+  "seoTitle": "Dream Machine: Voice to 360° Worlds",
   "blurb": "Say what world you want and walk into it: voice-driven AI skyboxes generated and loaded into Unreal Engine in almost real time.",
   "meta": "Prototypes, 2023",
   "year": "2023",
@@ -500,7 +500,7 @@
  {
   "slug": "octobot",
   "title": "OctoBot",
-  "seoTitle": "OctoBot: A Local AI Agent That Never Stops Inventing",
+  "seoTitle": "OctoBot: A Local AI Idea Machine",
   "blurb": "A restless pink octopus AI that lives in a folder on your computer and never, ever stops inventing things.",
   "meta": "Just for Fun, 2025",
   "year": "2025",
@@ -1206,7 +1206,7 @@
  {
   "slug": "worldlabs-comfy",
   "title": "World Labs Nodes for ComfyUI",
-  "seoTitle": "World Labs ComfyUI Nodes: Images to 3D Worlds",
+  "seoTitle": "World Labs ComfyUI Nodes: 3D Worlds",
   "blurb": "Custom ComfyUI nodes that turn a single image into an explorable 3D world, using the World Labs Marble API.",
   "meta": "AI Tools, 2026",
   "year": "2026",
@@ -1842,7 +1842,7 @@
  {
   "slug": "university-it-simulator",
   "title": "University IT Service Desk Simulator",
-  "seoTitle": "University IT Simulator: An AI Text Adventure",
+  "seoTitle": "University IT Simulator: AI Text Game",
   "blurb": "An AI-powered text survival game in which you try to complete one simple administrative task at a university. You will fail.",
   "meta": "Just for Fun, 2026",
   "year": "2026",
@@ -1876,7 +1876,7 @@
  {
   "slug": "storyvaultos",
   "title": "StoryVaultOS",
-  "seoTitle": "StoryVaultOS: Multi-Agent AI for Screenwriters",
+  "seoTitle": "StoryVaultOS: AI for Screenwriters",
   "blurb": "A local-first, multi-agent AI writers' room for screenwriters and story developers, where nothing lands without your approval.",
   "meta": "AI Tools, 2026",
   "year": "2026",
