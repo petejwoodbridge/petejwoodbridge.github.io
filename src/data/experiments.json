@@ -35,23 +35,6 @@
   ]
  },
  {
-  "slug": "annwn-transmission-000",
-  "title": "Annwn: Transmission 000",
-  "blurb": "A trailer for Annwn, a story of the Welsh Otherworld, and an experiment in consistent AI animation built in ComfyUI.",
-  "meta": "AI Animation, 2024",
-  "year": "2024",
-  "html": "<p>Annwn is the Otherworld of Welsh myth, the realm that runs through the Mabinogion. <em>Transmission 000</em> is a trailer for a story set on its edges: a girl living in a pink caravan deep in a Welsh forest, a book of old stories, a television showing something it shouldn't, and a doorway in the trees.</p><p>It was also an experiment, in late 2024, with the hardest problem in AI animation: keeping a character the same from one shot to the next. I built the pipeline in <a href=\"https://github.com/comfyanonymous/ComfyUI\" target=\"_blank\" rel=\"noopener\">ComfyUI</a>.</p><ul><li><strong>Character LoRAs.</strong> I trained LoRAs on the main characters so they keep their faces, hair, clothes and proportions through very different shots, lighting and angles.</li><li><strong>Multi-angle 3D views.</strong> From a single character design I generated consistent turnarounds and multi-angle views, used as training data for the LoRAs and as reference for posing and framing each shot.</li><li><strong>Bespoke nodes.</strong> I wrote custom ComfyUI nodes to fill the gaps in the off-the-shelf tools, carrying character references, style and shot set-ups through the graph so every scene starts from the same place.</li><li><strong>Keyframes to motion.</strong> Consistent keyframes were animated with image-to-video models, then upscaled and graded so the shots cut together as one film.</li></ul><p>The soundtrack is by <a href=\"/experiments/#moea\">MOEA</a>, my music R&amp;D project. It follows on from my <a href=\"/experiments/#aianimation\">earlier experiments with creatures from Annwn</a>.</p>",
-  "links": [],
-  "external": null,
-  "video": "/video/x/annwn-transmission-000.mp4",
-  "poster": "/video/x/annwn-transmission-000.jpg",
-  "image": null,
-  "thumb": "/img/x/annwn-transmission-000.webp",
-  "themes": [
-   "ai"
-  ]
- },
- {
   "slug": "blender-mcp-character",
   "title": "Pinky in Blender",
   "seoTitle": "Pinky in Blender: AI-Agent Animation",
@@ -70,6 +53,23 @@
   "poster": "/video/x/blender-mcp-character.jpg",
   "image": null,
   "thumb": "/img/x/blender-mcp-character.webp",
+  "themes": [
+   "ai"
+  ]
+ },
+ {
+  "slug": "annwn-transmission-000",
+  "title": "Annwn: Transmission 000",
+  "blurb": "A trailer for Annwn, a story of the Welsh Otherworld, and an experiment in consistent AI animation built in ComfyUI.",
+  "meta": "AI Animation, 2024",
+  "year": "2024",
+  "html": "<p>Annwn is the Otherworld of Welsh myth, the realm that runs through the Mabinogion. <em>Transmission 000</em> is a trailer for a story set on its edges: a girl living in a pink caravan deep in a Welsh forest, a book of old stories, a television showing something it shouldn't, and a doorway in the trees.</p><p>It was also an experiment, in late 2024, with the hardest problem in AI animation: keeping a character the same from one shot to the next. I built the pipeline in <a href=\"https://github.com/comfyanonymous/ComfyUI\" target=\"_blank\" rel=\"noopener\">ComfyUI</a>.</p><ul><li><strong>Character LoRAs.</strong> I trained LoRAs on the main characters so they keep their faces, hair, clothes and proportions through very different shots, lighting and angles.</li><li><strong>Multi-angle 3D views.</strong> From a single character design I generated consistent turnarounds and multi-angle views, used as training data for the LoRAs and as reference for posing and framing each shot.</li><li><strong>Bespoke nodes.</strong> I wrote custom ComfyUI nodes to fill the gaps in the off-the-shelf tools, carrying character references, style and shot set-ups through the graph so every scene starts from the same place.</li><li><strong>Keyframes to motion.</strong> Consistent keyframes were animated with image-to-video models, then upscaled and graded so the shots cut together as one film.</li></ul><p>The soundtrack is by <a href=\"/experiments/#moea\">MOEA</a>, my music R&amp;D project. It follows on from my <a href=\"/experiments/#aianimation\">earlier experiments with creatures from Annwn</a>.</p>",
+  "links": [],
+  "external": null,
+  "video": "/video/x/annwn-transmission-000.mp4",
+  "poster": "/video/x/annwn-transmission-000.jpg",
+  "image": null,
+  "thumb": "/img/x/annwn-transmission-000.webp",
   "themes": [
    "ai"
   ]
@@ -106,23 +106,6 @@
   "thumb": "/img/x/blender-liverpool-twin.webp",
   "themes": [
    "twins"
-  ]
- },
- {
-  "slug": "pinky-pop",
-  "title": "Pinky Pop in Candyland",
-  "blurb": "AI 3D animation with my daughter, working out the workflows to bring her character to life.",
-  "meta": "AI Animation, 2025",
-  "year": "2025",
-  "html": "<p>Pinky Pop is my daughter's character: a fuzzy pink octopus with enormous eyes and a very serious sweet tooth. In 2025 the two of us set out to bring her to life with AI 3D animation, and this little film is where we got to.</p><p>Pinky climbs a tower of cookies, slides down hills of sugar, finds a giant gem in a crystal cave, hides behind a lollipop, meets a shark in a sweetie reef, builds a sandcastle out of sprinkles and watches the sun go down from a cliff of chocolate cake. Candyland, in other words.</p><p>Most of the work was in the workflow: keeping Pinky looking like Pinky from shot to shot, getting the fuzzy texture and the expressions right, and building a world around her that felt like hers. She was the creative director and I was the tech support, which is the best kind of R&amp;D.</p><p>In 2026 Pinky came back as a proper 3D character, <a href=\"/experiments/#blender-mcp-character\">modelled, rigged and animated in Blender by GPT-6 Astra</a>.</p>",
-  "links": [],
-  "external": null,
-  "video": "/video/x/pinky-pop.mp4",
-  "poster": "/video/x/pinky-pop.jpg",
-  "image": null,
-  "thumb": "/img/x/pinky-pop.webp",
-  "themes": [
-   "ai"
   ]
  },
  {
@@ -184,6 +167,73 @@
   "thumb": "/img/x/peekers.webp",
   "themes": [
    "xr"
+  ]
+ },
+ {
+  "slug": "moea",
+  "title": "MOEA",
+  "blurb": "An art experiment with song composition, sound and moving image, with two demo albums out so far.",
+  "meta": "Music R&D, 2025",
+  "year": "2025",
+  "html": "<p><a href=\"https://open.spotify.com/album/6BGgK326rVwVRo5icJtWNX?si=iWqNz-ztSTyTJ3RKbuyoeg\" target=\"_blank\" rel=\"noopener\">MOEA</a> is an art experiment with song composition, sound and moving image.</p><p>All original compositions from over the years, and some from my younger, angrier &amp; grungier band days, but re-imagined.</p><p>I'm planning on working with MOEA as a bit of a creative and innovation outlet for learning/testing new processes around sound synthesis, ethical and human-centred approaches to new production tools, assistive AI as well as hands on research with distribution, marketing, live experiences, fan engagement and more.</p><p>First demo album released in March 2025 is called <a href=\"https://open.spotify.com/album/66xmsAos2jTZhgRRfs9Tr1?si=szpOo8khRweUq63Rr-jglQ\" target=\"_blank\" rel=\"noopener\">Alpha</a>. It's very early stage, raw and embryonic and totally unfinished ;) I probably shouldn't have, but I released it anyway as part of the process so people can see the evolution.</p><p>The second demo album is a lot more experimental and surreal, called <a href=\"https://open.spotify.com/album/6BGgK326rVwVRo5icJtWNX?si=n0TBAjxoRUWFz_8rpeFEVQ\" target=\"_blank\" rel=\"noopener\">Dream Machine</a>, it came out in May 2025 and is all instrumentals - <a href=\"https://open.spotify.com/artist/3LXxiBWZbjFQPrtL0yZ2Q8?si=FHNg9tO1Rraq8BhIlAHGtg\" target=\"_blank\" rel=\"noopener\">follow us on MOEA Spotify</a> for updated tracks as they drop.</p><p>I'm working on the next set of tracks in late 2025, which are mainly instrumentals and based on the songs in 'Alpha'... plus a few more ideas I've been toying with.</p><p><a href=\"https://linktr.ee/moeaband\" target=\"_blank\" rel=\"noopener\">MOEA</a> is distributed and published with Ditto Music and Sentric Publishing, some of our partners in MusicFutures.</p><p>You can subscribe to the progress and see some of the experimental videos and tracks on:</p><p><a href=\"https://open.spotify.com/artist/3LXxiBWZbjFQPrtL0yZ2Q8?si=V6EKuFpoQAqPpb2GL5xJDw\" target=\"_blank\" rel=\"noopener\">MOEA Spotify</a></p><p><a href=\"https://www.youtube.com/@moeaband/\" target=\"_blank\" rel=\"noopener\">MOEA YouTube</a></p><p><a href=\"https://www.tiktok.com/@moeaband\" target=\"_blank\" rel=\"noopener\">MOEA TikTok</a></p><p><a href=\"https://www.instagram.com/moeaband/\" target=\"_blank\" rel=\"noopener\">MOEA Instagram</a></p><p>Press Articles and Reviews:</p><p><a href=\"https://illustratemagazine.com/dream-machine-by-moea-album-review/\" target=\"_blank\" rel=\"noopener\">MOEA Illustrate Magazine Review</a></p><p>MOEA Avanzada Magazine Review</p><p><a href=\"https://acidted.wordpress.com/2025/05/23/dreaming-of-electronic-dream-pop-with-moea-electric-sheep/\" target=\"_blank\" rel=\"noopener\">MOEA AcidTest Review</a></p><p><a href=\"https://lastdaydeaf.com/listening-now-moea-eryri/\" target=\"_blank\" rel=\"noopener\">MOEA Last Day Dead Review</a></p><p>Processes and Disclosures</p><p>So I am not using generative AI tools for the compositions/songwriting as that's my thing... This is a creative outlet for my work.</p><p>But I am using Assistive AI quite a bit in various aspects of realising the work and supporting the project:</p><ul><li>My songwriting process always starts with a guitar or a keyboard. I spend a lot of time looping with pedals in my home studio to get the ideas down... then using that as the base for the creative process. It's how I figure things out, sometimes over many months, years and even decades. It's my slow thing and I don't mind taking time on this.</li><li>The voice on the first album originated with my terrible voice transformed into MIDI, then using a paid and licensed trained singer to help realise it with midi to voice synthesis (and get it in tune!).</li><li>It started as a test but I felt quite uncomfortable with this to be honest... hence evolving into instrumentals after the first release. I need to learn to sing but I have a terrible timbre (I wasn't the singer back in my band days). It was sort of an experiment to see how real I could get it sounding. I'm sorry if it offended, but I can assure you everyone was paid for their work here.</li><li>I'm updating Alpha to reflect this change of direction! Although I find, as mainly a composer, this process is very helpful in terms of getting down and noodling with base ideas. This has been really transformative for me in the ideation and creative process of bringing a vision to life.</li><li>I am using similar process to this occasionally to create melody lines, i.e. humming melody lines into a computer to get the midi notes to convert into instrumentation. Although I mainly do this on my guitar and other instruments, I can see this being really helpful for a lot of people. Especially as I'm mainly a writer, not a performer these days.</li><li>I am using AI Mastering Tools and some assistive features in Logic Pro, which is my main DAW. Using a number of plugins (e.g. Native Instruments magic for the synth, arpeggiators and instrumentals). Some synth based instruments are getting really good now, and am finding myself mixing them in a lot more these days to augment my analogue origins.</li><li>The Video and Marketing of MOEA make extensive use of Assistive AI and Generative AI (it's pretty obvious and I always disclose on social) including help with Press Releases, Album Art and Music Videos. Visual AI is a big part of my R&amp;D for my job too, and how I make my living as a technologist/developer... so I need to be on top of this for my future career.</li><li>These tools include custom ComfyUI and VFX workflows (made by me), Midjourney, Runway, Kling, ChatGPT, Google Veo, Unreal Engine, After Effects and some custom tools and workflows I have built myself (e.g. with Python)</li><li>I often start with original images/sketches or input video/3D and imagery and get the machines to help with the realisations of the ideas for the videos- lots of the characters are from my two children's imagination. There is a LOT of human process, imagination and decision making in the way I work here.</li><li>We're always happy to use AI/Tech to take someone else's job, just not our own! I think artists really need to think about this when using AI too.</li><li>Some of the song titles come out of extensive discussions with chatbots and I often ask them for help with music theory (and getting interesting keys/scales to work with). I am not a formally trained musician so this is useful.</li><li>I post a lot of my processes on LinkedIn and social media, always disclosing the tools that I use and aim to be transparent and as ethical as possible in this work. As an advocate for certain uses of AI, I think it is important that more people are transparent about what they are doing. I know disclosure is probably challenging for a lot of people, as they don't want to be associated with the existential threat of AI, but given evidence that many/most artists/studios are now using AI in some way, I think it's important to do this.</li><li>Without some of these tools, I just wouldn't have been able to realise this project. I would always totally prefer to pay humans though, but it is just a side project at the moment and other parts of my life are getting expensive. This is the incredible thing about AI for me... and I hope in some way it can be democratising to other people who just don't get a chance.</li><li>I'm not doing this to be popular or to make any money (damn music industry!), for me I want to keep this as a fun creative and experimental thing. If that was the purpose I would have probably picked a more generic and bland genre... my music is pretty niche, often messy and sometimes a bit odd. My aim is to be myself here. I am donating all of my royalties from this to charity.</li><li>Been working on this since late 2024 as MOEA. But many of the songs originate from much earlier when I first learned to play the guitar and start writing over 30 years ago (I have the tapes and CDs from over 20 years ago). I was in a few bands back in my teens and twenties, but life took over, we moved away from each other and got boring jobs and families.</li><li>Always happy to share more about my processes, please get in touch if you would like to find out more.</li><li>I recognise that as a human, I am also trained on the world around me: creativity never happens in a bubble, and I owe a lot to my musical and artistic influences, life experiences and my being a sensing soul in the world... I can't trace it all, but lots of this is in the songs hopefully. Humans borrow and steal things too, we build on, adapt and transform all that has gone before: this isn't just an AI challenge.</li><li>I feel that artists like me (who are using AI in assistive ways, or for marketing, mastering, or just to realise and experiment with ideas with little money or time etc) probably make up quite a bit of the indie scene right now, evidence suggests it's around 30-60% of indie artists using AI in these ways and much more if you include other altering tools, and we shouldn't be put into the same box as the fake Suno/Udio bands. But maybe we all need to be a bit more honest with this, as there has always been a lot of deception in this industry.</li><li>We need to move away from the dichotomies being created now. AI isn't bad/good. It can be an incredibly collaborative part of the process of realising a vision, but it should ultimately, still be a tool for humans.</li><li>I hope that you can still hear the human expression and authenticity in the songs. I hope that one day I can afford to do this properly, but until then, this is how I am going to make my music work for me and I hope that it helps others get their voices heard too.</li><li>Thanks for reading and listening.</li></ul>",
+  "links": [
+   {
+    "label": "MOEA",
+    "url": "https://open.spotify.com/album/6BGgK326rVwVRo5icJtWNX?si=iWqNz-ztSTyTJ3RKbuyoeg"
+   },
+   {
+    "label": "Alpha",
+    "url": "https://open.spotify.com/album/66xmsAos2jTZhgRRfs9Tr1?si=szpOo8khRweUq63Rr-jglQ"
+   },
+   {
+    "label": "Dream Machine",
+    "url": "https://open.spotify.com/album/6BGgK326rVwVRo5icJtWNX?si=n0TBAjxoRUWFz_8rpeFEVQ"
+   },
+   {
+    "label": "follow us on MOEA Spotify",
+    "url": "https://open.spotify.com/artist/3LXxiBWZbjFQPrtL0yZ2Q8?si=FHNg9tO1Rraq8BhIlAHGtg"
+   },
+   {
+    "label": "MOEA",
+    "url": "https://linktr.ee/moeaband"
+   },
+   {
+    "label": "MOEA Spotify",
+    "url": "https://open.spotify.com/artist/3LXxiBWZbjFQPrtL0yZ2Q8?si=V6EKuFpoQAqPpb2GL5xJDw"
+   },
+   {
+    "label": "MOEA YouTube",
+    "url": "https://www.youtube.com/@moeaband/"
+   },
+   {
+    "label": "MOEA TikTok",
+    "url": "https://www.tiktok.com/@moeaband"
+   },
+   {
+    "label": "MOEA Instagram",
+    "url": "https://www.instagram.com/moeaband/"
+   },
+   {
+    "label": "MOEA Illustrate Magazine Review",
+    "url": "https://illustratemagazine.com/dream-machine-by-moea-album-review/"
+   },
+   {
+    "label": "MOEA AcidTest Review",
+    "url": "https://acidted.wordpress.com/2025/05/23/dreaming-of-electronic-dream-pop-with-moea-electric-sheep/"
+   },
+   {
+    "label": "MOEA Last Day Dead Review",
+    "url": "https://lastdaydeaf.com/listening-now-moea-eryri/"
+   }
+  ],
+  "external": null,
+  "video": "/video/x/moea.mp4",
+  "poster": "/video/x/moea.jpg",
+  "image": null,
+  "thumb": "/img/x/moea.webp",
+  "themes": [
+   "music",
+   "ai"
   ]
  },
  {
@@ -267,6 +317,23 @@
   ]
  },
  {
+  "slug": "pinky-pop",
+  "title": "Pinky Pop in Candyland",
+  "blurb": "AI 3D animation with my daughter, working out the workflows to bring her character to life.",
+  "meta": "AI Animation, 2025",
+  "year": "2025",
+  "html": "<p>Pinky Pop is my daughter's character: a fuzzy pink octopus with enormous eyes and a very serious sweet tooth. In 2025 the two of us set out to bring her to life with AI 3D animation, and this little film is where we got to.</p><p>Pinky climbs a tower of cookies, slides down hills of sugar, finds a giant gem in a crystal cave, hides behind a lollipop, meets a shark in a sweetie reef, builds a sandcastle out of sprinkles and watches the sun go down from a cliff of chocolate cake. Candyland, in other words.</p><p>Most of the work was in the workflow: keeping Pinky looking like Pinky from shot to shot, getting the fuzzy texture and the expressions right, and building a world around her that felt like hers. She was the creative director and I was the tech support, which is the best kind of R&amp;D.</p><p>In 2026 Pinky came back as a proper 3D character, <a href=\"/experiments/#blender-mcp-character\">modelled, rigged and animated in Blender by GPT-6 Astra</a>.</p>",
+  "links": [],
+  "external": null,
+  "video": "/video/x/pinky-pop.mp4",
+  "poster": "/video/x/pinky-pop.jpg",
+  "image": null,
+  "thumb": "/img/x/pinky-pop.webp",
+  "themes": [
+   "ai"
+  ]
+ },
+ {
   "slug": "comfyui-camera-control",
   "title": "Camera Control in ComfyUI",
   "blurb": "One still, any camera angle: a ComfyUI workflow that re-shoots an AI scene from new viewpoints while keeping the character consistent.",
@@ -302,73 +369,6 @@
   "image": null,
   "thumb": "/img/x/aianimation.webp",
   "themes": [
-   "ai"
-  ]
- },
- {
-  "slug": "moea",
-  "title": "MOEA",
-  "blurb": "An art experiment with song composition, sound and moving image, with two demo albums out so far.",
-  "meta": "Music R&D, 2025",
-  "year": "2025",
-  "html": "<p><a href=\"https://open.spotify.com/album/6BGgK326rVwVRo5icJtWNX?si=iWqNz-ztSTyTJ3RKbuyoeg\" target=\"_blank\" rel=\"noopener\">MOEA</a> is an art experiment with song composition, sound and moving image.</p><p>All original compositions from over the years, and some from my younger, angrier &amp; grungier band days, but re-imagined.</p><p>I'm planning on working with MOEA as a bit of a creative and innovation outlet for learning/testing new processes around sound synthesis, ethical and human-centred approaches to new production tools, assistive AI as well as hands on research with distribution, marketing, live experiences, fan engagement and more.</p><p>First demo album released in March 2025 is called <a href=\"https://open.spotify.com/album/66xmsAos2jTZhgRRfs9Tr1?si=szpOo8khRweUq63Rr-jglQ\" target=\"_blank\" rel=\"noopener\">Alpha</a>. It's very early stage, raw and embryonic and totally unfinished ;) I probably shouldn't have, but I released it anyway as part of the process so people can see the evolution.</p><p>The second demo album is a lot more experimental and surreal, called <a href=\"https://open.spotify.com/album/6BGgK326rVwVRo5icJtWNX?si=n0TBAjxoRUWFz_8rpeFEVQ\" target=\"_blank\" rel=\"noopener\">Dream Machine</a>, it came out in May 2025 and is all instrumentals - <a href=\"https://open.spotify.com/artist/3LXxiBWZbjFQPrtL0yZ2Q8?si=FHNg9tO1Rraq8BhIlAHGtg\" target=\"_blank\" rel=\"noopener\">follow us on MOEA Spotify</a> for updated tracks as they drop.</p><p>I'm working on the next set of tracks in late 2025, which are mainly instrumentals and based on the songs in 'Alpha'... plus a few more ideas I've been toying with.</p><p><a href=\"https://linktr.ee/moeaband\" target=\"_blank\" rel=\"noopener\">MOEA</a> is distributed and published with Ditto Music and Sentric Publishing, some of our partners in MusicFutures.</p><p>You can subscribe to the progress and see some of the experimental videos and tracks on:</p><p><a href=\"https://open.spotify.com/artist/3LXxiBWZbjFQPrtL0yZ2Q8?si=V6EKuFpoQAqPpb2GL5xJDw\" target=\"_blank\" rel=\"noopener\">MOEA Spotify</a></p><p><a href=\"https://www.youtube.com/@moeaband/\" target=\"_blank\" rel=\"noopener\">MOEA YouTube</a></p><p><a href=\"https://www.tiktok.com/@moeaband\" target=\"_blank\" rel=\"noopener\">MOEA TikTok</a></p><p><a href=\"https://www.instagram.com/moeaband/\" target=\"_blank\" rel=\"noopener\">MOEA Instagram</a></p><p>Press Articles and Reviews:</p><p><a href=\"https://illustratemagazine.com/dream-machine-by-moea-album-review/\" target=\"_blank\" rel=\"noopener\">MOEA Illustrate Magazine Review</a></p><p>MOEA Avanzada Magazine Review</p><p><a href=\"https://acidted.wordpress.com/2025/05/23/dreaming-of-electronic-dream-pop-with-moea-electric-sheep/\" target=\"_blank\" rel=\"noopener\">MOEA AcidTest Review</a></p><p><a href=\"https://lastdaydeaf.com/listening-now-moea-eryri/\" target=\"_blank\" rel=\"noopener\">MOEA Last Day Dead Review</a></p><p>Processes and Disclosures</p><p>So I am not using generative AI tools for the compositions/songwriting as that's my thing... This is a creative outlet for my work.</p><p>But I am using Assistive AI quite a bit in various aspects of realising the work and supporting the project:</p><ul><li>My songwriting process always starts with a guitar or a keyboard. I spend a lot of time looping with pedals in my home studio to get the ideas down... then using that as the base for the creative process. It's how I figure things out, sometimes over many months, years and even decades. It's my slow thing and I don't mind taking time on this.</li><li>The voice on the first album originated with my terrible voice transformed into MIDI, then using a paid and licensed trained singer to help realise it with midi to voice synthesis (and get it in tune!).</li><li>It started as a test but I felt quite uncomfortable with this to be honest... hence evolving into instrumentals after the first release. I need to learn to sing but I have a terrible timbre (I wasn't the singer back in my band days). It was sort of an experiment to see how real I could get it sounding. I'm sorry if it offended, but I can assure you everyone was paid for their work here.</li><li>I'm updating Alpha to reflect this change of direction! Although I find, as mainly a composer, this process is very helpful in terms of getting down and noodling with base ideas. This has been really transformative for me in the ideation and creative process of bringing a vision to life.</li><li>I am using similar process to this occasionally to create melody lines, i.e. humming melody lines into a computer to get the midi notes to convert into instrumentation. Although I mainly do this on my guitar and other instruments, I can see this being really helpful for a lot of people. Especially as I'm mainly a writer, not a performer these days.</li><li>I am using AI Mastering Tools and some assistive features in Logic Pro, which is my main DAW. Using a number of plugins (e.g. Native Instruments magic for the synth, arpeggiators and instrumentals). Some synth based instruments are getting really good now, and am finding myself mixing them in a lot more these days to augment my analogue origins.</li><li>The Video and Marketing of MOEA make extensive use of Assistive AI and Generative AI (it's pretty obvious and I always disclose on social) including help with Press Releases, Album Art and Music Videos. Visual AI is a big part of my R&amp;D for my job too, and how I make my living as a technologist/developer... so I need to be on top of this for my future career.</li><li>These tools include custom ComfyUI and VFX workflows (made by me), Midjourney, Runway, Kling, ChatGPT, Google Veo, Unreal Engine, After Effects and some custom tools and workflows I have built myself (e.g. with Python)</li><li>I often start with original images/sketches or input video/3D and imagery and get the machines to help with the realisations of the ideas for the videos- lots of the characters are from my two children's imagination. There is a LOT of human process, imagination and decision making in the way I work here.</li><li>We're always happy to use AI/Tech to take someone else's job, just not our own! I think artists really need to think about this when using AI too.</li><li>Some of the song titles come out of extensive discussions with chatbots and I often ask them for help with music theory (and getting interesting keys/scales to work with). I am not a formally trained musician so this is useful.</li><li>I post a lot of my processes on LinkedIn and social media, always disclosing the tools that I use and aim to be transparent and as ethical as possible in this work. As an advocate for certain uses of AI, I think it is important that more people are transparent about what they are doing. I know disclosure is probably challenging for a lot of people, as they don't want to be associated with the existential threat of AI, but given evidence that many/most artists/studios are now using AI in some way, I think it's important to do this.</li><li>Without some of these tools, I just wouldn't have been able to realise this project. I would always totally prefer to pay humans though, but it is just a side project at the moment and other parts of my life are getting expensive. This is the incredible thing about AI for me... and I hope in some way it can be democratising to other people who just don't get a chance.</li><li>I'm not doing this to be popular or to make any money (damn music industry!), for me I want to keep this as a fun creative and experimental thing. If that was the purpose I would have probably picked a more generic and bland genre... my music is pretty niche, often messy and sometimes a bit odd. My aim is to be myself here. I am donating all of my royalties from this to charity.</li><li>Been working on this since late 2024 as MOEA. But many of the songs originate from much earlier when I first learned to play the guitar and start writing over 30 years ago (I have the tapes and CDs from over 20 years ago). I was in a few bands back in my teens and twenties, but life took over, we moved away from each other and got boring jobs and families.</li><li>Always happy to share more about my processes, please get in touch if you would like to find out more.</li><li>I recognise that as a human, I am also trained on the world around me: creativity never happens in a bubble, and I owe a lot to my musical and artistic influences, life experiences and my being a sensing soul in the world... I can't trace it all, but lots of this is in the songs hopefully. Humans borrow and steal things too, we build on, adapt and transform all that has gone before: this isn't just an AI challenge.</li><li>I feel that artists like me (who are using AI in assistive ways, or for marketing, mastering, or just to realise and experiment with ideas with little money or time etc) probably make up quite a bit of the indie scene right now, evidence suggests it's around 30-60% of indie artists using AI in these ways and much more if you include other altering tools, and we shouldn't be put into the same box as the fake Suno/Udio bands. But maybe we all need to be a bit more honest with this, as there has always been a lot of deception in this industry.</li><li>We need to move away from the dichotomies being created now. AI isn't bad/good. It can be an incredibly collaborative part of the process of realising a vision, but it should ultimately, still be a tool for humans.</li><li>I hope that you can still hear the human expression and authenticity in the songs. I hope that one day I can afford to do this properly, but until then, this is how I am going to make my music work for me and I hope that it helps others get their voices heard too.</li><li>Thanks for reading and listening.</li></ul>",
-  "links": [
-   {
-    "label": "MOEA",
-    "url": "https://open.spotify.com/album/6BGgK326rVwVRo5icJtWNX?si=iWqNz-ztSTyTJ3RKbuyoeg"
-   },
-   {
-    "label": "Alpha",
-    "url": "https://open.spotify.com/album/66xmsAos2jTZhgRRfs9Tr1?si=szpOo8khRweUq63Rr-jglQ"
-   },
-   {
-    "label": "Dream Machine",
-    "url": "https://open.spotify.com/album/6BGgK326rVwVRo5icJtWNX?si=n0TBAjxoRUWFz_8rpeFEVQ"
-   },
-   {
-    "label": "follow us on MOEA Spotify",
-    "url": "https://open.spotify.com/artist/3LXxiBWZbjFQPrtL0yZ2Q8?si=FHNg9tO1Rraq8BhIlAHGtg"
-   },
-   {
-    "label": "MOEA",
-    "url": "https://linktr.ee/moeaband"
-   },
-   {
-    "label": "MOEA Spotify",
-    "url": "https://open.spotify.com/artist/3LXxiBWZbjFQPrtL0yZ2Q8?si=V6EKuFpoQAqPpb2GL5xJDw"
-   },
-   {
-    "label": "MOEA YouTube",
-    "url": "https://www.youtube.com/@moeaband/"
-   },
-   {
-    "label": "MOEA TikTok",
-    "url": "https://www.tiktok.com/@moeaband"
-   },
-   {
-    "label": "MOEA Instagram",
-    "url": "https://www.instagram.com/moeaband/"
-   },
-   {
-    "label": "MOEA Illustrate Magazine Review",
-    "url": "https://illustratemagazine.com/dream-machine-by-moea-album-review/"
-   },
-   {
-    "label": "MOEA AcidTest Review",
-    "url": "https://acidted.wordpress.com/2025/05/23/dreaming-of-electronic-dream-pop-with-moea-electric-sheep/"
-   },
-   {
-    "label": "MOEA Last Day Dead Review",
-    "url": "https://lastdaydeaf.com/listening-now-moea-eryri/"
-   }
-  ],
-  "external": null,
-  "video": "/video/x/moea.mp4",
-  "poster": "/video/x/moea.jpg",
-  "image": null,
-  "thumb": "/img/x/moea.webp",
-  "themes": [
-   "music",
    "ai"
   ]
  },
