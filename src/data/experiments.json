@@ -740,9 +740,9 @@
    }
   ],
   "external": "https://github.com/petejwoodbridge/EchoLoop",
-  "video": null,
-  "poster": null,
-  "image": "/img/x/echoloop.jpg",
+  "video": "/video/x/echoloop.mp4",
+  "poster": "/video/x/echoloop.jpg",
+  "image": null,
   "thumb": "/img/x/echoloop.webp",
   "themes": [
    "ai"
@@ -763,9 +763,9 @@
    }
   ],
   "external": "https://github.com/petejwoodbridge/dreamlab-podcaster",
-  "video": null,
-  "poster": null,
-  "image": "/img/x/dreamlab-podcaster.jpg",
+  "video": "/video/x/dreamlab-podcaster.mp4",
+  "poster": "/video/x/dreamlab-podcaster.jpg",
+  "image": null,
   "thumb": "/img/x/dreamlab-podcaster.webp",
   "themes": [
    "ai"
@@ -1409,9 +1409,9 @@
    }
   ],
   "external": "https://github.com/petejwoodbridge/Worldlabs-Comfy",
-  "video": null,
-  "poster": null,
-  "image": "/img/x/worldlabs-comfy.jpg",
+  "video": "/video/x/worldlabs-comfy.mp4",
+  "poster": "/video/x/worldlabs-comfy.jpg",
+  "image": null,
   "thumb": "/img/x/worldlabs-comfy.webp",
   "themes": [
    "ai"
