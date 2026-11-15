@@ -224,6 +224,20 @@
   "thumb": "/img/x/take-on-me-portal.webp"
  },
  {
+  "slug": "comfyui-camera-control",
+  "title": "Camera Control in ComfyUI",
+  "blurb": "One still, any camera angle: a ComfyUI workflow that re-shoots an AI scene from new viewpoints while keeping the character consistent.",
+  "meta": "AI Animation, 2024",
+  "year": "2024",
+  "html": "<p>One of the trickiest parts of AI filmmaking is coverage. You get a shot you love, and then you need the close-up, the reverse and the low angle, of the same character in the same place.</p><p>This ComfyUI workflow treats a single image like a set you can walk a camera around. It takes one frame of a girl outside her caravan in the forest and re-shoots it: an extreme close-up on her face, a low angle looking up, a high angle looking down, a view from behind, a wider shot. A camera control prompt generator turns the move you want into instructions, and an image-editing model with a camera-angle LoRA renders the new view while keeping her, her clothes and the world consistent.</p><p>Part of the same work on consistent characters as <a href=\"/experiments/#annwn-transmission-000\">Annwn: Transmission 000</a>: giving an AI film real coverage to cut between.</p>",
+  "links": [],
+  "external": null,
+  "video": "/video/x/comfyui-camera-control.mp4",
+  "poster": "/video/x/comfyui-camera-control.jpg",
+  "image": null,
+  "thumb": "/img/x/comfyui-camera-control.webp"
+ },
+ {
   "slug": "aianimation",
   "title": "AI Animation",
   "blurb": "Work on techniques, workflows and tooling for AI Animation",
