@@ -373,6 +373,26 @@
   "thumb": "/img/x/wonderbeamx.webp"
  },
  {
+  "slug": "infinite-storybook",
+  "title": "Infinite Storybook",
+  "seoTitle": "Infinite Storybook: AI Interactive Picture Books",
+  "blurb": "An AI picture book that writes and illustrates itself around a child's imagination, with three choices at the end of every page.",
+  "meta": "Interactive Storytelling, 2025",
+  "year": "2025",
+  "html": "<p>Infinite Storybook turns anyone's imagination into an illustrated, interactive picture book in seconds. You mix the ingredients (an age range, a genre and three prompts: a character, a place and a surprise), design the hero, and Google Gemini writes the first page and paints the first illustration.</p><p>Then the reader takes over. Every page ends with three choices, like singing along with the frogs in the valley or flying home to tell the other dragons, and each one sends the story somewhere new. The hero stays visually consistent from page to page, the language scales from toddler-simple to pre-teen, and every finished book is saved to a library with its own AI-painted cover, to re-read or carry on later.</p><p>For younger children it is a shared adventure with a grown-up; older ones can run the whole thing themselves. It runs in the browser with no account, the stories stay on your own device, and the code is open source.</p>",
+  "links": [
+   {
+    "label": "Infinite Storybook on GitHub",
+    "url": "https://github.com/petejwoodbridge/InfiniteStorybook"
+   }
+  ],
+  "external": "https://github.com/petejwoodbridge/InfiniteStorybook",
+  "video": null,
+  "poster": null,
+  "image": "/img/x/infinite-storybook.jpg",
+  "thumb": "/img/x/infinite-storybook.webp"
+ },
+ {
   "slug": "fantasia-express",
   "title": "Fantasia Express",
   "blurb": "Pioneering Augmented Reality Storytelling on Trains and the transport sector.",
@@ -476,6 +496,26 @@
   "poster": "/video/x/discodex.jpg",
   "image": null,
   "thumb": "/img/x/discodex.webp"
+ },
+ {
+  "slug": "octobot",
+  "title": "OctoBot",
+  "seoTitle": "OctoBot: A Local AI Agent That Never Stops Inventing",
+  "blurb": "A restless pink octopus AI that lives in a folder on your computer and never, ever stops inventing things.",
+  "meta": "Just for Fun, 2025",
+  "year": "2025",
+  "html": "<p>OctoBot is a restless pink octopus AI that lives in a folder on your computer and never, ever stops inventing things: products, gadgets, apps, services, wild experiments and solutions to problems you didn't know you had. Leave it running overnight and wake up to hundreds of idea pitches, each one named, described and saved as its own file.</p><p>Under the pixel art it is a fully autonomous agent running a local model through <a href=\"https://ollama.com\" target=\"_blank\" rel=\"noopener\">Ollama</a>, so nothing leaves your machine. It picks an idea domain, invents something, saves it to its vault, then fuses past ideas into strange hybrids and follows chains of thought further and wilder. You can chat to it (it drops everything for you), feed it inspiration by dropping files into a folder, or leave it notes, which it answers in its inventor's journal.</p><p>A Tamagotchi for ideas, with eight arms and absolutely zero shame. Not serious, but a fun way to play with how autonomous agents loop, remember and build on their own work.</p>",
+  "links": [
+   {
+    "label": "OctoBot on GitHub",
+    "url": "https://github.com/petejwoodbridge/Octobot"
+   }
+  ],
+  "external": "https://github.com/petejwoodbridge/Octobot",
+  "video": "/video/x/octobot.mp4",
+  "poster": "/video/x/octobot.jpg",
+  "image": null,
+  "thumb": "/img/x/octobot.webp"
  },
  {
   "slug": "dreamlab",
@@ -598,26 +638,6 @@
   "poster": null,
   "image": "/img/x/dreamlab-podcaster.jpg",
   "thumb": "/img/x/dreamlab-podcaster.webp"
- },
- {
-  "slug": "octobot",
-  "title": "OctoBot",
-  "seoTitle": "OctoBot: A Local AI Agent That Never Stops Inventing",
-  "blurb": "A restless pink octopus AI that lives in a folder on your computer and never, ever stops inventing things.",
-  "meta": "Just for Fun, 2025",
-  "year": "2025",
-  "html": "<p>OctoBot is a restless pink octopus AI that lives in a folder on your computer and never, ever stops inventing things: products, gadgets, apps, services, wild experiments and solutions to problems you didn't know you had. Leave it running overnight and wake up to hundreds of idea pitches, each one named, described and saved as its own file.</p><p>Under the pixel art it is a fully autonomous agent running a local model through <a href=\"https://ollama.com\" target=\"_blank\" rel=\"noopener\">Ollama</a>, so nothing leaves your machine. It picks an idea domain, invents something, saves it to its vault, then fuses past ideas into strange hybrids and follows chains of thought further and wilder. You can chat to it (it drops everything for you), feed it inspiration by dropping files into a folder, or leave it notes, which it answers in its inventor's journal.</p><p>A Tamagotchi for ideas, with eight arms and absolutely zero shame. Not serious, but a fun way to play with how autonomous agents loop, remember and build on their own work.</p>",
-  "links": [
-   {
-    "label": "OctoBot on GitHub",
-    "url": "https://github.com/petejwoodbridge/Octobot"
-   }
-  ],
-  "external": "https://github.com/petejwoodbridge/Octobot",
-  "video": "/video/x/octobot.mp4",
-  "poster": "/video/x/octobot.jpg",
-  "image": null,
-  "thumb": "/img/x/octobot.webp"
  },
  {
   "slug": "dreammachine",
