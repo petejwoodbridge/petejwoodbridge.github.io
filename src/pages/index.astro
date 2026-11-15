@@ -8,6 +8,8 @@ import LedField from "../components/LedField.astro";
 import { site } from "../data/site";
 import { mainProjects as projects } from "../data/work";
 import { ids, profileEntities } from "../data/entities";
+import experiments from "../data/experiments.json";
+import ExperimentTile from "../components/ExperimentTile.astro";
 
 const stats = [
   { num: "20+", label: "years building creative technology: commercial, R&D, future thinking" },
@@ -191,6 +193,24 @@ const homeSchema = [homeProfile, ...profileEntities];
     </div>
   </section>
 
+  <section class="section section--line">
+    <div class="container">
+      <div class="grid grid-2" style="align-items:end; margin-bottom: clamp(32px,4vw,64px)">
+        <div data-reveal>
+          <p class="eyebrow">Experiments</p>
+          <h2 class="display h-lg">{experiments.length} things I tried.</h2>
+        </div>
+        <p class="lead muted" data-reveal>Prototypes, hacks and odd ideas. This is me exploring and experimenting, and many of these early-stage prototypes went on to become part of real projects.</p>
+      </div>
+      <div class="home-x" data-reveal>
+        {experiments.slice(0, 8).map((e) => <ExperimentTile experiment={e} />)}
+      </div>
+      <div style="margin-top:clamp(32px,4vw,56px)">
+        <a class="btn" href={u("/experiments")}>All {experiments.length} experiments <span class="arrow" aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+  </section>
+
   <section class="section section--line cta">
     <div class="container">
       <h2 class="display h-xl" data-reveal>Tell me what you're building.</h2>
@@ -201,3 +221,9 @@ const homeSchema = [homeProfile, ...profileEntities];
     </div>
   </section>
 </Base>
+
+<style>
+  .home-x { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  @media (max-width: 1100px) { .home-x { grid-template-columns: repeat(3, 1fr); } .home-x :global(.xtile:nth-child(n+7)) { display: none; } }
+  @media (max-width: 700px) { .home-x { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
+</style>

@@ -11,7 +11,11 @@
   "video": "/video/x/liverpool-unlocked.mp4",
   "poster": "/video/x/liverpool-unlocked.jpg",
   "image": null,
-  "thumb": "/img/x/liverpool-unlocked.webp"
+  "thumb": "/img/x/liverpool-unlocked.webp",
+  "themes": [
+   "twins",
+   "hacks"
+  ]
  },
  {
   "slug": "liverpool-city-region-digital-twin",
@@ -25,7 +29,10 @@
   "video": "/video/x/liverpool-signals.mp4",
   "poster": "/video/x/liverpool-signals.jpg",
   "image": null,
-  "thumb": "/img/x/liverpool-signals.webp"
+  "thumb": "/img/x/liverpool-signals.webp",
+  "themes": [
+   "twins"
+  ]
  },
  {
   "slug": "annwn-transmission-000",
@@ -39,7 +46,10 @@
   "video": "/video/x/annwn-transmission-000.mp4",
   "poster": "/video/x/annwn-transmission-000.jpg",
   "image": null,
-  "thumb": "/img/x/annwn-transmission-000.webp"
+  "thumb": "/img/x/annwn-transmission-000.webp",
+  "themes": [
+   "ai"
+  ]
  },
  {
   "slug": "blender-mcp-character",
@@ -59,7 +69,10 @@
   "video": "/video/x/blender-mcp-character.mp4",
   "poster": "/video/x/blender-mcp-character.jpg",
   "image": null,
-  "thumb": "/img/x/blender-mcp-character.webp"
+  "thumb": "/img/x/blender-mcp-character.webp",
+  "themes": [
+   "ai"
+  ]
  },
  {
   "slug": "mathew-street-twin",
@@ -73,7 +86,10 @@
   "video": "/video/x/mathew-street-twin.mp4",
   "poster": "/video/x/mathew-street-twin.jpg",
   "image": null,
-  "thumb": "/img/x/mathew-street-twin.webp"
+  "thumb": "/img/x/mathew-street-twin.webp",
+  "themes": [
+   "twins"
+  ]
  },
  {
   "slug": "blender-liverpool-twin",
@@ -87,7 +103,10 @@
   "video": "/video/x/blender-liverpool-twin.mp4",
   "poster": "/video/x/blender-liverpool-twin.jpg",
   "image": null,
-  "thumb": "/img/x/blender-liverpool-twin.webp"
+  "thumb": "/img/x/blender-liverpool-twin.webp",
+  "themes": [
+   "twins"
+  ]
  },
  {
   "slug": "pinky-pop",
@@ -101,32 +120,38 @@
   "video": "/video/x/pinky-pop.mp4",
   "poster": "/video/x/pinky-pop.jpg",
   "image": null,
-  "thumb": "/img/x/pinky-pop.webp"
+  "thumb": "/img/x/pinky-pop.webp",
+  "themes": [
+   "ai"
+  ]
  },
  {
   "slug": "aiagents",
   "title": "AI Agents",
   "blurb": "Creating conversational AI agents that can talk about anything.",
-  "meta": "Prototypes,2023",
+  "meta": "Prototypes, 2023",
   "year": "2023",
-  "html": "<p>Been working on a number of projects and advising several businesses around AI conversational agents, and their use cases from everything to customer service to education and health.\n\n\n\nWorking on ways to control and contain information so we can have some AI buddies to help us with our lives.\n\n\n\nGet in touch to find out more</p>",
+  "html": "<p>Been working on a number of projects and advising several businesses around AI conversational agents, and their use cases, everything from customer service to education and health.</p><p>Working on ways to control and contain information so we can have some AI buddies to help us with our lives.</p><p>Get in touch to find out more.</p>",
   "links": [],
   "external": null,
   "video": "/video/x/aiagents.mp4",
   "poster": "/video/x/aiagents.jpg",
   "image": null,
-  "thumb": "/img/x/aiagents.webp"
+  "thumb": "/img/x/aiagents.webp",
+  "themes": [
+   "ai"
+  ]
  },
  {
   "slug": "vpfutures",
   "title": "VP Futures",
-  "blurb": "Intensive 6 week training scheme with Industrial Light and Magic, Epic Games and National Film and Television School",
-  "meta": "VP Training & Mentoring,2022",
+  "blurb": "An intensive six-week training scheme with Industrial Light & Magic, Epic Games and the National Film and Television School",
+  "meta": "VP Training & Mentoring, 2022",
   "year": "2022",
-  "html": "<p>Earlier this year I spent 6 weeks on an intensive training course with Epic Games, Industrial Light and Magic, the National Film and Television School and Future Screens Belfast to learn the art of Virtual Production.\n\n\n\nGot to work on a number of stages, learning everything about the process from some of the top names and pioneers in the industry.\n\n\n\nCourse and masterclasses covered-\n\n\n\nTechnical Set Ups for NDisplay, Tracking Systems, Color ICIO, ICVFX, Multi-user servers, source control\n\n\n\nContent Creation, including Environment Building, Technical Art, VFX, Optimisation, Pre-visualisation, Location Scouting and even some sessions on motion capture\n\n\n\nStage Operations/Tech Art/Optimisation\n\n\n\nGot to meet some epic names and world class pioneers in the space from ILM and more. And spent time working on volumes at the Epic Innovation Centre in London and Studio Ulster in Belfast.</p><p>Mind blown. Have since been up to some things in a few other stages bringing my unreal engine knowledge into film and tv production, Exciting times\n\n\n\nTo see a great <a href=\"https://web.archive.org/web/20240616021748/https://www.storyfutures.com/resources/storyfutures-academy-presents-vp-futures-behind-the-scenes-of-a-virtual-production-accelerator-programme\" target=\"_blank\" rel=\"noopener\">Behind the Scenes of this pioneering programme checkout Storyfutures</a></p>",
+  "html": "<p>Earlier this year I spent 6 weeks on an intensive training course with Epic Games, Industrial Light and Magic, the National Film and Television School and Future Screens Belfast to learn the art of Virtual Production.</p><p>Got to work on a number of stages, learning everything about the process from some of the top names and pioneers in the industry.</p><p>The course and masterclasses covered:</p><ul><li>Technical set-ups for nDisplay, tracking systems, colour management (OCIO), ICVFX, multi-user servers and source control</li><li>Content creation, including environment building, technical art, VFX, optimisation, pre-visualisation, location scouting and even some sessions on motion capture</li><li>Stage operations, tech art and optimisation</li></ul><p>Got to meet some epic names and world-class pioneers in the space from ILM and more. And spent time working on volumes at the Epic Innovation Centre in London and Studio Ulster in Belfast.</p><p>Mind blown. Have since been up to some things in a few other stages bringing my Unreal Engine knowledge into film and TV production. Exciting times.</p><p>For a great behind-the-scenes look at this pioneering programme, <a href=\"https://web.archive.org/web/20240616021748/https://www.storyfutures.com/resources/storyfutures-academy-presents-vp-futures-behind-the-scenes-of-a-virtual-production-accelerator-programme\" target=\"_blank\" rel=\"noopener\">check out StoryFutures</a>.</p>",
   "links": [
    {
-    "label": "Behind the Scenes of this pioneering programme checkout Storyfutures",
+    "label": "Behind the scenes of VP Futures (StoryFutures)",
     "url": "https://web.archive.org/web/20240616021748/https://www.storyfutures.com/resources/storyfutures-academy-presents-vp-futures-behind-the-scenes-of-a-virtual-production-accelerator-programme"
    }
   ],
@@ -134,7 +159,10 @@
   "video": "/video/x/vpfutures.mp4",
   "poster": "/video/x/vpfutures.jpg",
   "image": null,
-  "thumb": "/img/x/vpfutures.webp"
+  "thumb": "/img/x/vpfutures.webp",
+  "themes": [
+   "vp"
+  ]
  },
  {
   "slug": "peekers",
@@ -153,7 +181,10 @@
   "video": "/video/x/peekers.mp4",
   "poster": "/video/x/peekers.jpg",
   "image": null,
-  "thumb": "/img/x/peekers.webp"
+  "thumb": "/img/x/peekers.webp",
+  "themes": [
+   "xr"
+  ]
  },
  {
   "slug": "hand-tracking-music",
@@ -173,7 +204,10 @@
   "video": "/video/x/hand-tracking-music.mp4",
   "poster": "/video/x/hand-tracking-music.jpg",
   "image": null,
-  "thumb": "/img/x/hand-tracking-music.webp"
+  "thumb": "/img/x/hand-tracking-music.webp",
+  "themes": [
+   "music"
+  ]
  },
  {
   "slug": "if-these-walls-could-talk",
@@ -181,13 +215,16 @@
   "blurb": "World's first UNESCO Mixed Reality/Hololens/Quest & Integrated Immersive Projection Experience.",
   "meta": "Mixed Reality Heritage, 2019",
   "year": "2019",
-  "html": "<p>“If these walls could talk…” is a collaboration with the Centre for Architecture and the Visual Arts (CAVA) at University of Liverpool, Culture Liverpool, Microsoft, Dimension Studios, Immersive Storylab and Draw and Code.</p><p>I am creating an interactive mixed reality Hololens prototype that will take place in the old 19th Century jail cells in the iconic Unesco Heritage building St. Georges Hall. Allowing people to interact with the past.</p><p>Using cutting edge holographic capture technology to create interactive performances with characters from the past, this experience will enable visitors to go back in time, to really feel what it was like in a 19th Century prison and justice system.</p><p>Exciting.</p>",
+  "html": "<p>“If these walls could talk…” is a collaboration with the Centre for Architecture and the Visual Arts (CAVA) at University of Liverpool, Culture Liverpool, Microsoft, Dimension Studios, Immersive Storylab and Draw and Code.</p><p>I am creating an interactive mixed reality Hololens prototype that will take place in the old 19th Century jail cells in the iconic UNESCO World Heritage building St George's Hall, allowing people to interact with the past.</p><p>Using cutting edge holographic capture technology to create interactive performances with characters from the past, this experience will enable visitors to go back in time, to really feel what it was like in a 19th Century prison and justice system.</p><p>Exciting.</p>",
   "links": [],
   "external": null,
   "video": "/video/x/if-these-walls-could-talk.mp4",
   "poster": "/video/x/if-these-walls-could-talk.jpg",
   "image": null,
-  "thumb": "/img/x/if-these-walls-could-talk.webp"
+  "thumb": "/img/x/if-these-walls-could-talk.webp",
+  "themes": [
+   "xr"
+  ]
  },
  {
   "slug": "podcast-machine",
@@ -206,7 +243,10 @@
   "video": "/video/x/podcast-machine.mp4",
   "poster": "/video/x/podcast-machine.jpg",
   "image": null,
-  "thumb": "/img/x/podcast-machine.webp"
+  "thumb": "/img/x/podcast-machine.webp",
+  "themes": [
+   "ai"
+  ]
  },
  {
   "slug": "take-on-me-portal",
@@ -221,7 +261,10 @@
   "video": "/video/x/take-on-me-portal.mp4",
   "poster": "/video/x/take-on-me-portal.jpg",
   "image": null,
-  "thumb": "/img/x/take-on-me-portal.webp"
+  "thumb": "/img/x/take-on-me-portal.webp",
+  "themes": [
+   "xr"
+  ]
  },
  {
   "slug": "comfyui-camera-control",
@@ -235,15 +278,18 @@
   "video": "/video/x/comfyui-camera-control.mp4",
   "poster": "/video/x/comfyui-camera-control.jpg",
   "image": null,
-  "thumb": "/img/x/comfyui-camera-control.webp"
+  "thumb": "/img/x/comfyui-camera-control.webp",
+  "themes": [
+   "ai"
+  ]
  },
  {
   "slug": "aianimation",
   "title": "AI Animation",
   "blurb": "Work on techniques, workflows and tooling for AI Animation",
-  "meta": "Experiments,2023",
+  "meta": "Experiments, 2023",
   "year": "2023",
-  "html": "<p>As you might know, I've got a super interest in stories of the landscape, lots of my own work is about bring together technology and place.\n\n\n\nAnd in particular am getting really fascinated with Welsh folklore at the moment with the kids.\n\n\n\nBeen researching Annwyn, the Welsh Otherworld, and stories from the Mabinogion.... which was one of the first prose texts compiled in the 13th century.... and probably the source of a lot of magic we see in popular culture/Hollywood today. It's so fascinating.\n\n\n\nSo here's a little experiment with interpreting creatures from Annwn, entirely made using text to video and control tools in AI.\n\n\n\nIt was included as part of the <a href=\"https://www.linkedin.com/feed/update/urn:li:activity:7141433657994477568/\" target=\"_blank\" rel=\"noopener\">UKII Intelligence Report 2024</a> (a report commissioned by verizon) showcasing 500 trailblazers across industries in the UK.</p>",
+  "html": "<p>As you might know, I've got a super interest in stories of the landscape, lots of my own work is about bringing together technology and place.</p><p>And in particular am getting really fascinated with Welsh folklore at the moment with the kids.</p><p>Been researching Annwn, the Welsh Otherworld, and stories from the Mabinogion... which was one of the first prose texts compiled in the 13th century... and probably the source of a lot of magic we see in popular culture/Hollywood today. It's so fascinating.</p><p>So here's a little experiment with interpreting creatures from Annwn, entirely made using text to video and control tools in AI.</p><p>It was included as part of the <a href=\"https://www.linkedin.com/feed/update/urn:li:activity:7141433657994477568/\" target=\"_blank\" rel=\"noopener\">UKII Intelligence Report 2024</a> (a report commissioned by Verizon) showcasing 500 trailblazers across industries in the UK.</p>",
   "links": [
    {
     "label": "UKII Intelligence Report 2024",
@@ -254,15 +300,18 @@
   "video": "/video/x/aianimation.mp4",
   "poster": "/video/x/aianimation.jpg",
   "image": null,
-  "thumb": "/img/x/aianimation.webp"
+  "thumb": "/img/x/aianimation.webp",
+  "themes": [
+   "ai"
+  ]
  },
  {
   "slug": "moea",
   "title": "MOEA",
-  "blurb": "MOEA Dream Machine Album Out Now",
+  "blurb": "An art experiment with song composition, sound and moving image, with two demo albums out so far.",
   "meta": "Music R&D, 2025",
   "year": "2025",
-  "html": "<p><a href=\"https://open.spotify.com/album/6BGgK326rVwVRo5icJtWNX?si=iWqNz-ztSTyTJ3RKbuyoeg\" target=\"_blank\" rel=\"noopener\">MOEA</a> is an art experiment with song composition, sound and moving image.</p><p>All original compositions from over the years, and some from my younger, angrier &amp; grungier band days, but re-imagined.\n\n\n\nI'm planning on working with MOEA as a bit of a creative and innovation outlet for learning/testing new processes around sound synthesis, ethical and human-centred approaches to new production tools, assistive AI as well as hands on research with distribution, marketing, live experiences, fan engagement and more.</p><p>First demo album released in March 2025 is called <a href=\"https://open.spotify.com/album/66xmsAos2jTZhgRRfs9Tr1?si=szpOo8khRweUq63Rr-jglQ\" target=\"_blank\" rel=\"noopener\">Alpha</a>. It's very early stage, raw and embryonic and totally unfinished;), probably shouldnt have but have released it anyway as part of the process so people can see the evolution.\n\n\n\nThe second demo album is a lot more experimental and surreal, called <a href=\"https://open.spotify.com/album/6BGgK326rVwVRo5icJtWNX?si=n0TBAjxoRUWFz_8rpeFEVQ\" target=\"_blank\" rel=\"noopener\">Dream Machine</a>, it came out in May 2025 and is all instrumentals - <a href=\"https://open.spotify.com/artist/3LXxiBWZbjFQPrtL0yZ2Q8?si=FHNg9tO1Rraq8BhIlAHGtg\" target=\"_blank\" rel=\"noopener\">follow us on MOEA Spotify</a>for updated tracks as they drop.</p><p>I'm working on the next set of tracks in late 2025, which are mainly instrumentals and based on the songs in 'Alpha'..... plus a few more ideas I've been toying with.</p><p><a href=\"https://linktr.ee/moeaband\" target=\"_blank\" rel=\"noopener\">MOEA</a> is distributed and published with Ditto Music and Sentric Publishing, some of our partners in MusicFutures.\n\n\n\nYou can subscribe to the progress and see some of the experimental videos and tracks on:</p><p><a href=\"https://open.spotify.com/artist/3LXxiBWZbjFQPrtL0yZ2Q8?si=V6EKuFpoQAqPpb2GL5xJDw\" target=\"_blank\" rel=\"noopener\">MOEA Spotify</a></p><p><a href=\"https://www.youtube.com/@moeaband/\" target=\"_blank\" rel=\"noopener\">MOEA YouTube</a>\n\n<a href=\"https://www.tiktok.com/@moeaband\" target=\"_blank\" rel=\"noopener\">MOEA TikTok</a>\n\n<a href=\"https://www.instagram.com/moeaband/\" target=\"_blank\" rel=\"noopener\">MOEA Instagram</a></p><p>Press Articles and Reviews:\n\n\n\n<a href=\"https://illustratemagazine.com/dream-machine-by-moea-album-review/\" target=\"_blank\" rel=\"noopener\">MOEA Illustrate Magazine Review</a>\n\nMOEA Avanzada Magazine Review\n\n<a href=\"https://acidted.wordpress.com/2025/05/23/dreaming-of-electronic-dream-pop-with-moea-electric-sheep/\" target=\"_blank\" rel=\"noopener\">MOEA AcidTest Review</a>\n\n<a href=\"https://lastdaydeaf.com/listening-now-moea-eryri/\" target=\"_blank\" rel=\"noopener\">MOEA Last Day Dead Review</a></p><p>Processes and Disclosures</p><p>So I am not using generative AI tools for the compositions/songwriting as thats my thing..... This is a creative outlet for my work.</p><p>But I am using Assistive AI quite a bit in various aspects of realising the work and supporting the project:</p><ul><li>My songwriting process always starts with a guitar or a keyboard. I spend a lot of time looping with pedals in my home studio to get the ideas down.... then using that as the base for the creative process. It's how I figure things out, sometimes over many months, years and even decades. It's my slow thing and i don't mind taking time on this.</li><li>The voice on the first album originated with my terrible voice transformed into MIDI, then using a paid and licensed trained singer to help realise it with midi to voice synthesis (and get it in tune!).</li><li>It started as a test but I felt quite uncomfortable with this to be honest... hence evolving into instrumentals after the first release. I need to learn to sing but I have a terrible timbre (i wasnt the singer back in my band days). It was sort of an experiment to see how real I could get it sounding. I'm sorry if it offended, but I can assure you everyone was paid for their work here.</li><li>I'm updating Alpha to reflect this change of direction! Although I find, as mainly a composer, this process is very helpful in terms of getting down and noodling with base ideas. This has been really transformative for me in the ideation and creative process of bringing a vision to life.</li><li>I am using similar process to this occasionally to create melody lines, ie. humming melody lines into a computer to get the midi notes to convert into instrumentation. Although I mainly do this on my guitar and other instruments, i can see this being really helpful for a lot of people. Especially as I'm mainly a writer, not a performer these days.</li><li>I am using AI Mastering Tools and some assistive features in Logic Pro, which is my main DAW. Using a number of plugins (ie Native Instruments magic for the synth, arpeggiators and instrumentals). Some synth based instruments are getting really good now, and am finding myself mixing them in a lot more these days to augment my analogue origins.</li><li>The Video and Marketing of MOEA make extensive use of Assistive AI and Generative AI (its pretty obvious and I always disclose on social) including help with Press Releases, Album Art and Music Videos. Visual AI is a big part of my R&amp;D for my job too, and how I make my living as a technologist/developer... so I need to be on top of this for my future career.</li><li>These tools include custom ComfyUI and VFX workflows (made by me), Midjourney, Runway, Kling, Chatgpt, Google VEO, Unreal Engine, After Effects and some custom tools and workflows I have built myself (ie with python)</li><li>I often start with original images/sketches or input video/3D and imagery and get the machines to help with the realisations of the ideas for the videos- lots of the characters are from my 2 childrens imagination. There is a LOT of human process, imagination and decision making in the way I work here.</li><li>We're always happy to use AI/Tech to take someone elses job, just not our own! I think artists really need to think about this when using AI too.</li><li>Some of the song titles come out of extensive discussions with chatbots and I often ask them for help with music theory (and getting interesting keys/scales to work with). I am not a formally trained musician so this is useful.</li><li>I post a lot of my processes on Linkedin and social media, always disclosing the tools that I use and aim to be transparent and as ethical as possible in this work. As an advocate for certain uses of AI, I think it is important that more people are transparent about what they are doing. I know disclosure is probably challenging for a lot of people, as they dont want to be associated with the existential threat of AI, but given evidence that many/most artists/studios are now using AI in some way, I think its important to do this.</li><li>Without some of these tools, I just wouldnt have been able to realise this project. I would always totally prefer to pay humans though, but it is just a side project at the moment and other parts of my life are getting expensive. This is the incredible thing about AI for me.... and I hope in some way it can be democratising to other people who just dont get a chance.</li><li>I'm not doing this to be popular or to make any money (damn music industry!), for me I want to keep this as a fun creative and experimental thing. If that was the purpose I would have probably picked a more generic and bland genre.... my music is pretty niche, often messy and sometimes a bit odd. My aim is to be myself here. I am donating all of my royalties from this to charity.</li><li>Been working on this since late 2024 as MOEA. But many of the songs originate from much earlier when I first learned to play the guitar and start writing over 30 years ago (I have the tapes and CDs from over 20 years ago). I was in a few bands back in my teens and twenties, but life took over, we moved away from each other and got boring jobs and families.</li><li>Always happy to share more about my processes, please get in touch if you would like to find out more.</li><li>I recognise that as a human, I am also trained on the world around me: creativity never happens in a bubble, and i owe a lot to my musical and artistic influences, life experiences and my being a sensing soul in the world... I cant trace it all, but lots of this is in the songs hopefully. Humans borrow and steal things too, we build on, adapt and transform all that has gone before: this isnt just an AI challenge.</li><li>I feel that artists like me (who are using AI in assistive ways, or for marketing, mastering, or just to realise and experiment with ideas with little money or time etc) probably make up quite a bit of the indie scene right now, evidence suggests its around 30-60% of indie artists using ai in these ways and much more if you include other altering tools, and we shouldn't be put into the same box as the fake suno/udio bands. But maybe we all need to be a bit more honest with this, as there has always been a lot of deception in this industry.</li><li>We need to move away from the dichotomies being created now. AI isnt bad/good. It can be an incredibly collaborative part of the process of realising a vision, but it should ultimately, still be a tool for humans.</li><li>I hope that you can still hear the human expression and authenticity in the songs. I hope that one day I can afford to do this properly, but until then, this is how i am going to make my music work for me and I hope that it helps others get their voices heard too.</li><li>Thanks for reading and listening.</li></ul>",
+  "html": "<p><a href=\"https://open.spotify.com/album/6BGgK326rVwVRo5icJtWNX?si=iWqNz-ztSTyTJ3RKbuyoeg\" target=\"_blank\" rel=\"noopener\">MOEA</a> is an art experiment with song composition, sound and moving image.</p><p>All original compositions from over the years, and some from my younger, angrier &amp; grungier band days, but re-imagined.</p><p>I'm planning on working with MOEA as a bit of a creative and innovation outlet for learning/testing new processes around sound synthesis, ethical and human-centred approaches to new production tools, assistive AI as well as hands on research with distribution, marketing, live experiences, fan engagement and more.</p><p>First demo album released in March 2025 is called <a href=\"https://open.spotify.com/album/66xmsAos2jTZhgRRfs9Tr1?si=szpOo8khRweUq63Rr-jglQ\" target=\"_blank\" rel=\"noopener\">Alpha</a>. It's very early stage, raw and embryonic and totally unfinished ;) I probably shouldn't have, but I released it anyway as part of the process so people can see the evolution.</p><p>The second demo album is a lot more experimental and surreal, called <a href=\"https://open.spotify.com/album/6BGgK326rVwVRo5icJtWNX?si=n0TBAjxoRUWFz_8rpeFEVQ\" target=\"_blank\" rel=\"noopener\">Dream Machine</a>, it came out in May 2025 and is all instrumentals - <a href=\"https://open.spotify.com/artist/3LXxiBWZbjFQPrtL0yZ2Q8?si=FHNg9tO1Rraq8BhIlAHGtg\" target=\"_blank\" rel=\"noopener\">follow us on MOEA Spotify</a> for updated tracks as they drop.</p><p>I'm working on the next set of tracks in late 2025, which are mainly instrumentals and based on the songs in 'Alpha'... plus a few more ideas I've been toying with.</p><p><a href=\"https://linktr.ee/moeaband\" target=\"_blank\" rel=\"noopener\">MOEA</a> is distributed and published with Ditto Music and Sentric Publishing, some of our partners in MusicFutures.</p><p>You can subscribe to the progress and see some of the experimental videos and tracks on:</p><p><a href=\"https://open.spotify.com/artist/3LXxiBWZbjFQPrtL0yZ2Q8?si=V6EKuFpoQAqPpb2GL5xJDw\" target=\"_blank\" rel=\"noopener\">MOEA Spotify</a></p><p><a href=\"https://www.youtube.com/@moeaband/\" target=\"_blank\" rel=\"noopener\">MOEA YouTube</a></p><p><a href=\"https://www.tiktok.com/@moeaband\" target=\"_blank\" rel=\"noopener\">MOEA TikTok</a></p><p><a href=\"https://www.instagram.com/moeaband/\" target=\"_blank\" rel=\"noopener\">MOEA Instagram</a></p><p>Press Articles and Reviews:</p><p><a href=\"https://illustratemagazine.com/dream-machine-by-moea-album-review/\" target=\"_blank\" rel=\"noopener\">MOEA Illustrate Magazine Review</a></p><p>MOEA Avanzada Magazine Review</p><p><a href=\"https://acidted.wordpress.com/2025/05/23/dreaming-of-electronic-dream-pop-with-moea-electric-sheep/\" target=\"_blank\" rel=\"noopener\">MOEA AcidTest Review</a></p><p><a href=\"https://lastdaydeaf.com/listening-now-moea-eryri/\" target=\"_blank\" rel=\"noopener\">MOEA Last Day Dead Review</a></p><p>Processes and Disclosures</p><p>So I am not using generative AI tools for the compositions/songwriting as that's my thing... This is a creative outlet for my work.</p><p>But I am using Assistive AI quite a bit in various aspects of realising the work and supporting the project:</p><ul><li>My songwriting process always starts with a guitar or a keyboard. I spend a lot of time looping with pedals in my home studio to get the ideas down... then using that as the base for the creative process. It's how I figure things out, sometimes over many months, years and even decades. It's my slow thing and I don't mind taking time on this.</li><li>The voice on the first album originated with my terrible voice transformed into MIDI, then using a paid and licensed trained singer to help realise it with midi to voice synthesis (and get it in tune!).</li><li>It started as a test but I felt quite uncomfortable with this to be honest... hence evolving into instrumentals after the first release. I need to learn to sing but I have a terrible timbre (I wasn't the singer back in my band days). It was sort of an experiment to see how real I could get it sounding. I'm sorry if it offended, but I can assure you everyone was paid for their work here.</li><li>I'm updating Alpha to reflect this change of direction! Although I find, as mainly a composer, this process is very helpful in terms of getting down and noodling with base ideas. This has been really transformative for me in the ideation and creative process of bringing a vision to life.</li><li>I am using similar process to this occasionally to create melody lines, i.e. humming melody lines into a computer to get the midi notes to convert into instrumentation. Although I mainly do this on my guitar and other instruments, I can see this being really helpful for a lot of people. Especially as I'm mainly a writer, not a performer these days.</li><li>I am using AI Mastering Tools and some assistive features in Logic Pro, which is my main DAW. Using a number of plugins (e.g. Native Instruments magic for the synth, arpeggiators and instrumentals). Some synth based instruments are getting really good now, and am finding myself mixing them in a lot more these days to augment my analogue origins.</li><li>The Video and Marketing of MOEA make extensive use of Assistive AI and Generative AI (it's pretty obvious and I always disclose on social) including help with Press Releases, Album Art and Music Videos. Visual AI is a big part of my R&amp;D for my job too, and how I make my living as a technologist/developer... so I need to be on top of this for my future career.</li><li>These tools include custom ComfyUI and VFX workflows (made by me), Midjourney, Runway, Kling, ChatGPT, Google Veo, Unreal Engine, After Effects and some custom tools and workflows I have built myself (e.g. with Python)</li><li>I often start with original images/sketches or input video/3D and imagery and get the machines to help with the realisations of the ideas for the videos- lots of the characters are from my two children's imagination. There is a LOT of human process, imagination and decision making in the way I work here.</li><li>We're always happy to use AI/Tech to take someone else's job, just not our own! I think artists really need to think about this when using AI too.</li><li>Some of the song titles come out of extensive discussions with chatbots and I often ask them for help with music theory (and getting interesting keys/scales to work with). I am not a formally trained musician so this is useful.</li><li>I post a lot of my processes on LinkedIn and social media, always disclosing the tools that I use and aim to be transparent and as ethical as possible in this work. As an advocate for certain uses of AI, I think it is important that more people are transparent about what they are doing. I know disclosure is probably challenging for a lot of people, as they don't want to be associated with the existential threat of AI, but given evidence that many/most artists/studios are now using AI in some way, I think it's important to do this.</li><li>Without some of these tools, I just wouldn't have been able to realise this project. I would always totally prefer to pay humans though, but it is just a side project at the moment and other parts of my life are getting expensive. This is the incredible thing about AI for me... and I hope in some way it can be democratising to other people who just don't get a chance.</li><li>I'm not doing this to be popular or to make any money (damn music industry!), for me I want to keep this as a fun creative and experimental thing. If that was the purpose I would have probably picked a more generic and bland genre... my music is pretty niche, often messy and sometimes a bit odd. My aim is to be myself here. I am donating all of my royalties from this to charity.</li><li>Been working on this since late 2024 as MOEA. But many of the songs originate from much earlier when I first learned to play the guitar and start writing over 30 years ago (I have the tapes and CDs from over 20 years ago). I was in a few bands back in my teens and twenties, but life took over, we moved away from each other and got boring jobs and families.</li><li>Always happy to share more about my processes, please get in touch if you would like to find out more.</li><li>I recognise that as a human, I am also trained on the world around me: creativity never happens in a bubble, and I owe a lot to my musical and artistic influences, life experiences and my being a sensing soul in the world... I can't trace it all, but lots of this is in the songs hopefully. Humans borrow and steal things too, we build on, adapt and transform all that has gone before: this isn't just an AI challenge.</li><li>I feel that artists like me (who are using AI in assistive ways, or for marketing, mastering, or just to realise and experiment with ideas with little money or time etc) probably make up quite a bit of the indie scene right now, evidence suggests it's around 30-60% of indie artists using AI in these ways and much more if you include other altering tools, and we shouldn't be put into the same box as the fake Suno/Udio bands. But maybe we all need to be a bit more honest with this, as there has always been a lot of deception in this industry.</li><li>We need to move away from the dichotomies being created now. AI isn't bad/good. It can be an incredibly collaborative part of the process of realising a vision, but it should ultimately, still be a tool for humans.</li><li>I hope that you can still hear the human expression and authenticity in the songs. I hope that one day I can afford to do this properly, but until then, this is how I am going to make my music work for me and I hope that it helps others get their voices heard too.</li><li>Thanks for reading and listening.</li></ul>",
   "links": [
    {
     "label": "MOEA",
@@ -317,29 +366,36 @@
   "video": "/video/x/moea.mp4",
   "poster": "/video/x/moea.jpg",
   "image": null,
-  "thumb": "/img/x/moea.webp"
+  "thumb": "/img/x/moea.webp",
+  "themes": [
+   "music",
+   "ai"
+  ]
  },
  {
   "slug": "geospatial",
   "title": "Geospatial Data",
-  "blurb": "Working with google maps inside of unreal engine, for realtime built environment applications.",
+  "blurb": "Working with Google Maps inside Unreal Engine, for realtime built environment applications.",
   "meta": "Experiments, 2023",
   "year": "2023",
-  "html": "<p>Little test with google maps inside of unreal engine, which adds the ability to use data from the whole world inside of games, experiences and realtime tools.\n\n\n\nReally excited about the potential of this for work in the built environment (ie when combined with other realtime data), and the ways it can enable advanced location scouting and knowledge of the world for production reasons.</p><p>Get in touch to find out more.</p>",
+  "html": "<p>A little test with Google Maps inside Unreal Engine, which adds the ability to use data from the whole world inside of games, experiences and realtime tools.</p><p>Really excited about the potential of this for work in the built environment (i.e. when combined with other realtime data), and the ways it can enable advanced location scouting and knowledge of the world for production reasons.</p><p>Get in touch to find out more.</p>",
   "links": [],
   "external": null,
   "video": "/video/x/geospatial.mp4",
   "poster": "/video/x/geospatial.jpg",
   "image": null,
-  "thumb": "/img/x/geospatial.webp"
+  "thumb": "/img/x/geospatial.webp",
+  "themes": [
+   "twins"
+  ]
  },
  {
   "slug": "wonderbeamx",
   "title": "Wonderbeam",
   "blurb": "Inventing and developing a shared augmented reality device",
-  "meta": "Immersive Inventions,2020",
+  "meta": "Immersive Inventions, 2020",
   "year": "2020",
-  "html": "<p>We wanted to imagine a more shared way of viewing augmented reality worlds...\n\n\n\nIntroducing the Wonderbeam.\n\n\n\nA social augmented reality device, that lets you share your <a href=\"https://www.linkedin.com/feed/hashtag/?keywords=ar&amp;highlightedUpdateUrns=urn%3Ali%3Aactivity%3A6681918469321084928\" target=\"_blank\" rel=\"noopener\">#ar</a> and <a href=\"https://www.linkedin.com/feed/hashtag/?keywords=mixedreality&amp;highlightedUpdateUrns=urn%3Ali%3Aactivity%3A6681918469321084928\" target=\"_blank\" rel=\"noopener\">#mixedreality</a> worlds with your friends, family, colleagues and connections.</p><p>Just imagine playing ghostbusters with friends in the streets of New York City or discovering the magic of a museum through a new way of engaging with content as you move through space.</p><p>Imagine showing architectural/BIM plans on a construction project in progress or improving work productivity with the assistance of digital visual and sonic content.</p><p>Imagine learning and spending time with children in a magical new spatial way and new forms of active home and location based entertainment....</p><p>We think wonderbeam has a load of practical and magical possibilities for the world.</p><p>6 degrees of freedom, spatially aware, interactive controls, interactive feedback. All working in a little portable projection device that understands its surroundings. Even better with 5G too.\n\n\n\nDeveloped with <a href=\"https://twitter.com/dr_mark_wright\" target=\"_blank\" rel=\"noopener\">Dr Mark Wright</a>, <a href=\"https://www.linkedin.com/in/ACoAAAJU86oBgt90Tm9_ta65aSkQLYvaKHYbcuc\" target=\"_blank\" rel=\"noopener\">Dr Robert Black</a> and my 4 year old boy. Characters in the demo created by <a href=\"https://www.instagram.com/waaber/\" target=\"_blank\" rel=\"noopener\">Rich Webbera</a>r</p><p>If you are interested in getting involved in in this project, want to bring it to your immersive experience or brand activation, or helping us to raise investment to bring it to mass market, please feel free to contact me on <a href=\"https://www.linkedin.com/in/petewoodbridge/\" target=\"_blank\" rel=\"noopener\">Linkedin</a></p><p><a href=\"https://player.vimeo.com/video/436723843?title=0&autopause=0&app_id=122963\" target=\"_blank\" rel=\"noopener\">Watch the video ↗</a></p>",
+  "html": "<p>We wanted to imagine a more shared way of viewing augmented reality worlds...</p><p>Introducing the Wonderbeam.</p><p>A social augmented reality device, that lets you share your <a href=\"https://www.linkedin.com/feed/hashtag/?keywords=ar&amp;highlightedUpdateUrns=urn%3Ali%3Aactivity%3A6681918469321084928\" target=\"_blank\" rel=\"noopener\">#ar</a> and <a href=\"https://www.linkedin.com/feed/hashtag/?keywords=mixedreality&amp;highlightedUpdateUrns=urn%3Ali%3Aactivity%3A6681918469321084928\" target=\"_blank\" rel=\"noopener\">#mixedreality</a> worlds with your friends, family, colleagues and connections.</p><p>Just imagine playing Ghostbusters with friends in the streets of New York City or discovering the magic of a museum through a new way of engaging with content as you move through space.</p><p>Imagine showing architectural/BIM plans on a construction project in progress or improving work productivity with the assistance of digital visual and sonic content.</p><p>Imagine learning and spending time with children in a magical new spatial way and new forms of active home and location based entertainment...</p><p>We think Wonderbeam has a load of practical and magical possibilities for the world.</p><p>6 degrees of freedom, spatially aware, interactive controls, interactive feedback. All working in a little portable projection device that understands its surroundings. Even better with 5G too.</p><p>Developed with <a href=\"https://twitter.com/dr_mark_wright\" target=\"_blank\" rel=\"noopener\">Dr Mark Wright</a>, <a href=\"https://www.linkedin.com/in/ACoAAAJU86oBgt90Tm9_ta65aSkQLYvaKHYbcuc\" target=\"_blank\" rel=\"noopener\">Dr Robert Black</a> and my 4 year old boy. Characters in the demo created by <a href=\"https://www.instagram.com/waaber/\" target=\"_blank\" rel=\"noopener\">Rich Webber</a>.</p><p>If you are interested in getting involved in this project, want to bring it to your immersive experience or brand activation, or helping us to raise investment to bring it to mass market, please feel free to contact me on <a href=\"https://www.linkedin.com/in/petewoodbridge/\" target=\"_blank\" rel=\"noopener\">LinkedIn</a>.</p><p><a href=\"https://player.vimeo.com/video/436723843?title=0&autopause=0&app_id=122963\" target=\"_blank\" rel=\"noopener\">Watch the video ↗</a></p>",
   "links": [
    {
     "label": "#ar",
@@ -358,11 +414,11 @@
     "url": "https://www.linkedin.com/in/ACoAAAJU86oBgt90Tm9_ta65aSkQLYvaKHYbcuc"
    },
    {
-    "label": "Rich Webber a",
+    "label": "Rich Webber",
     "url": "https://www.instagram.com/waaber/"
    },
    {
-    "label": "Linkedin",
+    "label": "LinkedIn",
     "url": "https://www.linkedin.com/in/petewoodbridge/"
    }
   ],
@@ -370,7 +426,10 @@
   "video": "/video/x/wonderbeamx.mp4",
   "poster": "/video/x/wonderbeamx.jpg",
   "image": null,
-  "thumb": "/img/x/wonderbeamx.webp"
+  "thumb": "/img/x/wonderbeamx.webp",
+  "themes": [
+   "xr"
+  ]
  },
  {
   "slug": "infinite-storybook",
@@ -390,7 +449,10 @@
   "video": null,
   "poster": null,
   "image": "/img/x/infinite-storybook.jpg",
-  "thumb": "/img/x/infinite-storybook.webp"
+  "thumb": "/img/x/infinite-storybook.webp",
+  "themes": [
+   "ai"
+  ]
  },
  {
   "slug": "fantasia-express",
@@ -398,7 +460,7 @@
   "blurb": "Pioneering Augmented Reality Storytelling on Trains and the transport sector.",
   "meta": "Augmented Reality Storytelling on Trains, 2019",
   "year": "2019",
-  "html": "<p><a href=\"https://web.archive.org/web/20190824173952/http://meyouandus.co.uk/work/fantasia-express/\" target=\"_blank\" rel=\"noopener\">Fantasia Express</a> was a 12 month research and development project, awarded by Innovate UK, to Meyouandus and supported by London North East Railways.</p><p>I collaborated with the company with Immersive Storylab, alongside AR specialists Corporation Pop, that looked at placing augmented content within and outside a moving rail carriage between London and Edinburgh.</p><p>By focusing on AR delivered through the lens of an individual’s mobile device, this project asked questions about how future mixed reality experience may be embedded within moving vehicles. The project revealed new story worlds in transport, to encourage exploration of place and to act as an exemplar for the possibilities of mixed reality experiences on public and private transport in the future.</p><p>My work involved developing the storyworld, characters, narrative dynamics and gameplay for the experience that takes you into a world of imagination and wonder.</p>",
+  "html": "<p><a href=\"https://web.archive.org/web/20190824173952/http://meyouandus.co.uk/work/fantasia-express/\" target=\"_blank\" rel=\"noopener\">Fantasia Express</a> was a 12 month research and development project, awarded by Innovate UK, to Meyouandus and supported by London North Eastern Railway.</p><p>I collaborated with the company through Immersive Storylab, alongside AR specialists Corporation Pop, on a project that looked at placing augmented content within and outside a moving rail carriage between London and Edinburgh.</p><p>By focusing on AR delivered through the lens of an individual’s mobile device, this project asked questions about how future mixed reality experiences may be embedded within moving vehicles. The project revealed new story worlds in transport, to encourage exploration of place and to act as an exemplar for the possibilities of mixed reality experiences on public and private transport in the future.</p><p>My work involved developing the storyworld, characters, narrative dynamics and gameplay for the experience that takes you into a world of imagination and wonder.</p>",
   "links": [
    {
     "label": "Fantasia Express",
@@ -409,7 +471,10 @@
   "video": "/video/x/fantasia-express.mp4",
   "poster": "/video/x/fantasia-express.jpg",
   "image": null,
-  "thumb": "/img/x/fantasia-express.webp"
+  "thumb": "/img/x/fantasia-express.webp",
+  "themes": [
+   "xr"
+  ]
  },
  {
   "slug": "dream-machine-unreal",
@@ -424,7 +489,10 @@
   "video": "/video/x/dream-machine-unreal.mp4",
   "poster": "/video/x/dream-machine-unreal.jpg",
   "image": null,
-  "thumb": "/img/x/dream-machine-unreal.webp"
+  "thumb": "/img/x/dream-machine-unreal.webp",
+  "themes": [
+   "ai"
+  ]
  },
  {
   "slug": "volumetric-mixed-reality-heritage",
@@ -432,7 +500,7 @@
   "blurb": "Producing & developing a mixed reality project bringing the past to life at a UNESCO World Heritage building",
   "meta": "Mixed Reality Heritage Work, 2019",
   "year": "2019",
-  "html": "<p><a href=\"https://player.vimeo.com/video/340737347?title=0&muted=1&autoplay=1&autopause=0&app_id=122963\" target=\"_blank\" rel=\"noopener\">Watch the video ↗</a></p><p>As part of my research at Liverpool University’s Centre of Architecture and the Visual Arts (CAVA) and in collaboration with Culture Liverpool, Liverpool Institute of Performing Arts, Draw &amp; Code, Immersive Storylab, Cinetecture and Dimension Studios I designed, developed and produced a ground-breaking participatory and immersive mixed reality experience called “If These Walls Could Talk”.</p><p>Bringing together world-leading researchers with BAFTA winning writers, a world-class performing arts organisation and immersive technology experts, the team have created a pioneering hybrid spatial experience that considers how audiences can be a part of storytelling.</p><p>The location-based prototype was produced for one of Liverpool’s most iconic heritage buildings – the 19th century St George’s Hall (Harvey Lonsdale Elmes, built 1841–1854), which is an intrinsic part of Liverpool’s UNESCO World Heritage Site.</p><p>The experience sees the famous court case of Florence Maybrick who was accused of poisoning her husband, and taken on a journey back in time to experience and feel what it was like to encounter Liverpool’s late Victorian prison and justice system. Set across the cells and the courtroom at St George’s hall, the experiences uses variety of technologies such as Virtual Reality, 3d Projection Mapping, Mixed Reality (Microsoft Hololens) and live performance to invite the audience into the last moments of the court case.</p><p>The experience used a headset device called the Hololens, which enables users to see both the real world and the virtual one at the same time. With the support of Microsoft’s Mixed Reality team in the US, the team also created the world’s first volumetrically filmed (3D holograms) UNESCO heritage experience using Microsoft’s Mixed Reality capture system at Dimension Studios in London.</p><p>Commenting on the experience Peter Woodbridge, the creator and producer of the experience said….”We think the future of heritage experiences are about how you involve an audience as a participant, rather than as a spectator, in the story. This experience combines the real space with virtual objects to enable us to bring the building to life with virtual characters and sound. In this experience the audience is part of the story, also on trial as they encounter holograms, spatial sounds and stories from the past.”</p><p>“Our experience takes place across 5,000 square feet of this magnificent UNESCO world heritage building, which was a real challenge in the ways we had to push the technology.”</p><p>BAFTA award winning writer Rosemary Kay, Director at Immersive Storylab, and the dialogue writer for the experience says “This allows the audience to feel immersed in the experience of being a prisoner in this grim place, seeing, hearing all the other prisoners around them. The experience treated the audience like Victorian criminals as they were led physically from the dank, cramped cells, past the whipping bench, up the stairs and into the imposing courtroom, where they get tried and found guilty, alongside our historic holograms.”</p><p>“We think there’s a real future in these technologies for bringing heritage to life and making us feel a part of the past.”</p><p>The team behind the experience have been working on research into spatial storytelling, human performance in mixed reality and augmented reality.</p><p>For more info about the project please visit... <a href=\"http://www.cava-research.org/research-projects/st-georges\" target=\"_blank\" rel=\"noopener\">CAVA</a></p>",
+  "html": "<p><a href=\"https://player.vimeo.com/video/340737347?title=0&muted=1&autoplay=1&autopause=0&app_id=122963\" target=\"_blank\" rel=\"noopener\">Watch the video ↗</a></p><p>As part of my research at Liverpool University’s Centre of Architecture and the Visual Arts (CAVA) and in collaboration with Culture Liverpool, Liverpool Institute of Performing Arts, Draw &amp; Code, Immersive Storylab, Cinetecture and Dimension Studios I designed, developed and produced a ground-breaking participatory and immersive mixed reality experience called “If These Walls Could Talk”.</p><p>Bringing together world-leading researchers with BAFTA winning writers, a world-class performing arts organisation and immersive technology experts, the team have created a pioneering hybrid spatial experience that considers how audiences can be a part of storytelling.</p><p>The location-based prototype was produced for one of Liverpool’s most iconic heritage buildings – the 19th century St George’s Hall (Harvey Lonsdale Elmes, built 1841–1854), which is an intrinsic part of Liverpool’s UNESCO World Heritage Site.</p><p>The experience follows the famous court case of Florence Maybrick, who was accused of poisoning her husband, and takes you on a journey back in time to experience and feel what it was like to encounter Liverpool’s late Victorian prison and justice system. Set across the cells and the courtroom at St George’s Hall, the experience uses a variety of technologies such as Virtual Reality, 3d Projection Mapping, Mixed Reality (Microsoft Hololens) and live performance to invite the audience into the last moments of the court case.</p><p>The experience used a headset device called the Hololens, which enables users to see both the real world and the virtual one at the same time. With the support of Microsoft’s Mixed Reality team in the US, the team also created the world’s first volumetrically filmed (3D holograms) UNESCO heritage experience using Microsoft’s Mixed Reality capture system at Dimension Studios in London.</p><p>Commenting on the experience Peter Woodbridge, the creator and producer of the experience said….”We think the future of heritage experiences is about how you involve an audience as a participant, rather than as a spectator, in the story. This experience combines the real space with virtual objects to enable us to bring the building to life with virtual characters and sound. In this experience the audience is part of the story, also on trial as they encounter holograms, spatial sounds and stories from the past.”</p><p>“Our experience takes place across 5,000 square feet of this magnificent UNESCO world heritage building, which was a real challenge in the ways we had to push the technology.”</p><p>BAFTA award winning writer Rosemary Kay, Director at Immersive Storylab, and the dialogue writer for the experience says “This allows the audience to feel immersed in the experience of being a prisoner in this grim place, seeing, hearing all the other prisoners around them. The experience treated the audience like Victorian criminals as they were led physically from the dank, cramped cells, past the whipping bench, up the stairs and into the imposing courtroom, where they get tried and found guilty, alongside our historic holograms.”</p><p>“We think there’s a real future in these technologies for bringing heritage to life and making us feel a part of the past.”</p><p>The team behind the experience have been working on research into spatial storytelling, human performance in mixed reality and augmented reality.</p><p>For more info about the project please visit... <a href=\"http://www.cava-research.org/research-projects/st-georges\" target=\"_blank\" rel=\"noopener\">CAVA</a></p>",
   "links": [
    {
     "label": "CAVA",
@@ -443,15 +511,18 @@
   "video": "/video/x/volumetric-mixed-reality-heritage.mp4",
   "poster": "/video/x/volumetric-mixed-reality-heritage.jpg",
   "image": null,
-  "thumb": "/img/x/volumetric-mixed-reality-heritage.webp"
+  "thumb": "/img/x/volumetric-mixed-reality-heritage.webp",
+  "themes": [
+   "xr"
+  ]
  },
  {
   "slug": "dobjectsdream",
   "title": "Do Objects Dream?",
   "blurb": "Producing a Collaboration with National Museums Liverpool's World Cultures Gallery",
-  "meta": "Museum Collaboration,2020",
+  "meta": "Museum Collaboration, 2020",
   "year": "2020",
-  "html": "<p>Re-imagining the display and stories of objects in the World Museum, Liverpool.\n\n\n\nStudents prototyped and concepted several ways for visitors to be immersively engaged with the stories in this collaboration that led to a new permanent exhibit.\n\n\n\nThrough the words of T.S. Eliot Prize-winning poet Sarah Howe and an immersive, audio-visual display, our new Chinese ceramics display explores the imagined lives lived by seven objects. This is the first in a series of interventions at the World Cultures gallery in World Museum.</p><p>This project was created with the World Museum and ERC-funded TIDE project, along with TIDE visiting poet Sarah Howe, Liverpool John Moores University, Birkenhead School, Meaningful Magic storyboard consultants, Belle Vue Productions, Urban Projections and Adlib installation.</p><p>Find out more about the <a href=\"https://www.liverpoolmuseums.org.uk/whatson/world-museum/exhibition/world-cultures-gallery\" target=\"_blank\" rel=\"noopener\">World Cultures Gallery here</a></p><p><a href=\"https://www.youtube.com/embed/c7BT4aakENY?autoplay=0&mute=0&controls=1&loop=0&origin=https%3A%2F%2Fwww.curiousmagic.co.uk&playsinline=1&enablejsapi=1&widgetid=1&forigin=https%3A%2F%2Fwww.curiousmagic.co.uk%2Fdobjectsdream&aoriginsup=1&vf=1\" target=\"_blank\" rel=\"noopener\">Watch the video ↗</a></p>",
+  "html": "<p>Re-imagining the display and stories of objects in the World Museum, Liverpool.</p><p>Students prototyped and concepted several ways for visitors to be immersively engaged with the stories in this collaboration that led to a new permanent exhibit.</p><p>Through the words of T.S. Eliot Prize-winning poet Sarah Howe and an immersive, audio-visual display, our new Chinese ceramics display explores the imagined lives lived by seven objects. This is the first in a series of interventions at the World Cultures gallery in World Museum.</p><p>This project was created with the World Museum and ERC-funded TIDE project, along with TIDE visiting poet Sarah Howe, Liverpool John Moores University, Birkenhead School, Meaningful Magic storyboard consultants, Belle Vue Productions, Urban Projections and Adlib installation.</p><p>Find out more about the <a href=\"https://www.liverpoolmuseums.org.uk/whatson/world-museum/exhibition/world-cultures-gallery\" target=\"_blank\" rel=\"noopener\">World Cultures Gallery here</a></p><p><a href=\"https://www.youtube.com/embed/c7BT4aakENY?autoplay=0&mute=0&controls=1&loop=0&origin=https%3A%2F%2Fwww.curiousmagic.co.uk&playsinline=1&enablejsapi=1&widgetid=1&forigin=https%3A%2F%2Fwww.curiousmagic.co.uk%2Fdobjectsdream&aoriginsup=1&vf=1\" target=\"_blank\" rel=\"noopener\">Watch the video ↗</a></p>",
   "links": [
    {
     "label": "World Cultures Gallery here",
@@ -462,7 +533,11 @@
   "video": "/video/x/dobjectsdream.mp4",
   "poster": "/video/x/dobjectsdream.jpg",
   "image": null,
-  "thumb": "/img/x/dobjectsdream.webp"
+  "thumb": "/img/x/dobjectsdream.webp",
+  "themes": [
+   "xr",
+   "teaching"
+  ]
  },
  {
   "slug": "verse",
@@ -470,13 +545,16 @@
   "blurb": "Creating an Immersive XR Multisensory Environment",
   "meta": "Immersive Realtime Projection, 2020",
   "year": "2020",
-  "html": "<p>A little experiment with physics, gravity, time and randomness in a realtime simulation. The beauty and distruction of randomness, maybe. Also works as an immersive interactive realtime projection.</p>",
+  "html": "<p>A little experiment with physics, gravity, time and randomness in a realtime simulation. The beauty and destruction of randomness, maybe. Also works as an immersive interactive realtime projection.</p>",
   "links": [],
   "external": null,
   "video": "/video/x/verse.mp4",
   "poster": "/video/x/verse.jpg",
   "image": null,
-  "thumb": "/img/x/verse.webp"
+  "thumb": "/img/x/verse.webp",
+  "themes": [
+   "xr"
+  ]
  },
  {
   "slug": "discodex",
@@ -484,7 +562,7 @@
   "blurb": "Creating a Virtual Pop star to perform at the Royal Television Society awards",
   "meta": "Realtime Content, 2022",
   "year": "2022",
-  "html": "<p>I've been helping to bring to life a virtual popstar called Dex with <a href=\"https://www.sumvivas.com/\" target=\"_blank\" rel=\"noopener\">Sum Vivas</a>, working with virtual humans, motion capture, cloth simulation and more to create new possibilities for the metaverse in real life music events\n\n\n\nSo far the digital human avatar, Dex, has been a special guest DJ at the Royal Television Society Awards as part of Classic Decks DJ Set, where she was invited to play alongside human performers &amp; musicians in front of a crowd of over 600 people.\n\n\n\nShe has also performed at the Bridgewater Hall in Manchester.\n\n\n\nFind out more about<a href=\"https://www.sumvivas.com/\" target=\"_blank\" rel=\"noopener\">Sum Vivas and their digital human work here</a></p>",
+  "html": "<p>I've been helping to bring to life a virtual popstar called Dex with <a href=\"https://www.sumvivas.com/\" target=\"_blank\" rel=\"noopener\">Sum Vivas</a>, working with virtual humans, motion capture, cloth simulation and more to create new possibilities for the metaverse in real-life music events.</p><p>So far the digital human avatar, Dex, has been a special guest DJ at the Royal Television Society Awards as part of Classic Decks DJ Set, where she was invited to play alongside human performers &amp; musicians in front of a crowd of over 600 people.</p><p>She has also performed at the Bridgewater Hall in Manchester.</p><p>Find out more about <a href=\"https://www.sumvivas.com/\" target=\"_blank\" rel=\"noopener\">Sum Vivas and their digital human work here</a></p>",
   "links": [
    {
     "label": "Sum Vivas",
@@ -495,7 +573,11 @@
   "video": "/video/x/discodex.mp4",
   "poster": "/video/x/discodex.jpg",
   "image": null,
-  "thumb": "/img/x/discodex.webp"
+  "thumb": "/img/x/discodex.webp",
+  "themes": [
+   "vp",
+   "music"
+  ]
  },
  {
   "slug": "octobot",
@@ -515,7 +597,11 @@
   "video": "/video/x/octobot.mp4",
   "poster": "/video/x/octobot.jpg",
   "image": null,
-  "thumb": "/img/x/octobot.webp"
+  "thumb": "/img/x/octobot.webp",
+  "themes": [
+   "ai",
+   "hacks"
+  ]
  },
  {
   "slug": "dreamlab",
@@ -523,13 +609,16 @@
   "blurb": "Making Virtual Production/ICVFX affordable & accessible, in the Garage!",
   "meta": "Projects, 2022",
   "year": "2022",
-  "html": "<p>Spent the past few weekends and evenings turning the garage at home into a super indie virtual production set up... to help me with client work and developing ideas. But also to become much more technically familiar with the whole process and the possibilities.\n\n\n\nAll made for next to nothing using a projector, trackers &amp; a bit of kit from my filmmaking days.\n\n\n\nTrying to also make all this stuff affordable for smaller organisations and companies, so inventing ways around the limitations, using things like projection mapping, old tvs, dmx lighting and other bits a bobs. \n\n\n\nIts super fun. Come check it out sometime, or if you want a cheap set up built/training then please let me know.</p>",
+  "html": "<p>Spent the past few weekends and evenings turning the garage at home into a super indie virtual production set up... to help me with client work and developing ideas. But also to become much more technically familiar with the whole process and the possibilities.</p><p>All made for next to nothing using a projector, trackers &amp; a bit of kit from my filmmaking days.</p><p>Trying to also make all this stuff affordable for smaller organisations and companies, so inventing ways around the limitations, using things like projection mapping, old TVs, DMX lighting and other bits and bobs.</p><p>It's super fun. Come check it out sometime, or if you want a cheap set up built/training then please let me know.</p>",
   "links": [],
   "external": null,
   "video": "/video/x/dreamlab.mp4",
   "poster": "/video/x/dreamlab.jpg",
   "image": null,
-  "thumb": "/img/x/dreamlab.webp"
+  "thumb": "/img/x/dreamlab.webp",
+  "themes": [
+   "vp"
+  ]
  },
  {
   "slug": "dreamingofelectricsheep",
@@ -537,21 +626,24 @@
   "blurb": "Experimenting with using AI for Storyboarding and Concept Art",
   "meta": "AI Art Experiments, 2020",
   "year": "2020",
-  "html": "<p>Dreaming of Electric Sheep is a little experiment with creating art with AI.\n\n\n\nAnd Experimenting with taming it, keeping it consistant for storyboarding/concept art and more...</p><p><a href=\"https://player.vimeo.com/video/728396328?title=0&autopause=0&app_id=122963\" target=\"_blank\" rel=\"noopener\">Watch the video ↗</a></p>",
+  "html": "<p>Dreaming of Electric Sheep is a little experiment with creating art with AI.</p><p>And experimenting with taming it, keeping it consistent for storyboarding/concept art and more...</p><p><a href=\"https://player.vimeo.com/video/728396328?title=0&autopause=0&app_id=122963\" target=\"_blank\" rel=\"noopener\">Watch the video ↗</a></p>",
   "links": [],
   "external": null,
   "video": "/video/x/dreamingofelectricsheep.mp4",
   "poster": "/video/x/dreamingofelectricsheep.jpg",
   "image": null,
-  "thumb": "/img/x/dreamingofelectricsheep.webp"
+  "thumb": "/img/x/dreamingofelectricsheep.webp",
+  "themes": [
+   "ai"
+  ]
  },
  {
   "slug": "rewilding",
   "title": "Rewilding",
   "blurb": "Rewilding is a short film about going back to 'normal'. Made with Unreal Engine and Twinmotion.",
-  "meta": "Games Engine Film,2020",
+  "meta": "Games Engine Film, 2020",
   "year": "2020",
-  "html": "<p>Rewilding is a short film about going back to 'normal'. Made with Unreal Engine and Twinmotion, using geospatial/BIM data of my home city of Liverpool from <a href=\"https://digitalurban.place/\" target=\"_blank\" rel=\"noopener\">Digital Urban</a></p><p><a href=\"https://player.vimeo.com/video/434692753?title=0&autopause=0&app_id=122963\" target=\"_blank\" rel=\"noopener\">Watch the video ↗</a></p>",
+  "html": "<p>Rewilding is a short film about going back to 'normal'. Made with Unreal Engine and Twinmotion, using geospatial/BIM data of my home city of Liverpool from <a href=\"https://digitalurban.place/\" target=\"_blank\" rel=\"noopener\">Digital Urban</a>.</p><p><a href=\"https://player.vimeo.com/video/434692753?title=0&autopause=0&app_id=122963\" target=\"_blank\" rel=\"noopener\">Watch the video ↗</a></p>",
   "links": [
    {
     "label": "Digital Urban",
@@ -562,7 +654,10 @@
   "video": "/video/x/rewilding.mp4",
   "poster": "/video/x/rewilding.jpg",
   "image": null,
-  "thumb": "/img/x/rewilding.webp"
+  "thumb": "/img/x/rewilding.webp",
+  "themes": [
+   "twins"
+  ]
  },
  {
   "slug": "readyplayerzoom",
@@ -570,13 +665,16 @@
   "blurb": "Hacking video calls and games engines in Unity",
   "meta": "Remote Immersion, 2020",
   "year": "2020",
-  "html": "<p>Bring your remote audience, employees, clients, or performers, into an immersive stage with multiple camera angles.\n\n\n\nSo many applications for this realtime tool across theatre, music, sport, esports, business, conferences streaming and events right now....</p><p>You can bring all your video participants in to become part of the show or meeting together, all they have to do is dial in.</p><p>Just Imagine</p><p>- Performing Live Plays or Concerts with a remote cast and crew</p><p>- Sharing your stage with your remote audience in a music performance</p><p>- More creative ways to put TV interviews together on broadcast tv</p><p>- Bringing everyone together into a 3d or 2d design</p><p>- Your video conference on a construction project to take place inside a BIM model of that construction?</p><p>- A gamified team building meeting</p><p>- Discussing a condition assessment of an oil platform or a power station? Be there - explore it as you talk.</p><p>- You can also bring in other content and interactions such as live 360 video and anything you can imagine that works in a game engine</p><p>Transport your conversation to whatever world you want.\n\n\n\nMade in collaboration with Dr Robert Black</p>",
+  "html": "<p>Bring your remote audience, employees, clients, or performers, into an immersive stage with multiple camera angles.</p><p>So many applications for this realtime tool across theatre, music, sport, esports, business, conferences streaming and events right now...</p><p>You can bring all your video participants in to become part of the show or meeting together, all they have to do is dial in.</p><p>Just imagine:</p><ul><li>Performing Live Plays or Concerts with a remote cast and crew</li><li>Sharing your stage with your remote audience in a music performance</li><li>More creative ways to put TV interviews together on broadcast TV</li><li>Bringing everyone together into a 3D or 2D design</li><li>Your video conference on a construction project to take place inside a BIM model of that construction?</li><li>A gamified team building meeting</li><li>Discussing a condition assessment of an oil platform or a power station? Be there - explore it as you talk.</li><li>You can also bring in other content and interactions such as live 360 video and anything you can imagine that works in a game engine</li></ul><p>Transport your conversation to whatever world you want.</p><p>Made in collaboration with Dr Robert Black</p>",
   "links": [],
   "external": null,
   "video": "/video/x/readyplayerzoom.mp4",
   "poster": "/video/x/readyplayerzoom.jpg",
   "image": null,
-  "thumb": "/img/x/readyplayerzoom.webp"
+  "thumb": "/img/x/readyplayerzoom.webp",
+  "themes": [
+   "hacks"
+  ]
  },
  {
   "slug": "immersiveculture",
@@ -584,7 +682,7 @@
   "blurb": "Producing a heritage webXR experience during lockdown",
   "meta": "Teaching, 2020",
   "year": "2020",
-  "html": "<p>This semester, our awesome students on the <a href=\"https://web.archive.org/web/20201029022154/https://www.curiousmagic.co.uk/ma-immersive-arts\" target=\"_blank\" rel=\"noopener\">MA Immersive Arts,</a><a href=\"https://web.archive.org/web/20201029022154/https://www.curiousmagic.co.uk/ma-immersive-arts\" target=\"_blank\" rel=\"noopener\">along with collaborators on the</a> MA Creative Technology, MA Arts in Science and MA Graphic Design, are working with the <a href=\"https://www.liverpoolmuseums.org.uk/world-museum\" target=\"_blank\" rel=\"noopener\">World Museum Liverpool</a>, part of <a href=\"https://www.liverpoolmuseums.org.uk/\" target=\"_blank\" rel=\"noopener\">National Museums Liverpool</a>, to re-imagine the collections through immersive and interactive technology.</p><p>Over the course of 12 weeks, students are working in the museum on a number of prototypes that involve holographic displays, virtual reality, augmented reality and touch screen interfaces to come up with novel ideas for how young people can engage with the 'World Cultures' collection in the museum.</p><p>They are using a number of techniques including games, 3d design, photogrammetry, volumetric capture and working with other software to create interactive environments and content.</p><p>Using 'scratch' methodologies to experiment and test their ideas directly with the audiences that visit everyday. This project is part of the World Museum Where Next initiative (<a href=\"https://twitter.com/search?q=%23wmwherenext\" target=\"_blank\" rel=\"noopener\">#wmwherenext</a>) that is rethinking an entire floor of the museum to make it more engaging, disruptive, experimental and experiential.</p>",
+  "html": "<p>This semester, our awesome students on the <a href=\"https://web.archive.org/web/20201029022154/https://www.curiousmagic.co.uk/ma-immersive-arts\" target=\"_blank\" rel=\"noopener\">MA Immersive Arts</a>, along with collaborators on the MA Creative Technology, MA Arts in Science and MA Graphic Design, are working with the <a href=\"https://www.liverpoolmuseums.org.uk/world-museum\" target=\"_blank\" rel=\"noopener\">World Museum Liverpool</a>, part of <a href=\"https://www.liverpoolmuseums.org.uk/\" target=\"_blank\" rel=\"noopener\">National Museums Liverpool</a>, to re-imagine the collections through immersive and interactive technology.</p><p>Over the course of 12 weeks, students are working in the museum on a number of prototypes that involve holographic displays, virtual reality, augmented reality and touch screen interfaces to come up with novel ideas for how young people can engage with the 'World Cultures' collection in the museum.</p><p>They are using a number of techniques including games, 3d design, photogrammetry, volumetric capture and working with other software to create interactive environments and content.</p><p>Using 'scratch' methodologies to experiment and test their ideas directly with the audiences that visit every day. This project is part of the World Museum Where Next initiative (<a href=\"https://twitter.com/search?q=%23wmwherenext\" target=\"_blank\" rel=\"noopener\">#wmwherenext</a>) that is rethinking an entire floor of the museum to make it more engaging, disruptive, experimental and experiential.</p>",
   "links": [
    {
     "label": "World Museum Liverpool",
@@ -603,21 +701,29 @@
   "video": "/video/x/immersiveculture.mp4",
   "poster": "/video/x/immersiveculture.jpg",
   "image": null,
-  "thumb": "/img/x/immersiveculture.webp"
+  "thumb": "/img/x/immersiveculture.webp",
+  "themes": [
+   "teaching",
+   "xr"
+  ]
  },
  {
   "slug": "edible",
   "title": "Edible",
   "blurb": "Creating an interactive metaverse gallery of fridges. Yum",
-  "meta": "Metaverse Degree Show,2021",
+  "meta": "Metaverse Degree Show, 2021",
   "year": "2021",
-  "html": "<p>Interactive Art in a Fridge. A degree show set in a post apocalyptic metaverse.\n\n\n\nA collaboration with LJMU &amp; Scenegraph Studios.</p>",
+  "html": "<p>Interactive Art in a Fridge. A degree show set in a post apocalyptic metaverse.</p><p>A collaboration with LJMU &amp; Scenegraph Studios.</p>",
   "links": [],
   "external": null,
   "video": "/video/x/edible.mp4",
   "poster": "/video/x/edible.jpg",
   "image": null,
-  "thumb": "/img/x/edible.webp"
+  "thumb": "/img/x/edible.webp",
+  "themes": [
+   "teaching",
+   "xr"
+  ]
  },
  {
   "slug": "echoloop",
@@ -637,7 +743,10 @@
   "video": null,
   "poster": null,
   "image": "/img/x/echoloop.jpg",
-  "thumb": "/img/x/echoloop.webp"
+  "thumb": "/img/x/echoloop.webp",
+  "themes": [
+   "ai"
+  ]
  },
  {
   "slug": "dreamlab-podcaster",
@@ -657,30 +766,36 @@
   "video": null,
   "poster": null,
   "image": "/img/x/dreamlab-podcaster.jpg",
-  "thumb": "/img/x/dreamlab-podcaster.webp"
+  "thumb": "/img/x/dreamlab-podcaster.webp",
+  "themes": [
+   "ai"
+  ]
  },
  {
   "slug": "dreammachine",
   "title": "Dream Machine",
   "blurb": "Producing and Designing an Experiment with Performance, ICVFX and Virtual Production",
   "seoTitle": "Dream Machine: Virtual Production Experiment",
-  "meta": "Virtual Production Experiment,2022",
+  "meta": "Virtual Production Experiment, 2022",
   "year": "2022",
-  "html": "<p>A collaboration with Interactive Artist Noel Jones and Dance Artist Rowena Gander.</p><p>Experimenting with Virtual Production and Performance Art, using a load of junk, a bit of sci and steampunk. Shot at PathwayXR Studios.</p><p>Also recorded a few other bits as well.</p>",
+  "html": "<p>A collaboration with Interactive Artist Noel Jones and Dance Artist Rowena Gander.</p><p>Experimenting with Virtual Production and Performance Art, using a load of junk, a bit of sci-fi and steampunk. Shot at PathwayXR Studios.</p><p>Also recorded a few other bits as well.</p>",
   "links": [],
   "external": null,
   "video": "/video/x/dreammachine.mp4",
   "poster": "/video/x/dreammachine.jpg",
   "image": null,
-  "thumb": "/img/x/dreammachine.webp"
+  "thumb": "/img/x/dreammachine.webp",
+  "themes": [
+   "vp"
+  ]
  },
  {
   "slug": "secret-coast",
   "title": "Secret Coast",
-  "blurb": "Producing and Developing an Augmented Reality Storytelling on the beach.",
+  "blurb": "Producing and developing augmented reality storytelling on the beach.",
   "meta": "Augmented Reality Storytelling, 2018",
   "year": "2018",
-  "html": "<p>“It’s hard not to fall in love with Secret Coast” – Digital Catapult, 2018</p><p>During early 2018, I worked on an R&amp;D project with a number of partners, supported through the <a href=\"http://creativexr.co.uk/\" target=\"_blank\" rel=\"noopener\">Creative XR</a> content innovation programme from the Digital Catapult and Arts Council England, about an augmented reality experience with coastal communities around the UK.</p><p>Britain’s coastline: 11,072 miles of cliffs, beaches, rocky coves, seaside promenades, and towns and villages; it’s a long, winding path with a vibrant history, capturing our powerful social and cultural connection with the sea. The coast of Britain is part of who we are, and very much a place of national contemplation, reflection and emotion.</p><p>Coastal communities are saturated with evocative folklore. With stories of tunnel networks, sea caves, piracy, wrecking, slavery, smuggling and mythological creatures and characters. It’s a liminal space not fully explored.</p><p>This project set out to explore that and create an interactive location based experience that evokes emotions about this hidden heritage and it's connection to our past, present and future.</p><p>Using augmented reality’s capabilities at revealing new story worlds, unearthing hidden secrets and bringing invisible culture to life to enable us to re-encounter the landscape through a new kind of reality. Melding together fact and fiction, time and space, past and present the story takes you back to 1790 where the past needs your help to save the future of sealife.</p><p>The project includes many features such as complex spatialised AR Scenes, volumetrically filmed content, cgi, mini games, spatial audio, video and interactive content.</p>",
+  "html": "<p>“It’s hard not to fall in love with Secret Coast” – Digital Catapult, 2018</p><p>During early 2018, I worked on an R&amp;D project with a number of partners, supported through the <a href=\"http://creativexr.co.uk/\" target=\"_blank\" rel=\"noopener\">Creative XR</a> content innovation programme from the Digital Catapult and Arts Council England, about an augmented reality experience with coastal communities around the UK.</p><p>Britain’s coastline: 11,072 miles of cliffs, beaches, rocky coves, seaside promenades, and towns and villages; it’s a long, winding path with a vibrant history, capturing our powerful social and cultural connection with the sea. The coast of Britain is part of who we are, and very much a place of national contemplation, reflection and emotion.</p><p>Coastal communities are saturated with evocative folklore. With stories of tunnel networks, sea caves, piracy, wrecking, slavery, smuggling and mythological creatures and characters. It’s a liminal space not fully explored.</p><p>This project set out to explore that and create an interactive location based experience that evokes emotions about this hidden heritage and its connection to our past, present and future.</p><p>Using augmented reality’s capabilities at revealing new story worlds, unearthing hidden secrets and bringing invisible culture to life to enable us to re-encounter the landscape through a new kind of reality. Melding together fact and fiction, time and space, past and present the story takes you back to 1790 where the past needs your help to save the future of sealife.</p><p>The project includes many features such as complex spatialised AR Scenes, volumetrically filmed content, CGI, mini games, spatial audio, video and interactive content.</p>",
   "links": [
    {
     "label": "Creative XR",
@@ -691,7 +806,10 @@
   "video": "/video/x/secret-coast.mp4",
   "poster": "/video/x/secret-coast.jpg",
   "image": null,
-  "thumb": "/img/x/secret-coast.webp"
+  "thumb": "/img/x/secret-coast.webp",
+  "themes": [
+   "xr"
+  ]
  },
  {
   "slug": "beacons-for-science",
@@ -699,21 +817,24 @@
   "blurb": "Producing and Developing an Augmented Reality Storytelling App for Manchester",
   "meta": "AR Storytelling App, 2017",
   "year": "2017",
-  "html": "<p>Over the past few months I have been collaborating with a number of partners on the ‘Beacons for Science’ project in Manchester, which is aiming to create an innovative app to experience Science in the City through Augmented and Virtual reality. Using beacon technology to enable people to experience science in new ways as they navigate the city.</p><p>My role was to develop the virtual reality and augmented story content, produced with the support of a number of cultural partners, artists, scientists and co-creators from around Manchester, and to work with the developers to shape the mixed reality user-experience.</p><p>There are a number of cool features in the app, including virtual reality experiences that are triggered when walking around Manchester as well as interactive augmented reality content that we created to enable people to look behind walls.</p><p>There are about 15 experiences in total that were created as a result of a series of hack labs taking place in Manchester as part of the European City of Science calendar.</p><p>These include:</p><ul><li>a Virtual Reality look at the Urban Bees that live on top of Manchester Art Gallery</li><li>augmented experiences in a number of the libraries around Manchester including Science Footage from the North West Film Archive and the Portico Library</li><li>a 360 degree performance about the life of Alan Turing</li><li>a 360 view from the top of the Hilton Hotel</li><li>an augmented reality experience on the Manchester #astrotram</li><li>a virtual reality film of the radio telescope at the Jodrell Bank Observatory</li><li>an augmented reality experiment inspired by John Dalton</li><li>a Brian Cox ‘Coxemon’ avatar hidden around manchester</li><li>a tour of the Manchester Ship canal</li><li>#astrotrams – where people can see augmented reality content of the galaxy on a tram that also includes announcements from Professor Brian Cox</li><li>a virtual statue of RSPB Founder Emily Williamson.</li></ul><p>We have also been involved in a series of public engagement events to showcase the Virtual Reality and Augmented Reality content across Manchester during the Euroscience Open Forum 2016 Conference, that has brought over 4000 scientists to the city.</p><p>Download the app here:</p>",
+  "html": "<p>Over the past few months I have been collaborating with a number of partners on the ‘Beacons for Science’ project in Manchester, which is aiming to create an innovative app to experience Science in the City through Augmented and Virtual reality. Using beacon technology to enable people to experience science in new ways as they navigate the city.</p><p>My role was to develop the virtual reality and augmented story content, produced with the support of a number of cultural partners, artists, scientists and co-creators from around Manchester, and to work with the developers to shape the mixed reality user-experience.</p><p>There are a number of cool features in the app, including virtual reality experiences that are triggered when walking around Manchester as well as interactive augmented reality content that we created to enable people to look behind walls.</p><p>There are about 15 experiences in total that were created as a result of a series of hack labs taking place in Manchester as part of the European City of Science calendar.</p><p>These include:</p><ul><li>a Virtual Reality look at the Urban Bees that live on top of Manchester Art Gallery</li><li>augmented experiences in a number of the libraries around Manchester including Science Footage from the North West Film Archive and the Portico Library</li><li>a 360 degree performance about the life of Alan Turing</li><li>a 360 view from the top of the Hilton Hotel</li><li>an augmented reality experience on the Manchester #astrotram</li><li>a virtual reality film of the radio telescope at the Jodrell Bank Observatory</li><li>an augmented reality experiment inspired by John Dalton</li><li>a Brian Cox ‘Coxemon’ avatar hidden around Manchester</li><li>a tour of the Manchester Ship Canal</li><li>#astrotrams – where people can see augmented reality content of the galaxy on a tram that also includes announcements from Professor Brian Cox</li><li>a virtual statue of RSPB Founder Emily Williamson.</li></ul><p>We have also been involved in a series of public engagement events to showcase the Virtual Reality and Augmented Reality content across Manchester during the Euroscience Open Forum 2016 Conference, that has brought over 4000 scientists to the city.</p>",
   "links": [],
   "external": null,
   "video": "/video/x/beacons-for-science.mp4",
   "poster": "/video/x/beacons-for-science.jpg",
   "image": null,
-  "thumb": "/img/x/beacons-for-science.webp"
+  "thumb": "/img/x/beacons-for-science.webp",
+  "themes": [
+   "xr"
+  ]
  },
  {
   "slug": "worldmuseum",
   "title": "Virtual World Museum",
-  "blurb": "Supporting the iconic World Museum to get online and connect with it's audience during its closure.",
-  "meta": "Virtual Things,2020",
+  "blurb": "Supporting the iconic World Museum to get online and connect with its audience during its closure.",
+  "meta": "Virtual Things, 2020",
   "year": "2020",
-  "html": "<p>The experimental technologies lab has been helping the world museum in Liverpool to rise to the stay-at-home challenge by helping to create a virtual tour of one of the city’s museums.</p><p>The World Museum, part of National Museums Liverpool, closed last week in line with government recommendations in a bid to contain the spread of COVID-19 (Coronavirus).</p><p>Now, thanks to staff and students at Liverpool John Moores University (Including Mark Wright, Peter Horricks, MA Immersive Students), the dozens of fascinating exhibits in the World Cultures gallery can be viewed from home by going to a link on the website.</p><p>“Staying at home doesn't mean you miss out on visiting our museum,” said Emma Martin, senior curator at National Museums Liverpool.</p><p>“We have had a lot of public feedback on what people would like to see while our doors are closed, and have created a virtual tour of the World Cultures gallery with our friends from John Moores.”</p><p>With schools and universities closed, children and young people can catch up on history, natural science and anthropology by exploring the extensive collections from Africa, Asia, Oceania and the Americas.</p><p>All you have to do is go to the website at <a href=\"http://www.liverpoolmuseums.org.uk/\" target=\"_blank\" rel=\"noopener\">www.liverpoolmuseums.org.uk</a>, click on world cultures virtual gallery tour and navigate your way around the gallery just as you would with apps such as google earth.</p><p>Pete Woodbridge, course leader on the MA Immersive Arts at LJMU said: “Students have been working with the World Museum this semester to create wonderful new ways for the museum to interact with people via technology.</p><p>“These are trying times for everyone, not least parents with children at home, so we are happy to help overcome some of the access issues and keep the museum ‘virtually’ open!”</p>",
+  "html": "<p>The experimental technologies lab has been helping the World Museum in Liverpool to rise to the stay-at-home challenge by helping to create a virtual tour of one of the city’s museums.</p><p>The World Museum, part of National Museums Liverpool, closed last week in line with government recommendations in a bid to contain the spread of COVID-19 (Coronavirus).</p><p>Now, thanks to staff and students at Liverpool John Moores University (including Mark Wright, Peter Horricks and MA Immersive Arts students), the dozens of fascinating exhibits in the World Cultures gallery can be viewed from home by going to a link on the website.</p><p>“Staying at home doesn't mean you miss out on visiting our museum,” said Emma Martin, senior curator at National Museums Liverpool.</p><p>“We have had a lot of public feedback on what people would like to see while our doors are closed, and have created a virtual tour of the World Cultures gallery with our friends from John Moores.”</p><p>With schools and universities closed, children and young people can catch up on history, natural science and anthropology by exploring the extensive collections from Africa, Asia, Oceania and the Americas.</p><p>All you have to do is go to the website at <a href=\"http://www.liverpoolmuseums.org.uk/\" target=\"_blank\" rel=\"noopener\">www.liverpoolmuseums.org.uk</a>, click on world cultures virtual gallery tour and navigate your way around the gallery just as you would with apps such as Google Earth.</p><p>Pete Woodbridge, course leader on the MA Immersive Arts at LJMU said: “Students have been working with the World Museum this semester to create wonderful new ways for the museum to interact with people via technology.</p><p>“These are trying times for everyone, not least parents with children at home, so we are happy to help overcome some of the access issues and keep the museum ‘virtually’ open!”</p>",
   "links": [
    {
     "label": "www.liverpoolmuseums.org.uk",
@@ -724,7 +845,11 @@
   "video": "/video/x/worldmuseum.mp4",
   "poster": "/video/x/worldmuseum.jpg",
   "image": null,
-  "thumb": "/img/x/worldmuseum.webp"
+  "thumb": "/img/x/worldmuseum.webp",
+  "themes": [
+   "teaching",
+   "xr"
+  ]
  },
  {
   "slug": "futurehighstreet",
@@ -738,15 +863,18 @@
   "video": "/video/x/futurehighstreet.mp4",
   "poster": "/video/x/futurehighstreet.jpg",
   "image": null,
-  "thumb": "/img/x/futurehighstreet.webp"
+  "thumb": "/img/x/futurehighstreet.webp",
+  "themes": [
+   "twins"
+  ]
  },
  {
   "slug": "kinicho",
   "title": "Klezmer-ish: Spatial Sound",
-  "blurb": "Spatial Sound & 360 Video Collaboration with Kinicho's Sonic Enginer.",
-  "meta": "Spatial Sound Collaboration,2020",
+  "blurb": "Spatial sound and 360 video collaboration with Kinicho's Sonic Reality Engine.",
+  "meta": "Spatial Sound Collaboration, 2020",
   "year": "2020",
-  "html": "<p>Collaboration with Kinicho, spatial audio specialists, exploring a new volumetric sound recording and deployment technique for their sonic reality engine. Using just regular cheap headphones.\n\n\n\nWith headphones on, <a href=\"https://www.youtube.com/watch?v=B5z-gaxW5pM\" target=\"_blank\" rel=\"noopener\">listen to Klezmer-ish on YouTube</a>.</p>",
+  "html": "<p>Collaboration with Kinicho, spatial audio specialists, exploring a new volumetric sound recording and deployment technique for their sonic reality engine. Using just regular cheap headphones.</p><p>With headphones on, <a href=\"https://www.youtube.com/watch?v=B5z-gaxW5pM\" target=\"_blank\" rel=\"noopener\">listen to Klezmer-ish on YouTube</a>.</p>",
   "links": [
    {
     "label": "Listen to Klezmer-ish on YouTube (headphones on)",
@@ -757,15 +885,19 @@
   "video": "/video/x/kinicho.mp4",
   "poster": "/video/x/kinicho.jpg",
   "image": null,
-  "thumb": "/img/x/kinicho.webp"
+  "thumb": "/img/x/kinicho.webp",
+  "themes": [
+   "music",
+   "xr"
+  ]
  },
  {
   "slug": "degreeshowonmars",
   "title": "Degree Show on Mars",
-  "blurb": "Producing a degree show taking place on the planet Mars. a multiverse exhibition responding to the many challenges we are currently facing back on Earth.",
-  "meta": "Immersive Exhibition,2020",
+  "blurb": "Producing a degree show taking place on the planet Mars. A multiverse exhibition responding to the many challenges we are currently facing back on Earth.",
+  "meta": "Immersive Exhibition, 2020",
   "year": "2020",
-  "html": "<p>Excited to announce that the 2020 Liverpool School of Art &amp; Design Fine Art Degree Show....\n\n\n\nWill now be taking place on Mars......</p><p>A multiverse exhibition responding to the many challenges we are currently facing back on Earth.</p><p>Using detailed 3D scans taken by NASA, the exhibition transports viewers to the Gale crater on Mars, where they will find a virtual landscape scattered with crash-landed objects.\n\n\n\nEach object represents a graduating artist, and acts as a portal or wormhole, leading back in time and space to an exhibition in Liverpool......\n\n\n\nThanks to <a href=\"https://www.linkedin.com/in/ACoAACLiR1UB5dAC-WNh0gBQMIHwPB-7rk8X6sM\" target=\"_blank\" rel=\"noopener\">Keith Myers</a>, who is one of our Immersive Arts MA students, and <a href=\"https://www.linkedin.com/in/ACoAAAzjwQ0BqcZokJrGvUWITCwis-1_2WBrk-s\" target=\"_blank\" rel=\"noopener\">Dr. David Tully</a> from <a href=\"https://www.linkedin.com/company/33192185/?lipi=urn%3Ali%3Apage%3Ad_flagship3_detail_base%3BI14n5tTrTbKwk89pevjotg%3D%3D\" target=\"_blank\" rel=\"noopener\">Scenegraph Studios</a>for all their work on making this happen alongside Dr Mark Wright and Rory Macbeth from LJMU, creating a webxr portal between earth and mars.</p><p>Find out more on 5th June 2020 at degreeshowonmars.com (the site is no longer online).</p>",
+  "html": "<p>Excited to announce that the 2020 Liverpool School of Art &amp; Design Fine Art Degree Show...</p><p>Will now be taking place on Mars...</p><p>A multiverse exhibition responding to the many challenges we are currently facing back on Earth.</p><p>Using detailed 3D scans taken by NASA, the exhibition transports viewers to the Gale crater on Mars, where they will find a virtual landscape scattered with crash-landed objects.</p><p>Each object represents a graduating artist, and acts as a portal or wormhole, leading back in time and space to an exhibition in Liverpool...</p><p>Thanks to <a href=\"https://www.linkedin.com/in/ACoAACLiR1UB5dAC-WNh0gBQMIHwPB-7rk8X6sM\" target=\"_blank\" rel=\"noopener\">Keith Myers</a>, who is one of our Immersive Arts MA students, and <a href=\"https://www.linkedin.com/in/ACoAAAzjwQ0BqcZokJrGvUWITCwis-1_2WBrk-s\" target=\"_blank\" rel=\"noopener\">Dr. David Tully</a> from <a href=\"https://www.linkedin.com/company/33192185/?lipi=urn%3Ali%3Apage%3Ad_flagship3_detail_base%3BI14n5tTrTbKwk89pevjotg%3D%3D\" target=\"_blank\" rel=\"noopener\">Scenegraph Studios</a> for all their work on making this happen alongside Dr Mark Wright and Rory Macbeth from LJMU, creating a WebXR portal between Earth and Mars.</p><p>Find out more on 5th June 2020 at degreeshowonmars.com (the site is no longer online).</p>",
   "links": [
    {
     "label": "Keith Myers",
@@ -784,7 +916,11 @@
   "video": "/video/x/degreeshowonmars.mp4",
   "poster": "/video/x/degreeshowonmars.jpg",
   "image": null,
-  "thumb": "/img/x/degreeshowonmars.webp"
+  "thumb": "/img/x/degreeshowonmars.webp",
+  "themes": [
+   "teaching",
+   "xr"
+  ]
  },
  {
   "slug": "volcap",
@@ -792,7 +928,7 @@
   "blurb": "Building a volcap studio in a day to capture dance, music & heritage performances",
   "meta": "Experimental R&D, 2020",
   "year": "2020",
-  "html": "<p>We spent 3 days building a volumetric capture studio in Liverpool as part of a collaboration with LJMU <a href=\"https://web.archive.org/web/20201202092349/https://www.ljmu.ac.uk/study/courses/postgraduates/immersive-arts\" target=\"_blank\" rel=\"noopener\">Immersive Arts</a>, <a href=\"https://volograms.com/\" target=\"_blank\" rel=\"noopener\">Volograms</a>, <a href=\"https://www.juiceimmersive.com/\" target=\"_blank\" rel=\"noopener\">Juice Immersive</a>, <a href=\"https://web.archive.org/web/20191121181728/https://www.ljmu.ac.uk/research/centres-and-institutes/dance-research\" target=\"_blank\" rel=\"noopener\">LJMU Dance</a>, <a href=\"https://web.archive.org/web/20201201231503/http://www.real-space.uk/\" target=\"_blank\" rel=\"noopener\">Realspace</a>, <a href=\"https://www.kinicho.com/\" target=\"_blank\" rel=\"noopener\">Kinicho</a>, <a href=\"http://focalpointvr.com/\" target=\"_blank\" rel=\"noopener\">Focal Point VR</a>, <a href=\"https://twitter.com/ljmufablab\" target=\"_blank\" rel=\"noopener\">Fablab Liverpool</a> and a number of other artists, companies and students interested in the intersection of art, media and technology.</p><p>The set up involved 19 cameras and 20 crew to capture real life 3d performances of dancers, heritage performances, music and some business use cases for projects involving augmented reality, virtual reality and holographic displays.</p><p>Looking forward to seeing the results. In the meantime enjoy this Fly through video of the set up created by Noel Jones.</p>",
+  "html": "<p>We spent 3 days building a volumetric capture studio in Liverpool as part of a collaboration with LJMU <a href=\"https://web.archive.org/web/20201202092349/https://www.ljmu.ac.uk/study/courses/postgraduates/immersive-arts\" target=\"_blank\" rel=\"noopener\">Immersive Arts</a>, <a href=\"https://volograms.com/\" target=\"_blank\" rel=\"noopener\">Volograms</a>, <a href=\"https://www.juiceimmersive.com/\" target=\"_blank\" rel=\"noopener\">Juice Immersive</a>, <a href=\"https://web.archive.org/web/20191121181728/https://www.ljmu.ac.uk/research/centres-and-institutes/dance-research\" target=\"_blank\" rel=\"noopener\">LJMU Dance</a>, <a href=\"https://web.archive.org/web/20201201231503/http://www.real-space.uk/\" target=\"_blank\" rel=\"noopener\">Realspace</a>, <a href=\"https://www.kinicho.com/\" target=\"_blank\" rel=\"noopener\">Kinicho</a>, <a href=\"http://focalpointvr.com/\" target=\"_blank\" rel=\"noopener\">Focal Point VR</a>, <a href=\"https://twitter.com/ljmufablab\" target=\"_blank\" rel=\"noopener\">Fablab Liverpool</a> and a number of other artists, companies and students interested in the intersection of art, media and technology.</p><p>The set up involved 19 cameras and 20 crew to capture real life 3d performances of dancers, heritage performances, music and some business use cases for projects involving augmented reality, virtual reality and holographic displays.</p><p>Looking forward to seeing the results. In the meantime enjoy this fly-through video of the set up created by Noel Jones.</p>",
   "links": [
    {
     "label": "Immersive Arts",
@@ -831,13 +967,17 @@
   "video": "/video/x/volcap.mp4",
   "poster": "/video/x/volcap.jpg",
   "image": null,
-  "thumb": "/img/x/volcap.webp"
+  "thumb": "/img/x/volcap.webp",
+  "themes": [
+   "xr",
+   "vp"
+  ]
  },
  {
   "slug": "sleepless",
   "title": "Sleepless Mixed Reality Realtime Production",
   "blurb": "Mixed Reality Realtime Production Experiment",
-  "meta": "Experimental Film,2020",
+  "meta": "Experimental Film, 2020",
   "year": "2020",
   "html": "<p>Been playing around with virtual / mixed reality production techniques...</p><p><a href=\"https://player.vimeo.com/video/443229288?title=0&autopause=0&app_id=122963\" target=\"_blank\" rel=\"noopener\">Watch the video ↗</a></p>",
   "links": [],
@@ -845,7 +985,10 @@
   "video": "/video/x/sleepless.mp4",
   "poster": "/video/x/sleepless.jpg",
   "image": null,
-  "thumb": "/img/x/sleepless.webp"
+  "thumb": "/img/x/sleepless.webp",
+  "themes": [
+   "vp"
+  ]
  },
  {
   "slug": "grottocam",
@@ -859,7 +1002,11 @@
   "video": null,
   "poster": null,
   "image": null,
-  "thumb": "/img/x/grottocam.webp"
+  "thumb": "/img/x/grottocam.webp",
+  "themes": [
+   "vp",
+   "hacks"
+  ]
  },
  {
   "slug": "epic",
@@ -867,7 +1014,7 @@
   "blurb": "Integrating zoom video feeds with Unreal Engine for Epic Video Meetings, VIP and Audience Experiences",
   "meta": "Experiments, 2020",
   "year": "2020",
-  "html": "<p>I got fed up with Zoom calls at the start of lockdown, so ended up integrating live zoom video feeds with Unreal Engine for Epic Video Meetings and Audience Experiences.\n\n\n\nThis experimental work eventually led to the development of a software product called <a href=\"https://web.archive.org/web/20221020173953/https://room3d.com/\" target=\"_blank\" rel=\"noopener\">Room</a>, as well as a number of fun collaborations across remote events, theatre and arts projects.</p>",
+  "html": "<p>I got fed up with Zoom calls at the start of lockdown, so ended up integrating live Zoom video feeds with Unreal Engine for Epic Video Meetings and Audience Experiences.</p><p>This experimental work eventually led to the development of a software product called <a href=\"https://web.archive.org/web/20221020173953/https://room3d.com/\" target=\"_blank\" rel=\"noopener\">Room</a>, as well as a number of fun collaborations across remote events, theatre and arts projects.</p>",
   "links": [
    {
     "label": "Room",
@@ -878,7 +1025,11 @@
   "video": "/video/x/epic.mp4",
   "poster": "/video/x/epic.jpg",
   "image": null,
-  "thumb": "/img/x/epic.webp"
+  "thumb": "/img/x/epic.webp",
+  "themes": [
+   "hacks",
+   "vp"
+  ]
  },
  {
   "slug": "immersive-storytelling-experiences",
@@ -886,7 +1037,7 @@
   "blurb": "Producing a research symposium about XR Content Design and Development",
   "meta": "Research Symposium, 2018",
   "year": "2018",
-  "html": "<p>“Immersive experiences require novel narrative mechanisms &amp; new language of production… The best technology will not produce the change needed without equal excellence in content production and understanding of immersion as a narrative form” – Creative Industries Review 2017</p><p>On December 14th 2018, Liverpool Screen School welcomed over 200 guests from industry and academia, with 8 panels, and over 30 speakers and demos, to discuss the way that Immersive Technologies such as AR, VR, MR, XR and AI are impacting on storytelling.</p><p>The day included panels exploring the diverse ways in which people are engaging with new technologies. Speakers included creative writers, theatremakers, game developers, filmmakers, artists, creative coders and academics discussing about how they are are approaching the emerging mediums of virtual reality, augmented reality, digital theatre, projection mapping and mixed reality for storytelling experiences. The talks addressed creative research &amp; development into defining languages of production, narrative mechanisms and approaches to engaging audiences in experiential media across the spectrum of immersive technology.</p><p>Speakers included thinkers and creative talent from <a href=\"https://www.bbc.co.uk/rd\" target=\"_blank\" rel=\"noopener\">BBC R&amp;D</a>, Digital Catapult’s <a href=\"https://creativexr.co.uk/\" target=\"_blank\" rel=\"noopener\">CreativeXR</a> Programme, <a href=\"https://bristolvrlab.com/\" target=\"_blank\" rel=\"noopener\">Bristol VR Lab</a>, <a href=\"https://xrstories.co.uk/\" target=\"_blank\" rel=\"noopener\">XR Stories</a> from York, <a href=\"https://www.dmu.ac.uk/research/centres-institutes/ioct/index.aspx\" target=\"_blank\" rel=\"noopener\">Institute of Creative Technologies</a> in Leicester, <a href=\"https://www.ljmu.ac.uk/about-us/faculties/faculty-of-arts-professional-and-social-studies/liverpool-screen-school\" target=\"_blank\" rel=\"noopener\">Liverpool Screen School</a>and practice-based academics from a number of Universities from across the UK.</p><p>Companies included <a href=\"https://www.marshmallowlaserfeast.com/\" target=\"_blank\" rel=\"noopener\">Marshmallow Laser Feast</a>, <a href=\"https://www.drawandcode.com/\" target=\"_blank\" rel=\"noopener\">Draw and Code</a>, <a href=\"https://web.archive.org/web/20201101015325/http://www.limbiktheatre.com/\" target=\"_blank\" rel=\"noopener\">Limbik Theatre</a>, <a href=\"https://www.pilot-theatre.com/\" target=\"_blank\" rel=\"noopener\">Pilot Theatre</a>, <a href=\"https://boomclap.co/\" target=\"_blank\" rel=\"noopener\">Boom Clap Play</a>, <a href=\"https://www.kinicho.com/\" target=\"_blank\" rel=\"noopener\">Kinicho</a>, <a href=\"https://www.productionpark.co.uk/\" target=\"_blank\" rel=\"noopener\">Production Park</a>, <a href=\"https://web.archive.org/web/20201117100658/https://thehatch.co.uk/\" target=\"_blank\" rel=\"noopener\">The Hatch</a>, <a href=\"https://mnemoscene.io/\" target=\"_blank\" rel=\"noopener\">Mnemoscene</a>, <a href=\"https://web.archive.org/web/20191225135432/http://www.immersivestorylab.com/\" target=\"_blank\" rel=\"noopener\">Immersive Storylab</a> and <a href=\"https://charisma.ai/\" target=\"_blank\" rel=\"noopener\">Charisma.ai</a>. There were also a number of demos including a 6 metre immersive dome from <a href=\"http://igloovision.com\" target=\"_blank\" rel=\"noopener\">Igloo Vision</a> and a <a href=\"https://web.archive.org/web/20191220162034/https://www.drawandcode.com/tag/magic-leap/\" target=\"_blank\" rel=\"noopener\">Magic Leap</a>, a new <a href=\"https://www.kinicho.com/\" target=\"_blank\" rel=\"noopener\">Sonic Reality engine by Kinicho</a> and a preview of <a href=\"https://twitter.com/rob_eagle_\" target=\"_blank\" rel=\"noopener\">Robert Eagle's amazing Through the Wardrobe</a>work.</p><p>Liverpool Screen School’s own work on using <a href=\"https://www.theguardian.com/world/2019/feb/01/enduring-the-tide-the-flooded-philippine-islands-that-locals-wont-leave\" target=\"_blank\" rel=\"noopener\">immersive storytelling for climate change activism</a>and their use of <a href=\"https://web.archive.org/web/20191212055422/https://www.curiousmagic.co.uk/if-these-walls-could-talk\" target=\"_blank\" rel=\"noopener\">mixed reality and augmented reality to create novel storytelling experiences</a> was also on show. The day also included work from the <a href=\"https://web.archive.org/web/20190717134157/https://ceprogramme.com/immersive-experiences/\" target=\"_blank\" rel=\"noopener\">AHRC’s Immersive Experiences programme</a> including projects that enable people to experience a <a href=\"https://www.sheffield.ac.uk/archaeology/news/bringing-sheffields-forgotten-castle-life\" target=\"_blank\" rel=\"noopener\">forgotten castle in Sheffield</a> and a <a href=\"https://digitalghosthunt.com/\" target=\"_blank\" rel=\"noopener\">digital ghost hunt</a>project in London.</p><p>There were also many other projects on display that give a glimpse into the possibilities, including a project to bring <a href=\"https://web.archive.org/web/20191229045925/http://meyouandus.co.uk/\" target=\"_blank\" rel=\"noopener\">augmented reality to trains across the UK</a>, a project that used <a href=\"https://nomad-project.co.uk/\" target=\"_blank\" rel=\"noopener\">mixed reality to reconnect Somali communities with heritage</a>, dance and performance projects that blend digital and physical space, and talks about the way that programmers are working with oral storytelling traditions. The event also explored how digital place is affecting physical communities and there were also projects that were using <a href=\"https://www.discoverneon.com/about\" target=\"_blank\" rel=\"noopener\">storytelling to tackle health issues</a> and even to question question gender norms. People talked about MoCAP, Volumetric Video and new tools for creating more realistic environments and interactions in virtual worlds.</p><p>Pete Woodbridge, Event Producer and <a href=\"https://www.ljmu.ac.uk/research/centres-and-institutes/institute-of-art-and-technology/expertise/experimental-technologies-lab\" target=\"_blank\" rel=\"noopener\">Co-Director of the Experimental Technologies Lab</a>, said,</p><p>“Storytelling is certainly going through a renaissance and it’s amazing how this technology is bringing so many creative disciplines together. We had such a range of thinking and approaches being discussed on the day and its a really great time to be working in such a collaborative area of research and practice.</p><p>\"There’s real desire to move storytelling beyond the limitations of the screen and put people into of experiences, or to paraphrase Robin McNicholas from Marshmallow Laser Feast ‘its about taking things out of the rectangle and into the real world’.\"</p><p>Exciting times.</p><p>Here’s a PDF of the line up from the event, including details of all the speakers</p><p>Thanks to LJMU and the brilliant Rachel McClean, <a href=\"https://twitter.com/janeleahtweets\" target=\"_blank\" rel=\"noopener\">Jane Leah</a>, Jayne Bryson, Chris Chadwick and Mark Smith for helping to make this all happen.</p>",
+  "html": "<p>“Immersive experiences require novel narrative mechanisms &amp; new language of production… The best technology will not produce the change needed without equal excellence in content production and understanding of immersion as a narrative form” – Creative Industries Review 2017</p><p>On December 14th 2018, Liverpool Screen School welcomed over 200 guests from industry and academia, with 8 panels, and over 30 speakers and demos, to discuss the way that Immersive Technologies such as AR, VR, MR, XR and AI are impacting on storytelling.</p><p>The day included panels exploring the diverse ways in which people are engaging with new technologies. Speakers included creative writers, theatremakers, game developers, filmmakers, artists, creative coders and academics discussing how they are approaching the emerging mediums of virtual reality, augmented reality, digital theatre, projection mapping and mixed reality for storytelling experiences. The talks addressed creative research &amp; development into defining languages of production, narrative mechanisms and approaches to engaging audiences in experiential media across the spectrum of immersive technology.</p><p>Speakers included thinkers and creative talent from <a href=\"https://www.bbc.co.uk/rd\" target=\"_blank\" rel=\"noopener\">BBC R&amp;D</a>, Digital Catapult’s <a href=\"https://creativexr.co.uk/\" target=\"_blank\" rel=\"noopener\">CreativeXR</a> Programme, <a href=\"https://bristolvrlab.com/\" target=\"_blank\" rel=\"noopener\">Bristol VR Lab</a>, <a href=\"https://xrstories.co.uk/\" target=\"_blank\" rel=\"noopener\">XR Stories</a> from York, <a href=\"https://www.dmu.ac.uk/research/centres-institutes/ioct/index.aspx\" target=\"_blank\" rel=\"noopener\">Institute of Creative Technologies</a> in Leicester, <a href=\"https://www.ljmu.ac.uk/about-us/faculties/faculty-of-arts-professional-and-social-studies/liverpool-screen-school\" target=\"_blank\" rel=\"noopener\">Liverpool Screen School</a> and practice-based academics from a number of Universities from across the UK.</p><p>Companies included <a href=\"https://www.marshmallowlaserfeast.com/\" target=\"_blank\" rel=\"noopener\">Marshmallow Laser Feast</a>, <a href=\"https://www.drawandcode.com/\" target=\"_blank\" rel=\"noopener\">Draw and Code</a>, <a href=\"https://web.archive.org/web/20201101015325/http://www.limbiktheatre.com/\" target=\"_blank\" rel=\"noopener\">Limbik Theatre</a>, <a href=\"https://www.pilot-theatre.com/\" target=\"_blank\" rel=\"noopener\">Pilot Theatre</a>, <a href=\"https://boomclap.co/\" target=\"_blank\" rel=\"noopener\">Boom Clap Play</a>, <a href=\"https://www.kinicho.com/\" target=\"_blank\" rel=\"noopener\">Kinicho</a>, <a href=\"https://www.productionpark.co.uk/\" target=\"_blank\" rel=\"noopener\">Production Park</a>, <a href=\"https://web.archive.org/web/20201117100658/https://thehatch.co.uk/\" target=\"_blank\" rel=\"noopener\">The Hatch</a>, <a href=\"https://mnemoscene.io/\" target=\"_blank\" rel=\"noopener\">Mnemoscene</a>, <a href=\"https://web.archive.org/web/20191225135432/http://www.immersivestorylab.com/\" target=\"_blank\" rel=\"noopener\">Immersive Storylab</a> and <a href=\"https://charisma.ai/\" target=\"_blank\" rel=\"noopener\">Charisma.ai</a>. There were also a number of demos including a 6 metre immersive dome from <a href=\"http://igloovision.com\" target=\"_blank\" rel=\"noopener\">Igloo Vision</a> and a <a href=\"https://web.archive.org/web/20191220162034/https://www.drawandcode.com/tag/magic-leap/\" target=\"_blank\" rel=\"noopener\">Magic Leap</a>, a new <a href=\"https://www.kinicho.com/\" target=\"_blank\" rel=\"noopener\">Sonic Reality engine by Kinicho</a> and a preview of <a href=\"https://twitter.com/rob_eagle_\" target=\"_blank\" rel=\"noopener\">Robert Eagle's amazing Through the Wardrobe</a> work.</p><p>Liverpool Screen School’s own work on using <a href=\"https://www.theguardian.com/world/2019/feb/01/enduring-the-tide-the-flooded-philippine-islands-that-locals-wont-leave\" target=\"_blank\" rel=\"noopener\">immersive storytelling for climate change activism</a> and their use of <a href=\"https://web.archive.org/web/20191212055422/https://www.curiousmagic.co.uk/if-these-walls-could-talk\" target=\"_blank\" rel=\"noopener\">mixed reality and augmented reality to create novel storytelling experiences</a> was also on show. The day also included work from the <a href=\"https://web.archive.org/web/20190717134157/https://ceprogramme.com/immersive-experiences/\" target=\"_blank\" rel=\"noopener\">AHRC’s Immersive Experiences programme</a> including projects that enable people to experience a <a href=\"https://www.sheffield.ac.uk/archaeology/news/bringing-sheffields-forgotten-castle-life\" target=\"_blank\" rel=\"noopener\">forgotten castle in Sheffield</a> and a <a href=\"https://digitalghosthunt.com/\" target=\"_blank\" rel=\"noopener\">digital ghost hunt</a> project in London.</p><p>There were also many other projects on display that give a glimpse into the possibilities, including a project to bring <a href=\"https://web.archive.org/web/20191229045925/http://meyouandus.co.uk/\" target=\"_blank\" rel=\"noopener\">augmented reality to trains across the UK</a>, a project that used <a href=\"https://nomad-project.co.uk/\" target=\"_blank\" rel=\"noopener\">mixed reality to reconnect Somali communities with heritage</a>, dance and performance projects that blend digital and physical space, and talks about the way that programmers are working with oral storytelling traditions. The event also explored how digital place is affecting physical communities and there were also projects that were using <a href=\"https://www.discoverneon.com/about\" target=\"_blank\" rel=\"noopener\">storytelling to tackle health issues</a> and even to question gender norms. People talked about MoCAP, Volumetric Video and new tools for creating more realistic environments and interactions in virtual worlds.</p><p>Pete Woodbridge, Event Producer and <a href=\"https://www.ljmu.ac.uk/research/centres-and-institutes/institute-of-art-and-technology/expertise/experimental-technologies-lab\" target=\"_blank\" rel=\"noopener\">Co-Director of the Experimental Technologies Lab</a>, said,</p><p>“Storytelling is certainly going through a renaissance and it’s amazing how this technology is bringing so many creative disciplines together. We had such a range of thinking and approaches being discussed on the day and it's a really great time to be working in such a collaborative area of research and practice.</p><p>\"There’s real desire to move storytelling beyond the limitations of the screen and put people inside experiences, or to paraphrase Robin McNicholas from Marshmallow Laser Feast ‘it’s about taking things out of the rectangle and into the real world’.\"</p><p>Exciting times.</p><p>Thanks to LJMU and the brilliant Rachel McClean, <a href=\"https://twitter.com/janeleahtweets\" target=\"_blank\" rel=\"noopener\">Jane Leah</a>, Jayne Bryson, Chris Chadwick and Mark Smith for helping to make this all happen.</p>",
   "links": [
    {
     "label": "BBC R&D",
@@ -1009,13 +1160,16 @@
   "video": "/video/x/immersive-storytelling-experiences.mp4",
   "poster": "/video/x/immersive-storytelling-experiences.jpg",
   "image": null,
-  "thumb": "/img/x/immersive-storytelling-experiences.webp"
+  "thumb": "/img/x/immersive-storytelling-experiences.webp",
+  "themes": [
+   "teaching"
+  ]
  },
  {
   "slug": "alltheworldsastage",
-  "title": "All the Worlds a Stage",
+  "title": "All the World's a Stage",
   "blurb": "Rehearse, perform & make magic together in realtime, with zero friction for audiences",
-  "meta": "Immersive Protoype,2020",
+  "meta": "Immersive Prototype, 2020",
   "year": "2020",
   "html": "<p>Really interested in how we could use this platform for remote immersive theatre.</p><p>You can dial in cast from anywhere and put them into any environment.</p><p>Rehearse, perform &amp; make magic together in realtime, with zero friction for audiences</p>",
   "links": [],
@@ -1023,27 +1177,33 @@
   "video": "/video/x/alltheworldsastage.mp4",
   "poster": "/video/x/alltheworldsastage.jpg",
   "image": null,
-  "thumb": "/img/x/alltheworldsastage.webp"
+  "thumb": "/img/x/alltheworldsastage.webp",
+  "themes": [
+   "hacks"
+  ]
  },
  {
   "slug": "infinitestadium",
   "title": "Infinity Stadium",
   "blurb": "Bring a remote audience together, and into the heart of the match, with our new prototype.",
-  "meta": "Immersive Protoype,2020",
+  "meta": "Immersive Prototype, 2020",
   "year": "2020",
-  "html": "<p>What are sports without the presence of their fans?</p><p>Bring a remote audience together, and into the heart of the match, with our new prototype that works using zoom.</p><p>Love the idea of a global audience chanting together and 'being there' with their teams.</p>",
+  "html": "<p>What are sports without the presence of their fans?</p><p>Bring a remote audience together, and into the heart of the match, with our new prototype that works using Zoom.</p><p>Love the idea of a global audience chanting together and 'being there' with their teams.</p>",
   "links": [],
   "external": null,
   "video": "/video/x/infinitestadium.mp4",
   "poster": "/video/x/infinitestadium.jpg",
   "image": null,
-  "thumb": "/img/x/infinitestadium.webp"
+  "thumb": "/img/x/infinitestadium.webp",
+  "themes": [
+   "hacks"
+  ]
  },
  {
   "slug": "remotevenues",
   "title": "Remote Venues",
   "blurb": "A prototype for venues, theatres, music, live events etc as they look to create more premium, personalised & exclusive live experiences ...",
-  "meta": "Immersive Protoype,2020",
+  "meta": "Immersive Prototype, 2020",
   "year": "2020",
   "html": "<p>Transport your remote audience to any context you want...</p><p>Our platform could be great for venues, theatres, music, live events etc as they look to create more premium, personalised &amp; exclusive live experiences...</p>",
   "links": [],
@@ -1051,7 +1211,10 @@
   "video": "/video/x/remotevenues.mp4",
   "poster": "/video/x/remotevenues.jpg",
   "image": null,
-  "thumb": "/img/x/remotevenues.webp"
+  "thumb": "/img/x/remotevenues.webp",
+  "themes": [
+   "hacks"
+  ]
  },
  {
   "slug": "storyscopes",
@@ -1059,7 +1222,7 @@
   "blurb": "Creating an Augmented Reality Storytelling Telescope Experience",
   "meta": "Prototype, 2019",
   "year": "2019",
-  "html": "<p>StoryScopes are public viewing telescopes that I developed that tell stories using augmented reality and sound. The device enables people to see stories in landscapes and bring environments to life with history and future visualisations.</p><p>From seeing history and imagination unfold before your eyes in mountains and the oceans, to visualising Urban development and enhancing landmarks, the storyscopes device is aiming to get people to learn more about their surroundings by combining the digital and physical world.</p><p>Using head tracking and games based interactions, users can also interact with the digital and physical content they see using the device, from playing games across cityscapes to engaging in interactive narratives. There’s also the ability to teleport into virtual world’s and see beyond the immediate environment</p><p>Installation options include single devices and multiple scopes to encourage exploration through stories, mysteries and interactivity.</p><p>We used storyscopes to test out a few ideas around getting storytelling in place, including working with AND Festival in 2021, doing technical consulting with McCann Manchester, to support an artist developing a similar project on the <a href=\"https://www.andfestival.org.uk/videos/blue-violet-river/\" target=\"_blank\" rel=\"noopener\">Mersey Ferry</a>.</p><p>We also have screen based (holographic) viewing options to enable a number of ways for groups to share the experience. There is also the option for the device to take micro-payments for revenue generation.</p>",
+  "html": "<p>StoryScopes are public viewing telescopes that I developed that tell stories using augmented reality and sound. The device enables people to see stories in landscapes and bring environments to life with history and future visualisations.</p><p>From seeing history and imagination unfold before your eyes in mountains and the oceans, to visualising urban development and enhancing landmarks, the storyscopes device is aiming to get people to learn more about their surroundings by combining the digital and physical world.</p><p>Using head tracking and games based interactions, users can also interact with the digital and physical content they see using the device, from playing games across cityscapes to engaging in interactive narratives. There’s also the ability to teleport into virtual worlds and see beyond the immediate environment.</p><p>Installation options include single devices and multiple scopes to encourage exploration through stories, mysteries and interactivity.</p><p>We used storyscopes to test out a few ideas around getting storytelling in place, including working with AND Festival in 2021, doing technical consulting with McCann Manchester, to support an artist developing a similar project on the <a href=\"https://www.andfestival.org.uk/videos/blue-violet-river/\" target=\"_blank\" rel=\"noopener\">Mersey Ferry</a>.</p><p>We also have screen based (holographic) viewing options to enable a number of ways for groups to share the experience. There is also the option for the device to take micro-payments for revenue generation.</p>",
   "links": [
    {
     "label": "Mersey Ferry",
@@ -1070,13 +1233,16 @@
   "video": "/video/x/storyscopes.mp4",
   "poster": "/video/x/storyscopes.jpg",
   "image": null,
-  "thumb": "/img/x/storyscopes.webp"
+  "thumb": "/img/x/storyscopes.webp",
+  "themes": [
+   "xr"
+  ]
  },
  {
   "slug": "discotastic",
   "title": "Discotastic",
   "blurb": "Send a 10 second disco over the internet with a tweet. Sends real music, light and bubbles.",
-  "meta": "Experiments,2020",
+  "meta": "Experiments, 2020",
   "year": "2020",
   "html": "<p>Send a 10 second disco over the web by tweeting the #discotastic hashtag.</p><p>A few seconds later it will start a disco in my garage, including lights, music and bubbles.</p><p><a href=\"https://player.vimeo.com/video/420825583?title=0&autopause=0&app_id=122963\" target=\"_blank\" rel=\"noopener\">Watch the video ↗</a></p>",
   "links": [],
@@ -1084,15 +1250,18 @@
   "video": "/video/x/discotastic.mp4",
   "poster": "/video/x/discotastic.jpg",
   "image": null,
-  "thumb": "/img/x/discotastic.webp"
+  "thumb": "/img/x/discotastic.webp",
+  "themes": [
+   "hacks"
+  ]
  },
  {
   "slug": "dreamglass",
   "title": "Dream Glass",
   "blurb": "An MA Immersive Arts student project that re-imagines display cases in museums and retail. With broken TVs.",
-  "meta": "Student Project,2020",
+  "meta": "Student Project, 2020",
   "year": "2020",
-  "html": "<p>Dreamglass is a new display invention for museums and retail, created by Ellis O'Callaghan, from our MA Immersive Arts course, to make the world a little bit more interactive and magic.</p><p>Created as part of the 'Collaborative' module where students explore cross-disciplinary approaches to solving real world problems.</p><p>The 'holographic' display case enables you to show content in front of objects, has touch controls and a number of other possibilities for making the display of physical things more interactive.</p><p>Built during lockdown (out of old TVs, microcontrollers etc!), a great example of innovation under constraint, and the inventive spirit of students the course.</p><p>Ellis is looking for a job and ways to develop the project to the next level. If you can help find him here: <a href=\"https://lnkd.in/dXMPCCJ\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/dXMPCCJ</a></p>",
+  "html": "<p>Dreamglass is a new display invention for museums and retail, created by Ellis O'Callaghan, from our MA Immersive Arts course, to make the world a little bit more interactive and magic.</p><p>Created as part of the 'Collaborative' module where students explore cross-disciplinary approaches to solving real world problems.</p><p>The 'holographic' display case enables you to show content in front of objects, has touch controls and a number of other possibilities for making the display of physical things more interactive.</p><p>Built during lockdown (out of old TVs, microcontrollers etc!), a great example of innovation under constraint, and the inventive spirit of students on the course.</p><p>Ellis is looking for a job and ways to develop the project to the next level. If you can help, find him here: <a href=\"https://lnkd.in/dXMPCCJ\" target=\"_blank\" rel=\"noopener\">https://lnkd.in/dXMPCCJ</a></p>",
   "links": [
    {
     "label": "https://lnkd.in/dXMPCCJ",
@@ -1103,13 +1272,17 @@
   "video": "/video/x/dreamglass.mp4",
   "poster": "/video/x/dreamglass.jpg",
   "image": null,
-  "thumb": "/img/x/dreamglass.webp"
+  "thumb": "/img/x/dreamglass.webp",
+  "themes": [
+   "teaching",
+   "xr"
+  ]
  },
  {
   "slug": "videopong",
   "title": "Video Pong",
   "blurb": "Play pong across video conferencing networks.",
-  "meta": "Experiment,2020",
+  "meta": "Experiment, 2020",
   "year": "2020",
   "html": "<p>Networked Video Pong working live in Zoom and other popular video conferencing programmes.</p><p>Experimental collaboration with <a href=\"https://www.linkedin.com/in/ACoAAAJU86oBgt90Tm9_ta65aSkQLYvaKHYbcuc/\" target=\"_blank\" rel=\"noopener\">Dr Robert Black</a> to see if we can turn dull video meetings into something more entertaining and interactive.</p><p>Yes we can!</p>",
   "links": [
@@ -1122,21 +1295,27 @@
   "video": "/video/x/videopong.mp4",
   "poster": "/video/x/videopong.jpg",
   "image": null,
-  "thumb": "/img/x/videopong.webp"
+  "thumb": "/img/x/videopong.webp",
+  "themes": [
+   "hacks"
+  ]
  },
  {
   "slug": "skywriter",
   "title": "SkyWriter Video Pen",
   "blurb": "Augment Zoom with this magic augmented reality pen",
-  "meta": "Experiment,2020",
+  "meta": "Experiment, 2020",
   "year": "2020",
-  "html": "<p>A little hack to get video conferencing platforms (ie Zoom, Skype, Webex etc) to be a bit more fun. Using a magic augmented reality pen.</p><p>Using sensor dataand a little augmented reality magic to give you superpowers from the comfort of your bedroom or office.</p>",
+  "html": "<p>A little hack to get video conferencing platforms (e.g. Zoom, Skype, Webex) to be a bit more fun. Using a magic augmented reality pen.</p><p>Using sensor data and a little augmented reality magic to give you superpowers from the comfort of your bedroom or office.</p>",
   "links": [],
   "external": null,
   "video": "/video/x/skywriter.mp4",
   "poster": "/video/x/skywriter.jpg",
   "image": null,
-  "thumb": "/img/x/skywriter.webp"
+  "thumb": "/img/x/skywriter.webp",
+  "themes": [
+   "hacks"
+  ]
  },
  {
   "slug": "shaunthesheep",
@@ -1144,21 +1323,24 @@
   "blurb": "Developing an R&D Project with Aardman Animations in China",
   "meta": "Immersive Experience R&D, 2019",
   "year": "2019",
-  "html": "<p>This project, funded by the AHRC, proposes developing new partnership between the Centre of Architecture and the Visual Arts (CAVA), the Experimental Technologies LAB (ETL), Aardman Animation, China Media Capital (CMC) and the Shanghai Theatre Academy (STA) that is the basis for a new alliance between the UK and CCI/Media organisations in the Shanghai region. The aim of this a research/industry partnership is to collaborate on a unique, location-based, mixed reality immersive experience in a specially designed theatre in Shanghai. \n\n\n\n\"Shaun the Sheep\" is already a global entertainment brand known principally for its linear, animated, non-dialogue content (movies; TV series). This project will therefore focus on technical, creative and business innovation rather than on audience acquisition. It will also put Aardman at the forefront of developing innovation, new methods, new knowledge and, through creating new audiences, access to a new market. \n\n\n\nIn terms of technological innovation, the team will seek a collaboration with partners in the UK and China. By using mixed reality technology (e.g. holograms tracked by computer vision), the project envisions to blur the traditional boundaries between the screen, theatre and cinema space, creating a new \"narrative space\" in which audiences are part of and feel fully immersed.</p>",
+  "html": "<p>This project, funded by the AHRC, proposes developing a new partnership between the Centre of Architecture and the Visual Arts (CAVA), the Experimental Technologies LAB (ETL), Aardman Animation, China Media Capital (CMC) and the Shanghai Theatre Academy (STA) that is the basis for a new alliance between the UK and CCI/Media organisations in the Shanghai region. The aim of this research/industry partnership is to collaborate on a unique, location-based, mixed reality immersive experience in a specially designed theatre in Shanghai.</p><p>\"Shaun the Sheep\" is already a global entertainment brand known principally for its linear, animated, non-dialogue content (movies; TV series). This project will therefore focus on technical, creative and business innovation rather than on audience acquisition. It will also put Aardman at the forefront of developing innovation, new methods, new knowledge and, through creating new audiences, access to a new market.</p><p>In terms of technological innovation, the team will seek a collaboration with partners in the UK and China. By using mixed reality technology (e.g. holograms tracked by computer vision), the project envisions to blur the traditional boundaries between the screen, theatre and cinema space, creating a new \"narrative space\" in which audiences are part of and feel fully immersed.</p>",
   "links": [],
   "external": null,
   "video": null,
   "poster": null,
   "image": "/img/x/shaunthesheep-bg.webp",
-  "thumb": "/img/x/shaunthesheep.webp"
+  "thumb": "/img/x/shaunthesheep.webp",
+  "themes": [
+   "xr"
+  ]
  },
  {
   "slug": "doors",
   "title": "Door to the World",
   "blurb": "A magic door that connects you with the world from the isolation of your home",
-  "meta": "Immersive Experiment,2020",
+  "meta": "Immersive Experiment, 2020",
   "year": "2020",
-  "html": "<p>Inspired by the <a href=\"https://twitter.com/LittleInventors\" target=\"_blank\" rel=\"noopener\">@LittleInventors</a>daily <a href=\"https://twitter.com/hashtag/timeforcreativity?src=hashtag_click\" target=\"_blank\" rel=\"noopener\">#timeforcreativity</a> challenge yesterday.</p><p>Me and my boy Josh made a 'Door to the World' in our garage.</p><p>Every time he says 'open' the door reveals a surprise new world, including live video feeds from out in the wild: so we can still go to the beach, the zoo, the city and even the moon.</p><p>It can also work with motion sensing.</p><p>The grown up version also has a pub!</p><p>Just to keep us feeling a little bit connected to the world.</p>",
+  "html": "<p>Inspired by the <a href=\"https://twitter.com/LittleInventors\" target=\"_blank\" rel=\"noopener\">@LittleInventors</a> daily <a href=\"https://twitter.com/hashtag/timeforcreativity?src=hashtag_click\" target=\"_blank\" rel=\"noopener\">#timeforcreativity</a> challenge yesterday.</p><p>Me and my boy Josh made a 'Door to the World' in our garage.</p><p>Every time he says 'open' the door reveals a surprise new world, including live video feeds from out in the wild: so we can still go to the beach, the zoo, the city and even the moon.</p><p>It can also work with motion sensing.</p><p>The grown up version also has a pub!</p><p>Just to keep us feeling a little bit connected to the world.</p>",
   "links": [
    {
     "label": "@LittleInventors",
@@ -1173,21 +1355,27 @@
   "video": "/video/x/doors.mp4",
   "poster": "/video/x/doors.jpg",
   "image": null,
-  "thumb": "/img/x/doors.webp"
+  "thumb": "/img/x/doors.webp",
+  "themes": [
+   "hacks"
+  ]
  },
  {
   "slug": "wonderrun",
   "title": "Wonder Run",
   "blurb": "Turn your treadmill or cycling machine into an adventure using accelerometer data.",
-  "meta": "Experiment,2020",
+  "meta": "Experiment, 2020",
   "year": "2020",
-  "html": "<p>Run anywhere you want from the comfort of your home or gym with this app that converts phone accelerometer data into an immersive running experience anywhere you want to go.</p><p>Part of my #tools4isolation project experiments during lockdown, aimed at augmented life at home.</p>",
+  "html": "<p>Run anywhere you want from the comfort of your home or gym with this app that converts phone accelerometer data into an immersive running experience anywhere you want to go.</p><p>Part of my #tools4isolation project experiments during lockdown, aimed at augmenting life at home.</p>",
   "links": [],
   "external": null,
   "video": "/video/x/wonderrun.mp4",
   "poster": "/video/x/wonderrun.jpg",
   "image": null,
-  "thumb": "/img/x/wonderrun.webp"
+  "thumb": "/img/x/wonderrun.webp",
+  "themes": [
+   "hacks"
+  ]
  },
  {
   "slug": "teletouch",
@@ -1195,13 +1383,16 @@
   "blurb": "Send touch and haptic sensations over the internet of things, to turn it into an internet of senses.",
   "meta": "Experiments, 2020",
   "year": "2020",
-  "html": "<p>Am missing hugs right now</p><p>So got really interested how technology could solve issues around our lack of touch and physical sensation with each other right now, especially with loved ones who are far away/in hospital etc</p><p>This experiment, called Tele Touch, involved sending and receiving touch over Lorawan, through a simple device that involves a pressure sensor and a vibration motor.</p><p>The more you squeeze, the more intense the sensation that is felt at the other end, and when you both squeeze together, something magic happens.</p><p>Becuase feeling together is awesome.</p>",
+  "html": "<p>Am missing hugs right now.</p><p>So got really interested how technology could solve issues around our lack of touch and physical sensation with each other right now, especially with loved ones who are far away or in hospital.</p><p>This experiment, called Tele Touch, involved sending and receiving touch over LoRaWAN, through a simple device that involves a pressure sensor and a vibration motor.</p><p>The more you squeeze, the more intense the sensation that is felt at the other end, and when you both squeeze together, something magic happens.</p><p>Because feeling together is awesome.</p>",
   "links": [],
   "external": null,
   "video": "/video/x/teletouch.mp4",
   "poster": "/video/x/teletouch.jpg",
   "image": null,
-  "thumb": "/img/x/teletouch.webp"
+  "thumb": "/img/x/teletouch.webp",
+  "themes": [
+   "hacks"
+  ]
  },
  {
   "slug": "worldlabs-comfy",
@@ -1221,21 +1412,27 @@
   "video": null,
   "poster": null,
   "image": "/img/x/worldlabs-comfy.jpg",
-  "thumb": "/img/x/worldlabs-comfy.webp"
+  "thumb": "/img/x/worldlabs-comfy.webp",
+  "themes": [
+   "ai"
+  ]
  },
  {
   "slug": "shadowcatcher",
   "title": "Shadow Catcher",
   "blurb": "An installation that catches shadows and then plays them back later on, leaving traces in the city.",
-  "meta": "Installation Ideas,2020",
+  "meta": "Installation Ideas, 2020",
   "year": "2020",
-  "html": "<p>Shadow catcher catches shadows and plays them back a few seconds later. So you can see the ghosts who has been around</p><p>Thought this would work nicely projected huge onto a building one day, so people can see the remnants of others as they walk through the city at night, will do that with it when we can go back out.</p><p>Until then, here it is in my garage.</p>",
+  "html": "<p>Shadow catcher catches shadows and plays them back a few seconds later. So you can see the ghosts of whoever has been around.</p><p>Thought this would work nicely projected huge onto a building one day, so people can see the remnants of others as they walk through the city at night, will do that with it when we can go back out.</p><p>Until then, here it is in my garage.</p>",
   "links": [],
   "external": null,
   "video": "/video/x/shadowcatcher.mp4",
   "poster": "/video/x/shadowcatcher.jpg",
   "image": null,
-  "thumb": "/img/x/shadowcatcher.webp"
+  "thumb": "/img/x/shadowcatcher.webp",
+  "themes": [
+   "xr"
+  ]
  },
  {
   "slug": "sonic-sci-fi",
@@ -1243,27 +1440,33 @@
   "blurb": "Experiments with AI and Voice",
   "meta": "AI and VUI Experiment, 2019",
   "year": "2019",
-  "html": "<p>I've been absolutely fascinated with the potential of voice as an input for mediated experiences, particularly given that the voice activated speakers, such as Amazon’s Echo and Google Home, starting to become a feature in our smart homes. So when the chance came along to spend some time experimenting with a personalised narrative using Google Home we took it.</p><p>The potential of this for storytelling is pretty amazing we think, enabling stories to dynamically adapt to the people and contexts around them. Taken a little further, perhaps it could even start interacting with other features in the smart home such as dimming the lights, turning the telly on, flushing the toilet or even ordering you a pizza as part of a narrative. This is super exciting we think.</p><p>Anyway, here’s a little sample of a short interaction that uses personalised and contextualised responses that we are developing as part of some of our R&amp;D prototypes in development this year. Exciting times.</p>",
+  "html": "<p>I've been absolutely fascinated with the potential of voice as an input for mediated experiences, particularly given that voice-activated speakers, such as Amazon’s Echo and Google Home, are starting to become a feature in our smart homes. So when the chance came along to spend some time experimenting with a personalised narrative using Google Home we took it.</p><p>The potential of this for storytelling is pretty amazing we think, enabling stories to dynamically adapt to the people and contexts around them. Taken a little further, perhaps it could even start interacting with other features in the smart home such as dimming the lights, turning the telly on, flushing the toilet or even ordering you a pizza as part of a narrative. This is super exciting we think.</p><p>Anyway, here’s a little sample of a short interaction that uses personalised and contextualised responses that we are developing as part of some of our R&amp;D prototypes in development this year. Exciting times.</p>",
   "links": [],
   "external": null,
   "video": "/video/x/sonic-sci-fi.mp4",
   "poster": "/video/x/sonic-sci-fi.jpg",
   "image": null,
-  "thumb": "/img/x/sonic-sci-fi.webp"
+  "thumb": "/img/x/sonic-sci-fi.webp",
+  "themes": [
+   "ai"
+  ]
  },
  {
   "slug": "fluffy",
   "title": "Meet Fluffy",
   "blurb": "3d Character and Hair Experiment, Looking for a home",
-  "meta": "Immersive StoryThings,2019",
+  "meta": "Immersive StoryThings, 2019",
   "year": "2019",
-  "html": "<p>A curious kind of creature, with a mischevious imagination, looking for something to do...</p>",
+  "html": "<p>A curious kind of creature, with a mischievous imagination, looking for something to do...</p>",
   "links": [],
   "external": null,
   "video": "/video/x/fluffy.mp4",
   "poster": "/video/x/fluffy.jpg",
   "image": null,
-  "thumb": "/img/x/fluffy.webp"
+  "thumb": "/img/x/fluffy.webp",
+  "themes": [
+   "vp"
+  ]
  },
  {
   "slug": "ma-immersive-arts",
@@ -1271,7 +1474,7 @@
   "blurb": "Developing a postgraduate course in Immersive Experiences, Mixed Reality / XR Creative Practice",
   "meta": "Course Development, 2019",
   "year": "2019",
-  "html": "<p>I've been developing a new MA Course between Liverpool Screen School and Liverpool School of Art and Design.</p><p><a href=\"https://web.archive.org/web/20201202092349/https://www.ljmu.ac.uk/study/courses/postgraduates/immersive-arts\" target=\"_blank\" rel=\"noopener\">The MA in Immersive Arts</a> explores immersive storytelling experiences, augmented reality, projection mapping, interactive environments, holographics and mixed reality content production and experience design.</p><p>The MA Immersive Arts is a pioneering degree where students will explore and experiment with making applications, prototypes and experiences in augmented reality, mixed reality, projection mapping, holographics, future screens and virtual reality. It is run collaboratively between the Liverpool Screen School and the Liverpool School of Art and Design in dedicated lab facilities, with access to cutting-edge equipment, software and practical research expertise.</p><p>From design, education, marketing and health to entertainment, arts and theatre, immersive technologies have been making an impact across a number of sectors over the last few years. This course will prepare students with the skills and conceptual abilities to develop content, experiences and applications for a number of industries.</p><p>Exploring techniques and innovation in immersive storytelling, experience design, content creation, artistic practice, exhibition and installation. This course will enable students to develop the next generation of spatial experiences in an industry that is predicted to have a huge growth over the next decade.</p><p>Modules include:</p><ul><li>Immersive Storytelling - where students will learn about the techniques used to engage audiences in immersive experiences across a variety of platforms and contexts. Drawing upon areas such as experience design, games design, immersive theatre, interactive media and immersive arts practice.</li><li>Immersive Arts Lab - learning practical creative skills across experience design in mixed reality, augmented reality, binaural sound, volumetric and spatial design, interactive development, sensor based media and immersive display techniques.</li><li>Collaborative Project - working collaboratively with peers and an external partner, responding to a arts, media and design challenge and/or an opportunity for working on socially engaged immersive practice.</li><li>Research and Proposal - developing R&amp;D skills and knowledge to develop, test and prototype a creative practice proposal.</li><li>Immersive Arts Project - A major practice-based creative project in an area of interest to you.</li></ul><p>It expands on the University's internationally recognised research and teaching from media, film, art and design- which includes research across immersive arts, immersive documentary and fiction production, 3d digital art, augmented reality, mixed reality, holographics, virtual reality and immersive theatre. The team behind it has recently put on the <a href=\"https://www.ljmu.ac.uk/about-us/news/articles/2018/12/20/immersive-storytelling-experiences-symposium\" target=\"_blank\" rel=\"noopener\">Immersive Storytelling Research Symposium</a> involving industry and academics from across the UK to explore the future of research in these growing mediums.</p><p>It is aimed at creatives with diverse backgrounds in digital art &amp; design, media &amp; film, animation and 3d modelling, motion graphics, computer science &amp; games, theatre and music production. This interdisplinary course is designed to appeal to people looking at developing and shaping their immersive practice and creative skills.</p><p>Peter Woodbridge, Programme Leader, says “It’s a really exciting time to be working at the intersection of creativity, storytelling, digital arts and emerging technology. We wanted to design a course that wasn't just focused on virtual reality headsets, although we cover that too, and we are incorporating a wide range of practical immersive technology skills into the programme. This includes spatial experience design, projection mapping, augmented reality, binaural sound, physical-digital art practice and new capture, simulation and display techniques and technologies.\"</p><p>\"Students on this course will be investigating and inventing new ways to engage audiences in spatial story and arts experiences by learning about what happens when our definitions of media arts go beyond the screen. Its about making new possibilities, ideas, experiences, installations and applications for engaging audiences across a number of areas.”.</p><p>The course is being developed in consultation with creative industry, arts and wider business partners, including a number of national companies and organisations, as well as <a href=\"https://www.immerseuk.org/wp-content/uploads/2018/05/Immersive_Technologies_PDF_lowres.pdf\" target=\"_blank\" rel=\"noopener\">Liverpool's and the North West's thriving immersive technology sector</a>.</p><p><a href=\"https://web.archive.org/web/20201202092349/https://www.ljmu.ac.uk/study/courses/postgraduates/immersive-arts\" target=\"_blank\" rel=\"noopener\">Apply now to the MA in Immersive Arts.</a></p>",
+  "html": "<p>I've been developing a new MA Course between Liverpool Screen School and Liverpool School of Art and Design.</p><p><a href=\"https://web.archive.org/web/20201202092349/https://www.ljmu.ac.uk/study/courses/postgraduates/immersive-arts\" target=\"_blank\" rel=\"noopener\">The MA in Immersive Arts</a> explores immersive storytelling experiences, augmented reality, projection mapping, interactive environments, holographics and mixed reality content production and experience design.</p><p>The MA Immersive Arts is a pioneering degree where students will explore and experiment with making applications, prototypes and experiences in augmented reality, mixed reality, projection mapping, holographics, future screens and virtual reality. It is run collaboratively between the Liverpool Screen School and the Liverpool School of Art and Design in dedicated lab facilities, with access to cutting-edge equipment, software and practical research expertise.</p><p>From design, education, marketing and health to entertainment, arts and theatre, immersive technologies have been making an impact across a number of sectors over the last few years. This course will prepare students with the skills and conceptual abilities to develop content, experiences and applications for a number of industries.</p><p>Exploring techniques and innovation in immersive storytelling, experience design, content creation, artistic practice, exhibition and installation. This course will enable students to develop the next generation of spatial experiences in an industry that is predicted to have a huge growth over the next decade.</p><p>Modules include:</p><ul><li>Immersive Storytelling - where students will learn about the techniques used to engage audiences in immersive experiences across a variety of platforms and contexts. Drawing upon areas such as experience design, games design, immersive theatre, interactive media and immersive arts practice.</li><li>Immersive Arts Lab - learning practical creative skills across experience design in mixed reality, augmented reality, binaural sound, volumetric and spatial design, interactive development, sensor based media and immersive display techniques.</li><li>Collaborative Project - working collaboratively with peers and an external partner, responding to an arts, media and design challenge and/or an opportunity for working on socially engaged immersive practice.</li><li>Research and Proposal - developing R&amp;D skills and knowledge to develop, test and prototype a creative practice proposal.</li><li>Immersive Arts Project - A major practice-based creative project in an area of interest to you.</li></ul><p>It expands on the University's internationally recognised research and teaching from media, film, art and design- which includes research across immersive arts, immersive documentary and fiction production, 3d digital art, augmented reality, mixed reality, holographics, virtual reality and immersive theatre. The team behind it has recently put on the <a href=\"https://www.ljmu.ac.uk/about-us/news/articles/2018/12/20/immersive-storytelling-experiences-symposium\" target=\"_blank\" rel=\"noopener\">Immersive Storytelling Research Symposium</a> involving industry and academics from across the UK to explore the future of research in these growing mediums.</p><p>It is aimed at creatives with diverse backgrounds in digital art &amp; design, media &amp; film, animation and 3d modelling, motion graphics, computer science &amp; games, theatre and music production. This interdisciplinary course is designed to appeal to people looking at developing and shaping their immersive practice and creative skills.</p><p>Peter Woodbridge, Programme Leader, says “It’s a really exciting time to be working at the intersection of creativity, storytelling, digital arts and emerging technology. We wanted to design a course that wasn't just focused on virtual reality headsets, although we cover that too, and we are incorporating a wide range of practical immersive technology skills into the programme. This includes spatial experience design, projection mapping, augmented reality, binaural sound, physical-digital art practice and new capture, simulation and display techniques and technologies.\"</p><p>\"Students on this course will be investigating and inventing new ways to engage audiences in spatial story and arts experiences by learning about what happens when our definitions of media arts go beyond the screen. It’s about making new possibilities, ideas, experiences, installations and applications for engaging audiences across a number of areas.”</p><p>The course is being developed in consultation with creative industry, arts and wider business partners, including a number of national companies and organisations, as well as <a href=\"https://www.immerseuk.org/wp-content/uploads/2018/05/Immersive_Technologies_PDF_lowres.pdf\" target=\"_blank\" rel=\"noopener\">Liverpool's and the North West's thriving immersive technology sector</a>.</p><p><a href=\"https://web.archive.org/web/20201202092349/https://www.ljmu.ac.uk/study/courses/postgraduates/immersive-arts\" target=\"_blank\" rel=\"noopener\">Apply now to the MA in Immersive Arts.</a></p>",
   "links": [
    {
     "label": "The MA in Immersive Arts",
@@ -1290,13 +1493,16 @@
   "video": "/video/x/ma-immersive-arts.mp4",
   "poster": "/video/x/ma-immersive-arts.jpg",
   "image": null,
-  "thumb": "/img/x/ma-immersive-arts.webp"
+  "thumb": "/img/x/ma-immersive-arts.webp",
+  "themes": [
+   "teaching"
+  ]
  },
  {
   "slug": "silenttalker",
   "title": "Silent Talker",
   "blurb": "Video Conference tools for voice to text and translation",
-  "meta": "Experiment,2020",
+  "meta": "Experiment, 2020",
   "year": "2020",
   "html": "<p>A realtime transcription and translator tool for video conferencing platforms such as Zoom, so more people can be part of conversations.</p>",
   "links": [],
@@ -1304,7 +1510,10 @@
   "video": "/video/x/silenttalker.mp4",
   "poster": "/video/x/silenttalker.jpg",
   "image": null,
-  "thumb": "/img/x/silenttalker.webp"
+  "thumb": "/img/x/silenttalker.webp",
+  "themes": [
+   "hacks"
+  ]
  },
  {
   "slug": "shadowtext",
@@ -1324,13 +1533,17 @@
   "video": null,
   "poster": null,
   "image": "/img/x/shadowtext.jpg",
-  "thumb": "/img/x/shadowtext.webp"
+  "thumb": "/img/x/shadowtext.webp",
+  "themes": [
+   "xr",
+   "ai"
+  ]
  },
  {
   "slug": "concall",
   "title": "CON Call",
   "blurb": "Pretend to be in video meetings with this recording Zoom hack",
-  "meta": "Experiment,2020",
+  "meta": "Experiment, 2020",
   "year": "2020",
   "html": "<p>Pretend to be in video meetings whilst attending to more important matters.</p>",
   "links": [],
@@ -1338,7 +1551,10 @@
   "video": "/video/x/concall.mp4",
   "poster": "/video/x/concall.jpg",
   "image": null,
-  "thumb": "/img/x/concall.webp"
+  "thumb": "/img/x/concall.webp",
+  "themes": [
+   "hacks"
+  ]
  },
  {
   "slug": "maritimear",
@@ -1346,7 +1562,7 @@
   "blurb": "Augmented Reality Storytelling & System design for Boats",
   "meta": "Augmented Reality R&D, 2019",
   "year": "2019",
-  "html": "<p>Our seas tell many tales.</p><p>Imagine taking a ferry or cruise and seeing the past coming alive around you: viking battles in the Irish Sea, a shark circling the boat, Odysseus fighting a sea monster, the Titanic hitting an Iceberg, a giant statue appearing from a long lost civilisation, a ghost ship slowly gliding past you, a WWII battle in the skies. Imagine being able to find out and connect to the stories of famous landmarks as you drift by port as you participate in augmented games, stories and shared adventures that help you pass the time and connect you to the journey and the people around you. Not only would this provide a wonderfully unexpected diversion on the journey but also a way to highlight landmarks that often go unnoticed by passengers as they come in to land, representing a new opportunity to connect passengers to media content and advertising.</p><p>Maritime AR: The Oddysey was a 3 month design foundations industrial research project that I led between Immersive StoryLab, Meyouandus, LJMU and Maritime Industry stakeholders. It resulted in the development of several reports and new design/prototype for putting Augmented Reality systems in the sea, with a platform aimed at passengers on cruise ships and boats.</p><p>The location triggered content can be viewed in a number of ways, through mobile devices, on board portholes and special customised viewers that connect people to the stories and the facts about their surroundings.</p><p>The work will be presented to an international audience of boat designers and researchers at the<a href=\"https://web.archive.org/web/20200720181809/https://www.rina.org.uk/res/MD2020%20Brochure%20v6\" target=\"_blank\" rel=\"noopener\">International Marine Design Conference, Cadiz, Spain 2020</a></p><h4>Maritime AR Report</h4>",
+  "html": "<p>Our seas tell many tales.</p><p>Imagine taking a ferry or cruise and seeing the past coming alive around you: viking battles in the Irish Sea, a shark circling the boat, Odysseus fighting a sea monster, the Titanic hitting an iceberg, a giant statue appearing from a long lost civilisation, a ghost ship slowly gliding past you, a WWII battle in the skies. Imagine being able to find out and connect to the stories of famous landmarks as you drift by port as you participate in augmented games, stories and shared adventures that help you pass the time and connect you to the journey and the people around you. Not only would this provide a wonderfully unexpected diversion on the journey but also a way to highlight landmarks that often go unnoticed by passengers as they come in to land, representing a new opportunity to connect passengers to media content and advertising.</p><p>Maritime AR: The Odyssey was a 3 month design foundations industrial research project that I led between Immersive StoryLab, Meyouandus, LJMU and Maritime Industry stakeholders. It resulted in the development of several reports and new design/prototype for putting Augmented Reality systems in the sea, with a platform aimed at passengers on cruise ships and boats.</p><p>The location triggered content can be viewed in a number of ways, through mobile devices, on board portholes and special customised viewers that connect people to the stories and the facts about their surroundings.</p><p>The work will be presented to an international audience of boat designers and researchers at the <a href=\"https://web.archive.org/web/20200720181809/https://www.rina.org.uk/res/MD2020%20Brochure%20v6\" target=\"_blank\" rel=\"noopener\">International Marine Design Conference, Cadiz, Spain 2020</a></p>",
   "links": [
    {
     "label": "International Marine Design Conference, Cadiz, Spain 2020",
@@ -1357,7 +1573,10 @@
   "video": "/video/x/maritimear.mp4",
   "poster": "/video/x/maritimear.jpg",
   "image": null,
-  "thumb": "/img/x/maritimear.webp"
+  "thumb": "/img/x/maritimear.webp",
+  "themes": [
+   "xr"
+  ]
  },
  {
   "slug": "volumetricselfie",
@@ -1371,7 +1590,10 @@
   "video": "/video/x/volumetricselfie.mp4",
   "poster": "/video/x/volumetricselfie.jpg",
   "image": null,
-  "thumb": "/img/x/volumetricselfie.webp"
+  "thumb": "/img/x/volumetricselfie.webp",
+  "themes": [
+   "vp"
+  ]
  },
  {
   "slug": "electric-sheep-smart-city",
@@ -1379,27 +1601,33 @@
   "blurb": "Real time data storytelling, Smart City Modelling R&D",
   "meta": "R&D, 2019",
   "year": "2019",
-  "html": "<p>I'm working on a Smart City R&amp;D project with Rob Black that is looking at creating a digital twin for Liverpool.</p><p>Using the city 3d model to add a little story magic to live real-time data with electric sheep, bunny rabbits and some other surprises….</p><p>Smart cities need to be more than utilitarian nightmares, dry data can be so dull and disconnected from us. Our cities need to be emotionally smart too…. so here’s a little attempt to bring some storytelling magic into the mix.</p><p>Here’s a little snippet of the project on our volumetric display, excited to get this into the oculus quest, in augmented reality and other places soon too….</p>",
+  "html": "<p>I'm working on a Smart City R&amp;D project with Rob Black that is looking at creating a digital twin for Liverpool.</p><p>Using the city 3d model to add a little story magic to live real-time data with electric sheep, bunny rabbits and some other surprises….</p><p>Smart cities need to be more than utilitarian nightmares, dry data can be so dull and disconnected from us. Our cities need to be emotionally smart too…. so here’s a little attempt to bring some storytelling magic into the mix.</p><p>Here’s a little snippet of the project on our volumetric display, excited to get this into the Oculus Quest, in augmented reality and other places soon too….</p>",
   "links": [],
   "external": null,
   "video": "/video/x/electric-sheep-smart-city.mp4",
   "poster": "/video/x/electric-sheep-smart-city.jpg",
   "image": null,
-  "thumb": "/img/x/electric-sheep-smart-city.webp"
+  "thumb": "/img/x/electric-sheep-smart-city.webp",
+  "themes": [
+   "twins"
+  ]
  },
  {
   "slug": "touchmagic",
   "title": "Touch Magic",
-  "blurb": "Triggering projection mapping and sound with capacitative sensing",
+  "blurb": "Triggering projection mapping and sound with capacitive sensing",
   "meta": "Immersive StoryThings, 2020",
   "year": "2020",
-  "html": "<p>Triggering magic (projection mapping and sound) to happen with touch through capacitative sensing.</p>",
+  "html": "<p>Triggering magic (projection mapping and sound) to happen with touch through capacitive sensing.</p>",
   "links": [],
   "external": null,
   "video": "/video/x/touchmagic.mp4",
   "poster": "/video/x/touchmagic.jpg",
   "image": null,
-  "thumb": "/img/x/touchmagic.webp"
+  "thumb": "/img/x/touchmagic.webp",
+  "themes": [
+   "xr"
+  ]
  },
  {
   "slug": "wakezilla",
@@ -1419,7 +1647,10 @@
   "video": null,
   "poster": null,
   "image": "/img/x/wakezilla.jpg",
-  "thumb": "/img/x/wakezilla.webp"
+  "thumb": "/img/x/wakezilla.webp",
+  "themes": [
+   "hacks"
+  ]
  },
  {
   "slug": "blinkingremote",
@@ -1433,7 +1664,10 @@
   "video": "/video/x/blinkingremote.mp4",
   "poster": "/video/x/blinkingremote.jpg",
   "image": null,
-  "thumb": "/img/x/blinkingremote.webp"
+  "thumb": "/img/x/blinkingremote.webp",
+  "themes": [
+   "hacks"
+  ]
  },
  {
   "slug": "responsiveanimation",
@@ -1447,7 +1681,10 @@
   "video": "/video/x/responsiveanimation.mp4",
   "poster": "/video/x/responsiveanimation.jpg",
   "image": null,
-  "thumb": "/img/x/responsiveanimation.webp"
+  "thumb": "/img/x/responsiveanimation.webp",
+  "themes": [
+   "vp"
+  ]
  },
  {
   "slug": "volumetric-gonzo",
@@ -1461,7 +1698,10 @@
   "video": "/video/x/volumetric-gonzo.mp4",
   "poster": "/video/x/volumetric-gonzo.jpg",
   "image": null,
-  "thumb": "/img/x/volumetric-gonzo.webp"
+  "thumb": "/img/x/volumetric-gonzo.webp",
+  "themes": [
+   "xr"
+  ]
  },
  {
   "slug": "wonderpay",
@@ -1475,7 +1715,10 @@
   "video": "/video/x/wonderpay.mp4",
   "poster": "/video/x/wonderpay.jpg",
   "image": null,
-  "thumb": "/img/x/wonderpay.webp"
+  "thumb": "/img/x/wonderpay.webp",
+  "themes": [
+   "hacks"
+  ]
  },
  {
   "slug": "discotasticlasers",
@@ -1489,7 +1732,10 @@
   "video": "/video/x/discotasticlasers.mp4",
   "poster": "/video/x/discotasticlasers.jpg",
   "image": null,
-  "thumb": "/img/x/discotasticlasers.webp"
+  "thumb": "/img/x/discotasticlasers.webp",
+  "themes": [
+   "hacks"
+  ]
  },
  {
   "slug": "theatre-in-a-box",
@@ -1497,19 +1743,22 @@
   "blurb": "Making Theatre work small with Holographic Displays",
   "meta": "Experiment, 2018",
   "year": "2018",
-  "html": "<p>Hey little people…..</p><p>Going to the theatre is a big deal.</p><p>You have to buy big tickets for big bucks, get dressed in your big clothes, then get on a big grown up train, then cue up for big drinks, then speak to big people….</p><p>and that’s before you have to deal with watching all the big egos, the big set ups and all the big massive convoluted drama.</p><p>It puts you off right?</p><p>That’s because being big is a pain. Most people appreciate the little things in life. Well we’ve just invented the perfect thing for you.</p><p>It’s just a little box, that sits on your table or your kitchen counter, allowing you to experience a little bit of drama, in a little place, that’s convenient for you.</p><p>Welcome to Theatre in a Box (TM).</p><p>It’s a little revolution. It’s the future. It’s massive (in little kind of way), especially if you are an ant.</p>",
+  "html": "<p>Hey little people…..</p><p>Going to the theatre is a big deal.</p><p>You have to buy big tickets for big bucks, get dressed in your big clothes, then get on a big grown up train, then queue up for big drinks, then speak to big people….</p><p>and that’s before you have to deal with watching all the big egos, the big set ups and all the big massive convoluted drama.</p><p>It puts you off right?</p><p>That’s because being big is a pain. Most people appreciate the little things in life. Well we’ve just invented the perfect thing for you.</p><p>It’s just a little box, that sits on your table or your kitchen counter, allowing you to experience a little bit of drama, in a little place, that’s convenient for you.</p><p>Welcome to Theatre in a Box (TM).</p><p>It’s a little revolution. It’s the future. It’s massive (in a little kind of way), especially if you are an ant.</p>",
   "links": [],
   "external": null,
   "video": "/video/x/theatre-in-a-box.mp4",
   "poster": "/video/x/theatre-in-a-box.jpg",
   "image": null,
-  "thumb": "/img/x/theatre-in-a-box.webp"
+  "thumb": "/img/x/theatre-in-a-box.webp",
+  "themes": [
+   "xr"
+  ]
  },
  {
   "slug": "xrrestoration",
   "title": "Everton Library XR",
-  "blurb": "Storytelling heritage project that hopes to raise money for restoring a new building.",
-  "meta": "Immersive StoryThings,2019",
+  "blurb": "A storytelling heritage project that hopes to raise money to restore a derelict library.",
+  "meta": "Immersive StoryThings, 2019",
   "year": "2019",
   "html": "<p>XR is a great way to communicate, particularly with projects that involve space and place.</p><p>In this project, I supported a Community Interest Company that is looking to restore a derelict building in Liverpool (Everton Library), and getting support through storytelling.</p><p>Alongside second year architecture students and lecturers (who did most of the work), the building was scanned and then brought into a games engine to show it to people in virtual reality, 3d animations and holographic displays.</p><p>The project is hoping to raise money to restore a really important community asset to communicate its potential as a space.</p>",
   "links": [],
@@ -1517,7 +1766,10 @@
   "video": "/video/x/xrrestoration.mp4",
   "poster": "/video/x/xrrestoration.jpg",
   "image": null,
-  "thumb": "/img/x/xrrestoration.webp"
+  "thumb": "/img/x/xrrestoration.webp",
+  "themes": [
+   "xr"
+  ]
  },
  {
   "slug": "inside-the-dream-factory",
@@ -1525,7 +1777,7 @@
   "blurb": "Exploring the History of the Iconic Littlewoods Building",
   "meta": "Research Project, 2019-2020",
   "year": "2019",
-  "html": "<p>The Littlewoods Heritage Project is a partnership between the Liverpool Screen School (Liverpool John Moores University) and <a href=\"http://www.metalculture.com/\" target=\"_blank\" rel=\"noopener\">Metal</a>, an arts organisation based at Edge Hill Station. Come and meet the project team and share your stories and memories of Littlewoods iconic building in Liverpool.</p><p>This new <a href=\"https://www.heritagefund.org.uk/\" target=\"_blank\" rel=\"noopener\">National Lottery Heritage Fund</a> supported project will explore and celebrate the unique history of Littlewoods, together with local people. As part of the renovation process, the project will work with artists and local community groups to create a new immersive artwork that reflects the history of the Edge Lane building.</p>",
+  "html": "<p>The Littlewoods Heritage Project is a partnership between the Liverpool Screen School (Liverpool John Moores University) and <a href=\"http://www.metalculture.com/\" target=\"_blank\" rel=\"noopener\">Metal</a>, an arts organisation based at Edge Hill Station. Come and meet the project team and share your stories and memories of Littlewoods' iconic building in Liverpool.</p><p>This new <a href=\"https://www.heritagefund.org.uk/\" target=\"_blank\" rel=\"noopener\">National Lottery Heritage Fund</a> supported project will explore and celebrate the unique history of Littlewoods, together with local people. As part of the renovation process, the project will work with artists and local community groups to create a new immersive artwork that reflects the history of the Edge Lane building.</p>",
   "links": [
    {
     "label": "Metal",
@@ -1540,7 +1792,10 @@
   "video": null,
   "poster": null,
   "image": "/img/x/inside-the-dream-factory-bg.webp",
-  "thumb": "/img/x/inside-the-dream-factory.webp"
+  "thumb": "/img/x/inside-the-dream-factory.webp",
+  "themes": [
+   "xr"
+  ]
  },
  {
   "slug": "storyhack",
@@ -1548,14 +1803,14 @@
   "blurb": "Producing An Immersive Residency in Liverpool",
   "meta": "Immersive Residency, 2019",
   "year": "2019",
-  "html": "<p>STORYHACK was a 4 day educational residency designed to give creatives the knowledge, skills and tools to begin to use new technologies and interactivity in their work in a fundamental and transformative way.</p><p>This intensive course is led by immersive artists Simon Wilkinson <a href=\"https://web.archive.org/web/20191222070834/http://www.circa69.co.uk/\" target=\"_blank\" rel=\"noopener\">[http://www.circa69.co.uk/</a>] and Myra Appannah <a href=\"https://www.dotdot.london/\" target=\"_blank\" rel=\"noopener\">[https://www.dotdot.london</a>/]. It aims to help artists move beyond disciplines, adopt new creative and design approaches and to capture new audiences and expectations.</p><p>It is designed as a reboot for those currently working in non-interactive mediums, who want to reboot their practice, to work across a combination of platforms and create culture which gives audiences a meaningful role in adaptive works.</p><p>The course covered approaches to design, collaboration, production and immersive technologies including; Unity Games Engine, virtual reality, augmented reality, games system design, speculative design, interaction design, 3D modelling, visual scripting tools, dealing with complexity in interactive narratives, transmedia storytelling, photogrammetry and liquid studio approaches to collaboration.</p><p>It was hosted by the Experimental Technologies Lab, in the Institute for Art and Technology, at Liverpool School of Art and Design as part of the development of the new <a href=\"https://web.archive.org/web/20201202092349/https://www.ljmu.ac.uk/study/courses/postgraduates/immersive-arts\" target=\"_blank\" rel=\"noopener\">MA in Immersive Arts</a>.</p>",
+  "html": "<p>STORYHACK was a 4 day educational residency designed to give creatives the knowledge, skills and tools to begin to use new technologies and interactivity in their work in a fundamental and transformative way.</p><p>This intensive course is led by immersive artists Simon Wilkinson <a href=\"https://web.archive.org/web/20191222070834/http://www.circa69.co.uk/\" target=\"_blank\" rel=\"noopener\">(Circa69)</a> and Myra Appannah <a href=\"https://www.dotdot.london/\" target=\"_blank\" rel=\"noopener\">(dotdot)</a>. It aims to help artists move beyond disciplines, adopt new creative and design approaches and to capture new audiences and expectations.</p><p>It is designed as a reboot for those currently working in non-interactive mediums, who want to reboot their practice, to work across a combination of platforms and create culture which gives audiences a meaningful role in adaptive works.</p><p>The course covered approaches to design, collaboration, production and immersive technologies including; Unity Games Engine, virtual reality, augmented reality, games system design, speculative design, interaction design, 3D modelling, visual scripting tools, dealing with complexity in interactive narratives, transmedia storytelling, photogrammetry and liquid studio approaches to collaboration.</p><p>It was hosted by the Experimental Technologies Lab, in the Institute for Art and Technology, at Liverpool School of Art and Design as part of the development of the new <a href=\"https://web.archive.org/web/20201202092349/https://www.ljmu.ac.uk/study/courses/postgraduates/immersive-arts\" target=\"_blank\" rel=\"noopener\">MA in Immersive Arts</a>.</p>",
   "links": [
    {
-    "label": "http://www.circa69.co.uk/",
+    "label": "Simon Wilkinson (Circa69)",
     "url": "https://web.archive.org/web/20191222070834/http://www.circa69.co.uk/"
    },
    {
-    "label": "https://www.dotdot.london",
+    "label": "Myra Appannah (dotdot)",
     "url": "https://www.dotdot.london/"
    },
    {
@@ -1567,7 +1822,10 @@
   "video": "/video/x/storyhack.mp4",
   "poster": "/video/x/storyhack.jpg",
   "image": null,
-  "thumb": "/img/x/storyhack.webp"
+  "thumb": "/img/x/storyhack.webp",
+  "themes": [
+   "teaching"
+  ]
  },
  {
   "slug": "virtual-souls",
@@ -1581,35 +1839,44 @@
   "video": null,
   "poster": null,
   "image": null,
-  "thumb": "/img/x/virtual-souls.webp"
+  "thumb": "/img/x/virtual-souls.webp",
+  "themes": [
+   "xr"
+  ]
  },
  {
   "slug": "steamxr",
   "title": "STEAMXR Playday",
   "blurb": "Teaching children about XR scanning and games engine technologies",
-  "meta": "Immersive StoryThings,2019",
+  "meta": "Immersive StoryThings, 2019",
   "year": "2019",
-  "html": "<p>Spent a day working with over 100 School Children (7-10 year olds) in FABLAB Liverpool to teach them about 3d scanning and games engines.</p><p>Over the course of the day they each created a character with clay to make this neat little storyworld in Unity3D.</p><p>They were super smart. This'll be the XR generation in more ways than one.</p>",
+  "html": "<p>Spent a day working with over 100 School Children (7-10 year olds) in FABLAB Liverpool to teach them about 3D scanning and games engines.</p><p>Over the course of the day they each created a character with clay to make this neat little storyworld in Unity3D.</p><p>They were super smart. This'll be the XR generation in more ways than one.</p>",
   "links": [],
   "external": null,
   "video": "/video/x/steamxr.mp4",
   "poster": "/video/x/steamxr.jpg",
   "image": null,
-  "thumb": "/img/x/steamxr.webp"
+  "thumb": "/img/x/steamxr.webp",
+  "themes": [
+   "teaching"
+  ]
  },
  {
   "slug": "lumiere-3d",
   "title": "Lumiere 3D",
-  "blurb": "Bring Lumiere's Moving Image work to another dimension",
+  "blurb": "Bringing Lumiere's moving image work into another dimension",
   "meta": "3d Archive Innovation, 2017",
   "year": "2017",
-  "html": "<p>Our team worked with perceptual psychologist Rob Black, from a company called Realspace, to develop a unique new way of viewing a piece of cinematic history.</p><p>In 1897 the pioneering Lumiere brothers famously filmed the world’s first tracking shot to capture the magic of the world’s first electric overhead railway – the Liverpool Overhead Railway (LOR). The shot is a continuous record of the expansive liverpool docks and is hugely significant part of the heritage of industry in the UK.</p><p>The team created a new way to watch the footage, using a perceptual psychology trick, to make the film appear in three dimensions. Creating depth to enable people to experience.</p><p>We then placed this into a virtual reality headset for an immersive experience with the past.</p>",
+  "html": "<p>Our team worked with perceptual psychologist Rob Black, from a company called Realspace, to develop a unique new way of viewing a piece of cinematic history.</p><p>In 1897 the pioneering Lumiere brothers famously filmed the world’s first tracking shot to capture the magic of the world’s first electric overhead railway – the Liverpool Overhead Railway (LOR). The shot is a continuous record of the expansive Liverpool docks and is a hugely significant part of the heritage of industry in the UK.</p><p>The team created a new way to watch the footage, using a perceptual psychology trick, to make the film appear in three dimensions, creating a real sense of depth.</p><p>We then placed this into a virtual reality headset for an immersive experience with the past.</p>",
   "links": [],
   "external": null,
   "video": "/video/x/lumiere-3d.mp4",
   "poster": "/video/x/lumiere-3d.jpg",
   "image": null,
-  "thumb": "/img/x/lumiere-3d.webp"
+  "thumb": "/img/x/lumiere-3d.webp",
+  "themes": [
+   "xr"
+  ]
  },
  {
   "slug": "realtimeholograms",
@@ -1617,39 +1884,45 @@
   "blurb": "Prototype of transmitting faces using real time technology",
   "meta": "Real-time Holograms, 2018",
   "year": "2018",
-  "html": "<p>This is a prototype of a real-time holographic selfie face, working with a Microsoft Kinect, Running Live through Unity and displaying on a holographic screen.</p><p>We’re using this for a ‘spatial broadcasting’ concept, where people can be beamed in from remote locations to perform together, a project that is currently in development,</p>",
+  "html": "<p>This is a prototype of a real-time holographic selfie face, working with a Microsoft Kinect, running live through Unity and displaying on a holographic screen.</p><p>We’re using this for a ‘spatial broadcasting’ concept, where people can be beamed in from remote locations to perform together, a project that is currently in development.</p>",
   "links": [],
   "external": null,
   "video": "/video/x/realtimeholograms.mp4",
   "poster": "/video/x/realtimeholograms.jpg",
   "image": null,
-  "thumb": "/img/x/realtimeholograms.webp"
+  "thumb": "/img/x/realtimeholograms.webp",
+  "themes": [
+   "xr"
+  ]
  },
  {
   "slug": "immersive-health-wellbeing",
   "title": "Immersive Health",
-  "blurb": "Immersive Liverpool Events",
+  "blurb": "An Immersive Liverpool event on immersive technology in health and wellbeing.",
   "description": "An Immersive Liverpool event with BIMA, Juice Immersive and Alder Hey Innovation Hub on how VR and AR can change healthcare, clinical training and wellbeing.",
   "meta": "Immersive Liverpool Event, 2019",
   "year": "2019",
-  "html": "<p>From visualising clinical processes and procedures, to experiential training for health practitioners and patient centred interventions, immersive technologies such as virtual reality and augmented reality, have huge potential for disrupting the way we think about healthcare and wellbeing in the future.</p><p>This event, in collaboration with BIMA, Immersive Liverpool, Juice Immersive and Alder Hey Innovation Hub will be exploring the wide ranging impacts of immersive technology in the health and clinical sector. Ranging from applications in consumer health, to training environments and surgical innovations. We’ll hear from a range of innovators from around the Liverpool City Region and beyond.</p><p>Speakers and Demonstrators</p><p>Alder Hey Innovation Hub will talk about their programmes and ways that they can support businesses in develop innovations, products and services for the NHS, clinical and health markets.</p><p>Dr Rafael Guerero, Director of Heart Unit, Alder Hey Childrens Hospital. A surgeon who is working develop novel ways that use AR and VR for surgical heart analysis and procedures.</p><p>Immersive Interactive are the UK’s leading provider of fully immersive learning spaces in both education and emergency service sectors. They provide virtual learning spaces that are fully interactive and multisensory. Utilising bespoke content, their rooms create unique educational and training experiences that are both effective and memorable. They will have a set up of their Immersive Space—which is a cutting edge learning tool that engages users through sight, sound, smell, and touch.</p><p>Paul Duval, University of Liverpool Medical School will showcase and talk about the potential of VR in Medical Education. Paul has recently been working on a project called ‘Virtual Immersive Clinical Simulation (VICS)’ exploring how the experiential benefits of virtual reality can take classroom and simulation based learning to another level in clinical training.</p><p>Arjun Panesar, Diabetes.co.uk (Diabetes Digital Media)., will be presenting their virtual reality projects Exploring relationships with food, for education around Type 1 Diabetes. Current research indicates fluctuating glucose levels in children with diabetes may be associated with corresponding fluctuations in brain volume. The Type 1 Program addresses this by using a reinforcement learning approach to VR gamification to explore relationships with food.</p><p>ImmerseUK is a cross-sector network for businesses, research and educational organisations across the UK that are interested in immersive technologies, including augmented, virtual and mixed realities. They will be talking about the work they have been doing in encouraging innovation in immersive technology, as well as the findings of UK wide research project mapping the Immersive Economy.</p><p>Innovation @ Alder Hey</p><p>Alder Hey Children’s hospital has embarked on an award winning innovation programme. The Hospital’s Innovation Service operates from a 1000m2 Innovation Hub which provides a space for health care professionals, industry and academia to drive the best of new technology into healthcare. Working with key technologies including Artificial Intelligence, Sensors and Virtual Reality, the team helps partners create, develop and test new innovations. Its role a partner in the ERDF funded Health Innovation Exchange programme is a key enabler of its work with industry. The programme’s seven partners help Liverpool City Region based technology, creative digital and life science companies to develop and bring new innovation to the health, well-being and social care markets.</p>",
+  "html": "<p>From visualising clinical processes and procedures, to experiential training for health practitioners and patient centred interventions, immersive technologies such as virtual reality and augmented reality, have huge potential for disrupting the way we think about healthcare and wellbeing in the future.</p><p>This event, in collaboration with BIMA, Immersive Liverpool, Juice Immersive and Alder Hey Innovation Hub will be exploring the wide ranging impacts of immersive technology in the health and clinical sector. Ranging from applications in consumer health, to training environments and surgical innovations. We’ll hear from a range of innovators from around the Liverpool City Region and beyond.</p><p>Speakers and Demonstrators</p><p>Alder Hey Innovation Hub will talk about their programmes and ways that they can support businesses in developing innovations, products and services for the NHS, clinical and health markets.</p><p>Dr Rafael Guerrero, Director of the Heart Unit, Alder Hey Children’s Hospital. A surgeon who is working to develop novel ways that use AR and VR for surgical heart analysis and procedures.</p><p>Immersive Interactive are the UK’s leading provider of fully immersive learning spaces in both education and emergency service sectors. They provide virtual learning spaces that are fully interactive and multisensory. Utilising bespoke content, their rooms create unique educational and training experiences that are both effective and memorable. They will have a set up of their Immersive Space—which is a cutting edge learning tool that engages users through sight, sound, smell, and touch.</p><p>Paul Duval, University of Liverpool Medical School will showcase and talk about the potential of VR in Medical Education. Paul has recently been working on a project called ‘Virtual Immersive Clinical Simulation (VICS)’ exploring how the experiential benefits of virtual reality can take classroom and simulation based learning to another level in clinical training.</p><p>Arjun Panesar, Diabetes.co.uk (Diabetes Digital Media), will be presenting their virtual reality projects exploring relationships with food, for education around Type 1 Diabetes. Current research indicates fluctuating glucose levels in children with diabetes may be associated with corresponding fluctuations in brain volume. The Type 1 Program addresses this by using a reinforcement learning approach to VR gamification to explore relationships with food.</p><p>ImmerseUK is a cross-sector network for businesses, research and educational organisations across the UK that are interested in immersive technologies, including augmented, virtual and mixed realities. They will be talking about the work they have been doing in encouraging innovation in immersive technology, as well as the findings of UK wide research project mapping the Immersive Economy.</p><p>Innovation @ Alder Hey</p><p>Alder Hey Children’s hospital has embarked on an award winning innovation programme. The Hospital’s Innovation Service operates from a 1000m2 Innovation Hub which provides a space for health care professionals, industry and academia to drive the best of new technology into healthcare. Working with key technologies including Artificial Intelligence, Sensors and Virtual Reality, the team helps partners create, develop and test new innovations. Its role as a partner in the ERDF-funded Health Innovation Exchange programme is a key enabler of its work with industry. The programme’s seven partners help Liverpool City Region based technology, creative digital and life science companies to develop and bring new innovation to the health, well-being and social care markets.</p>",
   "links": [],
   "external": null,
   "video": null,
   "poster": null,
   "image": "/img/x/immersive-health-wellbeing-bg.webp",
-  "thumb": "/img/x/immersive-health-wellbeing.webp"
+  "thumb": "/img/x/immersive-health-wellbeing.webp",
+  "themes": [
+   "teaching"
+  ]
  },
  {
   "slug": "shipcanal",
   "title": "Ballad of the Ship Canal",
-  "blurb": "A 360 Collaboration with BBC R&D on the historic manchester ship canal",
+  "blurb": "A 360 Collaboration with BBC R&D on the historic Manchester Ship Canal",
   "meta": "Immersive Storythings, 2016",
   "year": "2016",
-  "html": "<p>A Collaboration with Science Poet <a href=\"https://www.samillingworth.com/\" target=\"_blank\" rel=\"noopener\">Sam Illingsworth</a> and BBC R&amp;D, telling the story of the Manchester Ship canal with 360 video and poetry</p>",
+  "html": "<p>A Collaboration with Science Poet <a href=\"https://www.samillingworth.com/\" target=\"_blank\" rel=\"noopener\">Sam Illingworth</a> and BBC R&amp;D, telling the story of the Manchester Ship Canal with 360 video and poetry.</p>",
   "links": [
    {
-    "label": "Sam Illingsworth",
+    "label": "Sam Illingworth",
     "url": "https://www.samillingworth.com/"
    }
   ],
@@ -1657,12 +1930,15 @@
   "video": "/video/x/shipcanal.mp4",
   "poster": "/video/x/shipcanal.jpg",
   "image": null,
-  "thumb": "/img/x/shipcanal.webp"
+  "thumb": "/img/x/shipcanal.webp",
+  "themes": [
+   "xr"
+  ]
  },
  {
   "slug": "talking-rats",
   "title": "Talking Rats",
-  "blurb": "A voice based user storytelling interface for talking to statues,",
+  "blurb": "A voice based user storytelling interface for talking to statues.",
   "meta": null,
   "year": null,
   "html": "",
@@ -1671,7 +1947,10 @@
   "video": null,
   "poster": null,
   "image": null,
-  "thumb": "/img/x/talking-rats.webp"
+  "thumb": "/img/x/talking-rats.webp",
+  "themes": [
+   "xr"
+  ]
  },
  {
   "slug": "collaboration-in-xr-spaces",
@@ -1686,7 +1965,10 @@
   "video": null,
   "poster": null,
   "image": null,
-  "thumb": "/img/x/collaboration-in-xr-spaces.webp"
+  "thumb": "/img/x/collaboration-in-xr-spaces.webp",
+  "themes": [
+   "teaching"
+  ]
  },
  {
   "slug": "augmented-reality-storytelling",
@@ -1701,7 +1983,10 @@
   "video": null,
   "poster": null,
   "image": null,
-  "thumb": "/img/x/augmented-reality-storytelling.webp"
+  "thumb": "/img/x/augmented-reality-storytelling.webp",
+  "themes": [
+   "teaching"
+  ]
  },
  {
   "slug": "intelligent-real-time-screen-media",
@@ -1709,13 +1994,16 @@
   "blurb": "Research & Report on Real-Time Smart City Data in the OOH Marketing Sector",
   "meta": "Design Research, 2017",
   "year": "2017",
-  "html": "<p>SPARK COMPASS UK and CAVA have won the Innovate UK's first \"Design Foundation\" competition to develop leading-edge urban screen innovation.\n\n\n\nThe Spark Compass platform™ manages data from user devices, wearables and sensors networks, enabling the delivery of smart content. This is done by analysing data patterns, setting specific rules and combining existing data sources. Powerful analytics on collected performance data, real-time behavior and actions provide granular visibility in a centralised platform.\n\n\n\nUsing trans-disciplinary design principles developed by Prof Koeck and Dr Kocaturk, the team of researchers, including myself, worked on a research project and report called \"intelligent, real-time, hyper-local screen-based OoH marketing\" with the aim to innovate new ideas that ultimately could transform interactions between people and urban screens and mobile devices.</p><p>Outcomes included a report and several design innovations.</p><h4>Report</h4>",
+  "html": "<p>SPARK COMPASS UK and CAVA have won Innovate UK's first \"Design Foundation\" competition to develop leading-edge urban screen innovation.</p><p>The Spark Compass platform™ manages data from user devices, wearables and sensor networks, enabling the delivery of smart content. This is done by analysing data patterns, setting specific rules and combining existing data sources. Powerful analytics on collected performance data, real-time behavior and actions provide granular visibility in a centralised platform.</p><p>Using trans-disciplinary design principles developed by Prof Koeck and Dr Kocaturk, the team of researchers, including myself, worked on a research project and report called \"intelligent, real-time, hyper-local screen-based OoH marketing\" with the aim to innovate new ideas that ultimately could transform interactions between people and urban screens and mobile devices.</p><p>Outcomes included a report and several design innovations.</p>",
   "links": [],
   "external": null,
   "video": "/video/x/intelligent-real-time-screen-media.mp4",
   "poster": "/video/x/intelligent-real-time-screen-media.jpg",
   "image": null,
-  "thumb": "/img/x/intelligent-real-time-screen-media.webp"
+  "thumb": "/img/x/intelligent-real-time-screen-media.webp",
+  "themes": [
+   "twins"
+  ]
  },
  {
   "slug": "underneath-the-paving-stones",
@@ -1730,21 +2018,27 @@
   "video": null,
   "poster": null,
   "image": null,
-  "thumb": "/img/x/underneath-the-paving-stones.webp"
+  "thumb": "/img/x/underneath-the-paving-stones.webp",
+  "themes": [
+   "xr"
+  ]
  },
  {
   "slug": "kafka-vr",
   "title": "The Trial of Josef K",
-  "blurb": "Translating KAFKA into an Immersive Experience, a collaboration with LIPA",
+  "blurb": "Translating Kafka into an immersive experience, a collaboration with LIPA",
   "meta": "VR Storytelling, 2017",
   "year": "2017",
-  "html": "<p>A little 360 narrative video project experiment with LIPA Liverpool and Kinicho, exploring POV in VR using an interpretation of KAFKA's 'The Trial'</p>",
+  "html": "<p>A little 360 narrative video project experiment with LIPA Liverpool and Kinicho, exploring POV in VR using an interpretation of Kafka's 'The Trial'.</p>",
   "links": [],
   "external": null,
   "video": "/video/x/kafka-vr.mp4",
   "poster": "/video/x/kafka-vr.jpg",
   "image": null,
-  "thumb": "/img/x/kafka-vr.webp"
+  "thumb": "/img/x/kafka-vr.webp",
+  "themes": [
+   "xr"
+  ]
  },
  {
   "slug": "digitalplacemaking",
@@ -1795,7 +2089,11 @@
   "video": null,
   "poster": null,
   "image": "/img/x/digitalplacemaking-bg.webp",
-  "thumb": "/img/x/digitalplacemaking.webp"
+  "thumb": "/img/x/digitalplacemaking.webp",
+  "themes": [
+   "twins",
+   "xr"
+  ]
  },
  {
   "slug": "ba-creative-multimedia",
@@ -1803,13 +2101,16 @@
   "blurb": "An experimental course I ran at Manchester School of Art",
   "meta": "Teaching 2016-2018",
   "year": "2016",
-  "html": "<p>I was the programme leader for the BA Creative Multimedia at Manchester School of Art, where students worked on creative technology and digital content applications, inventions and innovations.</p><p>They came up with some amazing stuff, like this project by Billy White called A Virtual Ride</p>",
+  "html": "<p>I was the programme leader for the BA Creative Multimedia at Manchester School of Art, where students worked on creative technology and digital content applications, inventions and innovations.</p><p>They came up with some amazing stuff, like this project by Billy White called A Virtual Ride.</p>",
   "links": [],
   "external": null,
   "video": "/video/x/ba-creative-multimedia.mp4",
   "poster": "/video/x/ba-creative-multimedia.jpg",
   "image": null,
-  "thumb": "/img/x/ba-creative-multimedia.webp"
+  "thumb": "/img/x/ba-creative-multimedia.webp",
+  "themes": [
+   "teaching"
+  ]
  },
  {
   "slug": "accident-and-emergency",
@@ -1823,7 +2124,10 @@
   "video": null,
   "poster": null,
   "image": null,
-  "thumb": "/img/x/accident-and-emergency.webp"
+  "thumb": "/img/x/accident-and-emergency.webp",
+  "themes": [
+   "xr"
+  ]
  },
  {
   "slug": "after-video",
@@ -1837,7 +2141,10 @@
   "video": null,
   "poster": null,
   "image": null,
-  "thumb": "/img/x/after-video.webp"
+  "thumb": "/img/x/after-video.webp",
+  "themes": [
+   "teaching"
+  ]
  },
  {
   "slug": "university-it-simulator",
@@ -1857,7 +2164,11 @@
   "video": null,
   "poster": null,
   "image": "/img/x/university-it-simulator.jpg",
-  "thumb": "/img/x/university-it-simulator.webp"
+  "thumb": "/img/x/university-it-simulator.webp",
+  "themes": [
+   "ai",
+   "hacks"
+  ]
  },
  {
   "slug": "secrecy-machine",
@@ -1871,7 +2182,10 @@
   "video": null,
   "poster": null,
   "image": null,
-  "thumb": "/img/x/secrecy-machine.webp"
+  "thumb": "/img/x/secrecy-machine.webp",
+  "themes": [
+   "teaching"
+  ]
  },
  {
   "slug": "storyvaultos",
@@ -1891,7 +2205,10 @@
   "video": null,
   "poster": null,
   "image": "/img/x/storyvaultos.jpg",
-  "thumb": "/img/x/storyvaultos.webp"
+  "thumb": "/img/x/storyvaultos.webp",
+  "themes": [
+   "ai"
+  ]
  },
  {
   "slug": "chinatv",
@@ -1905,6 +2222,9 @@
   "video": "/video/x/chinatv.mp4",
   "poster": "/video/x/chinatv.jpg",
   "image": null,
-  "thumb": "/img/x/chinatv.webp"
+  "thumb": "/img/x/chinatv.webp",
+  "themes": [
+   "music"
+  ]
  }
 ]

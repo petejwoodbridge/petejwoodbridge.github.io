@@ -2,20 +2,40 @@
 import { u } from "../../lib/url";
 import Base from "../../layouts/Base.astro";
 import experiments from "../../data/experiments.json";
+import ExperimentTile from "../../components/ExperimentTile.astro";
 
 // One static page per experiment, so the full write-ups are crawlable without JavaScript.
 // The grid on /experiments/ links here and opens the same content in a dialog when it can.
 export function getStaticPaths() {
+  type X = (typeof experiments)[number];
+  const year = (x: X) => Number(x.year?.match(/\d{4}/)?.[0]) || 0;
+  // One write-up linking to another ("/experiments/#slug") is the strongest sign they belong together.
+  const linksTo = (a: X, b: X) => (a.html ?? "").includes(`/experiments/#${b.slug}"`);
+  // Up to three others: linked ones first, then shared themes, with nearer years breaking ties.
+  const relatedTo = (e: X) =>
+    experiments
+      .filter((o) => o !== e)
+      .map((o) => {
+        const shared = (o.themes as string[]).filter((t) => (e.themes as string[]).includes(t)).length;
+        const linked = linksTo(e, o) || linksTo(o, e);
+        const gap = year(e) && year(o) ? Math.min(Math.abs(year(e) - year(o)), 9) : 9;
+        return { o, keep: linked || shared > 0, score: (linked ? 10 : 0) + shared * 3 - gap * 0.4 };
+      })
+      .filter((r) => r.keep)
+      .sort((a, b) => b.score - a.score)
+      .slice(0, 3)
+      .map((r) => r.o);
   return experiments.map((e, i) => ({
     params: { slug: e.slug },
     props: {
       e,
+      related: relatedTo(e),
       prev: experiments[(i - 1 + experiments.length) % experiments.length],
       next: experiments[(i + 1) % experiments.length],
     },
   }));
 }
-const { e, prev, next } = Astro.props;
+const { e, related, prev, next } = Astro.props;
 
 // Base appends " — Pete Woodbridge" (18 characters); keep the whole title within 62.
 // An entry can set its own seoTitle, e.g. to stop it competing with a work page of the same name.
@@ -97,6 +117,17 @@ const schema = [
     </div>
   </section>
 
+  {related.length > 0 && (
+    <section class="section section--tight section--line">
+      <div class="container">
+        <h2 class="xpage__h2 xrel__h">Related experiments</h2>
+        <div class="xrel">
+          {related.map((r) => <ExperimentTile experiment={r} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
   <nav class="pager" aria-label="More experiments">
     <a href={u(`/experiments/${prev.slug}`)}><span class="pager__label">Previous</span><span class="pager__title">{prev.title}</span></a>
     <a href={u(`/experiments/${next.slug}`)}><span class="pager__label">Next</span><span class="pager__title">{next.title}</span></a>
@@ -110,9 +141,14 @@ const schema = [
   .xpage__grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: clamp(24px, 4vw, 56px); align-items: start; }
   @media (max-width: 900px) { .xpage__grid { grid-template-columns: 1fr; } }
   .xpage__media { background: #000; border-radius: 10px; overflow: hidden; }
+  /* On a long write-up the picture or video stays in view beside the text. */
+  @media (min-width: 901px) { .xpage__media { position: sticky; top: 104px; } }
   .xpage__media video, .xpage__media img { display: block; width: 100%; aspect-ratio: 16/9; object-fit: cover; }
   .xpage__body .prose :global(h2), .xpage__h2 { font-family: var(--font-display); font-weight: 700; font-size: 1.25rem; text-transform: uppercase; letter-spacing: -0.02em; margin: 1.2em 0 0.4em; }
   .xpage__h2 { color: var(--volt); }
   .xpage__ext, .xpage__links, .xpage__back { margin-top: 1.5rem; }
   .xpage__links .linklist { columns: 1; }
+  .xrel__h { margin: 0 0 1.2rem; }
+  .xrel { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+  @media (max-width: 700px) { .xrel { grid-template-columns: 1fr; gap: 10px; } .xrel :global(.xtile) { aspect-ratio: 16 / 8; } }
 </style>

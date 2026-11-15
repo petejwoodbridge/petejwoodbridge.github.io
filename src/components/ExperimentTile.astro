@@ -1,0 +1,28 @@
+---
+import { u } from "../lib/url";
+
+// A still tile that links to an experiment's own page: the homepage strip and "Related experiments".
+// The experiments grid has its own tiles, which also play video and open the dialog.
+interface Props {
+  experiment: { slug: string; title: string; year?: string | null; thumb?: string | null; poster?: string | null; image?: string | null };
+}
+const { experiment: e } = Astro.props;
+const img = e.thumb ?? e.poster ?? e.image;
+---
+<a class="xtile" href={u(`/experiments/${e.slug}`)}>
+  {img && <img src={u(img)} alt="" loading="lazy" decoding="async" />}
+  <span class="xtile__text">
+    <span class="xtile__title">{e.title}</span>
+    {e.year && <span class="xtile__year">{e.year}</span>}
+  </span>
+</a>
+
+<style>
+  .xtile { position: relative; display: block; border-radius: 6px; overflow: hidden; background: var(--bg-2); aspect-ratio: 16 / 11; }
+  .xtile img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 0.9s var(--ease); }
+  @media (hover: hover) { .xtile:hover img { transform: scale(1.05); } }
+  .xtile__text { position: absolute; left: 0; right: 0; bottom: 0; padding: 40px 14px 12px; display: flex; justify-content: space-between; align-items: flex-end; gap: 10px; background: linear-gradient(180deg, rgba(10,10,11,0) 0%, rgba(10,10,11,0.85) 100%); }
+  .xtile__title { font-family: var(--font-display); font-weight: 800; font-size: clamp(0.95rem, 1.4vw, 1.25rem); letter-spacing: -0.03em; line-height: 1; text-transform: uppercase; }
+  .xtile__year { font-size: 0.7rem; letter-spacing: 0.15em; color: var(--volt); flex: none; }
+  .xtile:focus-visible { outline: 2px solid var(--volt); outline-offset: 2px; }
+</style>

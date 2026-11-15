@@ -4,8 +4,11 @@ import { u } from "../lib/url";
 import Base from "../layouts/Base.astro";
 import experiments from "../data/experiments.json";
 import { experimentDialogsVersion } from "../data/experiments-dialog";
+import { experimentThemes } from "../data/experiment-themes";
 const total = experiments.length;
 const withVideo = experiments.filter((e) => e.video).length;
+// How many experiments carry each theme, for the filter buttons.
+const themeCount = (key: string) => experiments.filter((e) => (e.themes as string[]).includes(key)).length;
 // Tiles play a short, light `<name>-tile.mp4` loop where one has been cut; the dialog keeps the full file.
 const tileVideo = (v: string) => {
   const t = v.replace(/\.mp4$/, "-tile.mp4");
@@ -41,6 +44,17 @@ const experimentsSchema = {
         <p class="lead muted measure">Prototypes, hacks, residencies, installations, talks, courses and odd ideas. This is me exploring and experimenting, and many of these early-stage prototypes went on to become part of real projects. {withVideo} of the experiments are on video, and they play as you scroll. Tap any tile for the story and the links. Want a prototype of your own? See <a href={u("/ai")} style="text-decoration:underline">AI prototyping and consultancy</a>.</p>
         <p class="xhead__hint muted">Scroll to play · click for details</p>
       </div>
+      {/* The filter needs the script, so it stays hidden until the script shows it. */}
+      <div class="xfilter" data-xfilter hidden>
+        <span class="sr-only" id="xfilter-label">Filter experiments by theme</span>
+        <div class="xfilter__chips" role="group" aria-labelledby="xfilter-label">
+          <button type="button" class="xchip is-on" data-theme="" aria-pressed="true">All <span class="xchip__n">{total}</span></button>
+          {experimentThemes.map((t) => (
+            <button type="button" class="xchip" data-theme={t.key} aria-pressed="false">{t.label} <span class="xchip__n">{themeCount(t.key)}</span></button>
+          ))}
+        </div>
+        <p class="sr-only" role="status" aria-live="polite" data-xstatus></p>
+      </div>
     </div>
   </section>
 
@@ -50,7 +64,7 @@ const experimentsSchema = {
         {/* Each tile is a real link to the experiment's own page, for crawlers and for no-JS; the script opens
             the dialog instead. No prefetch: hovering across the grid would otherwise fetch page after page nobody opens. */}
         {experiments.map((e, i) => (
-          <a class:list={["tile", { "tile--wide": i % 7 === 3 }]} href={u(`/experiments/${e.slug}`)} data-open={e.slug} id={e.slug} data-astro-prefetch="false" aria-describedby={e.blurb ? `d-${e.slug}` : undefined}>
+          <a class:list={["tile", { "tile--wide": i % 7 === 3 }]} href={u(`/experiments/${e.slug}`)} data-open={e.slug} id={e.slug} data-themes={(e.themes as string[]).join(" ")} data-wide={i % 7 === 3 ? "1" : undefined} data-astro-prefetch="false" aria-describedby={e.blurb ? `d-${e.slug}` : undefined}>
             <span class="tile__media">
               {(e.thumb || e.poster || e.image) && <img src={u(e.thumb ?? e.poster ?? e.image)} alt="" loading="lazy" decoding="async" />}
               {e.video && <video muted loop playsinline preload="none" data-xvideo={u(tileVideo(e.video))} aria-hidden="true"></video>}
@@ -95,10 +109,21 @@ const experimentsSchema = {
   .xhead__row { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; flex-wrap: wrap; margin-top: 1.6rem; }
   .xhead__hint { font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; }
 
+  .xfilter { margin-top: clamp(24px, 3vw, 40px); }
+  .xfilter[hidden] { display: none; }
+  .xfilter__chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .xchip { display: inline-flex; align-items: center; gap: 8px; padding: 9px 14px; border: 1px solid var(--line); border-radius: 999px; font-size: 0.85rem; font-weight: 600; letter-spacing: -0.01em; color: var(--ink); background: transparent; cursor: pointer; transition: background 0.2s, color 0.2s, border-color 0.2s; }
+  .xchip__n { font-size: 0.7rem; letter-spacing: 0.08em; color: var(--muted); transition: color 0.2s; }
+  @media (hover: hover) { .xchip:hover { border-color: var(--volt); } }
+  .xchip.is-on { background: var(--volt); border-color: var(--volt); color: var(--volt-ink); }
+  .xchip.is-on .xchip__n { color: var(--volt-ink); }
+  .xchip:focus-visible { outline: 2px solid var(--volt); outline-offset: 2px; }
+
   .xgrid { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-flow: dense; gap: 14px; }
   @media (max-width: 1100px) { .xgrid { grid-template-columns: repeat(3, 1fr); } }
   @media (max-width: 700px) { .xgrid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
   .tile { position: relative; display: block; width: 100%; text-align: left; padding: 0; border-radius: 6px; overflow: hidden; background: var(--bg-2); aspect-ratio: 16 / 11; cursor: pointer; }
+  .tile[hidden] { display: none; }
   .tile--wide { grid-column: span 2; aspect-ratio: 32 / 11; }
   @media (max-width: 700px) { .tile--wide { grid-column: span 2; aspect-ratio: 16 / 9; } }
   .tile__media { position: absolute; inset: 0; }
@@ -185,6 +210,42 @@ const experimentsSchema = {
       document.addEventListener("motion:change", () => {
         if (armed && !motionOff()) tiles.forEach((t) => { io.unobserve(t); io.observe(t); });
       }, { signal });
+    }
+
+    // The theme filter: one theme at a time, kept in the URL (?theme=ai) so a filtered view can be shared.
+    const filter = document.querySelector<HTMLElement>("[data-xfilter]");
+    if (filter) {
+      filter.hidden = false;
+      const chips = filter.querySelectorAll<HTMLButtonElement>("[data-theme]");
+      const status = filter.querySelector<HTMLElement>("[data-xstatus]");
+      const apply = (theme: string, record: boolean) => {
+        let shown = 0;
+        tiles.forEach((t) => {
+          const on = !theme || (t.dataset.themes ?? "").split(" ").includes(theme);
+          t.hidden = !on;
+          if (!on) return;
+          // The wide tiles follow the visible order, so a filtered grid keeps the same rhythm.
+          t.classList.toggle("tile--wide", theme ? shown % 7 === 3 : t.dataset.wide === "1");
+          shown++;
+        });
+        chips.forEach((c) => {
+          const on = (c.dataset.theme ?? "") === theme;
+          c.classList.toggle("is-on", on);
+          c.setAttribute("aria-pressed", String(on));
+        });
+        if (status) status.textContent = theme ? `Showing ${shown} of ${tiles.length} experiments` : `Showing all ${tiles.length} experiments`;
+        if (record) {
+          const url = new URL(location.href);
+          if (theme) url.searchParams.set("theme", theme); else url.searchParams.delete("theme");
+          history.replaceState(history.state, "", url);
+        }
+      };
+      filter.addEventListener("click", (e) => {
+        const chip = (e.target as HTMLElement).closest<HTMLButtonElement>("[data-theme]");
+        if (chip) apply(chip.dataset.theme ?? "", true);
+      }, { signal });
+      const initial = new URLSearchParams(location.search).get("theme") ?? "";
+      if (initial && [...chips].some((c) => c.dataset.theme === initial)) apply(initial, false);
     }
 
     // The dialog: one for every experiment, filled from the JSON on first open.
