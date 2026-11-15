@@ -580,6 +580,26 @@
   "thumb": "/img/x/edible.webp"
  },
  {
+  "slug": "dreamlab-podcaster",
+  "title": "Dreamlab Podcaster",
+  "seoTitle": "Dreamlab Podcaster: Text to Two-Host Podcast",
+  "blurb": "Turn any newsletter or essay into a natural two-host podcast, with Claude writing the script and ElevenLabs voicing it.",
+  "meta": "AI Tools, 2025",
+  "year": "2025",
+  "html": "<p>Paste in a newsletter, an essay or anything else, and get back a two-host podcast. Dreamlab Podcaster is a small open-source tool that does the whole job: Claude researches the topics on the web and writes a conversational script, and ElevenLabs turns it into natural, expressive audio.</p><p>The show it makes is called <em>Dream Machine</em>, about AI in the creative industries, with two hosts: Elizabeth, who leads with the technical depth, and Pete, who asks the questions the audience would. Claude writes ElevenLabs v3 expression tags straight into the script, like [laughs], [thoughtful] and [pauses], so the voices chuckle, sigh and think rather than just read.</p><p>It is built for review rather than blind generation. You can generate the script on its own, edit it, check a 20-second test clip and only then render the full episode, which keeps the cost of each iteration down. It runs as a command-line tool or a Flask web app.</p><p>A long way on from my 2024 <a href=\"/experiments/#podcast-machine\">Podcast Machine</a> prototype.</p>",
+  "links": [
+   {
+    "label": "dreamlab-podcaster on GitHub",
+    "url": "https://github.com/petejwoodbridge/dreamlab-podcaster"
+   }
+  ],
+  "external": "https://github.com/petejwoodbridge/dreamlab-podcaster",
+  "video": null,
+  "poster": null,
+  "image": "/img/x/dreamlab-podcaster.jpg",
+  "thumb": "/img/x/dreamlab-podcaster.webp"
+ },
+ {
   "slug": "dreammachine",
   "title": "Dream Machine",
   "blurb": "Producing and Designing an Experiment with Performance, ICVFX and Virtual Production",
