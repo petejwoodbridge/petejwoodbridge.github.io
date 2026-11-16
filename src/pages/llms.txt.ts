@@ -31,7 +31,7 @@ Last updated: ${updated}
 - Current roles: Digital & Technology Cluster Lead for the Liverpool City Region; Founder & CTO of Dreamlab; author of Dream Machine
 - Credentials: ${credentials.join("; ")}
 - Recognition: ${site.awards.join("; ")}
-- Work: AI developer, creative technologist and software engineer, working across AI and agentic workflows, data engineering, digital twins, virtual production and immersive technology
+- Work: AI developer, creative technologist and software engineer working in convergent technology, across AI and agentic workflows, data engineering, digital twins, virtual production and immersive technology
 
 ## Identity and related sites
 
@@ -158,7 +158,7 @@ ${[...mainProjects, ...moreProjects].map(project).join("\n")}
 
 ## Expertise
 
-${site.expertise.map((e) => `- ${e}`).join("\n")}
+${[...new Set([...site.expertise, ...site.knowsAboutExtra])].map((e) => `- ${e}`).join("\n")}
 `;
   return new Response(body, { headers: { "Content-Type": "text/plain; charset=utf-8" } });
 };
